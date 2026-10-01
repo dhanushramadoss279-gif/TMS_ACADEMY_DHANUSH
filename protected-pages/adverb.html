@@ -1,0 +1,2152 @@
+
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>ADVERB – வினையுரிச்சொற்கள் (100 Questions)</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 50px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 7px 12px;
+            border-radius: 8px;
+            background-color: #eff6ff;
+            white-space: nowrap;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            line-height: 1.35;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            opacity: 0.92;
+        }
+
+        /* PROGRESS */
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            min-width: 0;
+        }
+
+        .progress-item span:last-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .progress-item.completed {
+            background-color: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .completed .check-icon {
+            background: var(--success);
+        }
+
+        /* PILLS */
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 2px 2px 10px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+            min-height: 42px;
+            touch-action: manipulation;
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* TOPIC */
+        .topic-section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .topic-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .display-chain {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin: 12px 0;
+            text-align: center;
+            border: 1px dashed #93c5fd;
+            word-break: break-word;
+            line-height: 1.7;
+        }
+
+        .tamil-explain {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 10px 12px;
+            margin: 12px 0;
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        /* TABLE */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 16px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 520px;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            padding: 10px;
+            font-weight: 700;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.5;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .sent-ta {
+            display: block;
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* QUIZ */
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            border: 2px solid #e0e7ff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-title-badge {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            white-space: nowrap;
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .question-tamil-text {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+            line-height: 1.55;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 50px;
+            padding: 12px 14px;
+            text-align: left;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+            line-height: 1.4;
+            transition: 0.15s ease;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: #93c5fd;
+            background: #eff6ff;
+        }
+
+        .option-btn:active {
+            transform: scale(0.99);
+        }
+
+        .option-btn.selected-correct {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+        }
+
+        .option-btn.selected-wrong {
+            background-color: var(--error-bg) !important;
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+        }
+
+        .feedback-box {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background: var(--success-bg);
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background: var(--error-bg);
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 100%;
+            min-height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            touch-action: manipulation;
+            padding: 12px;
+        }
+
+        .next-btn:hover:not(:disabled) {
+            background-color: var(--primary-dark);
+        }
+
+        .next-btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        /* RESULT */
+        .result-card {
+            text-align: center;
+            padding: 20px 10px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 4px solid var(--primary);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        .performance-msg {
+            line-height: 1.5;
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+
+            .container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            header {
+                padding: 9px 0;
+            }
+
+            .brand-title {
+                font-size: 0.82rem;
+            }
+
+            .back-link {
+                font-size: 0.78rem;
+                padding: 6px 9px;
+            }
+
+            .hero {
+                padding: 20px 12px;
+                margin: 12px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.18rem;
+            }
+
+            .hero p {
+                font-size: 0.82rem;
+            }
+
+            .progress-card,
+            .topic-section,
+            .quiz-container {
+                padding: 13px;
+            }
+
+            .progress-title {
+                font-size: 0.85rem;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-item {
+                min-height: 42px;
+            }
+
+            .topic-title {
+                font-size: 1.05rem;
+            }
+
+            .display-chain {
+                font-size: 0.8rem;
+                padding: 9px;
+            }
+
+            .tamil-explain {
+                font-size: 0.84rem;
+            }
+
+            .quiz-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 7px;
+            }
+
+            .quiz-progress-text {
+                font-size: 0.76rem;
+            }
+
+            .question-text {
+                font-size: 0.94rem;
+            }
+
+            .question-tamil-text {
+                font-size: 0.82rem;
+            }
+
+            .option-btn {
+                min-height: 48px;
+                font-size: 0.88rem;
+                padding: 11px 12px;
+            }
+
+            .feedback-box {
+                font-size: 0.82rem;
+            }
+
+            .next-btn {
+                min-height: 48px;
+                font-size: 0.88rem;
+            }
+
+            table {
+                min-width: 500px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.05rem;
+            }
+
+            .brand-title {
+                font-size: 0.75rem;
+            }
+
+            .back-link {
+                font-size: 0.72rem;
+            }
+
+            .topic-title {
+                font-size: 0.98rem;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="tms-theme.css">
+</head>
+
+<body>
+
+<header>
+    <div class="container nav-header">
+        <a href="#" class="back-link">← Home</a>
+
+        <div class="brand-title">
+            Tamil Medium Student
+        </div>
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="hero">
+        <h1>ADVERB – வினையுரிச்சொற்கள்</h1>
+        <p>100 பயிற்சிகள் (50+50) தமிழ் விளக்கத்துடன்!</p>
+    </div>
+
+    <div class="progress-card">
+
+        <div class="progress-title">
+            <span>கற்றல் நிலை (Progress)</span>
+
+            <span id="overall-progress-text"
+                style="color: var(--primary);">
+                0 / 2 Completed
+            </span>
+        </div>
+
+        <div class="progress-grid"
+            id="progress-tracker-grid">
+        </div>
+
+    </div>
+
+    <div class="topic-pills" id="topic-pills"></div>
+
+    <section class="topic-section"
+        id="topic-content">
+    </section>
+
+    <section class="quiz-container"
+        id="quiz-box">
+
+        <div class="quiz-header">
+
+            <span class="quiz-title-badge"
+                id="quiz-topic-badge">
+                Adverb Quiz
+            </span>
+
+            <span class="quiz-progress-text"
+                id="quiz-progress-text">
+                Question 1 / 50
+            </span>
+
+        </div>
+
+        <div id="question-runner">
+
+            <div class="question-box">
+
+                <div class="question-text"
+                    id="question-text">
+                    Loading question...
+                </div>
+
+                <div class="question-tamil-text"
+                    id="question-tamil-text">
+                    கேள்வி அர்த்தம்...
+                </div>
+
+                <div class="options-grid"
+                    id="options-container">
+                </div>
+
+            </div>
+
+            <div class="feedback-box"
+                id="feedback-box">
+            </div>
+
+            <div class="quiz-actions">
+
+                <button class="next-btn"
+                    id="next-btn"
+                    onclick="nextQuestion()"
+                    disabled>
+                    அடுத்த கேள்வி (Next) →
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="result-card"
+            id="result-runner">
+
+            <div class="score-circle">
+                <span id="res-score">0</span>
+            </div>
+
+            <div class="performance-msg"
+                id="res-msg"
+                style="font-weight:700; margin-bottom:10px;">
+                வாழ்த்துக்கள்!
+            </div>
+
+            <button class="next-btn"
+                onclick="resetCurrentQuiz()">
+                🔄 மீண்டும் பயிற்சி செய் (Try Again)
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script>
+
+/* =========================================================
+   BASIC ADVERB QUESTIONS – 50
+========================================================= */
+
+const generateBasicQuestions = () => {
+
+    const raw = [
+
+        ["She sings ______.", "(அவள் அழகாக பாடுகிறாள்.)",
+            ["beautifully", "beautiful", "beauty", "beautify"], 0,
+            "'beautifully' என்பது பாடும் செயல் எப்படி நடக்கிறது என்பதைச் சொல்கிறது."],
+
+        ["He runs ______.", "(அவன் வேகமாக ஓடுகிறான்.)",
+            ["quickly", "quick", "quicker", "quickness"], 0,
+            "'quickly' என்பது ஓடும் விதத்தைக் காட்டுகிறது."],
+
+        ["The baby slept ______.",
+            "(குழந்தை அமைதியாக தூங்கியது.)",
+            ["quietly", "quiet", "quieter", "quietness"], 0,
+            "'quietly' என்பது அமைதியாக என்ற பொருளைக் கொடுக்கிறது."],
+
+        ["She speaks English ______.",
+            "(அவள் ஆங்கிலத்தை சரளமாக பேசுகிறாள்.)",
+            ["fluently", "fluent", "fluency", "more fluent"], 0,
+            "'fluently' என்பது பேசும் விதத்தைக் காட்டுகிறது."],
+
+        ["He works ______.",
+            "(அவன் கடினமாக வேலை செய்கிறான்.)",
+            ["hard", "hardly", "hardness", "harder"], 0,
+            "'hard' என்பது கடினமாக என்ற பொருளில் adverb ஆகும்."],
+
+        ["The boy answered the question ______.",
+            "(சிறுவன் கேள்விக்கு சரியாக பதிலளித்தான்.)",
+            ["correctly", "correct", "correction", "correctness"], 0,
+            "'correctly' என்பது பதில் அளித்த விதத்தைக் காட்டுகிறது."],
+
+        ["Please walk ______.",
+            "(தயவுசெய்து மெதுவாக நட.)",
+            ["slowly", "slow", "slowness", "slower"], 0,
+            "'slowly' என்பது மெதுவாக என்ற பொருளைக் கொடுக்கிறது."],
+
+        ["He drives the car ______.",
+            "(அவன் காரை கவனமாக ஓட்டுகிறான்.)",
+            ["carefully", "careful", "care", "caring"], 0,
+            "'carefully' என்பது கவனமாக என்ற பொருளைக் கொடுக்கிறது."],
+
+        ["The dog barked ______.",
+            "(நாய் சத்தமாக குரைத்தது.)",
+            ["loudly", "loud", "louder", "loudness"], 0,
+            "'loudly' என்பது சத்தமாக என்பதைக் காட்டுகிறது."],
+
+        ["She smiled ______.",
+            "(அவள் மகிழ்ச்சியாக சிரித்தாள்.)",
+            ["happily", "happy", "happiness", "happier"], 0,
+            "'happily' என்பது சிரித்த விதத்தைக் காட்டுகிறது."],
+
+        ["He completed the work ______.",
+            "(அவன் வேலையை விரைவாக முடித்தான்.)",
+            ["quickly", "quick", "quickness", "quicker"], 0,
+            "'quickly' என்பது வேலையை முடித்த வேகத்தைக் காட்டுகிறது."],
+
+        ["They waited ______.",
+            "(அவர்கள் பொறுமையாக காத்திருந்தார்கள்.)",
+            ["patiently", "patient", "patience", "impatient"], 0,
+            "'patiently' என்பது பொறுமையாக என்பதைக் காட்டுகிறது."],
+
+        ["She danced ______.",
+            "(அவள் அழகாக நடனமாடினாள்.)",
+            ["gracefully", "graceful", "grace", "gracious"], 0,
+            "'gracefully' என்பது நடனமாடிய விதத்தைக் காட்டுகிறது."],
+
+        ["He spoke ______.",
+            "(அவன் கோபமாக பேசினான்.)",
+            ["angrily", "angry", "anger", "angrier"], 0,
+            "'angrily' என்பது கோபமாக என்பதைக் காட்டுகிறது."],
+
+        ["The student wrote the answer ______.",
+            "(மாணவன் பதிலை கவனமாக எழுதினான்.)",
+            ["carefully", "careful", "care", "cared"], 0,
+            "'carefully' என்பது எழுதும் முறையைக் காட்டுகிறது."],
+
+        ["The children played ______.",
+            "(குழந்தைகள் மகிழ்ச்சியாக விளையாடினர்.)",
+            ["happily", "happy", "happiness", "happier"], 0,
+            "'happily' என்பது விளையாடிய விதத்தைக் காட்டுகிறது."],
+
+        ["He opened the door ______.",
+            "(அவன் கதவை மெதுவாக திறந்தான்.)",
+            ["slowly", "slow", "slowness", "slower"], 0,
+            "'slowly' என்பது திறந்த வேகத்தைக் காட்டுகிறது."],
+
+        ["She listened ______.",
+            "(அவள் கவனமாக கேட்டாள்.)",
+            ["carefully", "careful", "care", "caring"], 0,
+            "'carefully' என்பது கேட்ட விதத்தைக் காட்டுகிறது."],
+
+        ["The teacher explained the lesson ______.",
+            "(ஆசிரியர் பாடத்தை தெளிவாக விளக்கினார்.)",
+            ["clearly", "clear", "clarity", "clearer"], 0,
+            "'clearly' என்பது தெளிவாக என்ற பொருளைக் கொடுக்கிறது."],
+
+        ["He answered ______.",
+            "(அவன் உடனடியாக பதிலளித்தான்.)",
+            ["immediately", "immediate", "immediacy", "more immediate"], 0,
+            "'immediately' என்பது உடனடியாக என்பதைக் காட்டுகிறது."],
+
+        ["I ______ go to school by bus.",
+            "(நான் வழக்கமாக பேருந்தில் பள்ளிக்குச் செல்வேன்.)",
+            ["usually", "usual", "use", "used"], 0,
+            "'usually' என்பது வழக்கமாக என்ற frequency adverb."],
+
+        ["She ______ drinks coffee.",
+            "(அவள் எப்போதும் காபி குடிப்பாள்.)",
+            ["always", "all", "already", "almost"], 0,
+            "'always' என்பது எப்போதும் என்பதைக் காட்டுகிறது."],
+
+        ["He ______ comes late.",
+            "(அவன் அரிதாக தாமதமாக வருகிறான்.)",
+            ["rarely", "rare", "rarer", "rarity"], 0,
+            "'rarely' என்பது அரிதாக என்பதைக் காட்டுகிறது."],
+
+        ["They ______ visit us.",
+            "(அவர்கள் அடிக்கடி எங்களை சந்திப்பார்கள்.)",
+            ["often", "off", "once", "only"], 0,
+            "'often' என்பது அடிக்கடி என்பதைக் காட்டுகிறது."],
+
+        ["I ______ eat fast food.",
+            "(நான் ஒருபோதும் fast food சாப்பிடுவதில்லை.)",
+            ["never", "ever", "every", "near"], 0,
+            "'never' என்பது ஒருபோதும் இல்லை என்பதைக் காட்டுகிறது."],
+
+        ["She is ______ happy.",
+            "(அவள் எப்போதும் மகிழ்ச்சியாக இருக்கிறாள்.)",
+            ["always", "already", "almost", "away"], 0,
+            "'always' என்பது எப்போதும் என்பதைக் காட்டுகிறது."],
+
+        ["Have you ______ seen this movie?",
+            "(நீ இந்த படத்தை எப்போதாவது பார்த்திருக்கிறாயா?)",
+            ["ever", "never", "always", "very"], 0,
+            "'ever' கேள்விகளில் 'எப்போதாவது' என்ற பொருளில் வரும்."],
+
+        ["I have ______ finished my homework.",
+            "(நான் ஏற்கனவே வீட்டுப்பாடத்தை முடித்துவிட்டேன்.)",
+            ["already", "always", "almost", "only"], 0,
+            "'already' என்பது ஏற்கனவே என்பதைக் காட்டுகிறது."],
+
+        ["He is ______ ready.",
+            "(அவன் கிட்டத்தட்ட தயாராகிவிட்டான்.)",
+            ["almost", "always", "never", "often"], 0,
+            "'almost' என்பது கிட்டத்தட்ட என்பதைக் காட்டுகிறது."],
+
+        ["She has ______ completed the project.",
+            "(அவள் இப்போதுதான் project-ஐ முடித்திருக்கிறாள்.)",
+            ["just", "justly", "justice", "only"], 0,
+            "'just' என்பது இப்போதுதான் என்ற பொருளைக் கொடுக்கிறது."],
+
+        ["Come ______.",
+            "(உள்ளே வா.)",
+            ["inside", "indoor", "inner", "in"], 0,
+            "'inside' இடத்தைக் காட்டும் adverb."],
+
+        ["The children are playing ______.",
+            "(குழந்தைகள் வெளியே விளையாடுகிறார்கள்.)",
+            ["outside", "outdoor", "outer", "out"], 0,
+            "'outside' வெளியே என்ற இடப்பொருளைக் கொடுக்கிறது."],
+
+        ["Please sit ______.",
+            "(தயவுசெய்து இங்கே உட்காருங்கள்.)",
+            ["here", "hear", "near", "there"], 0,
+            "'here' இங்கே என்ற இடத்தைச் சொல்கிறது."],
+
+        ["Put the bag ______.",
+            "(பையை அங்கே வை.)",
+            ["there", "their", "here", "where"], 0,
+            "'there' அங்கே என்ற இடத்தைக் காட்டுகிறது."],
+
+        ["He looked ______.",
+            "(அவன் சுற்றிலும் பார்த்தான்.)",
+            ["around", "round", "aroundly", "near"], 0,
+            "'around' சுற்றிலும் என்ற பொருளைக் கொடுக்கிறது."],
+
+        ["The bird flew ______.",
+            "(பறவை மேலே பறந்தது.)",
+            ["up", "upper", "upwardly", "top"], 0,
+            "'up' மேலே என்ற திசையைக் காட்டுகிறது."],
+
+        ["The ball fell ______.",
+            "(பந்து கீழே விழுந்தது.)",
+            ["down", "belowly", "lower", "bottom"], 0,
+            "'down' கீழே என்ற திசையைக் காட்டுகிறது."],
+
+        ["Please come ______.",
+            "(தயவுசெய்து மீண்டும் வா.)",
+            ["again", "against", "always", "already"], 0,
+            "'again' மீண்டும் என்ற பொருளைக் கொடுக்கிறது."],
+
+        ["He called me ______.",
+            "(அவன் நேற்று எனக்கு phone செய்தான்.)",
+            ["yesterday", "tomorrow", "today", "daily"], 0,
+            "'yesterday' கடந்த காலத்தைக் காட்டும் time adverb."],
+
+        ["We will meet ______.",
+            "(நாம் நாளை சந்திப்போம்.)",
+            ["tomorrow", "yesterday", "today", "always"], 0,
+            "'tomorrow' எதிர்கால நேரத்தைக் காட்டுகிறது."],
+
+        ["I am studying ______.",
+            "(நான் இப்போது படித்துக் கொண்டிருக்கிறேன்.)",
+            ["now", "never", "then", "later"], 0,
+            "'now' இப்போது என்பதைக் காட்டுகிறது."],
+
+        ["She will come ______.",
+            "(அவள் பின்னர் வருவாள்.)",
+            ["later", "late", "latest", "lately"], 0,
+            "'later' பின்னர் என்ற நேரத்தைக் காட்டுகிறது."],
+
+        ["He arrived ______.",
+            "(அவன் சீக்கிரமாக வந்தான்.)",
+            ["early", "earlier", "earliest", "earlyly"], 0,
+            "'early' சீக்கிரமாக என்ற பொருளில் adverb ஆகும்."],
+
+        ["The train arrived ______.",
+            "(ரயில் தாமதமாக வந்தது.)",
+            ["late", "lately", "latest", "later"], 0,
+            "'late' தாமதமாக என்பதைக் காட்டுகிறது."],
+
+        ["She works ______ every day.",
+            "(அவள் தினமும் கடினமாக வேலை செய்கிறாள்.)",
+            ["hard", "hardly", "harder", "hardness"], 0,
+            "'hard' கடினமாக என்ற adverb."],
+
+        ["He ______ forgot my name.",
+            "(அவன் கிட்டத்தட்ட என் பெயரை மறந்துவிட்டான்.)",
+            ["nearly", "near", "nearer", "nearest"], 0,
+            "'nearly' கிட்டத்தட்ட என்பதைக் காட்டுகிறது."],
+
+        ["I can ______ hear you.",
+            "(என்னால் உன்னை கேட்கவே முடியவில்லை.)",
+            ["hardly", "hard", "harder", "hardness"], 0,
+            "'hardly' என்பது கிட்டத்தட்ட இல்லை / அரிதாக என்ற பொருளைக் கொடுக்கிறது."],
+
+        ["She speaks very ______.",
+            "(அவள் மிகவும் மெதுவாக பேசுகிறாள்.)",
+            ["softly", "soft", "softness", "softer"], 0,
+            "'softly' மெதுவாக / மென்மையாக என்பதைக் காட்டுகிறது."],
+
+        ["He smiled ______.",
+            "(அவன் மெதுவாக சிரித்தான்.)",
+            ["gently", "gentle", "gentleness", "gentler"], 0,
+            "'gently' மென்மையாக என்ற பொருளைக் கொடுக்கிறது."],
+
+        ["The teacher spoke ______ to the child.",
+            "(ஆசிரியர் குழந்தையிடம் அன்பாக பேசினார்.)",
+            ["kindly", "kind", "kindness", "kinder"], 0,
+            "'kindly' அன்பாக என்பதைக் காட்டுகிறது."],
+
+        ["Please read the sentence ______.",
+            "(தயவுசெய்து வாக்கியத்தை கவனமாக படியுங்கள்.)",
+            ["carefully", "careful", "care", "caring"], 0,
+            "'carefully' கவனமாக என்பதைக் காட்டுகிறது."]
+
+    ];
+
+    return raw.map(item => ({
+        q: item[0],
+        tq: item[1],
+        o: item[2],
+        a: item[3],
+        e: item[4]
+    }));
+};
+
+
+/* =========================================================
+   ADVANCED ADVERB QUESTIONS – 50
+========================================================= */
+
+const generateAdvancedQuestions = () => {
+
+    const raw = [
+
+        ["She sings ______ than her sister.",
+            "(அவள் தன் சகோதரியை விட அழகாக பாடுகிறாள்.)",
+            ["more beautifully", "beautiful", "beautifully", "most beautiful"], 0,
+            "இருவரை ஒப்பிடும்போது 'more beautifully' பயன்படும்."],
+
+        ["He runs ______ than me.",
+            "(அவன் என்னை விட வேகமாக ஓடுகிறான்.)",
+            ["faster", "fastest", "fastly", "more fast"], 0,
+            "'fast' என்பதன் comparative form 'faster'."],
+
+        ["She completed the work ______ than expected.",
+            "(அவள் எதிர்பார்த்ததை விட சீக்கிரமாக வேலையை முடித்தாள்.)",
+            ["earlier", "early", "earliest", "more early"], 0,
+            "'early' என்பதன் comparative form 'earlier'."],
+
+        ["He speaks English ______ than before.",
+            "(அவன் முன்பை விட ஆங்கிலத்தை சரளமாக பேசுகிறான்.)",
+            ["more fluently", "fluently", "most fluently", "fluent"], 0,
+            "நீண்ட adverb-க்கு comparative-ல் 'more' பயன்படுத்தப்படும்."],
+
+        ["She works ______ than her brother.",
+            "(அவள் தன் சகோதரனை விட கடினமாக வேலை செய்கிறாள்.)",
+            ["harder", "hardest", "hardly", "more hard"], 0,
+            "'hard' என்பதன் comparative form 'harder'."],
+
+        ["He answered the question ______ than I did.",
+            "(அவன் என்னைவிட சரியாக பதிலளித்தான்.)",
+            ["more correctly", "correctly", "most correctly", "correct"], 0,
+            "'correctly' என்ற adverb-ன் comparative 'more correctly'."],
+
+        ["The baby slept ______ than yesterday.",
+            "(குழந்தை நேற்று விட அமைதியாக தூங்கியது.)",
+            ["more peacefully", "peacefully", "most peacefully", "peaceful"], 0,
+            "'peacefully' உடன் 'more' பயன்படுத்தப்படுகிறது."],
+
+        ["She danced ______ than everyone else.",
+            "(அவள் மற்ற அனைவரையும் விட அழகாக நடனமாடினாள்.)",
+            ["more gracefully", "gracefully", "most graceful", "graceful"], 0,
+            "ஒப்பீட்டில் 'more gracefully' சரியானது."],
+
+        ["He drove ______ than his friend.",
+            "(அவன் தன் நண்பனை விட கவனமாக ஓட்டினான்.)",
+            ["more carefully", "carefully", "most careful", "careful"], 0,
+            "'carefully' → 'more carefully'."],
+
+        ["She spoke ______ than before.",
+            "(அவள் முன்பைவிட தெளிவாக பேசினாள்.)",
+            ["more clearly", "clearly", "most clear", "clear"], 0,
+            "'clearly' → 'more clearly'."],
+
+        ["He arrived ______ than us.",
+            "(அவன் எங்களை விட தாமதமாக வந்தான்.)",
+            ["later", "latest", "lately", "more late"], 0,
+            "'late' என்பதன் comparative 'later'."],
+
+        ["She finished the test ______ than I expected.",
+            "(அவள் நான் எதிர்பார்த்ததை விட விரைவாக தேர்வை முடித்தாள்.)",
+            ["more quickly", "quickly", "most quick", "quick"], 0,
+            "'quickly' → 'more quickly'."],
+
+        ["He worked ______ than anyone else.",
+            "(அவன் மற்ற யாரையும் விட கடினமாக வேலை செய்தான்.)",
+            ["harder", "hardest", "hardly", "more hardly"], 0,
+            "'hard' → 'harder'."],
+
+        ["She answered ______ of all the students.",
+            "(அனைத்து மாணவர்களிலும் அவள் மிகச் சரியாக பதிலளித்தாள்.)",
+            ["most correctly", "more correctly", "correctly", "correct"], 0,
+            "பலருடன் ஒப்பிடும்போது superlative 'most correctly'."],
+
+        ["He runs ______ of all the players.",
+            "(அனைத்து வீரர்களிலும் அவன் மிக வேகமாக ஓடுகிறான்.)",
+            ["fastest", "faster", "fastly", "more fast"], 0,
+            "'fast' என்பதன் superlative 'fastest'."],
+
+        ["She sings ______ in the class.",
+            "(வகுப்பில் அவள் மிகவும் அழகாக பாடுகிறாள்.)",
+            ["most beautifully", "more beautifully", "beautifully", "beautiful"], 0,
+            "பலருடன் ஒப்பிடும்போது 'most beautifully'."],
+
+        ["He completed the work ______ of everyone.",
+            "(அனைவரிலும் அவன் மிக விரைவாக வேலையை முடித்தான்.)",
+            ["most quickly", "more quickly", "quickly", "quick"], 0,
+            "'quickly' → 'most quickly'."],
+
+        ["She speaks ______ among the team members.",
+            "(குழு உறுப்பினர்களில் அவள் மிகவும் சரளமாக பேசுகிறாள்.)",
+            ["most fluently", "more fluently", "fluently", "fluent"], 0,
+            "'fluently' என்பதன் superlative 'most fluently'."],
+
+        ["He behaved ______ of all.",
+            "(அனைவரிலும் அவன் மிகவும் மரியாதையாக நடந்துகொண்டான்.)",
+            ["most politely", "more politely", "politely", "polite"], 0,
+            "'politely' → 'most politely'."],
+
+        ["She worked ______ in the whole team.",
+            "(முழு குழுவிலும் அவள் மிகவும் கடினமாக வேலை செய்தாள்.)",
+            ["hardest", "harder", "hardly", "most hard"], 0,
+            "'hard' என்பதன் superlative 'hardest'."],
+
+        ["I have ______ completed the assignment.",
+            "(நான் assignment-ஐ ஏற்கனவே முடித்துவிட்டேன்.)",
+            ["already", "yet", "still", "ever"], 0,
+            "'already' completed action-ஐ காட்டுகிறது."],
+
+        ["He has not arrived ______.",
+            "(அவன் இன்னும் வரவில்லை.)",
+            ["yet", "already", "still", "ever"], 0,
+            "Negative sentence-ல் 'yet' என்பது இன்னும் இல்லை என்பதைக் காட்டுகிறது."],
+
+        ["She is ______ studying for the exam.",
+            "(அவள் இன்னும் தேர்வுக்காக படித்துக்கொண்டிருக்கிறாள்.)",
+            ["still", "yet", "already", "ever"], 0,
+            "'still' ஒரு செயல் தொடர்ந்து நடப்பதைக் காட்டுகிறது."],
+
+        ["Have you ______ visited Chennai?",
+            "(நீ எப்போதாவது சென்னைக்கு சென்றிருக்கிறாயா?)",
+            ["ever", "never", "already", "still"], 0,
+            "Questions-ல் experience கேட்க 'ever' பயன்படும்."],
+
+        ["I have ______ seen such a beautiful place.",
+            "(இவ்வளவு அழகான இடத்தை நான் ஒருபோதும் பார்த்ததில்லை.)",
+            ["never", "ever", "already", "still"], 0,
+            "'never' ஒருபோதும் இல்லை என்பதைக் காட்டுகிறது."],
+
+        ["She has ______ left the office.",
+            "(அவள் இப்போதுதான் office-லிருந்து சென்றுவிட்டாள்.)",
+            ["just", "yet", "ever", "still"], 0,
+            "'just' சமீபத்தில் நடந்த செயலைக் காட்டுகிறது."],
+
+        ["He is ______ ready to leave.",
+            "(அவன் கிட்டத்தட்ட செல்ல தயாராகிவிட்டான்.)",
+            ["almost", "already", "never", "always"], 0,
+            "'almost' கிட்டத்தட்ட என்பதைக் காட்டுகிறது."],
+
+        ["The train had ______ arrived when we reached.",
+            "(நாங்கள் சென்றபோது ரயில் ஏற்கனவே வந்திருந்தது.)",
+            ["already", "yet", "still", "never"], 0,
+            "'already' ஒரு செயல் முன்பே முடிந்ததைக் காட்டுகிறது."],
+
+        ["She ______ visits her grandparents.",
+            "(அவள் அடிக்கடி தாத்தா பாட்டியை சந்திக்கிறாள்.)",
+            ["frequently", "frequency", "frequent", "frequented"], 0,
+            "'frequently' என்பது அடிக்கடி என்பதைக் காட்டும் adverb."],
+
+        ["He ______ goes to the gym.",
+            "(அவன் வழக்கமாக gym-க்கு செல்கிறான்.)",
+            ["regularly", "regular", "regulation", "regularity"], 0,
+            "'regularly' என்பது வழக்கமாக என்பதைக் காட்டுகிறது."],
+
+        ["She ______ makes mistakes.",
+            "(அவள் அரிதாக தவறுகள் செய்கிறாள்.)",
+            ["seldom", "seldomly", "rare", "rarelyly"], 0,
+            "'seldom' என்பது அரிதாக என்பதைக் காட்டும் adverb."],
+
+        ["He ______ complains about his work.",
+            "(அவன் எப்போதாவது தனது வேலையைப் பற்றி புகார் செய்கிறான்.)",
+            ["sometimes", "some time", "sometime", "always"], 0,
+            "'sometimes' என்பது சில நேரங்களில் என்பதைக் காட்டுகிறது."],
+
+        ["They ______ travel during holidays.",
+            "(அவர்கள் விடுமுறையில் வழக்கமாக பயணம் செய்கிறார்கள்.)",
+            ["usually", "usual", "usefully", "used"], 0,
+            "'usually' frequency-ஐக் காட்டுகிறது."],
+
+        ["She ______ forgets her keys.",
+            "(அவள் எப்போதாவது தன் சாவியை மறந்து விடுகிறாள்.)",
+            ["occasionally", "occasional", "occasion", "occasioning"], 0,
+            "'occasionally' என்பது எப்போதாவது என்பதைக் காட்டுகிறது."],
+
+        ["He completed the project ______.",
+            "(அவன் இறுதியாக project-ஐ முடித்தான்.)",
+            ["finally", "final", "finality", "finely"], 0,
+            "'finally' என்பது இறுதியாக என்பதைக் காட்டுகிறது."],
+
+        ["She ______ understood the lesson.",
+            "(அவள் இறுதியாக பாடத்தைப் புரிந்துகொண்டாள்.)",
+            ["finally", "final", "fine", "finely"], 0,
+            "'finally' ஒரு நீண்ட செயலின் முடிவைக் காட்டுகிறது."],
+
+        ["He looked at me ______.",
+            "(அவன் என்னை சந்தேகமாக பார்த்தான்.)",
+            ["suspiciously", "suspicious", "suspicion", "suspect"], 0,
+            "'suspiciously' என்பது சந்தேகமாக என்பதைக் காட்டுகிறது."],
+
+        ["She answered the teacher ______.",
+            "(அவள் ஆசிரியரிடம் மரியாதையாக பதிலளித்தாள்.)",
+            ["politely", "polite", "politeness", "politician"], 0,
+            "'politely' என்பது மரியாதையாக என்பதைக் காட்டுகிறது."],
+
+        ["He completed the task ______.",
+            "(அவன் task-ஐ வெற்றிகரமாக முடித்தான்.)",
+            ["successfully", "successful", "success", "succeed"], 0,
+            "'successfully' என்பது வெற்றிகரமாக என்பதைக் காட்டுகிறது."],
+
+        ["The machine is working ______.",
+            "(இயந்திரம் சரியாக இயங்குகிறது.)",
+            ["properly", "proper", "property", "properness"], 0,
+            "'properly' என்பது சரியாக என்பதைக் காட்டுகிறது."],
+
+        ["Please listen ______.",
+            "(தயவுசெய்து கவனமாக கேளுங்கள்.)",
+            ["carefully", "careful", "care", "caring"], 0,
+            "'carefully' என்பது கவனமாக என்பதைக் காட்டுகிறது."],
+
+        ["He explained the problem ______.",
+            "(அவன் பிரச்சனையை எளிதாக விளக்கினான்.)",
+            ["easily", "easy", "easier", "ease"], 0,
+            "'easily' என்பது எளிதாக என்பதைக் காட்டுகிறது."],
+
+        ["She solved the problem ______.",
+            "(அவள் பிரச்சனையை புத்திசாலித்தனமாக தீர்த்தாள்.)",
+            ["cleverly", "clever", "cleverness", "cleverer"], 0,
+            "'cleverly' என்பது புத்திசாலித்தனமாக என்பதைக் காட்டுகிறது."],
+
+        ["He behaved ______ during the interview.",
+            "(Interview-ல் அவன் அமைதியாக நடந்துகொண்டான்.)",
+            ["calmly", "calm", "calmer", "calmness"], 0,
+            "'calmly' என்பது அமைதியாக என்பதைக் காட்டுகிறது."],
+
+        ["She completed the exam ______.",
+            "(அவள் தேர்வை நம்பிக்கையுடன் முடித்தாள்.)",
+            ["confidently", "confident", "confidence", "confide"], 0,
+            "'confidently' என்பது நம்பிக்கையுடன் என்பதைக் காட்டுகிறது."],
+
+        ["He spoke to the customer ______.",
+            "(அவன் customer-ிடம் பொறுமையாக பேசினான்.)",
+            ["patiently", "patient", "patience", "impatient"], 0,
+            "'patiently' என்பது பொறுமையாக என்பதைக் காட்டுகிறது."],
+
+        ["The students listened ______ to the teacher.",
+            "(மாணவர்கள் ஆசிரியரை கவனமாக கேட்டார்கள்.)",
+            ["attentively", "attentive", "attention", "attend"], 0,
+            "'attentively' என்பது கவனமாக என்பதைக் காட்டுகிறது."],
+
+        ["She answered the question ______.",
+            "(அவள் கேள்விக்கு உடனடியாக பதிலளித்தாள்.)",
+            ["promptly", "prompt", "promptness", "prompted"], 0,
+            "'promptly' என்பது உடனடியாக என்பதைக் காட்டுகிறது."],
+
+        ["He ______ completed all the exercises.",
+            "(அவன் முழு exercises-ஐ முழுமையாக முடித்தான்.)",
+            ["completely", "complete", "completion", "completing"], 0,
+            "'completely' என்பது முழுமையாக என்பதைக் காட்டுகிறது."],
+
+        ["She ______ understood what I said.",
+            "(நான் சொன்னதை அவள் முழுமையாக புரிந்துகொண்டாள்.)",
+            ["fully", "full", "fullness", "fulfill"], 0,
+            "'fully' என்பது முழுமையாக என்பதைக் காட்டுகிறது."],
+
+        ["He was ______ surprised by the result.",
+            "(அவன் result-ஐ பார்த்து மிகவும் ஆச்சரியப்பட்டான்.)",
+            ["extremely", "extreme", "extremity", "extremes"], 0,
+            "'extremely' என்பது மிகவும் / மிக அதிகமாக என்பதைக் காட்டுகிறது."],
+
+        ["The question was ______ difficult.",
+            "(கேள்வி மிகவும் கடினமாக இருந்தது.)",
+            ["very", "many", "much", "more"], 0,
+            "'very' adjective/adverb-ன் degree-ஐ அதிகரிக்கிறது."]
+
+    ];
+
+    return raw.map(item => ({
+        q: item[0],
+        tq: item[1],
+        o: item[2],
+        a: item[3],
+        e: item[4]
+    }));
+};
+
+
+/* =========================================================
+   TOPICS
+========================================================= */
+
+const adverbTopics = [
+
+    {
+        id: 1,
+
+        title: "BASIC ADVERBS",
+
+        tamilTitle: "அடிப்படை வினையுரிச்சொற்கள்",
+
+        displayChain:
+            "quickly • slowly • carefully • happily • always • often • never • here • there • now",
+
+        explanation:
+            "Adverb (வினையுரிச்சொல்) என்பது ஒரு Verb, Adjective அல்லது மற்றொரு Adverb-ஐப் பற்றி கூடுதல் தகவல் தரும் சொல். இது ஒரு செயல் எப்படி, எப்போது, எங்கே அல்லது எவ்வளவு அடிக்கடி நடக்கிறது என்பதைச் சொல்ல உதவும்.",
+
+        tableData: [
+
+            {
+                l: "1. quickly",
+                t: "விரைவாக",
+                e: "He runs quickly.",
+                te: "அவன் விரைவாக ஓடுகிறான்."
+            },
+
+            {
+                l: "2. slowly",
+                t: "மெதுவாக",
+                e: "She walks slowly.",
+                te: "அவள் மெதுவாக நடக்கிறாள்."
+            },
+
+            {
+                l: "3. carefully",
+                t: "கவனமாக",
+                e: "Drive carefully.",
+                te: "கவனமாக ஓட்டு."
+            },
+
+            {
+                l: "4. happily",
+                t: "மகிழ்ச்சியாக",
+                e: "She smiled happily.",
+                te: "அவள் மகிழ்ச்சியாக சிரித்தாள்."
+            },
+
+            {
+                l: "5. loudly",
+                t: "சத்தமாக",
+                e: "He spoke loudly.",
+                te: "அவன் சத்தமாக பேசினான்."
+            },
+
+            {
+                l: "6. quietly",
+                t: "அமைதியாக",
+                e: "The baby slept quietly.",
+                te: "குழந்தை அமைதியாக தூங்கியது."
+            },
+
+            {
+                l: "7. always",
+                t: "எப்போதும்",
+                e: "I always study.",
+                te: "நான் எப்போதும் படிப்பேன்."
+            },
+
+            {
+                l: "8. often",
+                t: "அடிக்கடி",
+                e: "He often visits us.",
+                te: "அவன் அடிக்கடி எங்களை சந்திக்கிறான்."
+            },
+
+            {
+                l: "9. never",
+                t: "ஒருபோதும் இல்லை",
+                e: "I never smoke.",
+                te: "நான் ஒருபோதும் புகைபிடிப்பதில்லை."
+            },
+
+            {
+                l: "10. usually",
+                t: "வழக்கமாக",
+                e: "She usually wakes up early.",
+                te: "அவள் வழக்கமாக சீக்கிரம் எழுவாள்."
+            },
+
+            {
+                l: "11. here",
+                t: "இங்கே",
+                e: "Come here.",
+                te: "இங்கே வா."
+            },
+
+            {
+                l: "12. there",
+                t: "அங்கே",
+                e: "Put the bag there.",
+                te: "பையை அங்கே வை."
+            },
+
+            {
+                l: "13. now",
+                t: "இப்போது",
+                e: "I am studying now.",
+                te: "நான் இப்போது படிக்கிறேன்."
+            },
+
+            {
+                l: "14. today",
+                t: "இன்று",
+                e: "I am busy today.",
+                te: "நான் இன்று busy-ஆக இருக்கிறேன்."
+            },
+
+            {
+                l: "15. tomorrow",
+                t: "நாளை",
+                e: "We will meet tomorrow.",
+                te: "நாம் நாளை சந்திப்போம்."
+            },
+
+            {
+                l: "16. yesterday",
+                t: "நேற்று",
+                e: "He came yesterday.",
+                te: "அவன் நேற்று வந்தான்."
+            },
+
+            {
+                l: "17. again",
+                t: "மீண்டும்",
+                e: "Please try again.",
+                te: "மீண்டும் முயற்சி செய்."
+            },
+
+            {
+                l: "18. inside",
+                t: "உள்ளே",
+                e: "Come inside.",
+                te: "உள்ளே வா."
+            },
+
+            {
+                l: "19. outside",
+                t: "வெளியே",
+                e: "Children are playing outside.",
+                te: "குழந்தைகள் வெளியே விளையாடுகிறார்கள்."
+            },
+
+            {
+                l: "20. gently",
+                t: "மென்மையாக",
+                e: "He touched it gently.",
+                te: "அவன் அதை மென்மையாக தொட்டான்."
+            }
+
+        ],
+
+        questions: generateBasicQuestions()
+    },
+
+
+    {
+        id: 2,
+
+        title: "ADVANCED ADVERBS",
+
+        tamilTitle: "மேம்பட்ட வினையுரிச்சொற்கள்",
+
+        displayChain:
+            "fluently • carefully • successfully • frequently • occasionally • extremely • completely • confidently",
+
+        explanation:
+            "மேம்பட்ட Adverbs மூலம் comparison, frequency, degree, manner போன்றவற்றை இன்னும் துல்லியமாகக் கூறலாம். குறிப்பாக workplace, interview மற்றும் formal English-ல் இவை பயனுள்ளதாக இருக்கும்.",
+
+        tableData: [
+
+            {
+                l: "1. fluently",
+                t: "சரளமாக",
+                e: "She speaks English fluently.",
+                te: "அவள் ஆங்கிலத்தை சரளமாக பேசுகிறாள்."
+            },
+
+            {
+                l: "2. successfully",
+                t: "வெற்றிகரமாக",
+                e: "He completed the project successfully.",
+                te: "அவன் project-ஐ வெற்றிகரமாக முடித்தான்."
+            },
+
+            {
+                l: "3. carefully",
+                t: "கவனமாக",
+                e: "She completed the task carefully.",
+                te: "அவள் task-ஐ கவனமாக முடித்தாள்."
+            },
+
+            {
+                l: "4. politely",
+                t: "மரியாதையாக",
+                e: "He answered politely.",
+                te: "அவன் மரியாதையாக பதிலளித்தான்."
+            },
+
+            {
+                l: "5. regularly",
+                t: "வழக்கமாக",
+                e: "He exercises regularly.",
+                te: "அவன் வழக்கமாக உடற்பயிற்சி செய்கிறான்."
+            },
+
+            {
+                l: "6. frequently",
+                t: "அடிக்கடி",
+                e: "She frequently visits Chennai.",
+                te: "அவள் அடிக்கடி சென்னைக்கு செல்கிறாள்."
+            },
+
+            {
+                l: "7. occasionally",
+                t: "எப்போதாவது",
+                e: "He occasionally plays cricket.",
+                te: "அவன் எப்போதாவது கிரிக்கெட் விளையாடுகிறான்."
+            },
+
+            {
+                l: "8. seldom",
+                t: "அரிதாக",
+                e: "She seldom makes mistakes.",
+                te: "அவள் அரிதாக தவறுகள் செய்கிறாள்."
+            },
+
+            {
+                l: "9. finally",
+                t: "இறுதியாக",
+                e: "He finally understood.",
+                te: "அவன் இறுதியாக புரிந்துகொண்டான்."
+            },
+
+            {
+                l: "10. immediately",
+                t: "உடனடியாக",
+                e: "Please come immediately.",
+                te: "தயவுசெய்து உடனடியாக வா."
+            },
+
+            {
+                l: "11. completely",
+                t: "முழுமையாக",
+                e: "I completely agree.",
+                te: "நான் முழுமையாக ஒப்புக்கொள்கிறேன்."
+            },
+
+            {
+                l: "12. fully",
+                t: "முழுமையாக",
+                e: "I fully understand.",
+                te: "நான் முழுமையாக புரிந்துகொள்கிறேன்."
+            },
+
+            {
+                l: "13. extremely",
+                t: "மிகவும்",
+                e: "The exam was extremely difficult.",
+                te: "தேர்வு மிகவும் கடினமாக இருந்தது."
+            },
+
+            {
+                l: "14. confidently",
+                t: "நம்பிக்கையுடன்",
+                e: "She answered confidently.",
+                te: "அவள் நம்பிக்கையுடன் பதிலளித்தாள்."
+            },
+
+            {
+                l: "15. patiently",
+                t: "பொறுமையாக",
+                e: "He waited patiently.",
+                te: "அவன் பொறுமையாக காத்திருந்தான்."
+            },
+
+            {
+                l: "16. attentively",
+                t: "கவனமாக",
+                e: "Students listened attentively.",
+                te: "மாணவர்கள் கவனமாக கேட்டார்கள்."
+            },
+
+            {
+                l: "17. promptly",
+                t: "உடனடியாக",
+                e: "She replied promptly.",
+                te: "அவள் உடனடியாக பதிலளித்தாள்."
+            },
+
+            {
+                l: "18. easily",
+                t: "எளிதாக",
+                e: "He solved it easily.",
+                te: "அவன் அதை எளிதாக தீர்த்தான்."
+            },
+
+            {
+                l: "19. cleverly",
+                t: "புத்திசாலித்தனமாக",
+                e: "She solved the problem cleverly.",
+                te: "அவள் பிரச்சனையை புத்திசாலித்தனமாக தீர்த்தாள்."
+            },
+
+            {
+                l: "20. properly",
+                t: "சரியாக",
+                e: "Use the machine properly.",
+                te: "இயந்திரத்தை சரியாக பயன்படுத்து."
+            }
+
+        ],
+
+        questions: generateAdvancedQuestions()
+    }
+
+];
+
+
+/* =========================================================
+   QUIZ VARIABLES
+========================================================= */
+
+let currentTopicIndex = 0;
+let currentQuestionIndex = 0;
+let score = 0;
+let selectedOptionIndex = null;
+let currentShuffledOptions = [];
+let topicProgress = [false, false];
+
+
+/* =========================================================
+   PAGE LOAD
+========================================================= */
+
+window.onload = function () {
+
+    renderProgressTracker();
+
+    renderPills();
+
+    loadTopic(0);
+
+};
+
+
+/* =========================================================
+   PROGRESS TRACKER
+========================================================= */
+
+function renderProgressTracker() {
+
+    const grid =
+        document.getElementById("progress-tracker-grid");
+
+    grid.innerHTML = "";
+
+    const completedCount =
+        topicProgress.filter(Boolean).length;
+
+    document.getElementById(
+        "overall-progress-text"
+    ).innerText =
+        `${completedCount} / ${adverbTopics.length} Completed`;
+
+
+    adverbTopics.forEach((topic, idx) => {
+
+        const item = document.createElement("div");
+
+        item.className =
+            `progress-item ${topicProgress[idx] ? "completed" : ""}`;
+
+        item.onclick = () => loadTopic(idx);
+
+        item.innerHTML = `
+            <div class="check-icon">
+                ${topicProgress[idx] ? "✓" : idx + 1}
+            </div>
+
+            <span>${topic.title}</span>
+        `;
+
+        grid.appendChild(item);
+
+    });
+
+}
+
+
+/* =========================================================
+   TOPIC PILLS
+========================================================= */
+
+function renderPills() {
+
+    const pillsContainer =
+        document.getElementById("topic-pills");
+
+    pillsContainer.innerHTML = "";
+
+    adverbTopics.forEach((topic, idx) => {
+
+        const btn =
+            document.createElement("button");
+
+        btn.className =
+            `pill-btn ${idx === currentTopicIndex ? "active" : ""}`;
+
+        btn.innerText =
+            topic.title;
+
+        btn.onclick =
+            () => loadTopic(idx);
+
+        pillsContainer.appendChild(btn);
+
+    });
+
+}
+
+
+/* =========================================================
+   LOAD TOPIC
+========================================================= */
+
+function loadTopic(index) {
+
+    currentTopicIndex = index;
+
+    currentQuestionIndex = 0;
+
+    score = 0;
+
+    selectedOptionIndex = null;
+
+    renderPills();
+
+    renderTopicContent();
+
+    loadQuestion();
+
+    document.getElementById(
+        "question-runner"
+    ).style.display = "block";
+
+    document.getElementById(
+        "result-runner"
+    ).style.display = "none";
+
+}
+
+
+/* =========================================================
+   TOPIC CONTENT
+========================================================= */
+
+function renderTopicContent() {
+
+    const topic =
+        adverbTopics[currentTopicIndex];
+
+    const contentBox =
+        document.getElementById("topic-content");
+
+
+    let tableRows =
+        topic.tableData.map(row => `
+
+            <tr>
+
+                <td>
+                    <b>${row.l}</b>
+                </td>
+
+                <td>
+                    ${row.t}
+                </td>
+
+                <td>
+
+                    <i>${row.e}</i>
+
+                    <span class="sent-ta">
+                        ${row.te}
+                    </span>
+
+                </td>
+
+            </tr>
+
+        `).join("");
+
+
+    contentBox.innerHTML = `
+
+        <div class="topic-title">
+            ${topic.title} – ${topic.tamilTitle}
+        </div>
+
+        <div class="display-chain">
+            ${topic.displayChain}
+        </div>
+
+        <div class="tamil-explain">
+            ${topic.explanation}
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Adverb</th>
+
+                        <th>தமிழ் பொருள்</th>
+
+                        <th>
+                            Example Sentence & Meaning
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    ${tableRows}
+                </tbody>
+
+            </table>
+
+        </div>
+    `;
+
+
+    document.getElementById(
+        "quiz-topic-badge"
+    ).innerText =
+        `${topic.title} Quiz`;
+
+}
+
+
+/* =========================================================
+   SHUFFLE
+========================================================= */
+
+function shuffleArray(array) {
+
+    let arr = [...array];
+
+    for (
+        let i = arr.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(Math.random() * (i + 1));
+
+        [arr[i], arr[j]] =
+            [arr[j], arr[i]];
+
+    }
+
+    return arr;
+
+}
+
+
+/* =========================================================
+   LOAD QUESTION
+========================================================= */
+
+function loadQuestion() {
+
+    const topic =
+        adverbTopics[currentTopicIndex];
+
+    const q =
+        topic.questions[currentQuestionIndex];
+
+
+    document.getElementById(
+        "quiz-progress-text"
+    ).innerText =
+        `Question ${currentQuestionIndex + 1} / ${topic.questions.length}`;
+
+
+    document.getElementById(
+        "question-text"
+    ).innerText =
+        `${currentQuestionIndex + 1}. ${q.q}`;
+
+
+    document.getElementById(
+        "question-tamil-text"
+    ).innerText =
+        q.tq;
+
+
+    let optionObjects =
+        q.o.map((optText, idx) => ({
+
+            text: optText,
+
+            isCorrect: idx === q.a
+
+        }));
+
+
+    currentShuffledOptions =
+        shuffleArray(optionObjects);
+
+
+    const optionsGrid =
+        document.getElementById(
+            "options-container"
+        );
+
+    optionsGrid.innerHTML = "";
+
+
+    currentShuffledOptions.forEach(
+        (optObj, idx) => {
+
+            const btn =
+                document.createElement("button");
+
+            btn.className =
+                "option-btn";
+
+            btn.innerText =
+                optObj.text;
+
+            btn.onclick =
+                () => selectOption(idx);
+
+            optionsGrid.appendChild(btn);
+
+        }
+    );
+
+
+    const feedback =
+        document.getElementById(
+            "feedback-box"
+        );
+
+    feedback.style.display = "none";
+
+    feedback.className =
+        "feedback-box";
+
+    feedback.innerHTML = "";
+
+
+    document.getElementById(
+        "next-btn"
+    ).disabled = true;
+
+
+    selectedOptionIndex = null;
+
+}
+
+
+/* =========================================================
+   SELECT OPTION
+========================================================= */
+
+function selectOption(index) {
+
+    if (selectedOptionIndex !== null) {
+        return;
+    }
+
+    selectedOptionIndex = index;
+
+
+    const topic =
+        adverbTopics[currentTopicIndex];
+
+    const q =
+        topic.questions[currentQuestionIndex];
+
+
+    const options =
+        document.getElementById(
+            "options-container"
+        ).children;
+
+
+    const feedback =
+        document.getElementById(
+            "feedback-box"
+        );
+
+
+    const isCorrectAnswer =
+        currentShuffledOptions[index].isCorrect;
+
+
+    if (isCorrectAnswer) {
+
+        score++;
+
+        options[index]
+            .classList
+            .add("selected-correct");
+
+
+        feedback.className =
+            "feedback-box correct";
+
+
+        feedback.innerHTML =
+            `<b>✓ சரியான பதில்!</b> ${q.e}`;
+
+    } else {
+
+        options[index]
+            .classList
+            .add("selected-wrong");
+
+
+        const correctIndex =
+            currentShuffledOptions
+                .findIndex(
+                    item => item.isCorrect
+                );
+
+
+        options[correctIndex]
+            .classList
+            .add("selected-correct");
+
+
+        feedback.className =
+            "feedback-box wrong";
+
+
+        feedback.innerHTML =
+            `<b>✗ தவறான பதில்!</b> ${q.e}`;
+
+    }
+
+
+    Array.from(options)
+        .forEach(opt => {
+            opt.disabled = true;
+        });
+
+
+    document.getElementById(
+        "next-btn"
+    ).disabled = false;
+
+}
+
+
+/* =========================================================
+   NEXT QUESTION
+========================================================= */
+
+function nextQuestion() {
+
+    const topic =
+        adverbTopics[currentTopicIndex];
+
+
+    if (
+        currentQuestionIndex <
+        topic.questions.length - 1
+    ) {
+
+        currentQuestionIndex++;
+
+        loadQuestion();
+
+    } else {
+
+        showResults();
+
+    }
+
+}
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+function showResults() {
+
+    const topic =
+        adverbTopics[currentTopicIndex];
+
+
+    document.getElementById(
+        "question-runner"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "result-runner"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "res-score"
+    ).innerText =
+        `${score} / ${topic.questions.length}`;
+
+
+    const percent =
+        (score / topic.questions.length) * 100;
+
+
+    if (percent >= 70) {
+
+        topicProgress[currentTopicIndex] = true;
+
+        renderProgressTracker();
+
+        document.getElementById(
+            "res-msg"
+        ).innerText =
+            "அற்புதமான முயற்சி! 🎉";
+
+    } else {
+
+        document.getElementById(
+            "res-msg"
+        ).innerText =
+            "மீண்டும் முயற்சி செய்து பார்க்கவும்! 👍";
+
+    }
+
+}
+
+
+/* =========================================================
+   RETRY
+========================================================= */
+
+function resetCurrentQuiz() {
+
+    loadTopic(currentTopicIndex);
+
+}
+
+</script>
+
+</body>
+</html>

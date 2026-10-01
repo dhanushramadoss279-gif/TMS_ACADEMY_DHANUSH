@@ -1,0 +1,1300 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TMS Academy - English Foundation</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'Noto Sans Tamil', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            min-height: 100dvh;
+            margin: 0;
+            overflow-x: hidden;
+            background: #f8fbff;
+            color: #0f172a;
+        }
+
+        /* ---------- Header ---------- */
+
+        .academy-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #ffffff;
+            border: 1px solid #dbeafe;
+            padding: 10px 18px 10px 10px;
+            border-radius: 18px;
+            box-shadow:
+                0 4px 12px rgba(37, 99, 235, .07),
+                0 1px 2px rgba(15, 23, 42, .04);
+        }
+
+        .logo-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #1d4ed8, #3b82f6);
+            box-shadow:
+                0 6px 14px rgba(37, 99, 235, .28),
+                inset 0 1px 0 rgba(255,255,255,.35);
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .logo-box span {
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        /* ---------- Learning cards ---------- */
+
+        .path-list {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(6px, 1.2dvh, 12px);
+        }
+
+        .learning-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-height: clamp(56px, 9.6dvh, 80px);
+            padding: 8px 14px 8px 10px;
+            background: #fff;
+            border: 1px solid #dbeafe;
+            border-radius: 16px;
+            box-shadow:
+                0 1px 2px rgba(15, 23, 42, .04),
+                0 4px 12px rgba(59, 130, 246, .07);
+            transition:
+                border-color .2s ease,
+                box-shadow .2s ease,
+                transform .2s ease;
+            cursor: pointer;
+        }
+
+        .learning-card:hover {
+            border-color: #93c5fd;
+            box-shadow: 0 8px 22px rgba(37, 99, 235, .15);
+            transform: translateY(-1px);
+        }
+
+        .learning-card:active {
+            transform: scale(.985);
+        }
+
+        .learning-card:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        /* ---------- Icon boxes ---------- */
+
+        .icon-box {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            border-radius: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            box-shadow:
+                0 4px 10px rgba(15, 23, 42, .16),
+                inset 0 1px 0 rgba(255,255,255,.3);
+        }
+
+        .icon-box svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .c1 {
+            background: linear-gradient(145deg, #059669, #34d399);
+        }
+
+        .c2 {
+            background: linear-gradient(145deg, #2563eb, #60a5fa);
+        }
+
+        .c3 {
+            background: linear-gradient(145deg, #7c3aed, #a78bfa);
+        }
+
+        .c4 {
+            background: linear-gradient(145deg, #0891b2, #22d3ee);
+        }
+
+        .c5 {
+            background: linear-gradient(145deg, #4f46e5, #818cf8);
+        }
+
+        .c6 {
+            background: linear-gradient(145deg, #e11d48, #fb7185);
+        }
+
+        /* ---------- Number badge ---------- */
+
+        .number-badge {
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 10px;
+            font-weight: 700;
+            min-width: 24px;
+            text-align: center;
+            padding: 2px 7px;
+            border-radius: 999px;
+        }
+
+        /* ---------- Arrow ---------- */
+
+        .chev {
+            width: 18px;
+            height: 18px;
+            color: #93c5fd;
+            flex-shrink: 0;
+            transition:
+                transform .2s ease,
+                color .2s ease;
+        }
+
+        .learning-card:hover .chev {
+            color: #2563eb;
+            transform: translateX(3px);
+        }
+
+        /* ---------- Content Section ---------- */
+
+        .content-panel {
+            background: #ffffff;
+            border: 1px solid #dbeafe;
+            border-radius: 22px;
+            box-shadow:
+                0 8px 25px rgba(37, 99, 235, .08),
+                0 1px 2px rgba(15, 23, 42, .04);
+        }
+
+        .word-card {
+            background: #ffffff;
+            border: 1px solid #dbeafe;
+            border-radius: 14px;
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all .2s ease;
+            cursor: pointer;
+        }
+
+        .word-card:hover {
+            border-color: #93c5fd;
+            box-shadow: 0 6px 18px rgba(37, 99, 235, .10);
+            transform: translateY(-2px);
+        }
+
+        /* ---------- Quiz ---------- */
+
+        .quiz-option {
+            transition: all .2s ease;
+            background: #ffffff;
+            border: 1px solid #dbeafe;
+            color: #1e293b;
+        }
+
+        .quiz-option:hover {
+            transform: translateY(-1px);
+            border-color: #60a5fa;
+            background: #eff6ff;
+        }
+
+        .progress-bar {
+            transition: width .3s ease;
+        }
+
+        /* ---------- Buttons ---------- */
+
+        .primary-btn {
+            background: linear-gradient(145deg, #2563eb, #3b82f6);
+            color: #ffffff;
+            box-shadow: 0 6px 15px rgba(37, 99, 235, .20);
+            transition: all .2s ease;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 9px 20px rgba(37, 99, 235, .28);
+        }
+
+        .secondary-btn {
+            background: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #dbeafe;
+        }
+
+        .secondary-btn:hover {
+            background: #dbeafe;
+        }
+
+        /* ---------- Responsive ---------- */
+
+        @media (max-width: 640px) {
+
+            .logo-box {
+                width: 40px;
+                height: 40px;
+                border-radius: 12px;
+            }
+
+            .logo-box span {
+                font-size: 18px;
+            }
+
+            .icon-box {
+                width: 40px;
+                height: 40px;
+                border-radius: 12px;
+            }
+
+            .icon-box svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .learning-card {
+                padding: 8px 12px 8px 8px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .learning-card,
+            .chev,
+            .word-card,
+            .quiz-option,
+            .primary-btn {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen font-sans flex flex-col">
+
+<!-- MAIN -->
+<main class="max-w-4xl w-full mx-auto px-3 sm:px-5 py-6 sm:py-10 flex-grow">
+
+    <!-- HEADER -->
+    <section class="text-center mb-8 sm:mb-10">
+
+        <div class="academy-logo">
+
+            <div class="logo-box">
+                <span>T</span>
+            </div>
+
+            <div class="text-left">
+                <h1 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-wide">
+                    TMS <span class="text-blue-600">Academy</span>
+                </h1>
+
+                <p class="text-[10px] text-slate-500 font-semibold uppercase tracking-widest">
+                    English Foundation Program
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TOPIC MENU -->
+    <section id="menu-section" class="mb-6">
+
+        <div class="flex items-center justify-between mb-3 px-1">
+
+            <h3 class="text-sm sm:text-base font-bold text-slate-800">
+                Choose a Topic
+            </h3>
+
+            <span class="number-badge">
+                6 Modules
+            </span>
+
+        </div>
+
+
+        <div class="path-list">
+
+            <!-- SUBJECT -->
+            <div onclick="showTopic('subject')"
+                 class="learning-card">
+
+                <div class="icon-box c1">
+                    <span class="text-lg font-extrabold">I</span>
+                </div>
+
+                <div class="flex-1 min-w-0">
+
+                    <div class="flex items-center gap-2">
+
+                        <h4 class="font-bold text-sm sm:text-base text-slate-900">
+                            Subject
+                        </h4>
+
+                        <span class="number-badge">
+                            01
+                        </span>
+
+                    </div>
+
+                    <p class="text-xs text-slate-500 mt-0.5">
+                        எழுவாய் (I, You, We...)
+                    </p>
+
+                </div>
+
+                <svg class="chev"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2.5">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+
+            </div>
+
+
+            <!-- BE VERB -->
+            <div onclick="showTopic('beVerb')"
+                 class="learning-card">
+
+                <div class="icon-box c2">
+                    <span class="text-lg font-extrabold">B</span>
+                </div>
+
+                <div class="flex-1 min-w-0">
+
+                    <div class="flex items-center gap-2">
+
+                        <h4 class="font-bold text-sm sm:text-base text-slate-900">
+                            Be Verb
+                        </h4>
+
+                        <span class="number-badge">
+                            02
+                        </span>
+
+                    </div>
+
+                    <p class="text-xs text-slate-500 mt-0.5">
+                        இருத்தல் (Am, Is, Are...)
+                    </p>
+
+                </div>
+
+                <svg class="chev"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2.5">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+
+            </div>
+
+
+            <!-- HAVE VERB -->
+            <div onclick="showTopic('haveVerb')"
+                 class="learning-card">
+
+                <div class="icon-box c3">
+                    <span class="text-lg font-extrabold">H</span>
+                </div>
+
+                <div class="flex-1 min-w-0">
+
+                    <div class="flex items-center gap-2">
+
+                        <h4 class="font-bold text-sm sm:text-base text-slate-900">
+                            Have Verb
+                        </h4>
+
+                        <span class="number-badge">
+                            03
+                        </span>
+
+                    </div>
+
+                    <p class="text-xs text-slate-500 mt-0.5">
+                        உடைமை (Have, Has, Had)
+                    </p>
+
+                </div>
+
+                <svg class="chev"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2.5">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+
+            </div>
+
+
+            <!-- DO VERB -->
+            <div onclick="showTopic('doVerb')"
+                 class="learning-card">
+
+                <div class="icon-box c4">
+                    <span class="text-lg font-extrabold">D</span>
+                </div>
+
+                <div class="flex-1 min-w-0">
+
+                    <div class="flex items-center gap-2">
+
+                        <h4 class="font-bold text-sm sm:text-base text-slate-900">
+                            Do Verb
+                        </h4>
+
+                        <span class="number-badge">
+                            04
+                        </span>
+
+                    </div>
+
+                    <p class="text-xs text-slate-500 mt-0.5">
+                        செயல் (Do, Does, Did)
+                    </p>
+
+                </div>
+
+                <svg class="chev"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2.5">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+
+            </div>
+
+
+            <!-- MODAL VERB -->
+            <div onclick="showTopic('modalVerb')"
+                 class="learning-card">
+
+                <div class="icon-box c5">
+                    <span class="text-lg font-extrabold">M</span>
+                </div>
+
+                <div class="flex-1 min-w-0">
+
+                    <div class="flex items-center gap-2">
+
+                        <h4 class="font-bold text-sm sm:text-base text-slate-900">
+                            Modal Verb
+                        </h4>
+
+                        <span class="number-badge">
+                            05
+                        </span>
+
+                    </div>
+
+                    <p class="text-xs text-slate-500 mt-0.5">
+                        உதவி வினை (Can, Will, Must...)
+                    </p>
+
+                </div>
+
+                <svg class="chev"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2.5">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+
+            </div>
+
+
+            <!-- QUESTION WORDS -->
+            <div onclick="showTopic('questionWords')"
+                 class="learning-card">
+
+                <div class="icon-box c6">
+                    <span class="text-lg font-extrabold">?</span>
+                </div>
+
+                <div class="flex-1 min-w-0">
+
+                    <div class="flex items-center gap-2">
+
+                        <h4 class="font-bold text-sm sm:text-base text-slate-900">
+                            Question Words
+                        </h4>
+
+                        <span class="number-badge">
+                            06
+                        </span>
+
+                    </div>
+
+                    <p class="text-xs text-slate-500 mt-0.5">
+                        வினா சொற்கள் (12 Types)
+                    </p>
+
+                </div>
+
+                <svg class="chev"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2.5">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- WORD SECTION -->
+    <section id="word-section"
+             class="hidden content-panel p-4 sm:p-7">
+
+        <div class="flex items-center justify-between gap-3 pb-4 mb-5 border-b border-blue-100">
+
+            <div>
+
+                <h2 id="topic-title"
+                    class="text-lg sm:text-2xl font-extrabold text-slate-900">
+                    Topic Title
+                </h2>
+
+                <p id="topic-subtitle"
+                   class="text-xs text-slate-500 mt-1">
+                    Subtitle
+                </p>
+
+            </div>
+
+            <button onclick="backToMenu()"
+                    class="secondary-btn px-3.5 py-2 rounded-xl text-xs font-bold transition">
+                ← Back
+            </button>
+
+        </div>
+
+
+        <div class="bg-blue-50 border border-blue-100 rounded-2xl p-3 sm:p-4 mb-5">
+
+            <p class="text-xs sm:text-sm text-blue-700 font-medium">
+                💡 வார்த்தைகளை படித்துவிட்டு, கீழே உள்ள
+                <b>'Start Full Quiz'</b> பொத்தானை அழுத்தவும்.
+            </p>
+
+        </div>
+
+
+        <!-- WORD LIST -->
+        <div id="word-list"
+             class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+        </div>
+
+
+        <!-- QUIZ BUTTON -->
+        <div class="mt-6 pt-5 border-t border-blue-100 text-center">
+
+            <button onclick="startQuiz()"
+                    class="primary-btn w-full sm:w-auto px-8 py-3.5 rounded-2xl font-bold text-sm">
+                🎯 Start Full Quiz
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUIZ -->
+    <section id="quiz-section"
+             class="hidden content-panel p-4 sm:p-7 mt-5">
+
+        <div class="flex items-center justify-between gap-3 mb-5">
+
+            <div>
+
+                <span id="quiz-topic"
+                      class="inline-block bg-blue-50 text-blue-600 border border-blue-100 px-2.5 py-1 rounded-full text-[10px] font-bold">
+                    SUBJECT
+                </span>
+
+                <p id="quiz-progress"
+                   class="text-xs font-semibold text-slate-500 mt-2">
+                    Question 1 of 5
+                </p>
+
+            </div>
+
+            <button onclick="exitQuiz()"
+                    class="secondary-btn px-3.5 py-2 rounded-xl text-xs font-bold transition">
+                ✕ Exit
+            </button>
+
+        </div>
+
+
+        <div class="w-full h-2 bg-blue-50 rounded-full overflow-hidden mb-7">
+
+            <div id="progress"
+                 class="progress-bar h-full bg-blue-500 rounded-full"
+                 style="width:20%">
+            </div>
+
+        </div>
+
+
+        <div class="text-center mb-7">
+
+            <p class="text-[10px] sm:text-xs text-blue-600 font-bold uppercase tracking-widest mb-2">
+                Find the Tamil Meaning
+            </p>
+
+            <h2 id="question-word"
+                class="text-3xl sm:text-5xl font-extrabold text-slate-900">
+                Word
+            </h2>
+
+        </div>
+
+
+        <div id="quiz-options"
+             class="grid grid-cols-1 gap-3">
+        </div>
+
+
+        <div id="feedback"
+             class="hidden mt-5">
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="text-center py-7 px-4 border-t border-blue-100 bg-white">
+
+    <p class="text-xs text-blue-600 font-semibold">
+        © TMS Academy
+    </p>
+
+    <p class="text-[10px] text-slate-400 mt-1">
+        Learn English Easily Through Tamil
+    </p>
+
+</footer>
+
+
+<script>
+
+const quizData = {
+
+    subject: {
+        title: "Subject",
+        subtitle: "எழுவாய் (நபர்கள் / பொருட்கள்)",
+        words: [
+            ["I", "நான்"],
+            ["You", "நீ / நீங்கள்"],
+            ["We", "நாங்கள்"],
+            ["They", "அவர்கள்"],
+            ["He", "அவன்"],
+            ["She", "அவள்"],
+            ["It", "அது"]
+        ]
+    },
+
+    beVerb: {
+        title: "Be Verb",
+        subtitle: "இருத்தல் நிலை (Am, Is, Are)",
+        words: [
+            ["Am", "இருக்கிறேன்"],
+            ["Is", "இருக்கிறது / இருக்கிறான்"],
+            ["Are", "இருக்கிறார்கள்"]
+        ]
+    },
+
+    haveVerb: {
+        title: "Have Verb",
+        subtitle: "உடைமை / வைத்திருத்தல்",
+        words: [
+            ["Have", "வைத்துள்ளேன் / வைத்துள்ளோம்"],
+            ["Has", "வைத்துள்ளான் / கொண்டுள்ளது"],
+            ["Had", "வைத்திருந்தான்"]
+        ]
+    },
+
+    doVerb: {
+        title: "Do Verb",
+        subtitle: "செயல் சொற்கள்",
+        words: [
+            ["Do", "செய் / செய்கிறேன்"],
+            ["Does", "செய்கிறான் / செய்கிறது"],
+            ["Did", "செய்தான்"]
+        ]
+    },
+
+    modalVerb: {
+        title: "Modal Verb",
+        subtitle: "உதவி வினைச்சொற்கள்",
+        words: [
+            ["Can", "முடியும்"],
+            ["Will", "செய்வேன்"],
+            ["Should", "வேண்டும்"],
+            ["Must", "கண்டிப்பாக வேண்டும்"]
+        ]
+    },
+
+    questionWords: {
+        title: "Question Words",
+        subtitle: "வினா சொற்கள் (12 Types)",
+        words: [
+            ["What", "என்ன"],
+            ["Why", "ஏன்"],
+            ["When", "எப்போது"],
+            ["Where", "எங்கே"],
+            ["Who", "யார்"],
+            ["Whom", "யாரை"],
+            ["Whose", "யாருடைய"],
+            ["Which", "எது / எந்த"],
+            ["How", "எப்படி"],
+            ["How much", "எவ்வளவு"],
+            ["How many", "எத்தனை"],
+            ["How long", "எவ்வளவு நேரம்"]
+        ]
+    }
+};
+
+
+let currentTopic = null;
+let currentQuestion = 0;
+let score = 0;
+let quizQuestions = [];
+
+
+const quizSectionHTMLTemplate = `
+
+<div class="flex items-center justify-between gap-3 mb-5">
+
+    <div>
+
+        <span id="quiz-topic"
+              class="inline-block bg-blue-50 text-blue-600 border border-blue-100 px-2.5 py-1 rounded-full text-[10px] font-bold">
+            SUBJECT
+        </span>
+
+        <p id="quiz-progress"
+           class="text-xs font-semibold text-slate-500 mt-2">
+            Question 1 of 5
+        </p>
+
+    </div>
+
+    <button onclick="exitQuiz()"
+            class="secondary-btn px-3.5 py-2 rounded-xl text-xs font-bold transition">
+        ✕ Exit
+    </button>
+
+</div>
+
+
+<div class="w-full h-2 bg-blue-50 rounded-full overflow-hidden mb-7">
+
+    <div id="progress"
+         class="progress-bar h-full bg-blue-500 rounded-full"
+         style="width:20%">
+    </div>
+
+</div>
+
+
+<div class="text-center mb-7">
+
+    <p class="text-[10px] sm:text-xs text-blue-600 font-bold uppercase tracking-widest mb-2">
+        Find the Tamil Meaning
+    </p>
+
+    <h2 id="question-word"
+        class="text-3xl sm:text-5xl font-extrabold text-slate-900">
+        Word
+    </h2>
+
+</div>
+
+
+<div id="quiz-options"
+     class="grid grid-cols-1 gap-3">
+</div>
+
+
+<div id="feedback"
+     class="hidden mt-5">
+</div>
+`;
+
+
+function resetQuizState() {
+
+    currentQuestion = 0;
+    score = 0;
+    quizQuestions = [];
+
+    const quizSection =
+        document.getElementById("quiz-section");
+
+    quizSection.innerHTML =
+        quizSectionHTMLTemplate;
+}
+
+
+function showTopic(topic) {
+
+    currentTopic = topic;
+
+    resetQuizState();
+
+    const data = quizData[topic];
+
+    document.getElementById("menu-section")
+        .classList.add("hidden");
+
+    document.getElementById("word-section")
+        .classList.remove("hidden");
+
+    document.getElementById("quiz-section")
+        .classList.add("hidden");
+
+    document.getElementById("topic-title")
+        .innerText = data.title;
+
+    document.getElementById("topic-subtitle")
+        .innerText = data.subtitle;
+
+
+    const list =
+        document.getElementById("word-list");
+
+    list.innerHTML = "";
+
+
+    data.words.forEach((item) => {
+
+        const word = item[0];
+        const meaning = item[1];
+
+        const card =
+            document.createElement("div");
+
+        card.className = "word-card";
+
+
+        card.innerHTML = `
+
+            <div>
+
+                <p class="text-base sm:text-lg font-extrabold text-slate-900">
+                    ${word}
+                </p>
+
+                <p class="text-xs sm:text-sm font-medium text-blue-600 mt-0.5">
+                    ${meaning}
+                </p>
+
+            </div>
+
+            <div class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold">
+                ✓
+            </div>
+
+        `;
+
+        list.appendChild(card);
+
+    });
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+function backToMenu() {
+
+    resetQuizState();
+
+    document.getElementById("word-section")
+        .classList.add("hidden");
+
+    document.getElementById("quiz-section")
+        .classList.add("hidden");
+
+    document.getElementById("menu-section")
+        .classList.remove("hidden");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+function startQuiz() {
+
+    if (!currentTopic) return;
+
+    resetQuizState();
+
+
+    quizQuestions =
+        quizData[currentTopic].words
+        .map(item => ({
+            word: item[0],
+            correct: item[1]
+        }))
+        .sort(() => Math.random() - 0.5);
+
+
+    document.getElementById("word-section")
+        .classList.add("hidden");
+
+    document.getElementById("quiz-section")
+        .classList.remove("hidden");
+
+
+    loadQuestion();
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+function loadQuestion() {
+
+    if (currentQuestion >= quizQuestions.length) {
+
+        showScore();
+        return;
+    }
+
+
+    const q =
+        quizQuestions[currentQuestion];
+
+    const total =
+        quizQuestions.length;
+
+
+    document.getElementById("quiz-topic")
+        .innerText =
+        quizData[currentTopic]
+        .title
+        .toUpperCase();
+
+
+    document.getElementById("quiz-progress")
+        .innerText =
+        `Question ${currentQuestion + 1} of ${total}`;
+
+
+    document.getElementById("question-word")
+        .innerText = q.word;
+
+
+    const percent =
+        ((currentQuestion + 1) / total) * 100;
+
+
+    document.getElementById("progress")
+        .style.width = percent + "%";
+
+
+    let options = [q.correct];
+
+
+    const otherMeanings =
+        quizData[currentTopic].words
+        .map(item => item[1])
+        .filter(m => m !== q.correct);
+
+
+    otherMeanings
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 3)
+        .forEach(m => options.push(m));
+
+
+    options.sort(() => Math.random() - 0.5);
+
+
+    const container =
+        document.getElementById("quiz-options");
+
+    container.innerHTML = "";
+
+
+    options.forEach(option => {
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "quiz-option w-full p-3.5 sm:p-4 rounded-2xl text-xs sm:text-sm text-left font-semibold";
+
+        button.innerText = option;
+
+        button.onclick =
+            () => checkAnswer(
+                option,
+                q.correct,
+                button
+            );
+
+        container.appendChild(button);
+
+    });
+
+
+    document.getElementById("feedback")
+        .classList.add("hidden");
+}
+
+
+function checkAnswer(
+    selected,
+    correct,
+    clickedButton
+) {
+
+    const buttons =
+        document.querySelectorAll(
+            "#quiz-options button"
+        );
+
+    buttons.forEach(btn => {
+        btn.disabled = true;
+    });
+
+
+    const feedback =
+        document.getElementById("feedback");
+
+    feedback.classList.remove("hidden");
+
+
+    if (selected === correct) {
+
+        score++;
+
+
+        clickedButton.className =
+            "quiz-option w-full p-3.5 sm:p-4 rounded-2xl border border-emerald-300 bg-emerald-50 text-emerald-700 font-bold text-xs sm:text-sm text-left";
+
+
+        feedback.innerHTML = `
+
+            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 flex items-center justify-between gap-3">
+
+                <div>
+
+                    <p class="font-extrabold text-emerald-600 text-sm">
+                        ✅ Correct!
+                    </p>
+
+                    <p class="text-xs text-emerald-600 mt-0.5">
+                        சரியான பதில்
+                    </p>
+
+                </div>
+
+                <button onclick="nextQuestion()"
+                        class="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-xl font-bold text-xs">
+                    Next →
+                </button>
+
+            </div>
+        `;
+
+    } else {
+
+        clickedButton.className =
+            "quiz-option w-full p-3.5 sm:p-4 rounded-2xl border border-rose-300 bg-rose-50 text-rose-700 font-bold text-xs sm:text-sm text-left";
+
+
+        buttons.forEach(btn => {
+
+            if (btn.innerText === correct) {
+
+                btn.className =
+                    "quiz-option w-full p-3.5 sm:p-4 rounded-2xl border border-emerald-300 bg-emerald-50 text-emerald-700 font-bold text-xs sm:text-sm text-left";
+
+            }
+
+        });
+
+
+        feedback.innerHTML = `
+
+            <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4 flex items-center justify-between gap-3">
+
+                <div>
+
+                    <p class="font-extrabold text-rose-600 text-sm">
+                        ❌ Incorrect
+                    </p>
+
+                    <p class="text-xs text-rose-600 mt-0.5">
+                        சரியான பதில்: ${correct}
+                    </p>
+
+                </div>
+
+                <button onclick="nextQuestion()"
+                        class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-xl font-bold text-xs">
+                    Next →
+                </button>
+
+            </div>
+
+        `;
+    }
+}
+
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+    loadQuestion();
+}
+
+
+function showScore() {
+
+    const total =
+        quizQuestions.length;
+
+    const percentage =
+        Math.round((score / total) * 100);
+
+
+    let message =
+        percentage === 100
+            ? "Excellent! 🎉"
+            : percentage >= 70
+                ? "Very Good! 👍"
+                : "Keep Practicing 💪";
+
+
+    document.getElementById("quiz-section")
+        .innerHTML = `
+
+        <div class="text-center py-6 sm:py-8">
+
+            <div class="text-5xl mb-3">
+                🏆
+            </div>
+
+            <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">
+                Quiz Completed
+            </p>
+
+            <h2 class="text-2xl font-extrabold text-slate-900">
+                ${message}
+            </h2>
+
+
+            <div class="mt-4 bg-blue-50 border border-blue-100 rounded-3xl p-5 max-w-xs mx-auto">
+
+                <p class="text-xs text-slate-500 font-semibold">
+                    Your Score
+                </p>
+
+                <p class="text-3xl font-extrabold text-blue-600 mt-1">
+                    ${score} / ${total}
+                </p>
+
+                <p class="text-xs text-slate-500 mt-1">
+                    ${percentage}% Correct
+                </p>
+
+            </div>
+
+
+            <div class="flex flex-col sm:flex-row justify-center gap-3 mt-6">
+
+                <button onclick="startQuiz()"
+                        class="primary-btn px-6 py-3 rounded-2xl font-bold text-sm">
+                    🔄 Play Again
+                </button>
+
+                <button onclick="showTopic(currentTopic)"
+                        class="secondary-btn px-6 py-3 rounded-2xl font-bold text-sm">
+                    📖 View Words
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+}
+
+
+function exitQuiz() {
+
+    showTopic(currentTopic);
+
+}
+
+</script>
+
+</body>
+</html>

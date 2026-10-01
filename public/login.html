@@ -1,0 +1,2148 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <title>Login - TMS Academy</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Sign-In -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(37, 99, 235, 0.14),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(79, 70, 229, 0.13),
+            transparent 32%
+        ),
+        #f8fafc;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px 16px;
+
+    overflow: visible;
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.brand-section {
+    flex: 0 0 auto;
+
+    width: 100%;
+
+    text-align: center;
+
+    margin-bottom: 14px;
+}
+
+.brand-icon {
+    width: 52px;
+    height: 52px;
+
+    margin: 0 auto 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.22);
+
+    flex-shrink: 0;
+}
+
+/* SVG logo */
+.brand-icon svg {
+    width: 34px;
+    height: 34px;
+
+    display: block;
+
+    flex-shrink: 0;
+}
+
+.brand-section h1 {
+    margin: 0;
+
+    font-size: 19px;
+    line-height: 1.2;
+    font-weight: 800;
+
+    color: #0f172a;
+}
+
+.brand-section p {
+    margin: 3px 0 0;
+
+    font-size: 11px;
+
+    color: #64748b;
+}
+
+
+/* =====================================================
+   LOGIN CARD
+===================================================== */
+
+.login-card {
+    width: 100%;
+    max-width: 448px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+
+    box-shadow:
+        0 30px 80px rgba(15, 23, 42, 0.10),
+        0 10px 30px rgba(15, 23, 42, 0.05);
+
+    overflow: hidden;
+
+    flex: 0 0 auto;
+}
+
+
+/* =====================================================
+   CARD HEADER
+===================================================== */
+
+.card-header {
+    padding: 24px 28px 0;
+
+    text-align: center;
+}
+
+.login-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 6px 11px;
+
+    border-radius: 999px;
+
+    background: #eef2ff;
+
+    border: 1px solid #e0e7ff;
+
+    color: #4f46e5;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+.login-badge-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #6366f1;
+
+    flex-shrink: 0;
+}
+
+.card-header h2 {
+    margin: 0;
+
+    font-size: 27px;
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    letter-spacing: -0.025em;
+
+    color: #0f172a;
+}
+
+.card-header p {
+    margin: 7px 0 0;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    color: #64748b;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-section {
+    padding: 24px 28px;
+}
+
+.login-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.input-group {
+    width: 100%;
+}
+
+.input-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #334155;
+}
+
+.input-box {
+    width: 100%;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    background: rgba(248, 250, 252, 0.8);
+
+    transition: all 0.2s ease;
+}
+
+.input-box:focus-within {
+    border-color: #4f46e5;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(79, 70, 229, 0.09);
+}
+
+.input-icon {
+    flex: 0 0 auto;
+
+    padding-left: 14px;
+
+    font-size: 17px;
+
+    color: #94a3b8;
+}
+
+.input-box input {
+    width: 100%;
+    min-width: 0;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    padding: 0 11px;
+
+    font-size: 13px;
+
+    color: #1e293b;
+}
+
+.input-box input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* =====================================================
+   PASSWORD
+===================================================== */
+
+.password-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 7px;
+}
+
+.password-header label {
+    margin: 0;
+}
+
+.forgot-btn {
+    border: 0;
+
+    background: transparent;
+
+    padding: 0;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    color: #4f46e5;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+.forgot-btn:hover {
+    color: #4338ca;
+}
+
+
+/* =====================================================
+   PASSWORD TOGGLE
+===================================================== */
+
+.password-toggle {
+    flex: 0 0 auto;
+
+    border: 0;
+
+    background: transparent;
+
+    padding: 0 13px 0 5px;
+
+    font-size: 16px;
+
+    color: #94a3b8;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   REMEMBER
+===================================================== */
+
+.remember-row {
+    display: flex;
+
+    align-items: center;
+
+    margin-top: -1px;
+}
+
+.remember-label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+}
+
+.remember-label input {
+    width: 15px;
+    height: 15px;
+
+    accent-color: #4f46e5;
+
+    cursor: pointer;
+}
+
+.remember-label span {
+    font-size: 11px;
+
+    color: #64748b;
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+.login-btn {
+    width: 100%;
+    height: 48px;
+
+    border: 0;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    box-shadow:
+        0 10px 25px rgba(79, 70, 229, 0.22);
+
+    transition: all 0.2s ease;
+}
+
+.login-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 14px 30px rgba(79, 70, 229, 0.30);
+}
+
+.login-btn:disabled {
+    opacity: 0.72;
+
+    cursor: not-allowed;
+}
+
+.login-arrow {
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 18px 0;
+}
+
+.divider-line {
+    flex: 1;
+
+    height: 1px;
+
+    background: #e2e8f0;
+}
+
+.divider-text {
+    white-space: nowrap;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.05em;
+
+    color: #94a3b8;
+}
+
+
+/* =====================================================
+   GOOGLE
+===================================================== */
+
+.google-wrapper {
+    width: 100%;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    padding: 6px;
+
+    background: #ffffff;
+
+    overflow: hidden;
+}
+
+.google-wrapper > div {
+    width: 100%;
+}
+
+.google-loading {
+    opacity: 0.6;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   SIGNUP
+===================================================== */
+
+.signup-link {
+    margin-top: 17px;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    color: #64748b;
+}
+
+.signup-link a {
+    font-weight: 700;
+
+    color: #4f46e5;
+
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    color: #4338ca;
+}
+
+
+/* =====================================================
+   SECURITY
+===================================================== */
+
+.security-footer {
+    border-top: 1px solid #f1f5f9;
+
+    background: rgba(248, 250, 252, 0.75);
+
+    padding: 11px 20px;
+}
+
+.security-content {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    text-align: center;
+}
+
+.security-content span {
+    font-size: 11px;
+}
+
+.security-content p {
+    margin: 0;
+
+    font-size: 9px;
+
+    color: #94a3b8;
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.message-box {
+    display: none;
+
+    align-items: center;
+
+    gap: 8px;
+
+    border-radius: 10px;
+
+    padding: 10px 12px;
+
+    margin-bottom: 14px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.message-box.show {
+    display: flex;
+}
+
+
+/* =====================================================
+   SPINNER
+===================================================== */
+
+.spinner {
+    width: 16px;
+    height: 16px;
+
+    border: 2px solid rgba(255,255,255,0.35);
+
+    border-top-color: #ffffff;
+
+    border-radius: 50%;
+
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   PAGE FOOTER
+===================================================== */
+
+.page-footer {
+    flex: 0 0 auto;
+
+    margin-top: 8px;
+
+    text-align: center;
+}
+
+.page-footer p {
+    margin: 0;
+
+    font-size: 9px;
+
+    color: #94a3b8;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 640px) {
+
+    main {
+        min-height: 100dvh;
+
+        padding: 14px 10px;
+    }
+
+    /* LOGO ALWAYS VISIBLE */
+    .brand-section {
+        display: block;
+
+        margin-bottom: 9px;
+    }
+
+    .brand-icon {
+        width: 44px;
+        height: 44px;
+
+        margin: 0 auto 5px;
+
+        border-radius: 13px;
+    }
+
+    .brand-icon svg {
+        width: 29px;
+        height: 29px;
+    }
+
+    .brand-section h1 {
+        font-size: 16px;
+    }
+
+    .brand-section p {
+        font-size: 9px;
+
+        margin-top: 2px;
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 100%;
+
+        border-radius: 20px;
+    }
+
+    .card-header {
+        padding: 17px 18px 0;
+    }
+
+    .login-badge {
+        padding: 5px 9px;
+
+        font-size: 9px;
+
+        margin-bottom: 9px;
+    }
+
+    .card-header h2 {
+        font-size: 22px;
+    }
+
+    .card-header p {
+        font-size: 11px;
+
+        margin-top: 5px;
+    }
+
+    .form-section {
+        padding: 17px 18px;
+    }
+
+    .login-form {
+        gap: 11px;
+    }
+
+    .input-label {
+        font-size: 11px;
+
+        margin-bottom: 5px;
+    }
+
+    .input-box {
+        height: 43px;
+
+        border-radius: 10px;
+    }
+
+    .input-icon {
+        padding-left: 12px;
+
+        font-size: 15px;
+    }
+
+    .input-box input {
+        padding: 0 9px;
+
+        font-size: 12px;
+    }
+
+    .password-header {
+        margin-bottom: 5px;
+    }
+
+    .forgot-btn {
+        font-size: 10px;
+    }
+
+    .password-toggle {
+        padding-right: 11px;
+
+        font-size: 14px;
+    }
+
+    .remember-label span {
+        font-size: 10px;
+    }
+
+    .remember-label input {
+        width: 14px;
+        height: 14px;
+    }
+
+    .login-btn {
+        height: 43px;
+
+        border-radius: 10px;
+
+        font-size: 12px;
+    }
+
+    .login-arrow {
+        font-size: 16px;
+    }
+
+    .divider {
+        gap: 9px;
+
+        margin: 12px 0;
+    }
+
+    .divider-text {
+        font-size: 8px;
+    }
+
+    .google-wrapper {
+        padding: 4px;
+
+        border-radius: 10px;
+    }
+
+    .signup-link {
+        margin-top: 12px;
+
+        font-size: 10px;
+    }
+
+    .security-footer {
+        padding: 8px 12px;
+    }
+
+    .security-content {
+        gap: 5px;
+    }
+
+    .security-content span {
+        font-size: 9px;
+    }
+
+    .security-content p {
+        font-size: 8px;
+    }
+
+    .page-footer {
+        margin-top: 5px;
+    }
+
+    .page-footer p {
+        font-size: 8px;
+    }
+}
+
+
+/* =====================================================
+   SMALL HEIGHT
+   IMPORTANT:
+   DO NOT HIDE LOGO
+===================================================== */
+
+@media (max-height: 760px) {
+
+    main {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .brand-section {
+        display: block;
+
+        margin-bottom: 5px;
+    }
+
+    .brand-icon {
+        width: 38px;
+        height: 38px;
+
+        margin-bottom: 3px;
+
+        border-radius: 11px;
+    }
+
+    .brand-icon svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .brand-section h1 {
+        font-size: 14px;
+    }
+
+    .brand-section p {
+        display: none;
+    }
+
+    .card-header {
+        padding-top: 13px;
+    }
+
+    .login-badge {
+        margin-bottom: 6px;
+
+        padding: 4px 8px;
+    }
+
+    .card-header h2 {
+        font-size: 20px;
+    }
+
+    .card-header p {
+        font-size: 10px;
+
+        margin-top: 3px;
+    }
+
+    .form-section {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .login-form {
+        gap: 8px;
+    }
+
+    .input-box {
+        height: 39px;
+    }
+
+    .login-btn {
+        height: 39px;
+    }
+
+    .divider {
+        margin: 9px 0;
+    }
+
+    .signup-link {
+        margin-top: 8px;
+    }
+
+    .security-footer {
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    .page-footer {
+        margin-top: 3px;
+    }
+}
+
+
+/* =====================================================
+   VERY SMALL HEIGHT
+   LOGO STILL VISIBLE
+===================================================== */
+
+@media (max-height: 620px) {
+
+    main {
+        justify-content: flex-start;
+
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    /* NEVER HIDE BRAND */
+    .brand-section {
+        display: block;
+
+        margin-bottom: 4px;
+    }
+
+    .brand-icon {
+        width: 32px;
+        height: 32px;
+
+        margin-bottom: 2px;
+
+        border-radius: 9px;
+    }
+
+    .brand-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .brand-section h1 {
+        font-size: 13px;
+    }
+
+    .brand-section p {
+        display: none;
+    }
+
+    .card-header {
+        padding-top: 8px;
+    }
+
+    .form-section {
+        padding: 8px 15px;
+    }
+
+    .login-form {
+        gap: 6px;
+    }
+
+    .input-box {
+        height: 37px;
+    }
+
+    .login-btn {
+        height: 37px;
+    }
+
+    .divider {
+        margin: 6px 0;
+    }
+
+    .signup-link {
+        margin-top: 6px;
+    }
+
+    .security-footer {
+        padding: 6px 10px;
+    }
+
+    .page-footer {
+        display: none;
+    }
+}
+
+
+/* =====================================================
+   EXTRA SMALL WIDTH
+===================================================== */
+
+@media (max-width: 380px) {
+
+    main {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+
+    .brand-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .brand-icon svg {
+        width: 27px;
+        height: 27px;
+    }
+
+    .login-card {
+        border-radius: 17px;
+    }
+
+    .card-header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .form-section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .card-header h2 {
+        font-size: 20px;
+    }
+
+    .card-header p {
+        font-size: 10px;
+    }
+
+    .input-box {
+        height: 41px;
+    }
+
+    .login-btn {
+        height: 41px;
+    }
+
+    .forgot-btn {
+        font-size: 9px;
+    }
+}
+
+
+/* =====================================================
+   VERY NARROW PHONES
+===================================================== */
+
+@media (max-width: 340px) {
+
+    main {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .brand-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .brand-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .brand-section h1 {
+        font-size: 14px;
+    }
+
+    .login-card {
+        border-radius: 15px;
+    }
+
+    .card-header {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .form-section {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .card-header h2 {
+        font-size: 19px;
+    }
+
+    .forgot-btn {
+        font-size: 8px;
+    }
+}
+
+
+/* =====================================================
+   LANDSCAPE MOBILE
+===================================================== */
+
+@media (max-width: 900px) and (orientation: landscape) {
+
+    main {
+        justify-content: flex-start;
+
+        padding-top: 6px;
+        padding-bottom: 10px;
+    }
+
+    .brand-section {
+        margin-bottom: 5px;
+    }
+
+    .brand-icon {
+        width: 34px;
+        height: 34px;
+
+        margin-bottom: 2px;
+
+        border-radius: 9px;
+    }
+
+    .brand-icon svg {
+        width: 23px;
+        height: 23px;
+    }
+
+    .brand-section h1 {
+        font-size: 13px;
+    }
+
+    .brand-section p {
+        display: none;
+    }
+
+    .login-card {
+        max-width: 460px;
+    }
+
+    .card-header {
+        padding-top: 9px;
+    }
+
+    .card-header h2 {
+        font-size: 19px;
+    }
+
+    .card-header p {
+        font-size: 9px;
+    }
+
+    .form-section {
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
+
+    .login-form {
+        gap: 7px;
+    }
+
+    .input-box {
+        height: 37px;
+    }
+
+    .login-btn {
+        height: 37px;
+    }
+
+    .divider {
+        margin: 7px 0;
+    }
+
+    .signup-link {
+        margin-top: 6px;
+    }
+
+    .security-footer {
+        padding: 5px 10px;
+    }
+
+    .page-footer {
+        display: none;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main>
+
+<!-- =====================================================
+     BRAND
+===================================================== -->
+
+<div class="brand-section">
+
+    <div class="brand-icon">
+
+        <svg
+            viewBox="0 0 64 64"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+
+            <!-- Graduation Cap -->
+
+            <path
+                d="M10 25L32 14L54 25L32 36L10 25Z"
+                fill="none"
+                stroke="white"
+                stroke-width="4"
+                stroke-linejoin="round"
+            />
+
+            <path
+                d="M18 30V39C18 39 23 46 32 46C41 46 46 39 46 39V30"
+                fill="none"
+                stroke="white"
+                stroke-width="4"
+                stroke-linecap="round"
+            />
+
+            <path
+                d="M54 25V38"
+                fill="none"
+                stroke="white"
+                stroke-width="4"
+                stroke-linecap="round"
+            />
+
+            <circle
+                cx="54"
+                cy="40"
+                r="2.5"
+                fill="white"
+            />
+
+        </svg>
+
+    </div>
+
+
+    <h1>
+        TMS Academy
+    </h1>
+
+    <p>
+        Learn. Practice. Grow.
+    </p>
+
+</div>
+
+
+<!-- =====================================================
+     LOGIN CARD
+===================================================== -->
+
+<div class="login-card">
+
+
+    <!-- CARD HEADER -->
+
+    <div class="card-header">
+
+        <div class="login-badge">
+
+            <span class="login-badge-dot"></span>
+
+            Member Login
+
+        </div>
+
+
+        <h2>
+            Welcome Back 👋
+        </h2>
+
+
+        <p>
+            Sign in to continue your learning journey
+        </p>
+
+    </div>
+
+
+    <!-- FORM -->
+
+    <div class="form-section">
+
+
+        <!-- MESSAGE -->
+
+        <div
+            id="message-box"
+            class="message-box"
+        >
+
+            <span id="message-icon">
+                !
+            </span>
+
+            <span id="message-text"></span>
+
+        </div>
+
+
+        <form
+            id="login-form"
+            class="login-form"
+            novalidate
+        >
+
+
+            <!-- EMAIL -->
+
+            <div class="input-group">
+
+                <label
+                    for="email"
+                    class="input-label"
+                >
+                    Email Address
+                </label>
+
+
+                <div class="input-box">
+
+                    <div class="input-icon">
+                        ✉
+                    </div>
+
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        inputmode="email"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+                <div class="password-header">
+
+                    <label
+                        for="password"
+                        class="input-label"
+                    >
+                        Password
+                    </label>
+
+
+                    <button
+                        type="button"
+                        id="forgot-password"
+                        class="forgot-btn"
+                    >
+                        Forgot password?
+                    </button>
+
+                </div>
+
+
+                <div class="input-box">
+
+                    <div class="input-icon">
+                        🔒
+                    </div>
+
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        minlength="6"
+                        required
+                    >
+
+
+                    <button
+                        type="button"
+                        id="toggle-password"
+                        aria-label="Show password"
+                        class="password-toggle"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- REMEMBER -->
+
+            <div class="remember-row">
+
+                <label class="remember-label">
+
+                    <input
+                        type="checkbox"
+                        id="remember-me"
+                    >
+
+                    <span>
+                        Remember me
+                    </span>
+
+                </label>
+
+            </div>
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button
+                type="submit"
+                id="login-btn"
+                class="login-btn"
+            >
+
+                <span id="login-btn-text">
+                    Sign In
+                </span>
+
+                <span
+                    id="login-btn-arrow"
+                    class="login-arrow"
+                >
+                    →
+                </span>
+
+            </button>
+
+        </form>
+
+
+        <!-- DIVIDER -->
+
+        <div class="divider">
+
+            <div class="divider-line"></div>
+
+            <span class="divider-text">
+                OR CONTINUE WITH
+            </span>
+
+            <div class="divider-line"></div>
+
+        </div>
+
+
+        <!-- GOOGLE LOGIN -->
+
+        <div
+            id="google-wrapper"
+            class="google-wrapper"
+        >
+
+            <div
+                class="flex justify-center w-full"
+            >
+
+                <div
+                    id="g_id_onload"
+
+                    data-client_id="339453629917-p612mtgmhtdal56751jf125koidm1obp.apps.googleusercontent.com"
+
+                    data-callback="handleCredentialResponse"
+
+                    data-auto_prompt="false"
+                >
+                </div>
+
+
+                <div
+                    class="g_id_signin
+                           w-full
+                           flex
+                           justify-center"
+
+                    data-type="standard"
+
+                    data-shape="rectangular"
+
+                    data-theme="outline"
+
+                    data-text="continue_with"
+
+                    data-size="large"
+
+                    data-logo_alignment="left"
+                >
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SIGNUP -->
+
+        <div class="signup-link">
+
+            Don't have an account?
+
+            <a href="/signup.html">
+                Create Account
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- SECURITY FOOTER -->
+
+    <div class="security-footer">
+
+        <div class="security-content">
+
+            <span>
+                🔐
+            </span>
+
+            <p>
+                Your login information is securely protected
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PAGE FOOTER -->
+
+<div class="page-footer">
+
+    <p>
+        © 2026 TMS Academy • All rights reserved
+    </p>
+
+</div>
+
+</main>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+const loginForm =
+    document.getElementById('login-form');
+
+const emailInput =
+    document.getElementById('email');
+
+const passwordInput =
+    document.getElementById('password');
+
+const loginButton =
+    document.getElementById('login-btn');
+
+const loginButtonText =
+    document.getElementById('login-btn-text');
+
+const loginButtonArrow =
+    document.getElementById('login-btn-arrow');
+
+const messageBox =
+    document.getElementById('message-box');
+
+const messageText =
+    document.getElementById('message-text');
+
+const messageIcon =
+    document.getElementById('message-icon');
+
+const togglePassword =
+    document.getElementById('toggle-password');
+
+const forgotPassword =
+    document.getElementById('forgot-password');
+
+const googleWrapper =
+    document.getElementById('google-wrapper');
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+function showMessage(
+    message,
+    type = 'error'
+) {
+
+    messageBox.className =
+        'message-box show';
+
+    messageText.textContent =
+        message;
+
+
+    if (type === 'success') {
+
+        messageBox.style.background =
+            '#ecfdf5';
+
+        messageBox.style.border =
+            '1px solid #d1fae5';
+
+        messageBox.style.color =
+            '#047857';
+
+        messageIcon.textContent =
+            '✓';
+
+    } else {
+
+        messageBox.style.background =
+            '#fef2f2';
+
+        messageBox.style.border =
+            '1px solid #fee2e2';
+
+        messageBox.style.color =
+            '#b91c1c';
+
+        messageIcon.textContent =
+            '!';
+    }
+}
+
+
+function hideMessage() {
+
+    messageBox.classList.remove(
+        'show'
+    );
+
+    messageText.textContent = '';
+
+}
+
+
+/* =====================================================
+   PASSWORD SHOW / HIDE
+===================================================== */
+
+togglePassword.addEventListener(
+    'click',
+    function () {
+
+        if (
+            passwordInput.type ===
+            'password'
+        ) {
+
+            passwordInput.type =
+                'text';
+
+            togglePassword.textContent =
+                '🙈';
+
+            togglePassword.setAttribute(
+                'aria-label',
+                'Hide password'
+            );
+
+        } else {
+
+            passwordInput.type =
+                'password';
+
+            togglePassword.textContent =
+                '👁';
+
+            togglePassword.setAttribute(
+                'aria-label',
+                'Show password'
+            );
+        }
+
+    }
+);
+
+
+/* =====================================================
+   INPUT MESSAGE CLEAR
+===================================================== */
+
+emailInput.addEventListener(
+    'input',
+    hideMessage
+);
+
+passwordInput.addEventListener(
+    'input',
+    hideMessage
+);
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+function setLoginLoading(
+    loading
+) {
+
+    loginButton.disabled =
+        loading;
+
+    if (loading) {
+
+        loginButtonText.textContent =
+            'Signing in...';
+
+        loginButtonArrow.innerHTML =
+            '<span class="spinner"></span>';
+
+    } else {
+
+        loginButtonText.textContent =
+            'Sign In';
+
+        loginButtonArrow.textContent =
+            '→';
+    }
+}
+
+
+/* =====================================================
+   NORMAL LOGIN
+===================================================== */
+
+loginForm.addEventListener(
+    'submit',
+    async function (e) {
+
+        e.preventDefault();
+
+        hideMessage();
+
+
+        const email =
+            emailInput.value
+                .trim()
+                .toLowerCase();
+
+        const password =
+            passwordInput.value;
+
+
+        if (!email) {
+
+            showMessage(
+                'Please enter your email address.'
+            );
+
+            emailInput.focus();
+
+            return;
+        }
+
+
+        if (!emailInput.checkValidity()) {
+
+            showMessage(
+                'Please enter a valid email address.'
+            );
+
+            emailInput.focus();
+
+            return;
+        }
+
+
+        if (!password) {
+
+            showMessage(
+                'Please enter your password.'
+            );
+
+            passwordInput.focus();
+
+            return;
+        }
+
+
+        if (password.length < 6) {
+
+            showMessage(
+                'Password must contain at least 6 characters.'
+            );
+
+            passwordInput.focus();
+
+            return;
+        }
+
+
+        setLoginLoading(true);
+
+
+        try {
+
+            const response =
+                await fetch(
+                    '/api/login',
+                    {
+                        method: 'POST',
+
+                        credentials:
+                            'same-origin',
+
+                        headers: {
+
+                            'Content-Type':
+                                'application/json',
+
+                            'Accept':
+                                'application/json'
+                        },
+
+                        body:
+                            JSON.stringify({
+                                email,
+                                password
+                            })
+                    }
+                );
+
+
+            let data;
+
+            try {
+
+                data =
+                    await response.json();
+
+            } catch {
+
+                data = {
+                    success: false,
+                    message:
+                        'Invalid server response.'
+                };
+            }
+
+
+            if (
+                response.ok &&
+                data.success
+            ) {
+
+                showMessage(
+                    'Login successful. Redirecting...',
+                    'success'
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        window.location.replace('/');
+
+                    },
+                    400
+                );
+
+                return;
+            }
+
+
+            showMessage(
+                data.message ||
+                'Invalid email or password.'
+            );
+
+            setLoginLoading(false);
+
+        } catch (error) {
+
+            console.error(
+                'Login Error:',
+                error
+            );
+
+            showMessage(
+                'Unable to connect to the server. Please try again.'
+            );
+
+            setLoginLoading(false);
+        }
+
+    }
+);
+
+
+/* =====================================================
+   GOOGLE LOGIN
+===================================================== */
+
+window.handleCredentialResponse =
+    async function (response) {
+
+        if (
+            !response ||
+            !response.credential
+        ) {
+
+            showMessage(
+                'Google authentication failed. Please try again.'
+            );
+
+            return;
+        }
+
+
+        hideMessage();
+
+        googleWrapper.classList.add(
+            'google-loading'
+        );
+
+
+        try {
+
+            const result =
+                await fetch(
+                    '/api/google-login',
+                    {
+
+                        method: 'POST',
+
+                        credentials:
+                            'same-origin',
+
+                        headers: {
+
+                            'Content-Type':
+                                'application/json',
+
+                            'Accept':
+                                'application/json'
+                        },
+
+                        body:
+                            JSON.stringify({
+                                token:
+                                    response.credential
+                            })
+                    }
+                );
+
+
+            let data;
+
+            try {
+
+                data =
+                    await result.json();
+
+            } catch {
+
+                data = {
+                    success: false,
+                    message:
+                        'Invalid server response.'
+                };
+            }
+
+
+            if (
+                result.ok &&
+                data.success
+            ) {
+
+                showMessage(
+                    'Google login successful. Redirecting...',
+                    'success'
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        window.location.replace('/');
+
+                    },
+                    400
+                );
+
+                return;
+            }
+
+
+            showMessage(
+                data.message ||
+                'Google Login Failed.'
+            );
+
+            googleWrapper.classList.remove(
+                'google-loading'
+            );
+
+        } catch (error) {
+
+            console.error(
+                'Google Login Error:',
+                error
+            );
+
+            showMessage(
+                'Google authentication error. Please try again.'
+            );
+
+            googleWrapper.classList.remove(
+                'google-loading'
+            );
+        }
+
+    };
+
+
+/* =====================================================
+   FORGOT PASSWORD
+===================================================== */
+
+forgotPassword.addEventListener(
+    'click',
+    function () {
+
+        showMessage(
+            'Password reset is not available yet. Please contact TMS Academy support.'
+        );
+
+    }
+);
+
+
+/* =====================================================
+   PREVENT DOUBLE SUBMIT
+===================================================== */
+
+window.addEventListener(
+    'pageshow',
+    function () {
+
+        loginButton.disabled =
+            false;
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>

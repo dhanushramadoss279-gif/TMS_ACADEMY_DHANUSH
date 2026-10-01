@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Verbs - Tamil Medium Student</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1e40af;
+            --bg-slate: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border-color: #e2e8f0;
+            
+            /* State Colors */
+            --pos-bg: #f0fdf4;
+            --pos-border: #86efac;
+            --pos-text: #166534;
+            
+            --neg-bg: #fef2f2;
+            --neg-border: #fca5a5;
+            --neg-text: #991b1b;
+            
+            --pos-q-bg: #eff6ff;
+            --pos-q-border: #93c5fd;
+            --pos-q-text: #1e40af;
+            
+            --neg-q-bg: #faf5ff;
+            --neg-q-border: #d8b4fe;
+            --neg-q-text: #6b21a8;
+            
+            --golden-bg: #fffbeb;
+            --golden-border: #fde68a;
+            --golden-text: #92400e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
+            background-color: var(--bg-slate);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* HEADER STYLES */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .back-btn:hover {
+            color: var(--primary-dark);
+        }
+
+        .brand-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            background: #eff6ff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .page-title-banner {
+            text-align: center;
+            margin: 30px 0 20px 0;
+        }
+
+        .page-title-banner h1 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .page-title-banner p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* CARD STYLES */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ta-text {
+            font-family: 'Noto Sans Tamil', sans-serif;
+            color: var(--text-muted);
+        }
+
+        /* FORMULA BOXES */
+        .formula-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid var(--primary-blue);
+            padding: 10px 16px;
+            border-radius: 0 8px 8px 0;
+            font-weight: 600;
+            margin: 12px 0;
+            color: #1e293b;
+            font-size: 0.95rem;
+        }
+
+        /* TABLES */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        /* PATTERN GRID FOR MODAL TYPES */
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .modal-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .pattern-card {
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid transparent;
+        }
+
+        .pattern-card.pos {
+            background-color: var(--pos-bg);
+            border-color: var(--pos-border);
+        }
+        .pattern-card.neg {
+            background-color: var(--neg-bg);
+            border-color: var(--neg-border);
+        }
+        .pattern-card.pos-q {
+            background-color: var(--pos-q-bg);
+            border-color: var(--pos-q-border);
+        }
+        .pattern-card.neg-q {
+            background-color: var(--neg-q-bg);
+            border-color: var(--neg-q-border);
+        }
+
+        .pattern-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .pos .pattern-badge { background: #bbf7d0; color: var(--pos-text); }
+        .neg .pattern-badge { background: #fecaca; color: var(--neg-text); }
+        .pos-q .pattern-badge { background: #bfdbfe; color: var(--pos-q-text); }
+        .neg-q .pattern-badge { background: #e9d5ff; color: var(--neg-q-text); }
+
+        .example-list {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .example-item {
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+        }
+
+        .example-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .example-en {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .example-ta {
+            font-size: 0.88rem;
+            color: #475569;
+        }
+
+        /* RULES HIGHLIGHT */
+        .rule-wrong {
+            color: #dc2626;
+            font-weight: 500;
+        }
+
+        .rule-correct {
+            color: #16a34a;
+            font-weight: 600;
+        }
+
+        /* SPECIAL CARDS */
+        .golden-card {
+            background-color: var(--golden-bg);
+            border: 2px solid var(--golden-border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .golden-card h2 {
+            color: var(--golden-text);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .golden-formula {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: #ffffff;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 8px;
+            border: 1px dashed #f59e0b;
+            color: #b45309;
+            margin: 10px 0;
+        }
+
+        .memory-box {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        .memory-box h2 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .memory-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 14px;
+            border-radius: 6px;
+            backdrop-filter: blur(5px);
+        }
+
+        .memory-item span {
+            font-weight: 700;
+            color: #93c5fd;
+        }
+
+        /* UTILITY */
+        .note-box {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--primary-blue);
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+    </style>
+    <link rel="stylesheet" href="tms-theme.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="back-btn">← Back to Verbs</a>
+            <span class="brand-name">Tamil Medium Student</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- TITLE BANNER -->
+        <div class="page-title-banner">
+            <h1>MODAL VERBS</h1>
+            <p>Modal Verbs – தமிழ் விளக்கம்</p>
+        </div>
+
+        <!-- SECTION 1: WHAT ARE MODAL VERBS? -->
+        <div class="card">
+            <h2 class="section-title">What are Modal Verbs?</h2>
+            <p><strong>Modal Verbs</strong> are helping verbs used to express ability, permission, possibility, possibility in the future, advice, necessity, request, or willingness.</p>
+            
+            <p class="ta-text" style="margin-top: 10px;">
+                Modal Verbs என்பது ஒரு செயலை செய்ய முடியும், செய்யலாம், செய்ய வேண்டும், செய்யக் கூடாது, செய்யக்கூடும், செய்ய வேண்டும் என்று அறிவுரை கூறலாம் போன்ற அர்த்தங்களை தெரிவிக்க உதவும் Helping Verbs.
+            </p>
+
+            <div class="note-box" style="margin-top: 16px;">
+                <p class="example-en">Example: I can swim.</p>
+                <p class="example-ta">தமிழ்: நான் நீந்த முடியும்.</p>
+                <p style="font-size: 0.85rem; color: #2563eb; margin-top: 4px;"><strong>Explanation:</strong> CAN shows ability.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 2: COMMON MODAL VERBS -->
+        <div class="card">
+            <h2 class="section-title">Common Modal Verbs</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Modal Verb</th>
+                            <th>Tamil Meaning</th>
+                            <th>Main Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>CAN</strong></td><td>முடியும் / செய்யலாம்</td><td>Ability / Permission</td></tr>
+                        <tr><td><strong>COULD</strong></td><td>முடிந்தது / முடியுமா</td><td>Past Ability / Polite Request</td></tr>
+                        <tr><td><strong>MAY</strong></td><td>இருக்கலாம் / அனுமதி</td><td>Possibility / Permission</td></tr>
+                        <tr><td><strong>MIGHT</strong></td><td>இருக்கக்கூடும்</td><td>Possibility</td></tr>
+                        <tr><td><strong>WILL</strong></td><td>செய்வேன் / செய்வார்</td><td>Future / Willingness</td></tr>
+                        <tr><td><strong>WOULD</strong></td><td>செய்வேன் / செய்வீர்களா</td><td>Polite Request / Imaginary</td></tr>
+                        <tr><td><strong>SHALL</strong></td><td>செய்வோம் / செய்வோமா</td><td>Suggestion / Future</td></tr>
+                        <tr><td><strong>SHOULD</strong></td><td>செய்ய வேண்டும்</td><td>Advice</td></tr>
+                        <tr><td><strong>MUST</strong></td><td>கண்டிப்பாக செய்ய வேண்டும்</td><td>Necessity</td></tr>
+                        <tr><td><strong>OUGHT TO</strong></td><td>செய்ய வேண்டும்</td><td>Advice / Duty</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        
+        <!-- SECTION 15: QUICK FORMULA -->
+        <div class="card">
+    <h2 class="section-title">Quick Formula</h2>
+    
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div class="formula-box" style="margin: 0; background-color: var(--pos-bg); border-color: var(--pos-border);">
+            <strong>Positive (+):</strong> Subject + Modal + Base Verb <span style="font-style: italic; color: var(--text-muted);">(e.g., You <strong>can swim</strong> - உன்னால் நீந்த முடியும்)</span>
+        </div>
+        <div class="formula-box" style="margin: 0; background-color: var(--neg-bg); border-color: var(--neg-border);">
+            <strong>Negative (-):</strong> Subject + Modal + NOT + Base Verb <span style="font-style: italic; color: var(--text-muted);">(e.g., You <strong>cannot swim</strong> - உன்னால் நீந்த முடியாது)</span>
+        </div>
+        <div class="formula-box" style="margin: 0; background-color: var(--pos-q-bg); border-color: var(--pos-q-border);">
+            <strong>Positive Question (+?):</strong> Modal + Subject + Base Verb? <span style="font-style: italic; color: var(--text-muted);">(e.g., <strong>Can</strong> you <strong>swim</strong>? - உன்னால் நீந்த முடியுமா?)</span>
+        </div>
+        <div class="formula-box" style="margin: 0; background-color: var(--neg-q-bg); border-color: var(--neg-q-border);">
+            <strong>Negative Question (-?):</strong> Modal + Subject + NOT + Base Verb? <span style="font-style: italic; color: var(--text-muted);">(e.g., <strong>Can</strong> you <strong>not swim</strong>? - உன்னால் நீந்த முடியாதா?)</span>
+        </div>
+    </div>
+
+    <div style="margin-top: 12px; font-size: 0.9rem; color: var(--text-muted);">
+        <strong>Special case:</strong> <code>OUGHT TO + BASE VERB</code> <span style="font-style: italic;">(e.g., You <strong>ought to study</strong> - நீ படிக்க வேண்டும் / கடமை)</span>
+    </div>
+</div>  
+
+       
+
+    </div>
+
+</body>
+</html>

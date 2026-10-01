@@ -1,0 +1,1599 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <title>Create Account - TMS Academy</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+            margin: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            min-height: 100dvh;
+
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(37, 99, 235, 0.14),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(79, 70, 229, 0.13),
+                    transparent 32%
+                ),
+                #f8fafc;
+        }
+
+        /* =====================================================
+           MAIN PAGE
+        ===================================================== */
+
+        .page {
+            width: 100%;
+            min-height: 100dvh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 14px;
+        }
+
+        .signup-container {
+            width: 100%;
+            max-width: 430px;
+        }
+
+        /* =====================================================
+           BRAND
+        ===================================================== */
+
+        .brand-area {
+            text-align: center;
+            margin-bottom: 14px;
+        }
+
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+
+            margin: 0 auto 7px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            color: white;
+            font-size: 19px;
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #4f46e5
+                );
+
+            box-shadow:
+                0 8px 20px rgba(37, 99, 235, 0.22);
+        }
+
+        .brand-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .brand-subtitle {
+            margin-top: 2px;
+            font-size: 10px;
+            color: #64748b;
+        }
+
+        /* =====================================================
+           CARD
+        ===================================================== */
+
+        .signup-card {
+            width: 100%;
+
+            background: white;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 24px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 25px 60px rgba(15, 23, 42, 0.09),
+                0 8px 25px rgba(15, 23, 42, 0.04);
+        }
+
+        /* =====================================================
+           CARD HEADER
+        ===================================================== */
+
+        .card-header {
+            padding: 18px 24px 4px;
+            text-align: center;
+        }
+
+        .member-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 5px 10px;
+
+            border-radius: 999px;
+
+            background: #eef2ff;
+
+            border: 1px solid #e0e7ff;
+
+            color: #4f46e5;
+
+            font-size: 9px;
+            font-weight: 700;
+        }
+
+        .member-dot {
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: #6366f1;
+        }
+
+        .card-title {
+            margin-top: 9px;
+
+            color: #0f172a;
+
+            font-size: 22px;
+            line-height: 1.2;
+
+            font-weight: 800;
+
+            letter-spacing: -0.03em;
+        }
+
+        .card-description {
+            margin-top: 5px;
+
+            color: #64748b;
+
+            font-size: 11px;
+            line-height: 1.45;
+        }
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .form-area {
+            padding: 18px 24px 20px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .field-label {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: #334155;
+
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .input-box {
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+
+            min-height: 43px;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 12px;
+
+            background: #f8fafc;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .input-box:focus-within {
+            border-color: #4f46e5;
+
+            background: white;
+
+            box-shadow:
+                0 0 0 3px rgba(79, 70, 229, 0.10);
+        }
+
+        .input-icon {
+            padding-left: 13px;
+
+            color: #94a3b8;
+
+            font-size: 15px;
+        }
+
+        .input-field {
+            width: 100%;
+
+            border: none;
+            outline: none;
+
+            background: transparent;
+
+            padding: 10px 11px;
+
+            color: #1e293b;
+
+            font-size: 12px;
+        }
+
+        .input-field::placeholder {
+            color: #94a3b8;
+        }
+
+        .password-toggle {
+            padding-right: 13px;
+
+            border: none;
+
+            background: transparent;
+
+            color: #94a3b8;
+
+            cursor: pointer;
+
+            font-size: 14px;
+        }
+
+        .password-toggle:hover {
+            color: #475569;
+        }
+
+        /* =====================================================
+           PASSWORD STRENGTH
+        ===================================================== */
+
+        .strength-wrapper {
+            margin-top: 6px;
+        }
+
+        .strength-bars {
+            display: flex;
+            gap: 4px;
+        }
+
+        .strength-bar {
+            height: 3px;
+
+            flex: 1;
+
+            border-radius: 999px;
+
+            background: #e2e8f0;
+
+            transition: background 0.2s ease;
+        }
+
+        .strength-text {
+            margin-top: 4px;
+
+            color: #94a3b8;
+
+            font-size: 9px;
+        }
+
+        /* =====================================================
+           TERMS
+        ===================================================== */
+
+        .terms-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+
+            margin-top: 1px;
+        }
+
+        .terms-checkbox {
+            width: 14px;
+            height: 14px;
+
+            flex-shrink: 0;
+
+            margin-top: 1px;
+
+            accent-color: #4f46e5;
+        }
+
+        .terms-text {
+            color: #64748b;
+
+            font-size: 9px;
+            line-height: 1.5;
+        }
+
+        .terms-text a {
+            color: #4f46e5;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .terms-text a:hover {
+            color: #4338ca;
+        }
+
+        /* =====================================================
+           BUTTON
+        ===================================================== */
+
+        .signup-btn {
+            width: 100%;
+
+            min-height: 43px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+
+            margin-top: 1px;
+
+            border: none;
+            border-radius: 12px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #4f46e5
+                );
+
+            font-size: 12px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 9px 22px rgba(79, 70, 229, 0.22);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+        .signup-btn:hover:not(:disabled) {
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 13px 28px rgba(79, 70, 229, 0.28);
+        }
+
+        .signup-btn:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .signup-btn:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        /* =====================================================
+           DIVIDER
+        ===================================================== */
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin: 14px 0;
+        }
+
+        .divider-line {
+            height: 1px;
+            flex: 1;
+
+            background: #e2e8f0;
+        }
+
+        .divider-text {
+            color: #94a3b8;
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.08em;
+
+            text-transform: uppercase;
+        }
+
+        /* =====================================================
+           LOGIN
+        ===================================================== */
+
+        .login-text {
+            text-align: center;
+
+            color: #64748b;
+
+            font-size: 11px;
+        }
+
+        .login-link {
+            color: #4f46e5;
+
+            font-weight: 800;
+
+            text-decoration: none;
+        }
+
+        .login-link:hover {
+            color: #4338ca;
+        }
+
+        /* =====================================================
+           SECURITY FOOTER
+        ===================================================== */
+
+        .security-footer {
+            padding: 10px 16px;
+
+            border-top: 1px solid #f1f5f9;
+
+            background: #f8fafc;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .security-footer span {
+            font-size: 9px;
+            color: #94a3b8;
+        }
+
+        .page-footer {
+            margin-top: 10px;
+
+            text-align: center;
+
+            color: #94a3b8;
+
+            font-size: 8px;
+        }
+
+        /* =====================================================
+           ERROR / SUCCESS
+        ===================================================== */
+
+        .error-text {
+            display: none;
+
+            margin-top: 5px;
+
+            color: #dc2626;
+
+            font-size: 9px;
+        }
+
+        .error-text.show {
+            display: block;
+        }
+
+        .success-message {
+            display: none;
+
+            margin-bottom: 10px;
+
+            padding: 9px 11px;
+
+            border-radius: 10px;
+
+            border: 1px solid #a7f3d0;
+
+            background: #ecfdf5;
+
+            color: #047857;
+
+            font-size: 10px;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 640px) {
+
+            .page {
+                min-height: 100dvh;
+
+                padding: 8px 10px;
+            }
+
+            .signup-container {
+                max-width: 390px;
+            }
+
+            .brand-area {
+                margin-bottom: 8px;
+            }
+
+            .brand-icon {
+                width: 38px;
+                height: 38px;
+
+                margin-bottom: 5px;
+
+                border-radius: 12px;
+
+                font-size: 16px;
+            }
+
+            .brand-title {
+                font-size: 15px;
+            }
+
+            .brand-subtitle {
+                font-size: 9px;
+            }
+
+            .signup-card {
+                border-radius: 20px;
+            }
+
+            .card-header {
+                padding: 14px 18px 2px;
+            }
+
+            .card-title {
+                font-size: 20px;
+            }
+
+            .card-description {
+                font-size: 10px;
+            }
+
+            .form-area {
+                padding: 14px 18px 15px;
+            }
+
+            .form {
+                gap: 10px;
+            }
+
+            .field-label {
+                font-size: 10px;
+                margin-bottom: 4px;
+            }
+
+            .input-box {
+                min-height: 39px;
+            }
+
+            .input-field {
+                padding: 8px 10px;
+                font-size: 11px;
+            }
+
+            .input-icon {
+                padding-left: 11px;
+                font-size: 14px;
+            }
+
+            .password-toggle {
+                padding-right: 11px;
+                font-size: 13px;
+            }
+
+            .strength-wrapper {
+                margin-top: 5px;
+            }
+
+            .terms-text {
+                font-size: 8.5px;
+            }
+
+            .signup-btn {
+                min-height: 40px;
+                font-size: 11px;
+            }
+
+            .divider {
+                margin: 11px 0;
+            }
+
+            .login-text {
+                font-size: 10px;
+            }
+
+            .security-footer {
+                padding: 8px 12px;
+            }
+
+            .security-footer span {
+                font-size: 8px;
+            }
+
+            .page-footer {
+                margin-top: 6px;
+                font-size: 7px;
+            }
+        }
+
+        /* =====================================================
+           VERY SMALL MOBILE
+        ===================================================== */
+
+        @media (max-height: 700px) {
+
+            .page {
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+
+            .brand-area {
+                margin-bottom: 5px;
+            }
+
+            .brand-icon {
+                width: 34px;
+                height: 34px;
+                font-size: 14px;
+                margin-bottom: 3px;
+            }
+
+            .brand-title {
+                font-size: 14px;
+            }
+
+            .brand-subtitle {
+                display: none;
+            }
+
+            .card-header {
+                padding-top: 10px;
+            }
+
+            .card-title {
+                font-size: 18px;
+            }
+
+            .card-description {
+                display: none;
+            }
+
+            .form-area {
+                padding-top: 11px;
+                padding-bottom: 11px;
+            }
+
+            .form {
+                gap: 8px;
+            }
+
+            .input-box {
+                min-height: 36px;
+            }
+
+            .input-field {
+                padding-top: 7px;
+                padding-bottom: 7px;
+            }
+
+            .signup-btn {
+                min-height: 38px;
+            }
+
+            .divider {
+                margin: 8px 0;
+            }
+
+            .page-footer {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+    <main class="signup-container">
+
+        <!-- BRAND -->
+
+        <div class="brand-area">
+
+            <div class="brand-icon">
+    <svg
+        viewBox="0 0 64 64"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+    >
+        <!-- Graduation Cap -->
+        <path
+            d="M10 25L32 14L54 25L32 36L10 25Z"
+            fill="none"
+            stroke="white"
+            stroke-width="4"
+            stroke-linejoin="round"
+        />
+
+        <path
+            d="M18 30V39C18 39 23 46 32 46C41 46 46 39 46 39V30"
+            fill="none"
+            stroke="white"
+            stroke-width="4"
+            stroke-linecap="round"
+        />
+
+        <path
+            d="M54 25V38"
+            fill="none"
+            stroke="white"
+            stroke-width="4"
+            stroke-linecap="round"
+        />
+
+        <circle
+            cx="54"
+            cy="40"
+            r="2.5"
+            fill="white"
+        />
+    </svg>
+</div>
+
+            <div class="brand-title">
+                TMS Academy
+            </div>
+
+            <div class="brand-subtitle">
+                Learn. Practice. Grow.
+            </div>
+
+        </div>
+
+
+        <!-- SIGNUP CARD -->
+
+        <div class="signup-card">
+
+            <!-- HEADER -->
+
+            <div class="card-header">
+
+                <div class="member-badge">
+
+                    <span class="member-dot"></span>
+
+                    New Member
+
+                </div>
+
+                <h1 class="card-title">
+                    Create Your Account 🚀
+                </h1>
+
+                <p class="card-description">
+                    Join TMS Academy and start your learning journey
+                </p>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <div class="form-area">
+
+                <div
+                    id="success-message"
+                    class="success-message"
+                >
+                    Account created successfully.
+                </div>
+
+
+                <form
+                    id="signup-form"
+                    class="form"
+                    novalidate
+                >
+
+                    <!-- EMAIL -->
+
+                    <div>
+
+                        <label
+                            for="email"
+                            class="field-label"
+                        >
+                            Email Address
+                        </label>
+
+                        <div class="input-box">
+
+                            <div class="input-icon">
+                                ✉
+                            </div>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                inputmode="email"
+                                maxlength="254"
+                                required
+                                class="input-field"
+                            >
+
+                        </div>
+
+                        <p
+                            id="email-error"
+                            class="error-text"
+                        >
+                            Please enter a valid email address.
+                        </p>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div>
+
+                        <label
+                            for="password"
+                            class="field-label"
+                        >
+                            Create Password
+                        </label>
+
+                        <div class="input-box">
+
+                            <div class="input-icon">
+                                🔒
+                            </div>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Create a strong password"
+                                autocomplete="new-password"
+                                minlength="8"
+                                maxlength="128"
+                                required
+                                class="input-field"
+                            >
+
+                            <button
+                                type="button"
+                                id="toggle-password"
+                                class="password-toggle"
+                                aria-label="Show password"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+
+                        <!-- STRENGTH -->
+
+                        <div class="strength-wrapper">
+
+                            <div class="strength-bars">
+
+                                <div
+                                    id="strength-1"
+                                    class="strength-bar"
+                                ></div>
+
+                                <div
+                                    id="strength-2"
+                                    class="strength-bar"
+                                ></div>
+
+                                <div
+                                    id="strength-3"
+                                    class="strength-bar"
+                                ></div>
+
+                                <div
+                                    id="strength-4"
+                                    class="strength-bar"
+                                ></div>
+
+                            </div>
+
+                            <p
+                                id="password-strength"
+                                class="strength-text"
+                            >
+                                Use at least 8 characters.
+                            </p>
+
+                        </div>
+
+
+                        <p
+                            id="password-error"
+                            class="error-text"
+                        >
+                            Password must contain at least 8 characters.
+                        </p>
+
+                    </div>
+
+
+                    <!-- TERMS -->
+
+                    <div>
+
+                        <label class="terms-row">
+
+                            <input
+                                type="checkbox"
+                                id="terms"
+                                required
+                                class="terms-checkbox"
+                            >
+
+                            <span class="terms-text">
+
+                                I agree to the
+
+                                <a href="/terms.html">
+                                    Terms & Conditions
+                                </a>
+
+                                and
+
+                                <a href="/privacy.html">
+                                    Privacy Policy
+                                </a>.
+
+                            </span>
+
+                        </label>
+
+
+                        <p
+                            id="terms-error"
+                            class="error-text"
+                        >
+                            Please accept the Terms & Conditions.
+                        </p>
+
+                    </div>
+
+
+                    <!-- BUTTON -->
+
+                    <button
+                        type="submit"
+                        id="signup-btn"
+                        class="signup-btn"
+                    >
+
+                        <span>
+                            Create Account
+                        </span>
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+                </form>
+
+
+                <!-- DIVIDER -->
+
+                <div class="divider">
+
+                    <div class="divider-line"></div>
+
+                    <span class="divider-text">
+                        Secure Registration
+                    </span>
+
+                    <div class="divider-line"></div>
+
+                </div>
+
+
+                <!-- LOGIN -->
+
+                <div class="login-text">
+
+                    Already have an account?
+
+                    <a
+                        href="/login.html"
+                        class="login-link"
+                    >
+                        Sign In
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- SECURITY FOOTER -->
+
+            <div class="security-footer">
+
+                <span>
+                    🔐
+                </span>
+
+                <span>
+                    Your account information is securely protected
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="page-footer">
+
+            © 2026 TMS Academy • All rights reserved
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script>
+
+"use strict";
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const form =
+    document.getElementById("signup-form");
+
+const emailInput =
+    document.getElementById("email");
+
+const passwordInput =
+    document.getElementById("password");
+
+const termsInput =
+    document.getElementById("terms");
+
+const button =
+    document.getElementById("signup-btn");
+
+const togglePassword =
+    document.getElementById("toggle-password");
+
+const emailError =
+    document.getElementById("email-error");
+
+const passwordError =
+    document.getElementById("password-error");
+
+const termsError =
+    document.getElementById("terms-error");
+
+const successMessage =
+    document.getElementById("success-message");
+
+const strengthText =
+    document.getElementById("password-strength");
+
+
+/* =====================================================
+   PASSWORD SHOW / HIDE
+===================================================== */
+
+togglePassword.addEventListener(
+    "click",
+    function () {
+
+        const isPassword =
+            passwordInput.type === "password";
+
+        passwordInput.type =
+            isPassword ? "text" : "password";
+
+        this.textContent =
+            isPassword ? "🙈" : "👁";
+
+        this.setAttribute(
+            "aria-label",
+            isPassword
+                ? "Hide password"
+                : "Show password"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   EMAIL VALIDATION
+===================================================== */
+
+function isValidEmail(email) {
+
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+}
+
+
+/* =====================================================
+   PASSWORD STRENGTH
+===================================================== */
+
+function updatePasswordStrength(password) {
+
+    const bars = [
+
+        document.getElementById("strength-1"),
+        document.getElementById("strength-2"),
+        document.getElementById("strength-3"),
+        document.getElementById("strength-4")
+
+    ];
+
+
+    bars.forEach(
+        bar => {
+            bar.className =
+                "strength-bar";
+        }
+    );
+
+
+    if (!password) {
+
+        strengthText.textContent =
+            "Use at least 8 characters.";
+
+        return;
+    }
+
+
+    let score = 0;
+
+
+    if (password.length >= 8)
+        score++;
+
+    if (password.length >= 12)
+        score++;
+
+    if (/[A-Z]/.test(password))
+        score++;
+
+    if (
+        /[a-z]/.test(password) &&
+        /\d/.test(password)
+    )
+        score++;
+
+
+    const activeClass = [
+
+        "bg-red-400",
+        "bg-orange-400",
+        "bg-yellow-400",
+        "bg-emerald-500"
+
+    ];
+
+
+    for (
+        let i = 0;
+        i < score;
+        i++
+    ) {
+
+        bars[i].classList.add(
+            activeClass[score - 1]
+        );
+
+    }
+
+
+    if (score <= 1) {
+
+        strengthText.textContent =
+            "Weak password";
+
+    }
+
+    else if (score === 2) {
+
+        strengthText.textContent =
+            "Fair password";
+
+    }
+
+    else if (score === 3) {
+
+        strengthText.textContent =
+            "Good password";
+
+    }
+
+    else {
+
+        strengthText.textContent =
+            "Strong password";
+
+    }
+
+}
+
+
+/* =====================================================
+   PASSWORD INPUT
+===================================================== */
+
+passwordInput.addEventListener(
+    "input",
+    function () {
+
+        updatePasswordStrength(
+            this.value
+        );
+
+        passwordError.classList.remove(
+            "show"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   CLEAR ERRORS
+===================================================== */
+
+emailInput.addEventListener(
+    "input",
+    () => {
+
+        emailError.classList.remove(
+            "show"
+        );
+
+    }
+);
+
+
+termsInput.addEventListener(
+    "change",
+    () => {
+
+        termsError.classList.remove(
+            "show"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   BUTTON RESET
+===================================================== */
+
+function resetButton() {
+
+    button.disabled = false;
+
+    button.innerHTML = `
+        <span>
+            Create Account
+        </span>
+
+        <span>
+            →
+        </span>
+    `;
+
+}
+
+
+/* =====================================================
+   SIGNUP
+===================================================== */
+
+form.addEventListener(
+    "submit",
+    async function (e) {
+
+        e.preventDefault();
+
+
+        emailError.classList.remove("show");
+        passwordError.classList.remove("show");
+        termsError.classList.remove("show");
+        successMessage.classList.remove("show");
+
+
+        const email =
+            emailInput.value
+                .trim()
+                .toLowerCase();
+
+
+        const password =
+            passwordInput.value;
+
+
+        /* ---------------------------------------------
+           CLIENT VALIDATION
+        --------------------------------------------- */
+
+        if (!isValidEmail(email)) {
+
+            emailError.classList.add("show");
+
+            emailInput.focus();
+
+            return;
+
+        }
+
+
+        if (
+            password.length < 8 ||
+            password.length > 128
+        ) {
+
+            passwordError.textContent =
+                "Password must be between 8 and 128 characters.";
+
+            passwordError.classList.add("show");
+
+            passwordInput.focus();
+
+            return;
+
+        }
+
+
+        if (!termsInput.checked) {
+
+            termsError.classList.add("show");
+
+            return;
+
+        }
+
+
+        /* ---------------------------------------------
+           LOADING
+        --------------------------------------------- */
+
+        button.disabled = true;
+
+        button.innerHTML = `
+            <span class="animate-spin">
+                ◌
+            </span>
+
+            <span>
+                Creating Account...
+            </span>
+        `;
+
+
+        try {
+
+            /* -----------------------------------------
+               SERVER REQUEST
+            ----------------------------------------- */
+
+            const res =
+                await fetch(
+                    "/api/signup",
+                    {
+                        method: "POST",
+
+                        credentials:
+                            "same-origin",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json",
+
+                            "Accept":
+                                "application/json"
+
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                email,
+                                password
+
+                            })
+
+                    }
+                );
+
+
+            /* -----------------------------------------
+               SAFE JSON
+            ----------------------------------------- */
+
+            let data = {};
+
+            try {
+
+                data =
+                    await res.json();
+
+            }
+
+            catch {
+
+                data = {};
+
+            }
+
+
+            /* -----------------------------------------
+               SUCCESS
+            ----------------------------------------- */
+
+            if (
+                res.ok &&
+                data.success === true
+            ) {
+
+                successMessage.textContent =
+                    "Account created successfully. Redirecting to login...";
+
+                successMessage.classList.add(
+                    "show"
+                );
+
+
+                form.reset();
+
+                updatePasswordStrength("");
+
+
+                setTimeout(
+                    () => {
+
+                        window.location.replace(
+                            "/login.html"
+                        );
+
+                    },
+                    1000
+                );
+
+
+                return;
+
+            }
+
+
+            /* -----------------------------------------
+               SERVER ERROR
+            ----------------------------------------- */
+
+            const message =
+                typeof data.message === "string"
+                    ? data.message
+                    : "Unable to create account. Please try again.";
+
+
+            alert(message);
+
+            resetButton();
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Signup request failed:",
+                error
+            );
+
+
+            alert(
+                "Unable to connect to the server. Please try again."
+            );
+
+
+            resetButton();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>

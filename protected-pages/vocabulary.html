@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Levels - TMS Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
+            background: linear-gradient(135deg, #eff8ff, #ffffff, #eef6ff);
+            color: #1e293b;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            margin: auto;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #2563eb;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #1d4ed8;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* STAGES CONTAINER (VERTICAL STACK) */
+        .stages-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* STAGE BUTTON / CARD */
+        .stage-card {
+            background: rgba(255,255,255,0.95);
+            border: 1px solid #dbeafe;
+            border-radius: 18px;
+            padding: 18px 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 5px 18px rgba(37,99,235,0.07);
+            transition: all 0.25s ease;
+        }
+
+        .stage-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+
+        .stage-info {
+            flex: 1;
+        }
+
+        .stage-info h2 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 2px;
+        }
+
+        .stage-info p {
+            font-family: 'Noto Sans Tamil', sans-serif;
+            color: #64748b;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .stage-arrow {
+            font-size: 18px;
+            font-weight: 700;
+            color: #94a3b8;
+            transition: transform 0.2s ease;
+        }
+
+        /* THEME STYLES FOR EACH CARD */
+        /* Beginner */
+        .stage-card.beginner {
+            border-color: #bbf7d0;
+        }
+        .stage-card.beginner .stage-icon {
+            background: #dcfce7;
+        }
+        .stage-card.beginner h2 {
+            color: #15803d;
+        }
+        .stage-card.beginner:hover {
+            background: #f0fdf4;
+            border-color: #86efac;
+        }
+
+        /* Intermediate */
+        .stage-card.intermediate {
+            border-color: #bfdbfe;
+        }
+        .stage-card.intermediate .stage-icon {
+            background: #dbeafe;
+        }
+        .stage-card.intermediate h2 {
+            color: #1d4ed8;
+        }
+        .stage-card.intermediate:hover {
+            background: #eff6ff;
+            border-color: #93c5fd;
+        }
+
+        /* Advanced */
+        .stage-card.advanced {
+            border-color: #ddd6fe;
+        }
+        .stage-card.advanced .stage-icon {
+            background: #ede9fe;
+        }
+        .stage-card.advanced h2 {
+            color: #7c3aed;
+        }
+        .stage-card.advanced:hover {
+            background: #f5f3ff;
+            border-color: #c4b5fd;
+        }
+
+        .stage-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(37,99,235,0.12);
+        }
+
+        .stage-card:hover .stage-arrow {
+            transform: translateX(4px);
+        }
+
+        /* BACK */
+        .back-area {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .back-link {
+            display: inline-block;
+            text-decoration: none;
+            background: white;
+            border: 1px solid #bfdbfe;
+            color: #2563eb;
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .back-link:hover {
+            background: #eff6ff;
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .stage-card {
+                padding: 15px;
+            }
+            .stage-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 22px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="tms-theme.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-badge">
+            📚 Vocabulary Learning
+        </div>
+        <h1>
+            Vocabulary Levels
+        </h1>
+        <p class="subtitle">
+            எளிமையாக ஆரம்பித்து படிப்படியாக English Vocabulary கற்றுக்கொள்ளுங்கள்.
+        </p>
+    </div>
+
+    <!-- 3 MAIN STAGE BUTTONS -->
+    <div class="stages-stack">
+
+        <!-- Beginner Button -->
+        <a href="beginner.html" class="stage-card beginner">
+            <div class="stage-icon">🌱</div>
+            <div class="stage-info">
+                <h2>Beginner</h2>
+                <p>ஆரம்ப நிலை • அடிப்படையிலிருந்து தொடங்கலாம்</p>
+            </div>
+            <div class="stage-arrow">→</div>
+        </a>
+
+        <!-- Intermediate Button -->
+        <a href="intermediate.html" class="stage-card intermediate">
+            <div class="stage-icon">📘</div>
+            <div class="stage-info">
+                <h2>Intermediate</h2>
+                <p>நடுத்தர நிலை • மேலும் Vocabulary கற்றுக்கொள்ளலாம்</p>
+            </div>
+            <div class="stage-arrow">→</div>
+        </a>
+
+        <!-- Advanced Button -->
+        <a href="advanced.html" class="stage-card advanced">
+            <div class="stage-icon">🚀</div>
+            <div class="stage-info">
+                <h2>Advanced</h2>
+                <p>மேம்பட்ட நிலை • Strong Vocabulary & Sentence Making</p>
+            </div>
+            <div class="stage-arrow">→</div>
+        </a>
+
+    </div>
+
+    <!-- BACK -->
+    <div class="back-area">
+        <a href="vocabulary.html" class="back-link">
+            ← Back to Vocabulary
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

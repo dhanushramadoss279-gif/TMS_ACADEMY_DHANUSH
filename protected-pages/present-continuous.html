@@ -1,0 +1,2497 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>PRESENT CONTINUOUS TENSE – நிகழ்கால தொடர்நிலை (100 Questions)</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 50px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        /* HEADER */
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 7px 12px;
+            border-radius: 8px;
+            background-color: #eff6ff;
+            white-space: nowrap;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        /* HERO */
+
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            line-height: 1.35;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            opacity: 0.92;
+        }
+
+        /* PROGRESS */
+
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            min-width: 0;
+        }
+
+        .progress-item span:last-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .progress-item.completed {
+            background-color: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .completed .check-icon {
+            background: var(--success);
+        }
+
+        /* PILLS */
+
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 2px 2px 10px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+            min-height: 42px;
+            touch-action: manipulation;
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* TOPIC */
+
+        .topic-section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .topic-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .display-chain {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin: 12px 0;
+            text-align: center;
+            border: 1px dashed #93c5fd;
+            word-break: break-word;
+            line-height: 1.7;
+        }
+
+        .tamil-explain {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 10px 12px;
+            margin: 12px 0;
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        .formula-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 12px 0;
+        }
+
+        .formula-box strong {
+            color: #166534;
+        }
+
+        .formula-line {
+            margin-top: 5px;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        /* TABLE */
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 16px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 560px;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            padding: 10px;
+            font-weight: 700;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.5;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .sent-ta {
+            display: block;
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* QUIZ */
+
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            border: 2px solid #e0e7ff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-title-badge {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            white-space: nowrap;
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .question-tamil-text {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+            line-height: 1.55;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 50px;
+            padding: 12px 14px;
+            text-align: left;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+            line-height: 1.4;
+            transition: 0.15s ease;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: #93c5fd;
+            background: #eff6ff;
+        }
+
+        .option-btn:active {
+            transform: scale(0.99);
+        }
+
+        .option-btn.selected-correct {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+        }
+
+        .option-btn.selected-wrong {
+            background-color: var(--error-bg) !important;
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+        }
+
+        .feedback-box {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background: var(--success-bg);
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background: var(--error-bg);
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 100%;
+            min-height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            touch-action: manipulation;
+            padding: 12px;
+        }
+
+        .next-btn:hover:not(:disabled) {
+            background-color: var(--primary-dark);
+        }
+
+        .next-btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        /* RESULT */
+
+        .result-card {
+            text-align: center;
+            padding: 20px 10px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 4px solid var(--primary);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        .performance-msg {
+            line-height: 1.5;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            body {
+                font-size: 14px;
+            }
+
+            .container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            header {
+                padding: 9px 0;
+            }
+
+            .brand-title {
+                font-size: 0.82rem;
+            }
+
+            .back-link {
+                font-size: 0.78rem;
+                padding: 6px 9px;
+            }
+
+            .hero {
+                padding: 20px 12px;
+                margin: 12px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.18rem;
+            }
+
+            .hero p {
+                font-size: 0.82rem;
+            }
+
+            .progress-card,
+            .topic-section,
+            .quiz-container {
+                padding: 13px;
+            }
+
+            .progress-title {
+                font-size: 0.85rem;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-item {
+                min-height: 42px;
+            }
+
+            .topic-title {
+                font-size: 1.05rem;
+            }
+
+            .display-chain {
+                font-size: 0.8rem;
+                padding: 9px;
+            }
+
+            .tamil-explain {
+                font-size: 0.84rem;
+            }
+
+            .formula-box {
+                font-size: 0.84rem;
+            }
+
+            .quiz-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 7px;
+            }
+
+            .quiz-progress-text {
+                font-size: 0.76rem;
+            }
+
+            .question-text {
+                font-size: 0.94rem;
+            }
+
+            .question-tamil-text {
+                font-size: 0.82rem;
+            }
+
+            .option-btn {
+                min-height: 48px;
+                font-size: 0.88rem;
+                padding: 11px 12px;
+            }
+
+            .feedback-box {
+                font-size: 0.82rem;
+            }
+
+            .next-btn {
+                min-height: 48px;
+                font-size: 0.88rem;
+            }
+
+            table {
+                min-width: 540px;
+            }
+        }
+
+        @media (max-width: 360px) {
+
+            .hero h1 {
+                font-size: 1.05rem;
+            }
+
+            .brand-title {
+                font-size: 0.75rem;
+            }
+
+            .back-link {
+                font-size: 0.72rem;
+            }
+
+            .topic-title {
+                font-size: 0.98rem;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="tms-theme.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="container nav-header">
+
+        <a href="#" class="back-link">
+            ← Home
+        </a>
+
+        <div class="brand-title">
+            Tamil Medium Student
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="hero">
+
+        <h1>
+            PRESENT CONTINUOUS TENSE – நிகழ்கால தொடர்நிலை
+        </h1>
+
+        <p>
+            100 பயிற்சிகள் (50 + 50) தமிழ் விளக்கத்துடன்!
+        </p>
+
+    </div>
+
+
+    <!-- PROGRESS -->
+
+    <div class="progress-card">
+
+        <div class="progress-title">
+
+            <span>
+                கற்றல் நிலை (Progress)
+            </span>
+
+            <span
+                id="overall-progress-text"
+                style="color: var(--primary);">
+                0 / 2 Completed
+            </span>
+
+        </div>
+
+        <div
+            class="progress-grid"
+            id="progress-tracker-grid">
+        </div>
+
+    </div>
+
+
+    <!-- TOPIC PILLS -->
+
+    <div
+        class="topic-pills"
+        id="topic-pills">
+    </div>
+
+
+    <!-- TOPIC -->
+
+    <section
+        class="topic-section"
+        id="topic-content">
+    </section>
+
+
+    <!-- QUIZ -->
+
+    <section
+        class="quiz-container"
+        id="quiz-box">
+
+        <div class="quiz-header">
+
+            <span
+                class="quiz-title-badge"
+                id="quiz-topic-badge">
+
+                Present Continuous Quiz
+
+            </span>
+
+            <span
+                class="quiz-progress-text"
+                id="quiz-progress-text">
+
+                Question 1 / 50
+
+            </span>
+
+        </div>
+
+
+        <div id="question-runner">
+
+            <div class="question-box">
+
+                <div
+                    class="question-text"
+                    id="question-text">
+
+                    Loading question...
+
+                </div>
+
+                <div
+                    class="question-tamil-text"
+                    id="question-tamil-text">
+
+                    கேள்வி அர்த்தம்...
+
+                </div>
+
+                <div
+                    class="options-grid"
+                    id="options-container">
+                </div>
+
+            </div>
+
+
+            <div
+                class="feedback-box"
+                id="feedback-box">
+            </div>
+
+
+            <div class="quiz-actions">
+
+                <button
+                    class="next-btn"
+                    id="next-btn"
+                    onclick="nextQuestion()"
+                    disabled>
+
+                    அடுத்த கேள்வி (Next) →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div
+            class="result-card"
+            id="result-runner">
+
+            <div class="score-circle">
+
+                <span id="res-score">
+                    0
+                </span>
+
+            </div>
+
+            <div
+                class="performance-msg"
+                id="res-msg"
+                style="font-weight:700; margin-bottom:10px;">
+
+                வாழ்த்துக்கள்!
+
+            </div>
+
+            <button
+                class="next-btn"
+                onclick="resetCurrentQuiz()">
+
+                🔄 மீண்டும் பயிற்சி செய் (Try Again)
+
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   BASIC PRESENT CONTINUOUS QUESTIONS – 50
+========================================================= */
+
+const generateBasicQuestions = () => {
+
+    const raw = [
+
+        [
+            "I ______ English now.",
+            "(நான் இப்போது ஆங்கிலம் படித்துக் கொண்டிருக்கிறேன்.)",
+            ["am studying", "is studying", "are studying", "study"],
+            0,
+            "I உடன் am + V-ing பயன்படுத்த வேண்டும்."
+        ],
+
+        [
+            "She ______ dinner now.",
+            "(அவள் இப்போது இரவு உணவு சமைத்துக் கொண்டிருக்கிறாள்.)",
+            ["am cooking", "is cooking", "are cooking", "cooks"],
+            1,
+            "She உடன் is + V-ing."
+        ],
+
+        [
+            "They ______ cricket now.",
+            "(அவர்கள் இப்போது கிரிக்கெட் விளையாடிக் கொண்டிருக்கிறார்கள்.)",
+            ["is playing", "am playing", "are playing", "play"],
+            2,
+            "They உடன் are + V-ing."
+        ],
+
+        [
+            "He ______ TV now.",
+            "(அவன் இப்போது TV பார்த்துக் கொண்டிருக்கிறான்.)",
+            ["is watching", "am watching", "are watching", "watches"],
+            0,
+            "He உடன் is + V-ing."
+        ],
+
+        [
+            "We ______ English now.",
+            "(நாங்கள் இப்போது ஆங்கிலம் படித்துக் கொண்டிருக்கிறோம்.)",
+            ["is learning", "are learning", "am learning", "learn"],
+            1,
+            "We உடன் are + V-ing."
+        ],
+
+        [
+            "You ______ very fast.",
+            "(நீ மிகவும் வேகமாக ஓடிக் கொண்டிருக்கிறாய்.)",
+            ["is running", "am running", "are running", "run"],
+            2,
+            "You உடன் are + V-ing."
+        ],
+
+        [
+            "The baby ______ now.",
+            "(குழந்தை இப்போது அழுது கொண்டிருக்கிறது.)",
+            ["are crying", "is crying", "am crying", "cries"],
+            1,
+            "The baby = It. அதனால் is crying."
+        ],
+
+        [
+            "My father ______ a newspaper.",
+            "(என் தந்தை செய்தித்தாள் படித்துக் கொண்டிருக்கிறார்.)",
+            ["is reading", "are reading", "am reading", "reads"],
+            0,
+            "My father = He → is reading."
+        ],
+
+        [
+            "My mother ______ food.",
+            "(என் அம்மா உணவு சமைத்துக் கொண்டிருக்கிறார்.)",
+            ["are cooking", "is cooking", "am cooking", "cooks"],
+            1,
+            "My mother = She → is cooking."
+        ],
+
+        [
+            "I ______ to music.",
+            "(நான் இசை கேட்டுக் கொண்டிருக்கிறேன்.)",
+            ["is listening", "are listening", "am listening", "listen"],
+            2,
+            "I → am listening."
+        ],
+
+        [
+            "She ______ a book.",
+            "(அவள் ஒரு புத்தகம் படித்துக் கொண்டிருக்கிறாள்.)",
+            ["is reading", "are reading", "am reading", "reads"],
+            0,
+            "She → is reading."
+        ],
+
+        [
+            "They ______ football.",
+            "(அவர்கள் கால்பந்து விளையாடிக் கொண்டிருக்கிறார்கள்.)",
+            ["are playing", "is playing", "am playing", "play"],
+            0,
+            "They → are playing."
+        ],
+
+        [
+            "He ______ a car.",
+            "(அவன் ஒரு காரை ஓட்டிக் கொண்டிருக்கிறான்.)",
+            ["am driving", "is driving", "are driving", "drives"],
+            1,
+            "He → is driving."
+        ],
+
+        [
+            "We ______ dinner.",
+            "(நாங்கள் இரவு உணவு சாப்பிட்டுக் கொண்டிருக்கிறோம்.)",
+            ["is eating", "are eating", "am eating", "eat"],
+            1,
+            "We → are eating."
+        ],
+
+        [
+            "I ______ my homework.",
+            "(நான் என் வீட்டுப்பாடத்தை செய்து கொண்டிருக்கிறேன்.)",
+            ["am doing", "is doing", "are doing", "do"],
+            0,
+            "I → am doing."
+        ],
+
+        [
+            "She ______ her room.",
+            "(அவள் தனது அறையை சுத்தம் செய்து கொண்டிருக்கிறாள்.)",
+            ["are cleaning", "is cleaning", "am cleaning", "cleans"],
+            1,
+            "She → is cleaning."
+        ],
+
+        [
+            "They ______ in the park.",
+            "(அவர்கள் பூங்காவில் நடந்து கொண்டிருக்கிறார்கள்.)",
+            ["is walking", "are walking", "am walking", "walk"],
+            1,
+            "They → are walking."
+        ],
+
+        [
+            "He ______ English.",
+            "(அவன் ஆங்கிலம் பேசிக் கொண்டிருக்கிறான்.)",
+            ["am speaking", "are speaking", "is speaking", "speaks"],
+            2,
+            "He → is speaking."
+        ],
+
+        [
+            "We ______ for the bus.",
+            "(நாங்கள் பேருந்துக்காக காத்துக் கொண்டிருக்கிறோம்.)",
+            ["are waiting", "is waiting", "am waiting", "wait"],
+            0,
+            "We → are waiting."
+        ],
+
+        [
+            "You ______ a letter.",
+            "(நீ ஒரு கடிதம் எழுதிக் கொண்டிருக்கிறாய்.)",
+            ["is writing", "are writing", "am writing", "write"],
+            1,
+            "You → are writing."
+        ],
+
+        [
+            "The dog ______.",
+            "(நாய் ஓடிக் கொண்டிருக்கிறது.)",
+            ["are running", "is running", "am running", "runs"],
+            1,
+            "The dog = It → is running."
+        ],
+
+        [
+            "I ______ coffee.",
+            "(நான் காபி குடித்துக் கொண்டிருக்கிறேன்.)",
+            ["am drinking", "is drinking", "are drinking", "drink"],
+            0,
+            "I → am drinking."
+        ],
+
+        [
+            "She ______ to school.",
+            "(அவள் பள்ளிக்குச் சென்று கொண்டிருக்கிறாள்.)",
+            ["are going", "is going", "am going", "goes"],
+            1,
+            "She → is going."
+        ],
+
+        [
+            "They ______ a house.",
+            "(அவர்கள் ஒரு வீட்டை கட்டிக் கொண்டிருக்கிறார்கள்.)",
+            ["is building", "are building", "am building", "build"],
+            1,
+            "They → are building."
+        ],
+
+        [
+            "He ______ his bike.",
+            "(அவன் தனது bike-ஐ பழுது பார்த்துக் கொண்டிருக்கிறான்.)",
+            ["am repairing", "is repairing", "are repairing", "repairs"],
+            1,
+            "He → is repairing."
+        ],
+
+        [
+            "We ______ for the exam.",
+            "(நாங்கள் தேர்வுக்காக படித்துக் கொண்டிருக்கிறோம்.)",
+            ["is preparing", "are preparing", "am preparing", "prepare"],
+            1,
+            "We → are preparing."
+        ],
+
+        [
+            "I ______ a new project.",
+            "(நான் ஒரு புதிய project செய்து கொண்டிருக்கிறேன்.)",
+            ["am doing", "is doing", "are doing", "do"],
+            0,
+            "I → am doing."
+        ],
+
+        [
+            "She ______ on the phone.",
+            "(அவள் phone-ல் பேசிக் கொண்டிருக்கிறாள்.)",
+            ["are talking", "is talking", "am talking", "talks"],
+            1,
+            "She → is talking."
+        ],
+
+        [
+            "They ______ in Chennai.",
+            "(அவர்கள் சென்னையில் வசித்து வருகிறார்கள்.)",
+            ["is living", "are living", "am living", "live"],
+            1,
+            "They → are living."
+        ],
+
+        [
+            "He ______ his shoes.",
+            "(அவன் தனது காலணிகளை அணிந்து கொண்டிருக்கிறான்.)",
+            ["am wearing", "is wearing", "are wearing", "wears"],
+            1,
+            "He → is wearing."
+        ],
+
+        [
+            "I ______ my friend.",
+            "(நான் என் நண்பருடன் பேசிக் கொண்டிருக்கிறேன்.)",
+            ["am talking to", "is talking to", "are talking to", "talk"],
+            0,
+            "I → am talking."
+        ],
+
+        [
+            "We ______ a movie.",
+            "(நாங்கள் ஒரு movie பார்த்துக் கொண்டிருக்கிறோம்.)",
+            ["is watching", "are watching", "am watching", "watch"],
+            1,
+            "We → are watching."
+        ],
+
+        [
+            "She ______ her hair.",
+            "(அவள் தனது தலைமுடியை வாரிக் கொண்டிருக்கிறாள்.)",
+            ["are combing", "is combing", "am combing", "combs"],
+            1,
+            "She → is combing."
+        ],
+
+        [
+            "They ______ loudly.",
+            "(அவர்கள் சத்தமாக சிரித்துக் கொண்டிருக்கிறார்கள்.)",
+            ["is laughing", "are laughing", "am laughing", "laugh"],
+            1,
+            "They → are laughing."
+        ],
+
+        [
+            "He ______ a song.",
+            "(அவன் ஒரு பாடல் பாடிக் கொண்டிருக்கிறான்.)",
+            ["am singing", "is singing", "are singing", "sings"],
+            1,
+            "He → is singing."
+        ],
+
+        [
+            "I ______ for my friend.",
+            "(நான் என் நண்பனுக்காக காத்துக் கொண்டிருக்கிறேன்.)",
+            ["is waiting", "are waiting", "am waiting", "wait"],
+            2,
+            "I → am waiting."
+        ],
+
+        [
+            "We ______ to college.",
+            "(நாங்கள் கல்லூரிக்குச் சென்று கொண்டிருக்கிறோம்.)",
+            ["are going", "is going", "am going", "go"],
+            0,
+            "We → are going."
+        ],
+
+        [
+            "The teacher ______ the lesson.",
+            "(ஆசிரியர் பாடத்தை கற்பித்துக் கொண்டிருக்கிறார்.)",
+            ["are teaching", "is teaching", "am teaching", "teaches"],
+            1,
+            "The teacher = He/She → is teaching."
+        ],
+
+        [
+            "The students ______ in the classroom.",
+            "(மாணவர்கள் வகுப்பறையில் படித்துக் கொண்டிருக்கிறார்கள்.)",
+            ["is studying", "are studying", "am studying", "study"],
+            1,
+            "Students plural → are studying."
+        ],
+
+        [
+            "My brother ______ cricket.",
+            "(என் சகோதரன் கிரிக்கெட் விளையாடிக் கொண்டிருக்கிறான்.)",
+            ["am playing", "is playing", "are playing", "plays"],
+            1,
+            "My brother = He → is playing."
+        ],
+
+        [
+            "My sister ______ a dress.",
+            "(என் சகோதரி ஒரு dress அணிந்து கொண்டிருக்கிறாள்.)",
+            ["is wearing", "are wearing", "am wearing", "wears"],
+            0,
+            "My sister = She → is wearing."
+        ],
+
+        [
+            "I ______ the door.",
+            "(நான் கதவை திறந்து கொண்டிருக்கிறேன்.)",
+            ["am opening", "is opening", "are opening", "open"],
+            0,
+            "I → am opening."
+        ],
+
+        [
+            "She ______ the dishes.",
+            "(அவள் பாத்திரங்களை கழுவிக் கொண்டிருக்கிறாள்.)",
+            ["are washing", "is washing", "am washing", "washes"],
+            1,
+            "She → is washing."
+        ],
+
+        [
+            "They ______ their work.",
+            "(அவர்கள் தங்கள் வேலையை செய்து கொண்டிருக்கிறார்கள்.)",
+            ["is doing", "are doing", "am doing", "do"],
+            1,
+            "They → are doing."
+        ],
+
+        [
+            "He ______ a computer.",
+            "(அவன் computer பயன்படுத்திக் கொண்டிருக்கிறான்.)",
+            ["am using", "is using", "are using", "uses"],
+            1,
+            "He → is using."
+        ],
+
+        [
+            "We ______ English sentences.",
+            "(நாங்கள் ஆங்கில வாக்கியங்களை எழுதிக் கொண்டிருக்கிறோம்.)",
+            ["are writing", "is writing", "am writing", "write"],
+            0,
+            "We → are writing."
+        ],
+
+        [
+            "I ______ my room.",
+            "(நான் என் அறையை சுத்தம் செய்து கொண்டிருக்கிறேன்.)",
+            ["am cleaning", "is cleaning", "are cleaning", "clean"],
+            0,
+            "I → am cleaning."
+        ],
+
+        [
+            "She ______ breakfast.",
+            "(அவள் காலை உணவு சாப்பிட்டுக் கொண்டிருக்கிறாள்.)",
+            ["is having", "are having", "am having", "has"],
+            0,
+            "She → is having."
+        ],
+
+        [
+            "They ______ for the train.",
+            "(அவர்கள் ரயிலுக்காக காத்துக் கொண்டிருக்கிறார்கள்.)",
+            ["is waiting", "are waiting", "am waiting", "wait"],
+            1,
+            "They → are waiting."
+        ],
+
+        [
+            "He ______ his homework.",
+            "(அவன் தனது வீட்டுப்பாடத்தை செய்து கொண்டிருக்கிறான்.)",
+            ["am doing", "is doing", "are doing", "does"],
+            1,
+            "He → is doing."
+        ]
+
+    ];
+
+    return raw.map(item => ({
+        q: item[0],
+        tq: item[1],
+        o: item[2],
+        a: item[3],
+        e: item[4]
+    }));
+
+};
+
+
+/* =========================================================
+   ADVANCED PRESENT CONTINUOUS QUESTIONS – 50
+========================================================= */
+
+const generateAdvancedQuestions = () => {
+
+    const raw = [
+
+        [
+            "I ______ not sleeping now.",
+            "(நான் இப்போது தூங்கிக் கொண்டிருக்கவில்லை.)",
+            ["am", "is", "are", "do"],
+            0,
+            "I negative → am not sleeping."
+        ],
+
+        [
+            "She ______ not watching TV.",
+            "(அவள் TV பார்த்துக் கொண்டிருக்கவில்லை.)",
+            ["am", "is", "are", "does"],
+            1,
+            "She → is not watching."
+        ],
+
+        [
+            "They ______ not playing cricket.",
+            "(அவர்கள் கிரிக்கெட் விளையாடிக் கொண்டிருக்கவில்லை.)",
+            ["is", "am", "are", "do"],
+            2,
+            "They → are not playing."
+        ],
+
+        [
+            "He ______ not working today.",
+            "(அவன் இன்று வேலை செய்து கொண்டிருக்கவில்லை.)",
+            ["am", "is", "are", "does"],
+            1,
+            "He → is not working."
+        ],
+
+        [
+            "We ______ not going to college.",
+            "(நாங்கள் கல்லூரிக்குச் சென்று கொண்டிருக்கவில்லை.)",
+            ["is", "are", "am", "do"],
+            1,
+            "We → are not going."
+        ],
+
+        [
+            "______ you studying English?",
+            "(நீ ஆங்கிலம் படித்துக் கொண்டிருக்கிறாயா?)",
+            ["Is", "Are", "Am", "Do"],
+            1,
+            "You question → Are you...?"
+        ],
+
+        [
+            "______ he sleeping?",
+            "(அவன் தூங்கிக் கொண்டிருக்கிறானா?)",
+            ["Are", "Is", "Am", "Does"],
+            1,
+            "He question → Is he...?"
+        ],
+
+        [
+            "______ she cooking?",
+            "(அவள் சமைத்துக் கொண்டிருக்கிறாளா?)",
+            ["Do", "Are", "Is", "Am"],
+            2,
+            "She question → Is she...?"
+        ],
+
+        [
+            "______ they playing football?",
+            "(அவர்கள் கால்பந்து விளையாடிக் கொண்டிருக்கிறார்களா?)",
+            ["Is", "Am", "Are", "Do"],
+            2,
+            "They → Are they...?"
+        ],
+
+        [
+            "______ I speaking too fast?",
+            "(நான் மிகவும் வேகமாக பேசிக் கொண்டிருக்கிறேனா?)",
+            ["Is", "Are", "Am", "Do"],
+            2,
+            "I → Am I...?"
+        ],
+
+        [
+            "What ______ you doing?",
+            "(நீ என்ன செய்து கொண்டிருக்கிறாய்?)",
+            ["is", "are", "am", "do"],
+            1,
+            "You → are."
+        ],
+
+        [
+            "What ______ she doing?",
+            "(அவள் என்ன செய்து கொண்டிருக்கிறாள்?)",
+            ["are", "am", "is", "does"],
+            2,
+            "She → is."
+        ],
+
+        [
+            "Where ______ they going?",
+            "(அவர்கள் எங்கே சென்று கொண்டிருக்கிறார்கள்?)",
+            ["is", "are", "am", "do"],
+            1,
+            "They → are."
+        ],
+
+        [
+            "Why ______ he crying?",
+            "(அவன் ஏன் அழுது கொண்டிருக்கிறான்?)",
+            ["are", "am", "is", "does"],
+            2,
+            "He → is crying."
+        ],
+
+        [
+            "Who ______ you talking to?",
+            "(நீ யாரிடம் பேசிக் கொண்டிருக்கிறாய்?)",
+            ["is", "are", "am", "do"],
+            1,
+            "You → are talking."
+        ],
+
+        [
+            "Why ______ they laughing?",
+            "(அவர்கள் ஏன் சிரித்துக் கொண்டிருக்கிறார்கள்?)",
+            ["is", "are", "am", "do"],
+            1,
+            "They → are laughing."
+        ],
+
+        [
+            "What ______ he writing?",
+            "(அவன் என்ன எழுதிக் கொண்டிருக்கிறான்?)",
+            ["are", "am", "is", "does"],
+            2,
+            "He → is writing."
+        ],
+
+        [
+            "Where ______ she working?",
+            "(அவள் எங்கே வேலை செய்து கொண்டிருக்கிறாள்?)",
+            ["is", "are", "am", "does"],
+            0,
+            "She → is working."
+        ],
+
+        [
+            "What ______ we learning?",
+            "(நாம் என்ன கற்றுக் கொண்டிருக்கிறோம்?)",
+            ["is", "are", "am", "do"],
+            1,
+            "We → are learning."
+        ],
+
+        [
+            "Why ______ I feeling tired?",
+            "(நான் ஏன் சோர்வாக உணர்கிறேன்?)",
+            ["is", "are", "am", "do"],
+            2,
+            "I → am feeling."
+        ],
+
+        [
+            "Look! The baby ______.",
+            "(பார்! குழந்தை அழுது கொண்டிருக்கிறது.)",
+            ["cry", "is crying", "are crying", "am crying"],
+            1,
+            "The baby = It → is crying."
+        ],
+
+        [
+            "Listen! Someone ______ at the door.",
+            "(கேள்! யாரோ கதவைத் தட்டிக் கொண்டிருக்கிறார்கள்.)",
+            ["is knocking", "are knocking", "am knocking", "knock"],
+            0,
+            "Someone singular → is knocking."
+        ],
+
+        [
+            "The students ______ for the exam now.",
+            "(மாணவர்கள் இப்போது தேர்வுக்காக படித்துக் கொண்டிருக்கிறார்கள்.)",
+            ["is preparing", "are preparing", "am preparing", "prepare"],
+            1,
+            "Students plural → are preparing."
+        ],
+
+        [
+            "My father ______ to work now.",
+            "(என் தந்தை இப்போது வேலைக்குச் சென்று கொண்டிருக்கிறார்.)",
+            ["are going", "is going", "am going", "go"],
+            1,
+            "My father = He → is going."
+        ],
+
+        [
+            "My mother ______ dinner.",
+            "(என் அம்மா இரவு உணவு சமைத்துக் கொண்டிருக்கிறார்.)",
+            ["is cooking", "are cooking", "am cooking", "cook"],
+            0,
+            "My mother = She → is cooking."
+        ],
+
+        [
+            "The children ______ in the garden.",
+            "(குழந்தைகள் தோட்டத்தில் விளையாடிக் கொண்டிருக்கிறார்கள்.)",
+            ["is playing", "are playing", "am playing", "play"],
+            1,
+            "Children plural → are playing."
+        ],
+
+        [
+            "I ______ for my exam this week.",
+            "(நான் இந்த வாரம் என் தேர்வுக்காக படித்துக் கொண்டிருக்கிறேன்.)",
+            ["am preparing", "is preparing", "are preparing", "prepare"],
+            0,
+            "I → am preparing."
+        ],
+
+        [
+            "She ______ a new dress today.",
+            "(அவள் இன்று புதிய dress அணிந்து கொண்டிருக்கிறாள்.)",
+            ["are wearing", "is wearing", "am wearing", "wear"],
+            1,
+            "She → is wearing."
+        ],
+
+        [
+            "They ______ in a new house this month.",
+            "(அவர்கள் இந்த மாதம் புதிய வீட்டில் வசித்து வருகிறார்கள்.)",
+            ["is staying", "are staying", "am staying", "stay"],
+            1,
+            "They → are staying."
+        ],
+
+        [
+            "We ______ a new website.",
+            "(நாங்கள் ஒரு புதிய website உருவாக்கிக் கொண்டிருக்கிறோம்.)",
+            ["is creating", "are creating", "am creating", "create"],
+            1,
+            "We → are creating."
+        ],
+
+        [
+            "He ______ harder these days.",
+            "(அவன் இந்த நாட்களில் அதிகமாக உழைத்துக் கொண்டிருக்கிறான்.)",
+            ["is working", "are working", "am working", "works"],
+            0,
+            "He → is working."
+        ],
+
+        [
+            "I ______ more English these days.",
+            "(நான் இந்த நாட்களில் அதிகமாக ஆங்கிலம் கற்றுக் கொண்டிருக்கிறேன்.)",
+            ["am learning", "is learning", "are learning", "learn"],
+            0,
+            "I → am learning."
+        ],
+
+        [
+            "She ______ for a new job.",
+            "(அவள் புதிய வேலைக்காக தேடிக் கொண்டிருக்கிறாள்.)",
+            ["are looking", "is looking", "am looking", "looks"],
+            1,
+            "She → is looking."
+        ],
+
+        [
+            "They ______ a new project this week.",
+            "(அவர்கள் இந்த வாரம் புதிய project செய்து கொண்டிருக்கிறார்கள்.)",
+            ["is developing", "are developing", "am developing", "develop"],
+            1,
+            "They → are developing."
+        ],
+
+        [
+            "Is he ______ now?",
+            "(அவன் இப்போது படித்துக் கொண்டிருக்கிறானா?)",
+            ["study", "studies", "studying", "studied"],
+            2,
+            "Is + subject + V-ing."
+        ],
+
+        [
+            "Are they ______ football?",
+            "(அவர்கள் கால்பந்து விளையாடிக் கொண்டிருக்கிறார்களா?)",
+            ["play", "plays", "playing", "played"],
+            2,
+            "Are + they + V-ing."
+        ],
+
+        [
+            "Are you ______ dinner?",
+            "(நீ இரவு உணவு சாப்பிட்டுக் கொண்டிருக்கிறாயா?)",
+            ["eat", "eats", "eating", "ate"],
+            2,
+            "Are you + V-ing."
+        ],
+
+        [
+            "Is she ______ a letter?",
+            "(அவள் கடிதம் எழுதிக் கொண்டிருக்கிறாளா?)",
+            ["write", "writes", "writing", "wrote"],
+            2,
+            "Is she + V-ing."
+        ],
+
+        [
+            "Am I ______ correctly?",
+            "(நான் சரியாக செய்து கொண்டிருக்கிறேனா?)",
+            ["doing", "do", "does", "did"],
+            0,
+            "Am I + V-ing."
+        ],
+
+        [
+            "Why are you ______?",
+            "(நீ ஏன் அழுது கொண்டிருக்கிறாய்?)",
+            ["cry", "cries", "crying", "cried"],
+            2,
+            "Are you + crying."
+        ],
+
+        [
+            "What is he ______?",
+            "(அவன் என்ன செய்து கொண்டிருக்கிறான்?)",
+            ["do", "doing", "does", "did"],
+            1,
+            "Is he + doing."
+        ],
+
+        [
+            "Where are they ______?",
+            "(அவர்கள் எங்கே தங்கிக் கொண்டிருக்கிறார்கள்?)",
+            ["stay", "stays", "staying", "stayed"],
+            2,
+            "Are they + staying."
+        ],
+
+        [
+            "She ______ currently working on a project.",
+            "(அவள் தற்போது ஒரு project-ல் வேலை செய்து கொண்டிருக்கிறாள்.)",
+            ["are", "is", "am", "does"],
+            1,
+            "She → is working."
+        ],
+
+        [
+            "We ______ currently studying English.",
+            "(நாங்கள் தற்போது ஆங்கிலம் படித்துக் கொண்டிருக்கிறோம்.)",
+            ["is", "are", "am", "do"],
+            1,
+            "We → are studying."
+        ],
+
+        [
+            "I ______ currently learning Python.",
+            "(நான் தற்போது Python கற்றுக் கொண்டிருக்கிறேன்.)",
+            ["am", "is", "are", "do"],
+            0,
+            "I → am learning."
+        ],
+
+        [
+            "He ______ currently staying in Chennai.",
+            "(அவன் தற்போது சென்னையில் தங்கியிருக்கிறான்.)",
+            ["are", "is", "am", "does"],
+            1,
+            "He → is staying."
+        ],
+
+        [
+            "They ______ currently building a house.",
+            "(அவர்கள் தற்போது ஒரு வீடு கட்டிக் கொண்டிருக்கிறார்கள்.)",
+            ["is", "are", "am", "do"],
+            1,
+            "They → are building."
+        ],
+
+        [
+            "The company ______ hiring new employees.",
+            "(அந்த நிறுவனம் புதிய ஊழியர்களை வேலைக்கு எடுத்துக் கொண்டிருக்கிறது.)",
+            ["are", "is", "am", "do"],
+            1,
+            "The company = It → is hiring."
+        ],
+
+        [
+            "The teacher ______ explaining the lesson.",
+            "(ஆசிரியர் பாடத்தை விளக்கிக் கொண்டிருக்கிறார்.)",
+            ["are", "is", "am", "does"],
+            1,
+            "The teacher singular → is explaining."
+        ],
+
+        [
+            "The students ______ listening carefully.",
+            "(மாணவர்கள் கவனமாக கேட்டுக் கொண்டிருக்கிறார்கள்.)",
+            ["is", "are", "am", "does"],
+            1,
+            "Students plural → are listening."
+        ],
+
+        [
+            "My friends ______ coming to my house.",
+            "(என் நண்பர்கள் என் வீட்டிற்கு வந்து கொண்டிருக்கிறார்கள்.)",
+            ["is", "are", "am", "does"],
+            1,
+            "Friends plural → are coming."
+        ]
+
+    ];
+
+    return raw.map(item => ({
+        q: item[0],
+        tq: item[1],
+        o: item[2],
+        a: item[3],
+        e: item[4]
+    }));
+
+};
+
+
+/* =========================================================
+   TOPICS
+========================================================= */
+
+const presentContinuousTopics = [
+
+    {
+        id: 1,
+
+        title: "BASIC PRESENT CONTINUOUS",
+
+        tamilTitle: "அடிப்படை நிகழ்கால தொடர்நிலை",
+
+        displayChain:
+            "I am studying • She is cooking • He is working • They are playing • We are learning",
+
+        explanation:
+            "Present Continuous Tense என்பது இப்போது நடந்து கொண்டிருக்கும் செயல்களைச் சொல்லப் பயன்படும் காலம். I உடன் am, He/She/It உடன் is, You/We/They உடன் are பயன்படுத்த வேண்டும். அதற்குப் பிறகு main verb-ன் V-ing form பயன்படுத்த வேண்டும்.",
+
+        formula:
+            "Positive: Subject + am/is/are + V-ing | Negative: Subject + am/is/are + not + V-ing | Question: Am/Is/Are + Subject + V-ing?",
+
+        tableData: [
+
+            {
+                l: "I am studying",
+                t: "நான் படித்துக் கொண்டிருக்கிறேன்",
+                e: "I am studying English.",
+                te: "நான் ஆங்கிலம் படித்துக் கொண்டிருக்கிறேன்."
+            },
+
+            {
+                l: "You are working",
+                t: "நீ வேலை செய்து கொண்டிருக்கிறாய்",
+                e: "You are working hard.",
+                te: "நீ கடினமாக வேலை செய்து கொண்டிருக்கிறாய்."
+            },
+
+            {
+                l: "We are learning",
+                t: "நாங்கள் கற்றுக் கொண்டிருக்கிறோம்",
+                e: "We are learning English.",
+                te: "நாங்கள் ஆங்கிலம் கற்றுக் கொண்டிருக்கிறோம்."
+            },
+
+            {
+                l: "They are playing",
+                t: "அவர்கள் விளையாடிக் கொண்டிருக்கிறார்கள்",
+                e: "They are playing cricket.",
+                te: "அவர்கள் கிரிக்கெட் விளையாடிக் கொண்டிருக்கிறார்கள்."
+            },
+
+            {
+                l: "He is working",
+                t: "அவன் வேலை செய்து கொண்டிருக்கிறான்",
+                e: "He is working now.",
+                te: "அவன் இப்போது வேலை செய்து கொண்டிருக்கிறான்."
+            },
+
+            {
+                l: "She is reading",
+                t: "அவள் படித்துக் கொண்டிருக்கிறாள்",
+                e: "She is reading a book.",
+                te: "அவள் ஒரு புத்தகம் படித்துக் கொண்டிருக்கிறாள்."
+            },
+
+            {
+                l: "It is raining",
+                t: "மழை பெய்து கொண்டிருக்கிறது",
+                e: "It is raining now.",
+                te: "இப்போது மழை பெய்து கொண்டிருக்கிறது."
+            },
+
+            {
+                l: "I am not",
+                t: "நான் செய்யவில்லை / செய்து கொண்டிருக்கவில்லை",
+                e: "I am not sleeping.",
+                te: "நான் தூங்கிக் கொண்டிருக்கவில்லை."
+            },
+
+            {
+                l: "She is not",
+                t: "அவள் செய்யவில்லை / செய்து கொண்டிருக்கவில்லை",
+                e: "She is not watching TV.",
+                te: "அவள் TV பார்த்துக் கொண்டிருக்கவில்லை."
+            },
+
+            {
+                l: "Are you?",
+                t: "நீ செய்கிறாயா?",
+                e: "Are you studying?",
+                te: "நீ படித்துக் கொண்டிருக்கிறாயா?"
+            },
+
+            {
+                l: "Is he?",
+                t: "அவன் செய்கிறானா?",
+                e: "Is he working?",
+                te: "அவன் வேலை செய்து கொண்டிருக்கிறானா?"
+            },
+
+            {
+                l: "Are they?",
+                t: "அவர்கள் செய்கிறார்களா?",
+                e: "Are they playing?",
+                te: "அவர்கள் விளையாடிக் கொண்டிருக்கிறார்களா?"
+            }
+
+        ],
+
+        questions: generateBasicQuestions()
+    },
+
+
+    {
+        id: 2,
+
+        title: "ADVANCED PRESENT CONTINUOUS",
+
+        tamilTitle: "மேம்பட்ட நிகழ்கால தொடர்நிலை",
+
+        displayChain:
+            "am not • is not • are not • Are you? • Is he? • What • Why • Where • Currently • Now",
+
+        explanation:
+            "Present Continuous-ன் advanced பயன்பாட்டில் negative sentences, yes/no questions மற்றும் WH questions அமைக்கலாம். இப்போது நடந்து கொண்டிருக்கும் செயல்கள், தற்காலிக செயல்கள் மற்றும் தற்போது நடைபெறும் மாற்றங்கள் போன்றவற்றைக் குறிப்பிட இந்த tense பயன்படுத்தப்படுகிறது.",
+
+        formula:
+            "Negative: I + am not + V-ing | He/She/It + is not + V-ing | You/We/They + are not + V-ing | Question: Am/Is/Are + Subject + V-ing?",
+
+        tableData: [
+
+            {
+                l: "Am + V-ing",
+                t: "I கேள்வி",
+                e: "Am I doing this correctly?",
+                te: "நான் இதை சரியாக செய்து கொண்டிருக்கிறேனா?"
+            },
+
+            {
+                l: "Is + V-ing",
+                t: "He/She கேள்வி",
+                e: "Is she studying?",
+                te: "அவள் படித்துக் கொண்டிருக்கிறாளா?"
+            },
+
+            {
+                l: "Are + V-ing",
+                t: "You/We/They கேள்வி",
+                e: "Are they playing?",
+                te: "அவர்கள் விளையாடிக் கொண்டிருக்கிறார்களா?"
+            },
+
+            {
+                l: "am not + V-ing",
+                t: "Negative",
+                e: "I am not sleeping.",
+                te: "நான் தூங்கிக் கொண்டிருக்கவில்லை."
+            },
+
+            {
+                l: "is not + V-ing",
+                t: "Negative",
+                e: "He is not working.",
+                te: "அவன் வேலை செய்து கொண்டிருக்கவில்லை."
+            },
+
+            {
+                l: "are not + V-ing",
+                t: "Negative",
+                e: "They are not playing.",
+                te: "அவர்கள் விளையாடிக் கொண்டிருக்கவில்லை."
+            },
+
+            {
+                l: "What are",
+                t: "என்ன",
+                e: "What are you doing?",
+                te: "நீ என்ன செய்து கொண்டிருக்கிறாய்?"
+            },
+
+            {
+                l: "What is",
+                t: "என்ன",
+                e: "What is she doing?",
+                te: "அவள் என்ன செய்து கொண்டிருக்கிறாள்?"
+            },
+
+            {
+                l: "Where are",
+                t: "எங்கே",
+                e: "Where are they going?",
+                te: "அவர்கள் எங்கே சென்று கொண்டிருக்கிறார்கள்?"
+            },
+
+            {
+                l: "Why is",
+                t: "ஏன்",
+                e: "Why is he crying?",
+                te: "அவன் ஏன் அழுது கொண்டிருக்கிறான்?"
+            },
+
+            {
+                l: "Currently",
+                t: "தற்போது",
+                e: "She is currently working.",
+                te: "அவள் தற்போது வேலை செய்து கொண்டிருக்கிறாள்."
+            },
+
+            {
+                l: "These days",
+                t: "இந்த நாட்களில்",
+                e: "I am learning English these days.",
+                te: "நான் இந்த நாட்களில் ஆங்கிலம் கற்றுக் கொண்டிருக்கிறேன்."
+            }
+
+        ],
+
+        questions: generateAdvancedQuestions()
+    }
+
+];
+
+
+/* =========================================================
+   QUIZ VARIABLES
+========================================================= */
+
+let currentTopicIndex = 0;
+let currentQuestionIndex = 0;
+let score = 0;
+let selectedOptionIndex = null;
+let currentShuffledOptions = [];
+let topicProgress = [false, false];
+
+
+/* =========================================================
+   PAGE LOAD
+========================================================= */
+
+window.onload = function () {
+
+    renderProgressTracker();
+
+    renderPills();
+
+    loadTopic(0);
+
+};
+
+
+/* =========================================================
+   PROGRESS TRACKER
+========================================================= */
+
+function renderProgressTracker() {
+
+    const grid =
+        document.getElementById("progress-tracker-grid");
+
+    grid.innerHTML = "";
+
+    const completedCount =
+        topicProgress.filter(Boolean).length;
+
+    document.getElementById(
+        "overall-progress-text"
+    ).innerText =
+        `${completedCount} / ${presentContinuousTopics.length} Completed`;
+
+
+    presentContinuousTopics.forEach((topic, idx) => {
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            `progress-item ${topicProgress[idx] ? "completed" : ""}`;
+
+        item.onclick =
+            () => loadTopic(idx);
+
+        item.innerHTML = `
+
+            <div class="check-icon">
+                ${topicProgress[idx] ? "✓" : idx + 1}
+            </div>
+
+            <span>
+                ${topic.title}
+            </span>
+
+        `;
+
+        grid.appendChild(item);
+
+    });
+
+}
+
+
+/* =========================================================
+   TOPIC PILLS
+========================================================= */
+
+function renderPills() {
+
+    const pillsContainer =
+        document.getElementById("topic-pills");
+
+    pillsContainer.innerHTML = "";
+
+    presentContinuousTopics.forEach((topic, idx) => {
+
+        const btn =
+            document.createElement("button");
+
+        btn.className =
+            `pill-btn ${idx === currentTopicIndex ? "active" : ""}`;
+
+        btn.innerText =
+            topic.title;
+
+        btn.onclick =
+            () => loadTopic(idx);
+
+        pillsContainer.appendChild(btn);
+
+    });
+
+}
+
+
+/* =========================================================
+   LOAD TOPIC
+========================================================= */
+
+function loadTopic(index) {
+
+    currentTopicIndex = index;
+
+    currentQuestionIndex = 0;
+
+    score = 0;
+
+    selectedOptionIndex = null;
+
+    renderPills();
+
+    renderTopicContent();
+
+    loadQuestion();
+
+    document.getElementById(
+        "question-runner"
+    ).style.display = "block";
+
+    document.getElementById(
+        "result-runner"
+    ).style.display = "none";
+
+}
+
+
+/* =========================================================
+   TOPIC CONTENT
+========================================================= */
+
+function renderTopicContent() {
+
+    const topic =
+        presentContinuousTopics[currentTopicIndex];
+
+    const contentBox =
+        document.getElementById("topic-content");
+
+
+    let tableRows =
+        topic.tableData.map(row => `
+
+            <tr>
+
+                <td>
+                    <strong>${row.l}</strong>
+                    <span class="sent-ta">
+                        ${row.t}
+                    </span>
+                </td>
+
+                <td>
+                    ${row.e}
+                    <span class="sent-ta">
+                        ${row.te}
+                    </span>
+                </td>
+
+            </tr>
+
+        `).join("");
+
+
+    contentBox.innerHTML = `
+
+        <div class="topic-title">
+            ${topic.title}
+            <br>
+            <span style="color:var(--primary);font-size:.9rem;">
+                ${topic.tamilTitle}
+            </span>
+        </div>
+
+
+        <div class="display-chain">
+            ${topic.displayChain}
+        </div>
+
+
+        <div class="tamil-explain">
+            <strong>தமிழ் விளக்கம்:</strong><br>
+            ${topic.explanation}
+        </div>
+
+
+        <div class="formula-box">
+
+            <strong>Formula / அமைப்பு:</strong>
+
+            <div class="formula-line">
+                ${topic.formula}
+            </div>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>
+                            Structure
+                        </th>
+
+                        <th>
+                            Example
+                        </th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    ${tableRows}
+                </tbody>
+
+            </table>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   LOAD QUESTION
+========================================================= */
+
+function loadQuestion() {
+
+    const topic =
+        presentContinuousTopics[currentTopicIndex];
+
+    const question =
+        topic.questions[currentQuestionIndex];
+
+
+    selectedOptionIndex = null;
+
+
+    document.getElementById(
+        "quiz-topic-badge"
+    ).innerText =
+        topic.title;
+
+
+    document.getElementById(
+        "quiz-progress-text"
+    ).innerText =
+        `Question ${currentQuestionIndex + 1} / ${topic.questions.length}`;
+
+
+    document.getElementById(
+        "question-text"
+    ).innerText =
+        question.q;
+
+
+    document.getElementById(
+        "question-tamil-text"
+    ).innerText =
+        question.tq;
+
+
+    const optionsContainer =
+        document.getElementById("options-container");
+
+    optionsContainer.innerHTML = "";
+
+
+    const feedbackBox =
+        document.getElementById("feedback-box");
+
+    feedbackBox.className =
+        "feedback-box";
+
+    feedbackBox.innerHTML = "";
+
+
+    const nextBtn =
+        document.getElementById("next-btn");
+
+    nextBtn.disabled = true;
+
+    nextBtn.innerText =
+        currentQuestionIndex === topic.questions.length - 1
+            ? "முடிவைக் காண்க (Finish) ✓"
+            : "அடுத்த கேள்வி (Next) →";
+
+
+    currentShuffledOptions =
+        question.o.map((text, index) => ({
+            text,
+            originalIndex: index
+        }));
+
+
+    currentShuffledOptions.sort(
+        () => Math.random() - 0.5
+    );
+
+
+    currentShuffledOptions.forEach(
+        (option, displayIndex) => {
+
+            const btn =
+                document.createElement("button");
+
+            btn.className =
+                "option-btn";
+
+            btn.innerText =
+                option.text;
+
+            btn.onclick =
+                () => selectOption(
+                    displayIndex,
+                    option.originalIndex
+                );
+
+            optionsContainer.appendChild(btn);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SELECT OPTION
+========================================================= */
+
+function selectOption(displayIndex, originalIndex) {
+
+    if (selectedOptionIndex !== null) {
+        return;
+    }
+
+
+    selectedOptionIndex =
+        originalIndex;
+
+
+    const topic =
+        presentContinuousTopics[currentTopicIndex];
+
+    const question =
+        topic.questions[currentQuestionIndex];
+
+
+    const optionButtons =
+        document.querySelectorAll(".option-btn");
+
+
+    optionButtons.forEach(
+        (btn, index) => {
+
+            btn.disabled = true;
+
+            const original =
+                currentShuffledOptions[index]
+                    .originalIndex;
+
+
+            if (
+                original === question.a
+            ) {
+
+                btn.classList.add(
+                    "selected-correct"
+                );
+
+            }
+
+            if (
+                original === originalIndex &&
+                original !== question.a
+            ) {
+
+                btn.classList.add(
+                    "selected-wrong"
+                );
+
+            }
+
+        }
+    );
+
+
+    const feedbackBox =
+        document.getElementById("feedback-box");
+
+
+    if (
+        originalIndex === question.a
+    ) {
+
+        score++;
+
+        feedbackBox.className =
+            "feedback-box correct";
+
+        feedbackBox.innerHTML =
+            `✓ சரியான பதில்!<br>${question.e}`;
+
+    } else {
+
+        feedbackBox.className =
+            "feedback-box wrong";
+
+        feedbackBox.innerHTML =
+            `✗ தவறான பதில்.<br>
+             சரியான பதில்:
+             <strong>${question.o[question.a]}</strong>
+             <br>${question.e}`;
+
+    }
+
+
+    document.getElementById(
+        "next-btn"
+    ).disabled = false;
+
+}
+
+
+/* =========================================================
+   NEXT QUESTION
+========================================================= */
+
+function nextQuestion() {
+
+    const topic =
+        presentContinuousTopics[currentTopicIndex];
+
+
+    if (
+        selectedOptionIndex === null
+    ) {
+        return;
+    }
+
+
+    if (
+        currentQuestionIndex <
+        topic.questions.length - 1
+    ) {
+
+        currentQuestionIndex++;
+
+        loadQuestion();
+
+        window.scrollTo({
+            top: document.getElementById("quiz-box")
+                .offsetTop - 80,
+            behavior: "smooth"
+        });
+
+    } else {
+
+        showResult();
+
+    }
+
+}
+
+
+/* =========================================================
+   SHOW RESULT
+========================================================= */
+
+function showResult() {
+
+    const topic =
+        presentContinuousTopics[currentTopicIndex];
+
+
+    document.getElementById(
+        "question-runner"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "result-runner"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "res-score"
+    ).innerText =
+        `${score}/${topic.questions.length}`;
+
+
+    const percentage =
+        Math.round(
+            (score / topic.questions.length) * 100
+        );
+
+
+    let message = "";
+
+
+    if (percentage >= 90) {
+
+        message =
+            "🎉 அருமை! Present Continuous Tense-ஐ நன்றாக கற்றுக் கொண்டிருக்கிறீர்கள்!";
+
+    } else if (percentage >= 70) {
+
+        message =
+            "👏 நல்ல முயற்சி! இன்னும் கொஞ்சம் practice செய்தால் சிறப்பாக இருக்கும்.";
+
+    } else if (percentage >= 50) {
+
+        message =
+            "👍 நல்ல தொடக்கம்! மேலும் பயிற்சி செய்யுங்கள்.";
+
+    } else {
+
+        message =
+            "📚 மீண்டும் lesson-ஐ படித்து quiz-ஐ முயற்சி செய்யுங்கள்.";
+
+    }
+
+
+    document.getElementById(
+        "res-msg"
+    ).innerText =
+        `${message} (${percentage}%)`;
+
+
+    topicProgress[currentTopicIndex] =
+        true;
+
+
+    renderProgressTracker();
+
+}
+
+
+/* =========================================================
+   RESET QUIZ
+========================================================= */
+
+function resetCurrentQuiz() {
+
+    currentQuestionIndex = 0;
+
+    score = 0;
+
+    selectedOptionIndex = null;
+
+
+    document.getElementById(
+        "question-runner"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "result-runner"
+    ).style.display = "none";
+
+
+    loadQuestion();
+
+}
+
+</script>
+
+</body>
+
+</html>

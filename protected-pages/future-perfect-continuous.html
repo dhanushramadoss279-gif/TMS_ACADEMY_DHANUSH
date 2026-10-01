@@ -1,0 +1,2650 @@
+
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>FUTURE PERFECT CONTINUOUS TENSE – எதிர்கால பூரண தொடர்காலம் (100 Questions)</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 50px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        /* HEADER */
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 7px 12px;
+            border-radius: 8px;
+            background-color: #eff6ff;
+            white-space: nowrap;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        /* HERO */
+
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            line-height: 1.35;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            opacity: 0.92;
+        }
+
+        /* PROGRESS */
+
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            min-width: 0;
+        }
+
+        .progress-item span:last-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .progress-item.completed {
+            background-color: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .completed .check-icon {
+            background: var(--success);
+        }
+
+        /* PILLS */
+
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 2px 2px 10px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+            min-height: 42px;
+            touch-action: manipulation;
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* TOPIC */
+
+        .topic-section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .topic-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .display-chain {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin: 12px 0;
+            text-align: center;
+            border: 1px dashed #93c5fd;
+            word-break: break-word;
+            line-height: 1.7;
+        }
+
+        .tamil-explain {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 10px 12px;
+            margin: 12px 0;
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        .formula-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 12px 0;
+        }
+
+        .formula-box strong {
+            color: #166534;
+        }
+
+        .formula-line {
+            margin-top: 5px;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        /* TABLE */
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 16px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 560px;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            padding: 10px;
+            font-weight: 700;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.5;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .sent-ta {
+            display: block;
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* QUIZ */
+
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            border: 2px solid #e0e7ff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-title-badge {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            white-space: nowrap;
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .question-tamil-text {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+            line-height: 1.55;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 50px;
+            padding: 12px 14px;
+            text-align: left;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+            line-height: 1.4;
+            transition: 0.15s ease;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: #93c5fd;
+            background: #eff6ff;
+        }
+
+        .option-btn:active {
+            transform: scale(0.99);
+        }
+
+        .option-btn.selected-correct {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+        }
+
+        .option-btn.selected-wrong {
+            background-color: var(--error-bg) !important;
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+        }
+
+        .feedback-box {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background: var(--success-bg);
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background: var(--error-bg);
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 100%;
+            min-height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            touch-action: manipulation;
+            padding: 12px;
+        }
+
+        .next-btn:hover:not(:disabled) {
+            background-color: var(--primary-dark);
+        }
+
+        .next-btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        /* RESULT */
+
+        .result-card {
+            text-align: center;
+            padding: 20px 10px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 4px solid var(--primary);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        .performance-msg {
+            line-height: 1.5;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            body {
+                font-size: 14px;
+            }
+
+            .container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            header {
+                padding: 9px 0;
+            }
+
+            .brand-title {
+                font-size: 0.82rem;
+            }
+
+            .back-link {
+                font-size: 0.78rem;
+                padding: 6px 9px;
+            }
+
+            .hero {
+                padding: 20px 12px;
+                margin: 12px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.18rem;
+            }
+
+            .hero p {
+                font-size: 0.82rem;
+            }
+
+            .progress-card,
+            .topic-section,
+            .quiz-container {
+                padding: 13px;
+            }
+
+            .progress-title {
+                font-size: 0.85rem;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-item {
+                min-height: 42px;
+            }
+
+            .topic-title {
+                font-size: 1.05rem;
+            }
+
+            .display-chain {
+                font-size: 0.8rem;
+                padding: 9px;
+            }
+
+            .tamil-explain {
+                font-size: 0.84rem;
+            }
+
+            .formula-box {
+                font-size: 0.84rem;
+            }
+
+            .quiz-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 7px;
+            }
+
+            .quiz-progress-text {
+                font-size: 0.76rem;
+            }
+
+            .question-text {
+                font-size: 0.94rem;
+            }
+
+            .question-tamil-text {
+                font-size: 0.82rem;
+            }
+
+            .option-btn {
+                min-height: 48px;
+                font-size: 0.88rem;
+                padding: 11px 12px;
+            }
+
+            .feedback-box {
+                font-size: 0.82rem;
+            }
+
+            .next-btn {
+                min-height: 48px;
+                font-size: 0.88rem;
+            }
+
+            table {
+                min-width: 540px;
+            }
+        }
+
+        @media (max-width: 360px) {
+
+            .hero h1 {
+                font-size: 1.05rem;
+            }
+
+            .brand-title {
+                font-size: 0.75rem;
+            }
+
+            .back-link {
+                font-size: 0.72rem;
+            }
+
+            .topic-title {
+                font-size: 0.98rem;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="tms-theme.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="container nav-header">
+
+        <a href="#" class="back-link">
+            ← Home
+        </a>
+
+        <div class="brand-title">
+            Tamil Medium Student
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="hero">
+
+        <h1>
+            FUTURE PERFECT CONTINUOUS TENSE – எதிர்கால பூரண தொடர்காலம்
+        </h1>
+
+        <p>
+            100 பயிற்சிகள் (50 + 50) தமிழ் விளக்கத்துடன்!
+        </p>
+
+    </div>
+
+
+    <!-- PROGRESS -->
+
+    <div class="progress-card">
+
+        <div class="progress-title">
+
+            <span>
+                கற்றல் நிலை (Progress)
+            </span>
+
+            <span
+                id="overall-progress-text"
+                style="color: var(--primary);">
+                0 / 2 Completed
+            </span>
+
+        </div>
+
+        <div
+            class="progress-grid"
+            id="progress-tracker-grid">
+        </div>
+
+    </div>
+
+
+    <!-- TOPIC PILLS -->
+
+    <div
+        class="topic-pills"
+        id="topic-pills">
+    </div>
+
+
+    <!-- TOPIC -->
+
+    <section
+        class="topic-section"
+        id="topic-content">
+    </section>
+
+
+    <!-- QUIZ -->
+
+    <section
+        class="quiz-container"
+        id="quiz-box">
+
+        <div class="quiz-header">
+
+            <span
+                class="quiz-title-badge"
+                id="quiz-topic-badge">
+
+                Future Perfect Continuous Quiz
+
+            </span>
+
+            <span
+                class="quiz-progress-text"
+                id="quiz-progress-text">
+
+                Question 1 / 50
+
+            </span>
+
+        </div>
+
+
+        <div id="question-runner">
+
+            <div class="question-box">
+
+                <div
+                    class="question-text"
+                    id="question-text">
+
+                    Loading question...
+
+                </div>
+
+                <div
+                    class="question-tamil-text"
+                    id="question-tamil-text">
+
+                    கேள்வி அர்த்தம்...
+
+                </div>
+
+                <div
+                    class="options-grid"
+                    id="options-container">
+                </div>
+
+            </div>
+
+
+            <div
+                class="feedback-box"
+                id="feedback-box">
+            </div>
+
+
+            <div class="quiz-actions">
+
+                <button
+                    class="next-btn"
+                    id="next-btn"
+                    onclick="nextQuestion()"
+                    disabled>
+
+                    அடுத்த கேள்வி (Next) →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div
+            class="result-card"
+            id="result-runner">
+
+            <div class="score-circle">
+
+                <span id="res-score">
+                    0
+                </span>
+
+            </div>
+
+            <div
+                class="performance-msg"
+                id="res-msg"
+                style="font-weight:700; margin-bottom:10px;">
+
+                வாழ்த்துக்கள்!
+
+            </div>
+
+            <button
+                class="next-btn"
+                onclick="resetCurrentQuiz()">
+
+                🔄 மீண்டும் பயிற்சி செய் (Try Again)
+
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+const generateBasicQuestions = () => {
+    const raw = [
+    [
+        "By 8 p.m. tomorrow, I ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நான் மூன்று மணி நேரமாக வேலை செய்து கொண்டிருப்பேன்.)",
+        [
+            "will have been working",
+            "will be working",
+            "will have working",
+            "working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 10 a.m. tomorrow, she ______ for two hours.",
+        "(நாளை 10 மணி மணிக்குள், அவள் இரண்டு மணி நேரமாக படித்துக் கொண்டிருப்பாள்.)",
+        [
+            "will have been studying",
+            "will be studying",
+            "will have studying",
+            "studying"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By noon tomorrow, he ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், அவன் நான்கு மணி நேரமாக படித்துக் கொண்டிருப்பான்.)",
+        [
+            "will have been reading",
+            "will be reading",
+            "will have reading",
+            "reading"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 6 p.m. tomorrow, we ______ for five hours.",
+        "(நாளை 6 மணி மணிக்குள், நாங்கள் ஐந்து மணி நேரமாக பயணம் செய்து கொண்டிருப்போம்.)",
+        [
+            "will have been travelling",
+            "will be travelling",
+            "will have travelling",
+            "travelling"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 9 p.m. tomorrow, they ______ for three hours.",
+        "(நாளை 9 மணி மணிக்குள், அவர்கள் மூன்று மணி நேரமாக விளையாடிக் கொண்டிருப்பார்கள்.)",
+        [
+            "will have been playing",
+            "will be playing",
+            "will have playing",
+            "playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 8 p.m. tomorrow, you ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நீ மூன்று மணி நேரமாக காத்துக் கொண்டிருப்பாய்.)",
+        [
+            "will have been waiting",
+            "will be waiting",
+            "will have waiting",
+            "waiting"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 10 a.m. tomorrow, my father ______ for two hours.",
+        "(நாளை 10 மணி மணிக்குள், என் தந்தை இரண்டு மணி நேரமாக வேலை செய்து கொண்டிருப்பார்.)",
+        [
+            "will have been working",
+            "will be working",
+            "will have working",
+            "working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By noon tomorrow, my sister ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், என் சகோதரி நான்கு மணி நேரமாக சமைத்துக் கொண்டிருப்பாள்.)",
+        [
+            "will have been cooking",
+            "will be cooking",
+            "will have cooking",
+            "cooking"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 6 p.m. tomorrow, the students ______ for five hours.",
+        "(நாளை 6 மணி மணிக்குள், மாணவர்கள் ஐந்து மணி நேரமாக தயாராகிக் கொண்டிருப்பார்கள்.)",
+        [
+            "will have been preparing",
+            "will be preparing",
+            "will have preparing",
+            "preparing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 9 p.m. tomorrow, the children ______ for three hours.",
+        "(நாளை 9 மணி மணிக்குள், குழந்தைகள் மூன்று மணி நேரமாக விளையாடிக் கொண்டிருப்பார்கள்.)",
+        [
+            "will have been playing",
+            "will be playing",
+            "will have playing",
+            "playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 8 p.m. tomorrow, I ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நான் மூன்று மணி நேரமாக வேலை செய்து கொண்டிருப்பேன்.)",
+        [
+            "will have been working",
+            "will be working",
+            "will have working",
+            "working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 10 a.m. tomorrow, she ______ for two hours.",
+        "(நாளை 10 மணி மணிக்குள், அவள் இரண்டு மணி நேரமாக படித்துக் கொண்டிருப்பாள்.)",
+        [
+            "will have been studying",
+            "will be studying",
+            "will have studying",
+            "studying"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By noon tomorrow, he ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், அவன் நான்கு மணி நேரமாக படித்துக் கொண்டிருப்பான்.)",
+        [
+            "will have been reading",
+            "will be reading",
+            "will have reading",
+            "reading"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 6 p.m. tomorrow, we ______ for five hours.",
+        "(நாளை 6 மணி மணிக்குள், நாங்கள் ஐந்து மணி நேரமாக பயணம் செய்து கொண்டிருப்போம்.)",
+        [
+            "will have been travelling",
+            "will be travelling",
+            "will have travelling",
+            "travelling"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 9 p.m. tomorrow, they ______ for three hours.",
+        "(நாளை 9 மணி மணிக்குள், அவர்கள் மூன்று மணி நேரமாக விளையாடிக் கொண்டிருப்பார்கள்.)",
+        [
+            "will have been playing",
+            "will be playing",
+            "will have playing",
+            "playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 8 p.m. tomorrow, you ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நீ மூன்று மணி நேரமாக காத்துக் கொண்டிருப்பாய்.)",
+        [
+            "will have been waiting",
+            "will be waiting",
+            "will have waiting",
+            "waiting"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 10 a.m. tomorrow, my father ______ for two hours.",
+        "(நாளை 10 மணி மணிக்குள், என் தந்தை இரண்டு மணி நேரமாக வேலை செய்து கொண்டிருப்பார்.)",
+        [
+            "will have been working",
+            "will be working",
+            "will have working",
+            "working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By noon tomorrow, my sister ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், என் சகோதரி நான்கு மணி நேரமாக சமைத்துக் கொண்டிருப்பாள்.)",
+        [
+            "will have been cooking",
+            "will be cooking",
+            "will have cooking",
+            "cooking"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 6 p.m. tomorrow, the students ______ for five hours.",
+        "(நாளை 6 மணி மணிக்குள், மாணவர்கள் ஐந்து மணி நேரமாக தயாராகிக் கொண்டிருப்பார்கள்.)",
+        [
+            "will have been preparing",
+            "will be preparing",
+            "will have preparing",
+            "preparing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 9 p.m. tomorrow, the children ______ for three hours.",
+        "(நாளை 9 மணி மணிக்குள், குழந்தைகள் மூன்று மணி நேரமாக விளையாடிக் கொண்டிருப்பார்கள்.)",
+        [
+            "will have been playing",
+            "will be playing",
+            "will have playing",
+            "playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 8 p.m. tomorrow, I ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நான் மூன்று மணி நேரமாக வேலை செய்து கொண்டிருப்பேன்.)",
+        [
+            "will have been working",
+            "will be working",
+            "will have working",
+            "working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 10 a.m. tomorrow, she ______ for two hours.",
+        "(நாளை 10 மணி மணிக்குள், அவள் இரண்டு மணி நேரமாக படித்துக் கொண்டிருப்பாள்.)",
+        [
+            "will have been studying",
+            "will be studying",
+            "will have studying",
+            "studying"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By noon tomorrow, he ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், அவன் நான்கு மணி நேரமாக படித்துக் கொண்டிருப்பான்.)",
+        [
+            "will have been reading",
+            "will be reading",
+            "will have reading",
+            "reading"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 6 p.m. tomorrow, we ______ for five hours.",
+        "(நாளை 6 மணி மணிக்குள், நாங்கள் ஐந்து மணி நேரமாக பயணம் செய்து கொண்டிருப்போம்.)",
+        [
+            "will have been travelling",
+            "will be travelling",
+            "will have travelling",
+            "travelling"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 9 p.m. tomorrow, they ______ for three hours.",
+        "(நாளை 9 மணி மணிக்குள், அவர்கள் மூன்று மணி நேரமாக விளையாடிக் கொண்டிருப்பார்கள்.)",
+        [
+            "will have been playing",
+            "will be playing",
+            "will have playing",
+            "playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 8 p.m. tomorrow, you ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நீ மூன்று மணி நேரமாக காத்துக் கொண்டிருப்பாய்.)",
+        [
+            "will have been waiting",
+            "will be waiting",
+            "will have waiting",
+            "waiting"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 10 a.m. tomorrow, my father ______ for two hours.",
+        "(நாளை 10 மணி மணிக்குள், என் தந்தை இரண்டு மணி நேரமாக வேலை செய்து கொண்டிருப்பார்.)",
+        [
+            "will have been working",
+            "will be working",
+            "will have working",
+            "working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By noon tomorrow, my sister ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், என் சகோதரி நான்கு மணி நேரமாக சமைத்துக் கொண்டிருப்பாள்.)",
+        [
+            "will have been cooking",
+            "will be cooking",
+            "will have cooking",
+            "cooking"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 6 p.m. tomorrow, the students ______ for five hours.",
+        "(நாளை 6 மணி மணிக்குள், மாணவர்கள் ஐந்து மணி நேரமாக தயாராகிக் கொண்டிருப்பார்கள்.)",
+        [
+            "will have been preparing",
+            "will be preparing",
+            "will have preparing",
+            "preparing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 9 p.m. tomorrow, the children ______ for three hours.",
+        "(நாளை 9 மணி மணிக்குள், குழந்தைகள் மூன்று மணி நேரமாக விளையாடிக் கொண்டிருப்பார்கள்.)",
+        [
+            "will have been playing",
+            "will be playing",
+            "will have playing",
+            "playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 8 p.m. tomorrow, I ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நான் மூன்று மணி நேரமாக வேலை செய்து கொண்டிருப்பேன்.)",
+        [
+            "will have been working",
+            "will be working",
+            "will have working",
+            "working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 10 a.m. tomorrow, she ______ for two hours.",
+        "(நாளை 10 மணி மணிக்குள், அவள் இரண்டு மணி நேரமாக படித்துக் கொண்டிருப்பாள்.)",
+        [
+            "will have been studying",
+            "will be studying",
+            "will have studying",
+            "studying"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By noon tomorrow, he ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், அவன் நான்கு மணி நேரமாக படித்துக் கொண்டிருப்பான்.)",
+        [
+            "will have been reading",
+            "will be reading",
+            "will have reading",
+            "reading"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 6 p.m. tomorrow, we ______ for five hours.",
+        "(நாளை 6 மணி மணிக்குள், நாங்கள் ஐந்து மணி நேரமாக பயணம் செய்து கொண்டிருப்போம்.)",
+        [
+            "will have been travelling",
+            "will be travelling",
+            "will have travelling",
+            "travelling"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 9 p.m. tomorrow, they ______ for three hours.",
+        "(நாளை 9 மணி மணிக்குள், அவர்கள் மூன்று மணி நேரமாக விளையாடிக் கொண்டிருப்பார்கள்.)",
+        [
+            "will have been playing",
+            "will be playing",
+            "will have playing",
+            "playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 8 p.m. tomorrow, you ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நீ மூன்று மணி நேரமாக காத்துக் கொண்டிருப்பாய்.)",
+        [
+            "will have been waiting",
+            "will be waiting",
+            "will have waiting",
+            "waiting"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 10 a.m. tomorrow, my father ______ for two hours.",
+        "(நாளை 10 மணி மணிக்குள், என் தந்தை இரண்டு மணி நேரமாக வேலை செய்து கொண்டிருப்பார்.)",
+        [
+            "will have been working",
+            "will be working",
+            "will have working",
+            "working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By noon tomorrow, my sister ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், என் சகோதரி நான்கு மணி நேரமாக சமைத்துக் கொண்டிருப்பாள்.)",
+        [
+            "will have been cooking",
+            "will be cooking",
+            "will have cooking",
+            "cooking"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 6 p.m. tomorrow, the students ______ for five hours.",
+        "(நாளை 6 மணி மணிக்குள், மாணவர்கள் ஐந்து மணி நேரமாக தயாராகிக் கொண்டிருப்பார்கள்.)",
+        [
+            "will have been preparing",
+            "will be preparing",
+            "will have preparing",
+            "preparing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 9 p.m. tomorrow, the children ______ for three hours.",
+        "(நாளை 9 மணி மணிக்குள், குழந்தைகள் மூன்று மணி நேரமாக விளையாடிக் கொண்டிருப்பார்கள்.)",
+        [
+            "will have been playing",
+            "will be playing",
+            "will have playing",
+            "playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 8 p.m. tomorrow, I ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நான் மூன்று மணி நேரமாக வேலை செய்து கொண்டிருப்பேன்.)",
+        [
+            "will have been working",
+            "will be working",
+            "will have working",
+            "working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 10 a.m. tomorrow, she ______ for two hours.",
+        "(நாளை 10 மணி மணிக்குள், அவள் இரண்டு மணி நேரமாக படித்துக் கொண்டிருப்பாள்.)",
+        [
+            "will have been studying",
+            "will be studying",
+            "will have studying",
+            "studying"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By noon tomorrow, he ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், அவன் நான்கு மணி நேரமாக படித்துக் கொண்டிருப்பான்.)",
+        [
+            "will have been reading",
+            "will be reading",
+            "will have reading",
+            "reading"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 6 p.m. tomorrow, we ______ for five hours.",
+        "(நாளை 6 மணி மணிக்குள், நாங்கள் ஐந்து மணி நேரமாக பயணம் செய்து கொண்டிருப்போம்.)",
+        [
+            "will have been travelling",
+            "will be travelling",
+            "will have travelling",
+            "travelling"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 9 p.m. tomorrow, they ______ for three hours.",
+        "(நாளை 9 மணி மணிக்குள், அவர்கள் மூன்று மணி நேரமாக விளையாடிக் கொண்டிருப்பார்கள்.)",
+        [
+            "will have been playing",
+            "will be playing",
+            "will have playing",
+            "playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 8 p.m. tomorrow, you ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நீ மூன்று மணி நேரமாக காத்துக் கொண்டிருப்பாய்.)",
+        [
+            "will have been waiting",
+            "will be waiting",
+            "will have waiting",
+            "waiting"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 10 a.m. tomorrow, my father ______ for two hours.",
+        "(நாளை 10 மணி மணிக்குள், என் தந்தை இரண்டு மணி நேரமாக வேலை செய்து கொண்டிருப்பார்.)",
+        [
+            "will have been working",
+            "will be working",
+            "will have working",
+            "working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By noon tomorrow, my sister ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், என் சகோதரி நான்கு மணி நேரமாக சமைத்துக் கொண்டிருப்பாள்.)",
+        [
+            "will have been cooking",
+            "will be cooking",
+            "will have cooking",
+            "cooking"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 6 p.m. tomorrow, the students ______ for five hours.",
+        "(நாளை 6 மணி மணிக்குள், மாணவர்கள் ஐந்து மணி நேரமாக தயாராகிக் கொண்டிருப்பார்கள்.)",
+        [
+            "will have been preparing",
+            "will be preparing",
+            "will have preparing",
+            "preparing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ],
+    [
+        "By 9 p.m. tomorrow, the children ______ for three hours.",
+        "(நாளை 9 மணி மணிக்குள், குழந்தைகள் மூன்று மணி நேரமாக விளையாடிக் கொண்டிருப்பார்கள்.)",
+        [
+            "will have been playing",
+            "will be playing",
+            "will have playing",
+            "playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing."
+    ]
+];
+    return raw.map(item => ({ q:item[0], tq:item[1], o:item[2], a:item[3], e:item[4] }));
+};
+
+const generateAdvancedQuestions = () => {
+    const raw = [
+    [
+        "By 8 p.m. tomorrow, I ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நான் மூன்று மணி நேரமாக வேலை செய்து கொண்டிருப்பேன்.)",
+        [
+            "will have been working",
+            "will be working",
+            "has been working",
+            "will have working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 10 a.m. tomorrow, will she have been ______ for two hours?",
+        "(நாளை 10 மணி மணிக்குள், அவள் இரண்டு மணி நேரமாக படித்துக் கொண்டிருப்பாள் இருப்பாயா/இருப்பாளா?)",
+        [
+            "studying",
+            "studyinging",
+            "studyinging",
+            "been studying"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By noon tomorrow, he will not have been ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், அவன் நான்கு மணி நேரமாக படித்துக் கொண்டிருப்பான் இருக்க மாட்டார்/மாட்டார்கள்.)",
+        [
+            "reading",
+            "will reading",
+            "have reading",
+            "been reading"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "How long will we have been ______ by 6 p.m. tomorrow?",
+        "(நாளை 6 மணி மணிக்குள், நாங்கள் எவ்வளவு நேரமாக பயணம் செய்து கொண்டிருப்போம் இருப்பார்/இருப்பார்கள்?)",
+        [
+            "travelling",
+            "be travelling",
+            "have travelling",
+            "been travelling"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "What will they have been ______ for three hours by 9 p.m.?",
+        "(நாளை 9 மணி மணிக்குள், அவர்கள் மூன்று மணி நேரமாக என்ன செய்து கொண்டிருப்பார்/இருப்பார்கள்?)",
+        [
+            "playing",
+            "do playing",
+            "have playing",
+            "be playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 8 p.m. tomorrow, you ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நீ மூன்று மணி நேரமாக காத்துக் கொண்டிருப்பாய்.)",
+        [
+            "will have been waiting",
+            "will be waiting",
+            "has been waiting",
+            "will have waiting"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 10 a.m. tomorrow, will my father have been ______ for two hours?",
+        "(நாளை 10 மணி மணிக்குள், என் தந்தை இரண்டு மணி நேரமாக வேலை செய்து கொண்டிருப்பார் இருப்பாயா/இருப்பாளா?)",
+        [
+            "working",
+            "workinging",
+            "workinging",
+            "been working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By noon tomorrow, my sister will not have been ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், என் சகோதரி நான்கு மணி நேரமாக சமைத்துக் கொண்டிருப்பாள் இருக்க மாட்டார்/மாட்டார்கள்.)",
+        [
+            "cooking",
+            "will cooking",
+            "have cooking",
+            "been cooking"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "How long will the students have been ______ by 6 p.m. tomorrow?",
+        "(நாளை 6 மணி மணிக்குள், மாணவர்கள் எவ்வளவு நேரமாக தயாராகிக் கொண்டிருப்பார்கள் இருப்பார்/இருப்பார்கள்?)",
+        [
+            "preparing",
+            "be preparing",
+            "have preparing",
+            "been preparing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "What will the children have been ______ for three hours by 9 p.m.?",
+        "(நாளை 9 மணி மணிக்குள், குழந்தைகள் மூன்று மணி நேரமாக என்ன செய்து கொண்டிருப்பார்/இருப்பார்கள்?)",
+        [
+            "playing",
+            "do playing",
+            "have playing",
+            "be playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 8 p.m. tomorrow, I ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நான் மூன்று மணி நேரமாக வேலை செய்து கொண்டிருப்பேன்.)",
+        [
+            "will have been working",
+            "will be working",
+            "has been working",
+            "will have working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 10 a.m. tomorrow, will she have been ______ for two hours?",
+        "(நாளை 10 மணி மணிக்குள், அவள் இரண்டு மணி நேரமாக படித்துக் கொண்டிருப்பாள் இருப்பாயா/இருப்பாளா?)",
+        [
+            "studying",
+            "studyinging",
+            "studyinging",
+            "been studying"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By noon tomorrow, he will not have been ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், அவன் நான்கு மணி நேரமாக படித்துக் கொண்டிருப்பான் இருக்க மாட்டார்/மாட்டார்கள்.)",
+        [
+            "reading",
+            "will reading",
+            "have reading",
+            "been reading"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "How long will we have been ______ by 6 p.m. tomorrow?",
+        "(நாளை 6 மணி மணிக்குள், நாங்கள் எவ்வளவு நேரமாக பயணம் செய்து கொண்டிருப்போம் இருப்பார்/இருப்பார்கள்?)",
+        [
+            "travelling",
+            "be travelling",
+            "have travelling",
+            "been travelling"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "What will they have been ______ for three hours by 9 p.m.?",
+        "(நாளை 9 மணி மணிக்குள், அவர்கள் மூன்று மணி நேரமாக என்ன செய்து கொண்டிருப்பார்/இருப்பார்கள்?)",
+        [
+            "playing",
+            "do playing",
+            "have playing",
+            "be playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 8 p.m. tomorrow, you ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நீ மூன்று மணி நேரமாக காத்துக் கொண்டிருப்பாய்.)",
+        [
+            "will have been waiting",
+            "will be waiting",
+            "has been waiting",
+            "will have waiting"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 10 a.m. tomorrow, will my father have been ______ for two hours?",
+        "(நாளை 10 மணி மணிக்குள், என் தந்தை இரண்டு மணி நேரமாக வேலை செய்து கொண்டிருப்பார் இருப்பாயா/இருப்பாளா?)",
+        [
+            "working",
+            "workinging",
+            "workinging",
+            "been working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By noon tomorrow, my sister will not have been ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், என் சகோதரி நான்கு மணி நேரமாக சமைத்துக் கொண்டிருப்பாள் இருக்க மாட்டார்/மாட்டார்கள்.)",
+        [
+            "cooking",
+            "will cooking",
+            "have cooking",
+            "been cooking"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "How long will the students have been ______ by 6 p.m. tomorrow?",
+        "(நாளை 6 மணி மணிக்குள், மாணவர்கள் எவ்வளவு நேரமாக தயாராகிக் கொண்டிருப்பார்கள் இருப்பார்/இருப்பார்கள்?)",
+        [
+            "preparing",
+            "be preparing",
+            "have preparing",
+            "been preparing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "What will the children have been ______ for three hours by 9 p.m.?",
+        "(நாளை 9 மணி மணிக்குள், குழந்தைகள் மூன்று மணி நேரமாக என்ன செய்து கொண்டிருப்பார்/இருப்பார்கள்?)",
+        [
+            "playing",
+            "do playing",
+            "have playing",
+            "be playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 8 p.m. tomorrow, I ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நான் மூன்று மணி நேரமாக வேலை செய்து கொண்டிருப்பேன்.)",
+        [
+            "will have been working",
+            "will be working",
+            "has been working",
+            "will have working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 10 a.m. tomorrow, will she have been ______ for two hours?",
+        "(நாளை 10 மணி மணிக்குள், அவள் இரண்டு மணி நேரமாக படித்துக் கொண்டிருப்பாள் இருப்பாயா/இருப்பாளா?)",
+        [
+            "studying",
+            "studyinging",
+            "studyinging",
+            "been studying"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By noon tomorrow, he will not have been ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், அவன் நான்கு மணி நேரமாக படித்துக் கொண்டிருப்பான் இருக்க மாட்டார்/மாட்டார்கள்.)",
+        [
+            "reading",
+            "will reading",
+            "have reading",
+            "been reading"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "How long will we have been ______ by 6 p.m. tomorrow?",
+        "(நாளை 6 மணி மணிக்குள், நாங்கள் எவ்வளவு நேரமாக பயணம் செய்து கொண்டிருப்போம் இருப்பார்/இருப்பார்கள்?)",
+        [
+            "travelling",
+            "be travelling",
+            "have travelling",
+            "been travelling"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "What will they have been ______ for three hours by 9 p.m.?",
+        "(நாளை 9 மணி மணிக்குள், அவர்கள் மூன்று மணி நேரமாக என்ன செய்து கொண்டிருப்பார்/இருப்பார்கள்?)",
+        [
+            "playing",
+            "do playing",
+            "have playing",
+            "be playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 8 p.m. tomorrow, you ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நீ மூன்று மணி நேரமாக காத்துக் கொண்டிருப்பாய்.)",
+        [
+            "will have been waiting",
+            "will be waiting",
+            "has been waiting",
+            "will have waiting"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 10 a.m. tomorrow, will my father have been ______ for two hours?",
+        "(நாளை 10 மணி மணிக்குள், என் தந்தை இரண்டு மணி நேரமாக வேலை செய்து கொண்டிருப்பார் இருப்பாயா/இருப்பாளா?)",
+        [
+            "working",
+            "workinging",
+            "workinging",
+            "been working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By noon tomorrow, my sister will not have been ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், என் சகோதரி நான்கு மணி நேரமாக சமைத்துக் கொண்டிருப்பாள் இருக்க மாட்டார்/மாட்டார்கள்.)",
+        [
+            "cooking",
+            "will cooking",
+            "have cooking",
+            "been cooking"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "How long will the students have been ______ by 6 p.m. tomorrow?",
+        "(நாளை 6 மணி மணிக்குள், மாணவர்கள் எவ்வளவு நேரமாக தயாராகிக் கொண்டிருப்பார்கள் இருப்பார்/இருப்பார்கள்?)",
+        [
+            "preparing",
+            "be preparing",
+            "have preparing",
+            "been preparing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "What will the children have been ______ for three hours by 9 p.m.?",
+        "(நாளை 9 மணி மணிக்குள், குழந்தைகள் மூன்று மணி நேரமாக என்ன செய்து கொண்டிருப்பார்/இருப்பார்கள்?)",
+        [
+            "playing",
+            "do playing",
+            "have playing",
+            "be playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 8 p.m. tomorrow, I ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நான் மூன்று மணி நேரமாக வேலை செய்து கொண்டிருப்பேன்.)",
+        [
+            "will have been working",
+            "will be working",
+            "has been working",
+            "will have working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 10 a.m. tomorrow, will she have been ______ for two hours?",
+        "(நாளை 10 மணி மணிக்குள், அவள் இரண்டு மணி நேரமாக படித்துக் கொண்டிருப்பாள் இருப்பாயா/இருப்பாளா?)",
+        [
+            "studying",
+            "studyinging",
+            "studyinging",
+            "been studying"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By noon tomorrow, he will not have been ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், அவன் நான்கு மணி நேரமாக படித்துக் கொண்டிருப்பான் இருக்க மாட்டார்/மாட்டார்கள்.)",
+        [
+            "reading",
+            "will reading",
+            "have reading",
+            "been reading"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "How long will we have been ______ by 6 p.m. tomorrow?",
+        "(நாளை 6 மணி மணிக்குள், நாங்கள் எவ்வளவு நேரமாக பயணம் செய்து கொண்டிருப்போம் இருப்பார்/இருப்பார்கள்?)",
+        [
+            "travelling",
+            "be travelling",
+            "have travelling",
+            "been travelling"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "What will they have been ______ for three hours by 9 p.m.?",
+        "(நாளை 9 மணி மணிக்குள், அவர்கள் மூன்று மணி நேரமாக என்ன செய்து கொண்டிருப்பார்/இருப்பார்கள்?)",
+        [
+            "playing",
+            "do playing",
+            "have playing",
+            "be playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 8 p.m. tomorrow, you ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நீ மூன்று மணி நேரமாக காத்துக் கொண்டிருப்பாய்.)",
+        [
+            "will have been waiting",
+            "will be waiting",
+            "has been waiting",
+            "will have waiting"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 10 a.m. tomorrow, will my father have been ______ for two hours?",
+        "(நாளை 10 மணி மணிக்குள், என் தந்தை இரண்டு மணி நேரமாக வேலை செய்து கொண்டிருப்பார் இருப்பாயா/இருப்பாளா?)",
+        [
+            "working",
+            "workinging",
+            "workinging",
+            "been working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By noon tomorrow, my sister will not have been ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், என் சகோதரி நான்கு மணி நேரமாக சமைத்துக் கொண்டிருப்பாள் இருக்க மாட்டார்/மாட்டார்கள்.)",
+        [
+            "cooking",
+            "will cooking",
+            "have cooking",
+            "been cooking"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "How long will the students have been ______ by 6 p.m. tomorrow?",
+        "(நாளை 6 மணி மணிக்குள், மாணவர்கள் எவ்வளவு நேரமாக தயாராகிக் கொண்டிருப்பார்கள் இருப்பார்/இருப்பார்கள்?)",
+        [
+            "preparing",
+            "be preparing",
+            "have preparing",
+            "been preparing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "What will the children have been ______ for three hours by 9 p.m.?",
+        "(நாளை 9 மணி மணிக்குள், குழந்தைகள் மூன்று மணி நேரமாக என்ன செய்து கொண்டிருப்பார்/இருப்பார்கள்?)",
+        [
+            "playing",
+            "do playing",
+            "have playing",
+            "be playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 8 p.m. tomorrow, I ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நான் மூன்று மணி நேரமாக வேலை செய்து கொண்டிருப்பேன்.)",
+        [
+            "will have been working",
+            "will be working",
+            "has been working",
+            "will have working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 10 a.m. tomorrow, will she have been ______ for two hours?",
+        "(நாளை 10 மணி மணிக்குள், அவள் இரண்டு மணி நேரமாக படித்துக் கொண்டிருப்பாள் இருப்பாயா/இருப்பாளா?)",
+        [
+            "studying",
+            "studyinging",
+            "studyinging",
+            "been studying"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By noon tomorrow, he will not have been ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், அவன் நான்கு மணி நேரமாக படித்துக் கொண்டிருப்பான் இருக்க மாட்டார்/மாட்டார்கள்.)",
+        [
+            "reading",
+            "will reading",
+            "have reading",
+            "been reading"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "How long will we have been ______ by 6 p.m. tomorrow?",
+        "(நாளை 6 மணி மணிக்குள், நாங்கள் எவ்வளவு நேரமாக பயணம் செய்து கொண்டிருப்போம் இருப்பார்/இருப்பார்கள்?)",
+        [
+            "travelling",
+            "be travelling",
+            "have travelling",
+            "been travelling"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "What will they have been ______ for three hours by 9 p.m.?",
+        "(நாளை 9 மணி மணிக்குள், அவர்கள் மூன்று மணி நேரமாக என்ன செய்து கொண்டிருப்பார்/இருப்பார்கள்?)",
+        [
+            "playing",
+            "do playing",
+            "have playing",
+            "be playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 8 p.m. tomorrow, you ______ for three hours.",
+        "(நாளை 8 மணி மணிக்குள், நீ மூன்று மணி நேரமாக காத்துக் கொண்டிருப்பாய்.)",
+        [
+            "will have been waiting",
+            "will be waiting",
+            "has been waiting",
+            "will have waiting"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By 10 a.m. tomorrow, will my father have been ______ for two hours?",
+        "(நாளை 10 மணி மணிக்குள், என் தந்தை இரண்டு மணி நேரமாக வேலை செய்து கொண்டிருப்பார் இருப்பாயா/இருப்பாளா?)",
+        [
+            "working",
+            "workinging",
+            "workinging",
+            "been working"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "By noon tomorrow, my sister will not have been ______ for four hours.",
+        "(நாளை மதியம் மணிக்குள், என் சகோதரி நான்கு மணி நேரமாக சமைத்துக் கொண்டிருப்பாள் இருக்க மாட்டார்/மாட்டார்கள்.)",
+        [
+            "cooking",
+            "will cooking",
+            "have cooking",
+            "been cooking"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "How long will the students have been ______ by 6 p.m. tomorrow?",
+        "(நாளை 6 மணி மணிக்குள், மாணவர்கள் எவ்வளவு நேரமாக தயாராகிக் கொண்டிருப்பார்கள் இருப்பார்/இருப்பார்கள்?)",
+        [
+            "preparing",
+            "be preparing",
+            "have preparing",
+            "been preparing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ],
+    [
+        "What will the children have been ______ for three hours by 9 p.m.?",
+        "(நாளை 9 மணி மணிக்குள், குழந்தைகள் மூன்று மணி நேரமாக என்ன செய்து கொண்டிருப்பார்/இருப்பார்கள்?)",
+        [
+            "playing",
+            "do playing",
+            "have playing",
+            "be playing"
+        ],
+        0,
+        "Future Perfect Continuous = will have been + V-ing; duration is often shown with for/since."
+    ]
+];
+    return raw.map(item => ({ q:item[0], tq:item[1], o:item[2], a:item[3], e:item[4] }));
+};
+
+/* =========================================================
+   TOPICS
+========================================================= */
+
+const futurePerfectContinuousTopics = [
+    {
+        id: 1,
+        title: "BASIC FUTURE PERFECT CONTINUOUS",
+        tamilTitle: "அடிப்படை எதிர்கால பூரண தொடர்காலம்",
+        displayChain: "will have been + V-ing • for • since • by + future time • by tomorrow",
+        explanation: "Future Perfect Continuous Tense என்பது எதிர்காலத்தில் ஒரு குறிப்பிட்ட நேரம் வரை ஒரு செயல் தொடர்ந்து நடந்து கொண்டிருக்கும் காலத்தைச் சொல்லப் பயன்படும். முக்கிய அமைப்பு Subject + will have been + Verb-ing. for, since, by tomorrow, by 8 p.m. போன்ற காலக் குறிப்புகளுடன் பயன்படுத்தப்படுகிறது.",
+        formula: "Positive: Subject + will have been + V-ing | Negative: Subject + will not have been + V-ing | Question: Will + Subject + have been + V-ing?",
+        tableData: [
+            { l:"I will have been working", t:"நான் வேலை செய்து கொண்டிருப்பேன்", e:"I will have been working for three hours by 8 p.m.", te:"இரவு 8 மணிக்குள் நான் மூன்று மணி நேரமாக வேலை செய்து கொண்டிருப்பேன்." },
+            { l:"She will have been studying", t:"அவள் படித்துக் கொண்டிருப்பாள்", e:"She will have been studying for two hours by 10 a.m.", te:"காலை 10 மணிக்குள் அவள் இரண்டு மணி நேரமாக படித்துக் கொண்டிருப்பாள்." },
+            { l:"They will have been travelling", t:"அவர்கள் பயணம் செய்து கொண்டிருப்பார்கள்", e:"They will have been travelling since morning.", te:"காலை முதல் அவர்கள் பயணம் செய்து கொண்டிருப்பார்கள்." },
+            { l:"He will not have been working", t:"அவன் வேலை செய்து கொண்டிருக்க மாட்டான்", e:"He will not have been working for long.", te:"அவன் நீண்ட நேரமாக வேலை செய்து கொண்டிருக்க மாட்டான்." },
+            { l:"Will you have been studying?", t:"நீ படித்துக் கொண்டிருப்பாயா?", e:"Will you have been studying for three hours by 8?", te:"8 மணிக்குள் நீ மூன்று மணி நேரமாக படித்துக் கொண்டிருப்பாயா?" }
+        ],
+        questions: generateBasicQuestions()
+    },
+    {
+        id: 2,
+        title: "ADVANCED FUTURE PERFECT CONTINUOUS",
+        tamilTitle: "மேம்பட்ட எதிர்கால பூரண தொடர்காலம்",
+        displayChain: "will • will not • have been • How long • What • by + time • for • since",
+        explanation: "Advanced Future Perfect Continuous-ல் positive, negative, yes/no question மற்றும் WH-question sentences அமைக்கலாம். Negative-ல் will not have been + V-ing பயன்படுத்த வேண்டும். Question-ல் Will + Subject + have been + V-ing? அல்லது How long will + Subject + have been + V-ing? போன்ற அமைப்புகள் வரும்.",
+        formula: "Positive: Subject + will have been + V-ing | Negative: Subject + will not have been + V-ing | Question: Will + Subject + have been + V-ing? | WH: How long + will + Subject + have been + V-ing?",
+        tableData: [
+            { l:"will have been + V-ing", t:"Positive", e:"She will have been studying for two hours by 10.", te:"10 மணிக்குள் அவள் இரண்டு மணி நேரமாக படித்துக் கொண்டிருப்பாள்." },
+            { l:"will not have been + V-ing", t:"Negative", e:"He will not have been working for long.", te:"அவன் நீண்ட நேரமாக வேலை செய்து கொண்டிருக்க மாட்டான்." },
+            { l:"Will + subject + have been", t:"Question", e:"Will you have been studying for three hours?", te:"நீ மூன்று மணி நேரமாக படித்துக் கொண்டிருப்பாயா?" },
+            { l:"How long will", t:"எவ்வளவு நேரமாக", e:"How long will she have been working?", te:"அவள் எவ்வளவு நேரமாக வேலை செய்து கொண்டிருப்பாள்?" },
+            { l:"for", t:"கால அளவு", e:"I will have been waiting for two hours.", te:"நான் இரண்டு மணி நேரமாக காத்துக் கொண்டிருப்பேன்." },
+            { l:"since", t:"தொடங்கிய நேரம்", e:"They will have been working since morning.", te:"அவர்கள் காலை முதல் வேலை செய்து கொண்டிருப்பார்கள்." },
+            { l:"by 8 p.m.", t:"குறிப்பிட்ட எதிர்கால நேரத்திற்குள்", e:"We will have been travelling for five hours by 8 p.m.", te:"இரவு 8 மணிக்குள் நாங்கள் ஐந்து மணி நேரமாக பயணம் செய்து கொண்டிருப்போம்." }
+        ],
+        questions: generateAdvancedQuestions()
+    }
+];
+
+/* =========================================================
+   QUIZ VARIABLES
+========================================================= */
+
+let currentTopicIndex = 0;
+let currentQuestionIndex = 0;
+let score = 0;
+let selectedOptionIndex = null;
+let currentShuffledOptions = [];
+let topicProgress = [false, false];
+
+
+/* =========================================================
+   PAGE LOAD
+========================================================= */
+
+window.onload = function () {
+
+    renderProgressTracker();
+
+    renderPills();
+
+    loadTopic(0);
+
+};
+
+
+/* =========================================================
+   PROGRESS TRACKER
+========================================================= */
+
+function renderProgressTracker() {
+
+    const grid =
+        document.getElementById("progress-tracker-grid");
+
+    grid.innerHTML = "";
+
+    const completedCount =
+        topicProgress.filter(Boolean).length;
+
+    document.getElementById(
+        "overall-progress-text"
+    ).innerText =
+        `${completedCount} / ${futurePerfectContinuousTopics.length} Completed`;
+
+
+    futurePerfectContinuousTopics.forEach((topic, idx) => {
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            `progress-item ${topicProgress[idx] ? "completed" : ""}`;
+
+        item.onclick =
+            () => loadTopic(idx);
+
+        item.innerHTML = `
+
+            <div class="check-icon">
+                ${topicProgress[idx] ? "✓" : idx + 1}
+            </div>
+
+            <span>
+                ${topic.title}
+            </span>
+
+        `;
+
+        grid.appendChild(item);
+
+    });
+
+}
+
+
+/* =========================================================
+   TOPIC PILLS
+========================================================= */
+
+function renderPills() {
+
+    const pillsContainer =
+        document.getElementById("topic-pills");
+
+    pillsContainer.innerHTML = "";
+
+    futurePerfectContinuousTopics.forEach((topic, idx) => {
+
+        const btn =
+            document.createElement("button");
+
+        btn.className =
+            `pill-btn ${idx === currentTopicIndex ? "active" : ""}`;
+
+        btn.innerText =
+            topic.title;
+
+        btn.onclick =
+            () => loadTopic(idx);
+
+        pillsContainer.appendChild(btn);
+
+    });
+
+}
+
+
+/* =========================================================
+   LOAD TOPIC
+========================================================= */
+
+function loadTopic(index) {
+
+    currentTopicIndex = index;
+
+    currentQuestionIndex = 0;
+
+    score = 0;
+
+    selectedOptionIndex = null;
+
+    renderPills();
+
+    renderTopicContent();
+
+    loadQuestion();
+
+    document.getElementById(
+        "question-runner"
+    ).style.display = "block";
+
+    document.getElementById(
+        "result-runner"
+    ).style.display = "none";
+
+}
+
+
+/* =========================================================
+   TOPIC CONTENT
+========================================================= */
+
+function renderTopicContent() {
+
+    const topic =
+        futurePerfectContinuousTopics[currentTopicIndex];
+
+    const contentBox =
+        document.getElementById("topic-content");
+
+
+    let tableRows =
+        topic.tableData.map(row => `
+
+            <tr>
+
+                <td>
+                    <b>${row.l}</b>
+                </td>
+
+                <td>
+                    ${row.t}
+                </td>
+
+                <td>
+
+                    <i>${row.e}</i>
+
+                    <span class="sent-ta">
+                        ${row.te}
+                    </span>
+
+                </td>
+
+            </tr>
+
+        `).join("");
+
+
+    contentBox.innerHTML = `
+
+        <div class="topic-title">
+            ${topic.title} – ${topic.tamilTitle}
+        </div>
+
+        <div class="display-chain">
+            ${topic.displayChain}
+        </div>
+
+        <div class="tamil-explain">
+            ${topic.explanation}
+        </div>
+
+        <div class="formula-box">
+
+            <strong>
+                Simple Present Formula:
+            </strong>
+
+            <div class="formula-line">
+                ${topic.formula}
+            </div>
+
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Structure / Example
+                        </th>
+
+                        <th>
+                            தமிழ் பொருள்
+                        </th>
+
+                        <th>
+                            Example Sentence & Meaning
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    ${tableRows}
+                </tbody>
+
+            </table>
+
+        </div>
+    `;
+
+
+    document.getElementById(
+        "quiz-topic-badge"
+    ).innerText =
+        `${topic.title} Quiz`;
+
+}
+
+
+/* =========================================================
+   SHUFFLE
+========================================================= */
+
+function shuffleArray(array) {
+
+    let arr = [...array];
+
+    for (
+        let i = arr.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(Math.random() * (i + 1));
+
+        [arr[i], arr[j]] =
+            [arr[j], arr[i]];
+
+    }
+
+    return arr;
+
+}
+
+
+/* =========================================================
+   LOAD QUESTION
+========================================================= */
+
+function loadQuestion() {
+
+    const topic =
+        futurePerfectContinuousTopics[currentTopicIndex];
+
+    const q =
+        topic.questions[currentQuestionIndex];
+
+
+    document.getElementById(
+        "quiz-progress-text"
+    ).innerText =
+        `Question ${currentQuestionIndex + 1} / ${topic.questions.length}`;
+
+
+    document.getElementById(
+        "question-text"
+    ).innerText =
+        `${currentQuestionIndex + 1}. ${q.q}`;
+
+
+    document.getElementById(
+        "question-tamil-text"
+    ).innerText =
+        q.tq;
+
+
+    let optionObjects =
+        q.o.map((optText, idx) => ({
+
+            text: optText,
+
+            isCorrect: idx === q.a
+
+        }));
+
+
+    currentShuffledOptions =
+        shuffleArray(optionObjects);
+
+
+    const optionsGrid =
+        document.getElementById(
+            "options-container"
+        );
+
+    optionsGrid.innerHTML = "";
+
+
+    currentShuffledOptions.forEach(
+        (optObj, idx) => {
+
+            const btn =
+                document.createElement("button");
+
+            btn.className =
+                "option-btn";
+
+            btn.innerText =
+                optObj.text;
+
+            btn.onclick =
+                () => selectOption(idx);
+
+            optionsGrid.appendChild(btn);
+
+        }
+    );
+
+
+    const feedback =
+        document.getElementById(
+            "feedback-box"
+        );
+
+    feedback.style.display = "none";
+
+    feedback.className =
+        "feedback-box";
+
+    feedback.innerHTML = "";
+
+
+    document.getElementById(
+        "next-btn"
+    ).disabled = true;
+
+
+    selectedOptionIndex = null;
+
+}
+
+
+/* =========================================================
+   SELECT OPTION
+========================================================= */
+
+function selectOption(index) {
+
+    if (selectedOptionIndex !== null) {
+        return;
+    }
+
+    selectedOptionIndex = index;
+
+
+    const topic =
+        futurePerfectContinuousTopics[currentTopicIndex];
+
+    const q =
+        topic.questions[currentQuestionIndex];
+
+
+    const options =
+        document.getElementById(
+            "options-container"
+        ).children;
+
+
+    const feedback =
+        document.getElementById(
+            "feedback-box"
+        );
+
+
+    const isCorrectAnswer =
+        currentShuffledOptions[index].isCorrect;
+
+
+    if (isCorrectAnswer) {
+
+        score++;
+
+        options[index]
+            .classList
+            .add("selected-correct");
+
+
+        feedback.className =
+            "feedback-box correct";
+
+
+        feedback.innerHTML =
+            `<b>✓ சரியான பதில்!</b> ${q.e}`;
+
+    } else {
+
+        options[index]
+            .classList
+            .add("selected-wrong");
+
+
+        const correctIndex =
+            currentShuffledOptions
+                .findIndex(
+                    item => item.isCorrect
+                );
+
+
+        options[correctIndex]
+            .classList
+            .add("selected-correct");
+
+
+        feedback.className =
+            "feedback-box wrong";
+
+
+        feedback.innerHTML =
+            `<b>✗ தவறான பதில்!</b> ${q.e}`;
+
+    }
+
+
+    Array.from(options)
+        .forEach(opt => {
+            opt.disabled = true;
+        });
+
+
+    document.getElementById(
+        "next-btn"
+    ).disabled = false;
+
+}
+
+
+/* =========================================================
+   NEXT QUESTION
+========================================================= */
+
+function nextQuestion() {
+
+    const topic =
+        futurePerfectContinuousTopics[currentTopicIndex];
+
+
+    if (
+        currentQuestionIndex <
+        topic.questions.length - 1
+    ) {
+
+        currentQuestionIndex++;
+
+        loadQuestion();
+
+    } else {
+
+        showResults();
+
+    }
+
+}
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+function showResults() {
+
+    const topic =
+        futurePerfectContinuousTopics[currentTopicIndex];
+
+
+    document.getElementById(
+        "question-runner"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "result-runner"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "res-score"
+    ).innerText =
+        `${score} / ${topic.questions.length}`;
+
+
+    const percent =
+        (score / topic.questions.length) * 100;
+
+
+    if (percent >= 70) {
+
+        topicProgress[currentTopicIndex] = true;
+
+        renderProgressTracker();
+
+        document.getElementById(
+            "res-msg"
+        ).innerText =
+            "அற்புதமான முயற்சி! 🎉";
+
+    } else {
+
+        document.getElementById(
+            "res-msg"
+        ).innerText =
+            "மீண்டும் முயற்சி செய்து பார்க்கவும்! 👍";
+
+    }
+
+}
+
+
+/* =========================================================
+   RETRY
+========================================================= */
+
+function resetCurrentQuiz() {
+
+    loadTopic(currentTopicIndex);
+
+}
+
+</script>
+
+</body>
+</html>

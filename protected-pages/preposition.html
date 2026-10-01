@@ -1,0 +1,2279 @@
+
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>PREPOSITION – முன்னிடைச்சொற்கள் (100 Questions)</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 50px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        /* HEADER */
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 7px 12px;
+            border-radius: 8px;
+            background: #eff6ff;
+            white-space: nowrap;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        /* HERO */
+
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            line-height: 1.35;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            opacity: 0.92;
+        }
+
+        /* PROGRESS */
+
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            min-width: 0;
+        }
+
+        .progress-item.completed {
+            background: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success);
+        }
+
+        .progress-item span:last-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .completed .check-icon {
+            background: var(--success);
+        }
+
+        /* TOPIC PILLS */
+
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 2px 2px 10px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+            min-height: 42px;
+            touch-action: manipulation;
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* TOPIC */
+
+        .topic-section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .topic-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .display-chain {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin: 12px 0;
+            text-align: center;
+            border: 1px dashed #93c5fd;
+            line-height: 1.7;
+            word-break: break-word;
+        }
+
+        .tamil-explain {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 10px 12px;
+            margin: 12px 0;
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        /* TABLE */
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 16px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 520px;
+        }
+
+        th {
+            background: #f1f5f9;
+            padding: 10px;
+            font-weight: 700;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.5;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .sent-ta {
+            display: block;
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* QUIZ */
+
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            border: 2px solid #e0e7ff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-title-badge {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            white-space: nowrap;
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .question-tamil-text {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+            line-height: 1.55;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 50px;
+            padding: 12px 14px;
+            text-align: left;
+            background: white;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+            line-height: 1.4;
+            transition: 0.15s ease;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: #93c5fd;
+            background: #eff6ff;
+        }
+
+        .option-btn:active {
+            transform: scale(0.99);
+        }
+
+        .option-btn.selected-correct {
+            background: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+        }
+
+        .option-btn.selected-wrong {
+            background: var(--error-bg) !important;
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+        }
+
+        .feedback-box {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background: var(--success-bg);
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background: var(--error-bg);
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 100%;
+            min-height: 50px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            touch-action: manipulation;
+            padding: 12px;
+        }
+
+        .next-btn:hover:not(:disabled) {
+            background: var(--primary-dark);
+        }
+
+        .next-btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        /* RESULT */
+
+        .result-card {
+            text-align: center;
+            padding: 20px 10px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 4px solid var(--primary);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            body {
+                font-size: 14px;
+            }
+
+            .container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            header {
+                padding: 9px 0;
+            }
+
+            .brand-title {
+                font-size: 0.82rem;
+            }
+
+            .back-link {
+                font-size: 0.78rem;
+                padding: 6px 9px;
+            }
+
+            .hero {
+                padding: 20px 12px;
+                margin: 12px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.18rem;
+            }
+
+            .hero p {
+                font-size: 0.82rem;
+            }
+
+            .progress-card,
+            .topic-section,
+            .quiz-container {
+                padding: 13px;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-item {
+                min-height: 42px;
+            }
+
+            .topic-title {
+                font-size: 1.05rem;
+            }
+
+            .display-chain {
+                font-size: 0.8rem;
+                padding: 9px;
+            }
+
+            .tamil-explain {
+                font-size: 0.84rem;
+            }
+
+            .quiz-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 7px;
+            }
+
+            .quiz-progress-text {
+                font-size: 0.76rem;
+            }
+
+            .question-text {
+                font-size: 0.94rem;
+            }
+
+            .question-tamil-text {
+                font-size: 0.82rem;
+            }
+
+            .option-btn {
+                min-height: 48px;
+                font-size: 0.88rem;
+                padding: 11px 12px;
+            }
+
+            .feedback-box {
+                font-size: 0.82rem;
+            }
+
+            .next-btn {
+                min-height: 48px;
+                font-size: 0.88rem;
+            }
+
+            table {
+                min-width: 500px;
+            }
+        }
+
+        @media (max-width: 360px) {
+
+            .hero h1 {
+                font-size: 1.05rem;
+            }
+
+            .brand-title {
+                font-size: 0.75rem;
+            }
+
+            .back-link {
+                font-size: 0.72rem;
+            }
+
+            .topic-title {
+                font-size: 0.98rem;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="tms-theme.css">
+</head>
+
+<body>
+
+<header>
+    <div class="container nav-header">
+
+        <a href="#" class="back-link">
+            ← Home
+        </a>
+
+        <div class="brand-title">
+            Tamil Medium Student
+        </div>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+        <h1>
+            PREPOSITION – முன்னிடைச்சொற்கள்
+        </h1>
+
+        <p>
+            100 பயிற்சிகள் (50+50) தமிழ் விளக்கத்துடன்!
+        </p>
+
+    </div>
+
+
+    <!-- PROGRESS -->
+
+    <div class="progress-card">
+
+        <div class="progress-title">
+
+            <span>
+                கற்றல் நிலை (Progress)
+            </span>
+
+            <span id="overall-progress-text"
+                style="color:var(--primary);">
+                0 / 2 Completed
+            </span>
+
+        </div>
+
+        <div class="progress-grid"
+            id="progress-tracker-grid">
+        </div>
+
+    </div>
+
+
+    <!-- TOPIC PILLS -->
+
+    <div class="topic-pills"
+        id="topic-pills">
+    </div>
+
+
+    <!-- TOPIC CONTENT -->
+
+    <section class="topic-section"
+        id="topic-content">
+    </section>
+
+
+    <!-- QUIZ -->
+
+    <section class="quiz-container"
+        id="quiz-box">
+
+        <div class="quiz-header">
+
+            <span class="quiz-title-badge"
+                id="quiz-topic-badge">
+                Preposition Quiz
+            </span>
+
+            <span class="quiz-progress-text"
+                id="quiz-progress-text">
+                Question 1 / 50
+            </span>
+
+        </div>
+
+
+        <div id="question-runner">
+
+            <div class="question-box">
+
+                <div class="question-text"
+                    id="question-text">
+                    Loading question...
+                </div>
+
+                <div class="question-tamil-text"
+                    id="question-tamil-text">
+                    கேள்வி அர்த்தம்...
+                </div>
+
+                <div class="options-grid"
+                    id="options-container">
+                </div>
+
+            </div>
+
+
+            <div class="feedback-box"
+                id="feedback-box">
+            </div>
+
+
+            <div class="quiz-actions">
+
+                <button class="next-btn"
+                    id="next-btn"
+                    onclick="nextQuestion()"
+                    disabled>
+
+                    அடுத்த கேள்வி (Next) →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div class="result-card"
+            id="result-runner">
+
+            <div class="score-circle">
+
+                <span id="res-score">
+                    0
+                </span>
+
+            </div>
+
+            <div id="res-msg"
+                style="font-weight:700;
+                       margin-bottom:10px;">
+
+                வாழ்த்துக்கள்!
+
+            </div>
+
+            <button class="next-btn"
+                onclick="resetCurrentQuiz()">
+
+                🔄 மீண்டும் பயிற்சி செய்
+
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   BASIC PREPOSITION – 50 QUESTIONS
+========================================================= */
+
+const generateBasicQuestions = () => {
+
+    const raw = [
+
+        ["The book is ______ the table.",
+            "(புத்தகம் மேசையின் மேல் உள்ளது.)",
+            ["on", "in", "at", "under"], 0,
+            "'on' என்பது ஒரு பொருளின் மேல் இருப்பதைக் காட்டுகிறது."],
+
+        ["The pen is ______ the box.",
+            "(பேனா பெட்டிக்குள் உள்ளது.)",
+            ["in", "on", "at", "over"], 0,
+            "'in' என்பது உள்ளே இருப்பதைக் காட்டுகிறது."],
+
+        ["The cat is ______ the chair.",
+            "(பூனை நாற்காலியின் கீழே உள்ளது.)",
+            ["under", "on", "in", "between"], 0,
+            "'under' என்பது கீழே என்பதைக் காட்டுகிறது."],
+
+        ["She is waiting ______ the bus stop.",
+            "(அவள் பேருந்து நிறுத்தத்தில் காத்திருக்கிறாள்.)",
+            ["at", "in", "on", "by"], 0,
+            "குறிப்பிட்ட இடத்திற்கு 'at' பயன்படும்."],
+
+        ["He lives ______ Chennai.",
+            "(அவன் சென்னையில் வசிக்கிறான்.)",
+            ["in", "on", "at", "by"], 0,
+            "City-க்கு பொதுவாக 'in' பயன்படுத்தப்படுகிறது."],
+
+        ["The picture is ______ the wall.",
+            "(படம் சுவரில் உள்ளது.)",
+            ["on", "in", "at", "under"], 0,
+            "சுவரின் மேற்பரப்பில் இருப்பதால் 'on'."],
+
+        ["The children are ______ the classroom.",
+            "(குழந்தைகள் வகுப்பறைக்குள் உள்ளனர்.)",
+            ["in", "on", "at", "over"], 0,
+            "'in the classroom' என்பது வகுப்பறைக்குள் என்று பொருள்."],
+
+        ["The dog is sleeping ______ the bed.",
+            "(நாய் படுக்கையின் கீழே தூங்குகிறது.)",
+            ["under", "on", "in", "at"], 0,
+            "'under' கீழே என்பதைக் காட்டுகிறது."],
+
+        ["My father is ______ home.",
+            "(என் அப்பா வீட்டில் இருக்கிறார்.)",
+            ["at", "in", "on", "to"], 0,
+            "'at home' என்பது பொதுவான பயன்பாடு."],
+
+        ["We go to school ______ bus.",
+            "(நாங்கள் பேருந்தில் பள்ளிக்குச் செல்கிறோம்.)",
+            ["by", "on", "in", "at"], 0,
+            "Transport-க்கு 'by bus' பயன்படுத்தப்படுகிறது."],
+
+        ["She came ______ train.",
+            "(அவள் ரயிலில் வந்தாள்.)",
+            ["by", "in", "at", "on"], 0,
+            "'by train' என்பது ரயில் மூலம் என்று பொருள்."],
+
+        ["The keys are ______ my bag.",
+            "(சாவிகள் என் பைக்குள் உள்ளன.)",
+            ["in", "on", "at", "under"], 0,
+            "'in my bag' = என் பைக்குள்."],
+
+        ["The school is ______ the bank and the hospital.",
+            "(பள்ளி வங்கிக்கும் மருத்துவமனைக்கும் இடையில் உள்ளது.)",
+            ["between", "among", "under", "behind"], 0,
+            "இரண்டு இடங்களுக்கு இடையில் 'between'."],
+
+        ["She is sitting ______ her two friends.",
+            "(அவள் தனது இரண்டு நண்பர்களுக்கு இடையில் அமர்ந்திருக்கிறாள்.)",
+            ["between", "among", "over", "through"], 0,
+            "இரண்டு பேருக்கு இடையில் 'between'."],
+
+        ["The teacher is standing ______ the students.",
+            "(ஆசிரியர் மாணவர்களுக்கு நடுவில் நிற்கிறார்.)",
+            ["among", "between", "under", "behind"], 0,
+            "பல பேருக்கு நடுவில் 'among' பயன்படுத்தப்படும்."],
+
+        ["The car is ______ the house.",
+            "(கார் வீட்டின் முன் உள்ளது.)",
+            ["in front of", "behind", "under", "between"], 0,
+            "'in front of' = முன்னால்."],
+
+        ["The boy is ______ the tree.",
+            "(சிறுவன் மரத்தின் பின்னால் இருக்கிறான்.)",
+            ["behind", "in front of", "on", "at"], 0,
+            "'behind' = பின்னால்."],
+
+        ["The shop is ______ the school.",
+            "(கடை பள்ளிக்கு அருகில் உள்ளது.)",
+            ["near", "under", "through", "between"], 0,
+            "'near' = அருகில்."],
+
+        ["The hospital is ______ the railway station.",
+            "(மருத்துவமனை ரயில் நிலையத்திற்கு அருகில் உள்ளது.)",
+            ["near", "inside", "over", "under"], 0,
+            "'near' இடத்தின் அருகாமையைக் காட்டுகிறது."],
+
+        ["He walked ______ the road.",
+            "(அவன் சாலையின் வழியாக நடந்தான்.)",
+            ["along", "between", "under", "above"], 0,
+            "'along' = வழியாக / ஓரமாக."],
+
+        ["We walked ______ the tunnel.",
+            "(நாங்கள் சுரங்கப்பாதை வழியாக நடந்தோம்.)",
+            ["through", "on", "at", "above"], 0,
+            "'through' = ஒரு இடத்தின் வழியாக."],
+
+        ["The bird flew ______ the house.",
+            "(பறவை வீட்டின் மேலே பறந்தது.)",
+            ["over", "under", "in", "between"], 0,
+            "'over' = மேலாக."],
+
+        ["The plane is flying ______ the clouds.",
+            "(விமானம் மேகங்களுக்கு மேலே பறக்கிறது.)",
+            ["above", "under", "inside", "between"], 0,
+            "'above' = மேலே."],
+
+        ["The temperature is ______ 30°C.",
+            "(வெப்பநிலை 30°C-க்கு மேல் உள்ளது.)",
+            ["above", "under", "between", "inside"], 0,
+            "'above' அளவுக்கு மேலாக இருப்பதைக் காட்டுகிறது."],
+
+        ["The ball is ______ the box.",
+            "(பந்து பெட்டியின் அருகில் உள்ளது.)",
+            ["beside", "through", "over", "into"], 0,
+            "'beside' = பக்கத்தில்."],
+
+        ["She sat ______ me.",
+            "(அவள் என் அருகில் அமர்ந்தாள்.)",
+            ["beside", "between", "above", "through"], 0,
+            "'beside me' = என் பக்கத்தில்."],
+
+        ["He came ______ his friend.",
+            "(அவன் தனது நண்பனுடன் வந்தான்.)",
+            ["with", "from", "to", "for"], 0,
+            "'with' = உடன்."],
+
+        ["This gift is ______ you.",
+            "(இந்த பரிசு உனக்காக.)",
+            ["for", "from", "with", "by"], 0,
+            "'for' = ஒருவருக்காக."],
+
+        ["I received a letter ______ my friend.",
+            "(என் நண்பனிடமிருந்து எனக்கு கடிதம் வந்தது.)",
+            ["from", "for", "with", "to"], 0,
+            "'from' = ஒருவரிடமிருந்து."],
+
+        ["She went ______ school.",
+            "(அவள் பள்ளிக்குச் சென்றாள்.)",
+            ["to", "from", "at", "by"], 0,
+            "'to' ஒரு இடத்தை நோக்கிச் செல்வதைக் காட்டுகிறது."],
+
+        ["He came ______ Coimbatore.",
+            "(அவன் கோயம்புத்தூரிலிருந்து வந்தான்.)",
+            ["from", "to", "at", "with"], 0,
+            "'from' தொடக்க இடத்தைக் காட்டுகிறது."],
+
+        ["We walked ______ the bridge.",
+            "(நாங்கள் பாலத்தின் மீது நடந்தோம்.)",
+            ["across", "under", "inside", "between"], 0,
+            "'across' = ஒரு பக்கத்திலிருந்து மற்றொரு பக்கத்திற்கு."],
+
+        ["She ran ______ the street.",
+            "(அவள் தெருவைக் கடந்து ஓடினாள்.)",
+            ["across", "inside", "above", "behind"], 0,
+            "'across the street' என்பது தெருவைக் கடந்து என்று பொருள்."],
+
+        ["He jumped ______ the river.",
+            "(அவன் ஆற்றுக்குள் குதித்தான்.)",
+            ["into", "onto", "from", "at"], 0,
+            "'into' = உள்ளே செல்லும் இயக்கம்."],
+
+        ["The cat jumped ______ the table.",
+            "(பூனை மேசையின் மேல் குதித்தது.)",
+            ["onto", "into", "from", "under"], 0,
+            "'onto' = ஒரு மேற்பரப்பின் மேல் செல்லுதல்."],
+
+        ["She came ______ the room.",
+            "(அவள் அறையிலிருந்து வெளியே வந்தாள்.)",
+            ["out of", "into", "onto", "above"], 0,
+            "'out of' = உள்ளிருந்து வெளியே."],
+
+        ["He took the book ______ the bag.",
+            "(அவன் பையிலிருந்து புத்தகத்தை எடுத்தான்.)",
+            ["out of", "into", "onto", "between"], 0,
+            "'out of the bag' = பையிலிருந்து வெளியே."],
+
+        ["The meeting starts ______ 10 o'clock.",
+            "(Meeting 10 மணிக்கு தொடங்குகிறது.)",
+            ["at", "on", "in", "by"], 0,
+            "குறிப்பிட்ட நேரத்திற்கு 'at'."],
+
+        ["I was born ______ July.",
+            "(நான் ஜூலை மாதத்தில் பிறந்தேன்.)",
+            ["in", "on", "at", "by"], 0,
+            "Month-க்கு 'in' பயன்படுத்தப்படுகிறது."],
+
+        ["We will meet ______ Monday.",
+            "(நாம் திங்கட்கிழமை சந்திப்போம்.)",
+            ["on", "in", "at", "by"], 0,
+            "Day-க்கு 'on' பயன்படுத்தப்படுகிறது."],
+
+        ["He gets up ______ 6 a.m.",
+            "(அவன் காலை 6 மணிக்கு எழுகிறான்.)",
+            ["at", "on", "in", "from"], 0,
+            "குறிப்பிட்ட நேரத்திற்கு 'at'."],
+
+        ["She was born ______ 2005.",
+            "(அவள் 2005-ல் பிறந்தாள்.)",
+            ["in", "on", "at", "by"], 0,
+            "Year-க்கு 'in' பயன்படுத்தப்படுகிறது."],
+
+        ["I study ______ the morning.",
+            "(நான் காலையில் படிப்பேன்.)",
+            ["in", "on", "at", "by"], 0,
+            "'in the morning' என்பது சரியான பயன்பாடு."],
+
+        ["We sleep ______ night.",
+            "(நாங்கள் இரவில் தூங்குகிறோம்.)",
+            ["at", "in", "on", "by"], 0,
+            "'at night' என்பது பொதுவான பயன்பாடு."],
+
+        ["He has lived here ______ 2020.",
+            "(அவன் 2020 முதல் இங்கே வசிக்கிறான்.)",
+            ["since", "for", "from", "by"], 0,
+            "'since' ஒரு குறிப்பிட்ட தொடக்க நேரத்தைக் காட்டுகிறது."],
+
+        ["She has studied English ______ three years.",
+            "(அவள் மூன்று ஆண்டுகளாக ஆங்கிலம் படித்திருக்கிறாள்.)",
+            ["for", "since", "from", "at"], 0,
+            "'for' கால அளவைக் காட்டுகிறது."],
+
+        ["Wait here ______ 5 o'clock.",
+            "(5 மணி வரை இங்கே காத்திரு.)",
+            ["until", "since", "for", "from"], 0,
+            "'until' = வரை."],
+
+        ["Finish the work ______ tomorrow.",
+            "(நாளைக்குள் வேலையை முடி.)",
+            ["by", "until", "since", "for"], 0,
+            "'by tomorrow' = நாளைக்குள்."],
+
+        ["He worked ______ morning.",
+            "(அவன் காலை முதல் வேலை செய்தான்.)",
+            ["from", "since", "by", "until"], 0,
+            "'from' தொடக்க நேரத்தைக் காட்டுகிறது."],
+
+        ["The shop is open ______ 9 a.m. to 9 p.m.",
+            "(கடை காலை 9 மணி முதல் இரவு 9 மணி வரை திறந்திருக்கும்.)",
+            ["from", "since", "for", "at"], 0,
+            "'from ... to ...' என்பது தொடக்கம் மற்றும் முடிவைக் காட்டுகிறது."]
+
+    ];
+
+    return raw.map(item => ({
+        q: item[0],
+        tq: item[1],
+        o: item[2],
+        a: item[3],
+        e: item[4]
+    }));
+};
+
+
+/* =========================================================
+   ADVANCED PREPOSITION – 50 QUESTIONS
+========================================================= */
+
+const generateAdvancedQuestions = () => {
+
+    const raw = [
+
+        ["She is interested ______ learning English.",
+            "(அவள் ஆங்கிலம் கற்றுக்கொள்வதில் ஆர்வமாக இருக்கிறாள்.)",
+            ["in", "on", "at", "for"], 0,
+            "'interested in' என்பது சரியான combination."],
+
+        ["He is good ______ mathematics.",
+            "(அவன் கணிதத்தில் திறமையானவன்.)",
+            ["at", "in", "on", "for"], 0,
+            "'good at' என்பது திறமையைக் காட்டுகிறது."],
+
+        ["She is afraid ______ dogs.",
+            "(அவளுக்கு நாய்களைப் பார்த்தால் பயம்.)",
+            ["of", "from", "with", "at"], 0,
+            "'afraid of' என்பது சரியான phrase."],
+
+        ["I am proud ______ my brother.",
+            "(என் சகோதரனைப் பற்றி நான் பெருமைப்படுகிறேன்.)",
+            ["of", "for", "with", "at"], 0,
+            "'proud of' = பற்றி பெருமைப்படுதல்."],
+
+        ["He is angry ______ me.",
+            "(அவன் என் மீது கோபமாக இருக்கிறான்.)",
+            ["with", "at", "on", "for"], 0,
+            "'angry with someone' பொதுவாக பயன்படுத்தப்படுகிறது."],
+
+        ["She is worried ______ her exam.",
+            "(அவள் தனது தேர்வைப் பற்றி கவலைப்படுகிறாள்.)",
+            ["about", "for", "with", "at"], 0,
+            "'worried about' என்பது சரியான phrase."],
+
+        ["They are excited ______ the trip.",
+            "(அவர்கள் பயணத்தைப் பற்றி உற்சாகமாக உள்ளனர்.)",
+            ["about", "at", "for", "from"], 0,
+            "'excited about' பயன்படுத்தப்படுகிறது."],
+
+        ["He is responsible ______ the project.",
+            "(அவன் project-க்கு பொறுப்பானவன்.)",
+            ["for", "of", "with", "at"], 0,
+            "'responsible for' என்பது சரியான combination."],
+
+        ["She is famous ______ her songs.",
+            "(அவள் தனது பாடல்களுக்காக பிரபலமானவர்.)",
+            ["for", "of", "with", "at"], 0,
+            "'famous for' = எதற்காக பிரபலமானவர்."],
+
+        ["This place is famous ______ its food.",
+            "(இந்த இடம் அதன் உணவுக்காக பிரபலமானது.)",
+            ["for", "of", "at", "with"], 0,
+            "'famous for' பயன்படுத்தப்படுகிறது."],
+
+        ["He is different ______ his brother.",
+            "(அவன் தனது சகோதரனிடமிருந்து வேறுபட்டவன்.)",
+            ["from", "than", "with", "at"], 0,
+            "'different from' என்பது standard usage."],
+
+        ["She is similar ______ her mother.",
+            "(அவள் தனது தாயைப் போல இருக்கிறாள்.)",
+            ["to", "with", "from", "at"], 0,
+            "'similar to' என்பது சரியான phrase."],
+
+        ["I am proud ______ you.",
+            "(நான் உன்னைப் பற்றி பெருமைப்படுகிறேன்.)",
+            ["of", "for", "with", "at"], 0,
+            "'proud of you'."],
+
+        ["He apologized ______ his teacher.",
+            "(அவன் தனது ஆசிரியரிடம் மன்னிப்பு கேட்டான்.)",
+            ["to", "for", "with", "at"], 0,
+            "ஒருவரிடம் apologize செய்ய 'to'."],
+
+        ["She apologized ______ being late.",
+            "(தாமதமாக வந்ததற்காக அவள் மன்னிப்பு கேட்டாள்.)",
+            ["for", "to", "with", "at"], 0,
+            "ஒரு செயலைப் பற்றி apologize செய்ய 'for'."],
+
+        ["He depends ______ his parents.",
+            "(அவன் தனது பெற்றோரை சார்ந்திருக்கிறான்.)",
+            ["on", "at", "in", "for"], 0,
+            "'depend on' என்பது சரியான phrase."],
+
+        ["You can rely ______ me.",
+            "(நீ என்னை நம்பலாம்.)",
+            ["on", "at", "in", "for"], 0,
+            "'rely on' = நம்பி சார்ந்திருத்தல்."],
+
+        ["She belongs ______ this group.",
+            "(அவள் இந்த குழுவைச் சேர்ந்தவள்.)",
+            ["to", "for", "with", "at"], 0,
+            "'belong to' என்பது சரியான usage."],
+
+        ["This book belongs ______ me.",
+            "(இந்த புத்தகம் என்னுடையது.)",
+            ["to", "with", "for", "at"], 0,
+            "'belongs to me'."],
+
+        ["He succeeded ______ solving the problem.",
+            "(அவன் பிரச்சனையை தீர்ப்பதில் வெற்றி பெற்றான்.)",
+            ["in", "at", "on", "for"], 0,
+            "'succeed in' என்பது சரியான phrase."],
+
+        ["She insisted ______ going alone.",
+            "(அவள் தனியாக செல்ல வேண்டும் என்று வலியுறுத்தினாள்.)",
+            ["on", "in", "at", "for"], 0,
+            "'insist on' என்பது சரியான combination."],
+
+        ["He is capable ______ doing the work.",
+            "(அவன் வேலையை செய்யும் திறன் கொண்டவன்.)",
+            ["of", "for", "with", "at"], 0,
+            "'capable of' பயன்படுத்தப்படுகிறது."],
+
+        ["She is interested ______ technology.",
+            "(அவள் technology-யில் ஆர்வமாக இருக்கிறாள்.)",
+            ["in", "at", "on", "for"], 0,
+            "'interested in'."],
+
+        ["He is addicted ______ his phone.",
+            "(அவன் தனது phone-க்கு அடிமையாக இருக்கிறான்.)",
+            ["to", "with", "for", "at"], 0,
+            "'addicted to' என்பது சரியான phrase."],
+
+        ["She is married ______ a doctor.",
+            "(அவள் ஒரு மருத்துவரை திருமணம் செய்திருக்கிறாள்.)",
+            ["to", "with", "for", "at"], 0,
+            "'married to someone' என்பது சரியான usage."],
+
+        ["He is familiar ______ this software.",
+            "(அவனுக்கு இந்த software நன்றாக தெரியும்.)",
+            ["with", "to", "for", "at"], 0,
+            "'familiar with'."],
+
+        ["I am thankful ______ you.",
+            "(நான் உனக்கு நன்றியுள்ளவனாக இருக்கிறேன்.)",
+            ["to", "for", "with", "at"], 0,
+            "'thankful to someone'."],
+
+        ["She is thankful ______ your help.",
+            "(உன் உதவிக்கு அவள் நன்றியுள்ளவள்.)",
+            ["for", "to", "with", "at"], 0,
+            "'thankful for something'."],
+
+        ["He is responsible ______ maintaining the machine.",
+            "(இயந்திரத்தை பராமரிப்பதற்கு அவன் பொறுப்பானவன்.)",
+            ["for", "of", "to", "with"], 0,
+            "'responsible for'."],
+
+        ["She is good ______ speaking English.",
+            "(அவள் ஆங்கிலம் பேசுவதில் திறமையானவள்.)",
+            ["at", "in", "on", "for"], 0,
+            "'good at + verb-ing'."],
+
+        ["We arrived ______ the airport early.",
+            "(நாங்கள் விமான நிலையத்திற்கு சீக்கிரமாக வந்தோம்.)",
+            ["at", "in", "on", "to"], 0,
+            "ஒரு குறிப்பிட்ட small place-க்கு 'arrive at'."],
+
+        ["They arrived ______ Chennai yesterday.",
+            "(அவர்கள் நேற்று சென்னைக்கு வந்தார்கள்.)",
+            ["in", "at", "on", "to"], 0,
+            "City/country-க்கு 'arrive in'."],
+
+        ["He is looking ______ his keys.",
+            "(அவன் தனது சாவிகளை தேடிக்கொண்டிருக்கிறான்.)",
+            ["for", "at", "on", "with"], 0,
+            "'look for' = தேடுதல்."],
+
+        ["She is looking ______ her mother.",
+            "(அவள் தனது தாயைப் பார்த்துக்கொண்டிருக்கிறாள்.)",
+            ["at", "for", "on", "with"], 0,
+            "'look at' = பார்த்தல்."],
+
+        ["He is listening ______ music.",
+            "(அவன் இசையைக் கேட்டுக்கொண்டிருக்கிறான்.)",
+            ["to", "at", "for", "on"], 0,
+            "'listen to' என்பது சரியான phrase."],
+
+        ["She is waiting ______ the bus.",
+            "(அவள் பேருந்துக்காக காத்திருக்கிறாள்.)",
+            ["for", "to", "at", "on"], 0,
+            "'wait for'."],
+
+        ["I am thinking ______ my future.",
+            "(நான் என் எதிர்காலத்தைப் பற்றி யோசிக்கிறேன்.)",
+            ["about", "for", "at", "with"], 0,
+            "'think about' = பற்றி யோசித்தல்."],
+
+        ["He talked ______ his new job.",
+            "(அவன் தனது புதிய வேலையைப் பற்றி பேசினான்.)",
+            ["about", "for", "at", "with"], 0,
+            "'talk about'."],
+
+        ["She agreed ______ my idea.",
+            "(அவள் என் யோசனையை ஏற்றுக்கொண்டாள்.)",
+            ["with", "to", "for", "at"], 0,
+            "'agree with someone/an idea'."],
+
+        ["He agreed ______ the plan.",
+            "(அவன் திட்டத்திற்கு ஒப்புக்கொண்டான்.)",
+            ["to", "with", "for", "at"], 0,
+            "'agree to a plan'."],
+
+        ["She suffers ______ headaches.",
+            "(அவள் தலைவலியால் அவதிப்படுகிறாள்.)",
+            ["from", "with", "at", "for"], 0,
+            "'suffer from' என்பது சரியான phrase."],
+
+        ["He recovered ______ his illness.",
+            "(அவன் தனது நோயிலிருந்து குணமடைந்தான்.)",
+            ["from", "of", "with", "at"], 0,
+            "'recover from'."],
+
+        ["The teacher divided the students ______ groups.",
+            "(ஆசிரியர் மாணவர்களை குழுக்களாக பிரித்தார்.)",
+            ["into", "in", "on", "at"], 0,
+            "'divide into' என்பது சரியான phrase."],
+
+        ["She translated the sentence ______ English.",
+            "(அவள் வாக்கியத்தை ஆங்கிலத்தில் மொழிபெயர்த்தாள்.)",
+            ["into", "in", "to", "for"], 0,
+            "'translate into' பயன்படுத்தப்படுகிறது."],
+
+        ["He borrowed money ______ his friend.",
+            "(அவன் தனது நண்பனிடமிருந்து பணம் கடன் வாங்கினான்.)",
+            ["from", "to", "for", "with"], 0,
+            "'borrow from someone'."],
+
+        ["She lent money ______ her brother.",
+            "(அவள் தனது சகோதரனுக்கு பணம் கடன் கொடுத்தாள்.)",
+            ["to", "from", "for", "with"], 0,
+            "'lend to someone'."],
+
+        ["He paid ______ the food.",
+            "(அவன் உணவுக்கான பணத்தை செலுத்தினான்.)",
+            ["for", "to", "at", "with"], 0,
+            "'pay for something'."],
+
+        ["She is responsible ______ organizing the event.",
+            "(Event-ஐ ஏற்பாடு செய்வதற்கு அவள் பொறுப்பானவள்.)",
+            ["for", "to", "of", "with"], 0,
+            "'responsible for'."],
+
+        ["The manager is satisfied ______ the result.",
+            "(Manager result-ல் திருப்தியாக இருக்கிறார்.)",
+            ["with", "for", "at", "to"], 0,
+            "'satisfied with'."],
+
+        ["He is aware ______ the problem.",
+            "(அவனுக்கு பிரச்சனை பற்றி தெரியும்.)",
+            ["of", "for", "with", "at"], 0,
+            "'aware of' என்பது சரியான phrase."],
+
+        ["She is interested ______ working abroad.",
+            "(அவள் வெளிநாட்டில் வேலை செய்வதில் ஆர்வமாக இருக்கிறாள்.)",
+            ["in", "on", "at", "for"], 0,
+            "'interested in + verb-ing'."],
+
+        ["He is looking forward ______ meeting you.",
+            "(அவன் உன்னை சந்திப்பதை ஆவலுடன் எதிர்பார்க்கிறான்.)",
+            ["to", "for", "at", "with"], 0,
+            "'look forward to + verb-ing' என்பது முக்கியமான usage."]
+
+    ];
+
+    return raw.map(item => ({
+        q: item[0],
+        tq: item[1],
+        o: item[2],
+        a: item[3],
+        e: item[4]
+    }));
+};
+
+
+/* =========================================================
+   TOPICS
+========================================================= */
+
+const prepositionTopics = [
+
+    {
+        id: 1,
+
+        title: "BASIC PREPOSITIONS",
+
+        tamilTitle: "அடிப்படை முன்னிடைச்சொற்கள்",
+
+        displayChain:
+            "in • on • at • under • above • near • behind • between • from • to",
+
+        explanation:
+            "Preposition (முன்னிடைச்சொல்) என்பது ஒரு noun அல்லது pronoun-க்கும் மற்றொரு சொல்லுக்கும் இடையிலான இடம், நேரம், திசை, தொடர்பு போன்றவற்றைக் காட்டும் சொல்.",
+
+        tableData: [
+
+            {
+                l: "1. in",
+                t: "உள்ளே / இல்",
+                e: "The pen is in the box.",
+                te: "பேனா பெட்டிக்குள் உள்ளது."
+            },
+
+            {
+                l: "2. on",
+                t: "மேல்",
+                e: "The book is on the table.",
+                te: "புத்தகம் மேசையின் மேல் உள்ளது."
+            },
+
+            {
+                l: "3. at",
+                t: "இல் / குறிப்பிட்ட இடத்தில்",
+                e: "She is at school.",
+                te: "அவள் பள்ளியில் இருக்கிறாள்."
+            },
+
+            {
+                l: "4. under",
+                t: "கீழே",
+                e: "The cat is under the chair.",
+                te: "பூனை நாற்காலியின் கீழே உள்ளது."
+            },
+
+            {
+                l: "5. above",
+                t: "மேலே",
+                e: "The fan is above us.",
+                te: "விசிறி எங்களுக்கு மேலே உள்ளது."
+            },
+
+            {
+                l: "6. behind",
+                t: "பின்னால்",
+                e: "He is behind the door.",
+                te: "அவன் கதவுக்குப் பின்னால் இருக்கிறான்."
+            },
+
+            {
+                l: "7. between",
+                t: "இடையில்",
+                e: "The shop is between two buildings.",
+                te: "கடை இரண்டு கட்டிடங்களுக்கு இடையில் உள்ளது."
+            },
+
+            {
+                l: "8. among",
+                t: "நடுவில்",
+                e: "She is among her friends.",
+                te: "அவள் நண்பர்களுக்கு நடுவில் இருக்கிறாள்."
+            },
+
+            {
+                l: "9. near",
+                t: "அருகில்",
+                e: "The school is near my house.",
+                te: "பள்ளி என் வீட்டிற்கு அருகில் உள்ளது."
+            },
+
+            {
+                l: "10. beside",
+                t: "பக்கத்தில்",
+                e: "She sat beside me.",
+                te: "அவள் என் பக்கத்தில் அமர்ந்தாள்."
+            },
+
+            {
+                l: "11. with",
+                t: "உடன்",
+                e: "He came with me.",
+                te: "அவன் என்னுடன் வந்தான்."
+            },
+
+            {
+                l: "12. for",
+                t: "க்காக",
+                e: "This gift is for you.",
+                te: "இந்த பரிசு உனக்காக."
+            },
+
+            {
+                l: "13. from",
+                t: "இருந்து",
+                e: "He came from Chennai.",
+                te: "அவன் சென்னையிலிருந்து வந்தான்."
+            },
+
+            {
+                l: "14. to",
+                t: "க்கு / நோக்கி",
+                e: "She went to school.",
+                te: "அவள் பள்ளிக்குச் சென்றாள்."
+            },
+
+            {
+                l: "15. through",
+                t: "வழியாக",
+                e: "We walked through the tunnel.",
+                te: "நாங்கள் சுரங்கப்பாதை வழியாக நடந்தோம்."
+            },
+
+            {
+                l: "16. over",
+                t: "மேலாக",
+                e: "The bird flew over the house.",
+                te: "பறவை வீட்டின் மேலாக பறந்தது."
+            },
+
+            {
+                l: "17. across",
+                t: "குறுக்காக / கடந்து",
+                e: "He walked across the road.",
+                te: "அவன் சாலையைக் கடந்து நடந்தான்."
+            },
+
+            {
+                l: "18. into",
+                t: "உள்ளே",
+                e: "She went into the room.",
+                te: "அவள் அறைக்குள் சென்றாள்."
+            },
+
+            {
+                l: "19. out of",
+                t: "வெளியே / உள்ளிருந்து",
+                e: "He came out of the room.",
+                te: "அவன் அறையிலிருந்து வெளியே வந்தான்."
+            },
+
+            {
+                l: "20. along",
+                t: "வழியாக / ஓரமாக",
+                e: "We walked along the road.",
+                te: "நாங்கள் சாலையின் வழியாக நடந்தோம்."
+            }
+
+        ],
+
+        questions: generateBasicQuestions()
+    },
+
+
+    {
+        id: 2,
+
+        title: "ADVANCED PREPOSITIONS",
+
+        tamilTitle: "மேம்பட்ட முன்னிடைச்சொற்கள்",
+
+        displayChain:
+            "interested in • good at • afraid of • responsible for • depend on • look for • listen to • suffer from",
+
+        explanation:
+            "Advanced Prepositions-ல் சில verbs மற்றும் adjectives-க்கு குறிப்பிட்ட preposition தேவைப்படும். இவற்றை phrase-ஆக கற்றுக்கொள்வது English speaking மற்றும் writing-க்கு மிகவும் பயனுள்ளதாக இருக்கும்.",
+
+        tableData: [
+
+            {
+                l: "1. interested in",
+                t: "ஆர்வமாக",
+                e: "I am interested in English.",
+                te: "எனக்கு ஆங்கிலத்தில் ஆர்வம் உள்ளது."
+            },
+
+            {
+                l: "2. good at",
+                t: "திறமையான",
+                e: "He is good at maths.",
+                te: "அவன் கணிதத்தில் திறமையானவன்."
+            },
+
+            {
+                l: "3. afraid of",
+                t: "பயப்படுதல்",
+                e: "She is afraid of dogs.",
+                te: "அவளுக்கு நாய்களைப் பார்த்தால் பயம்."
+            },
+
+            {
+                l: "4. proud of",
+                t: "பெருமைப்படுதல்",
+                e: "I am proud of you.",
+                te: "நான் உன்னைப் பற்றி பெருமைப்படுகிறேன்."
+            },
+
+            {
+                l: "5. responsible for",
+                t: "பொறுப்பான",
+                e: "He is responsible for the work.",
+                te: "அவன் வேலைக்கு பொறுப்பானவன்."
+            },
+
+            {
+                l: "6. famous for",
+                t: "பிரபலமான",
+                e: "Chennai is famous for its food.",
+                te: "சென்னை அதன் உணவுக்காக பிரபலமானது."
+            },
+
+            {
+                l: "7. different from",
+                t: "வேறுபட்ட",
+                e: "This is different from that.",
+                te: "இது அதிலிருந்து வேறுபட்டது."
+            },
+
+            {
+                l: "8. similar to",
+                t: "ஒத்த",
+                e: "This is similar to that.",
+                te: "இது அதைப் போன்றது."
+            },
+
+            {
+                l: "9. depend on",
+                t: "சார்ந்திருத்தல்",
+                e: "We depend on water.",
+                te: "நாம் தண்ணீரை சார்ந்திருக்கிறோம்."
+            },
+
+            {
+                l: "10. rely on",
+                t: "நம்பியிருத்தல்",
+                e: "You can rely on me.",
+                te: "நீ என்னை நம்பலாம்."
+            },
+
+            {
+                l: "11. belong to",
+                t: "சேர்ந்தது",
+                e: "This book belongs to me.",
+                te: "இந்த புத்தகம் என்னுடையது."
+            },
+
+            {
+                l: "12. succeed in",
+                t: "வெற்றி பெறுதல்",
+                e: "He succeeded in business.",
+                te: "அவன் business-ல் வெற்றி பெற்றான்."
+            },
+
+            {
+                l: "13. insist on",
+                t: "வலியுறுத்துதல்",
+                e: "She insisted on going.",
+                te: "அவள் செல்ல வேண்டும் என்று வலியுறுத்தினாள்."
+            },
+
+            {
+                l: "14. capable of",
+                t: "திறன் கொண்ட",
+                e: "He is capable of doing it.",
+                te: "அவன் அதை செய்யும் திறன் கொண்டவன்."
+            },
+
+            {
+                l: "15. addicted to",
+                t: "அடிமையான",
+                e: "He is addicted to his phone.",
+                te: "அவன் phone-க்கு அடிமையாக இருக்கிறான்."
+            },
+
+            {
+                l: "16. familiar with",
+                t: "நன்கு அறிந்த",
+                e: "I am familiar with this software.",
+                te: "எனக்கு இந்த software நன்றாக தெரியும்."
+            },
+
+            {
+                l: "17. look for",
+                t: "தேடுதல்",
+                e: "I am looking for my keys.",
+                te: "நான் என் சாவிகளை தேடுகிறேன்."
+            },
+
+            {
+                l: "18. listen to",
+                t: "கேட்டல்",
+                e: "Listen to the teacher.",
+                te: "ஆசிரியரைக் கேள்."
+            },
+
+            {
+                l: "19. wait for",
+                t: "காத்திருத்தல்",
+                e: "Wait for me.",
+                te: "எனக்காக காத்திரு."
+            },
+
+            {
+                l: "20. suffer from",
+                t: "அவதிப்படுதல்",
+                e: "He suffers from headaches.",
+                te: "அவன் தலைவலியால் அவதிப்படுகிறான்."
+            }
+
+        ],
+
+        questions: generateAdvancedQuestions()
+    }
+
+];
+
+
+/* =========================================================
+   QUIZ VARIABLES
+========================================================= */
+
+let currentTopicIndex = 0;
+let currentQuestionIndex = 0;
+let score = 0;
+let selectedOptionIndex = null;
+let currentShuffledOptions = [];
+let topicProgress = [false, false];
+
+
+/* =========================================================
+   PAGE LOAD
+========================================================= */
+
+window.onload = function () {
+
+    renderProgressTracker();
+
+    renderPills();
+
+    loadTopic(0);
+
+};
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+function renderProgressTracker() {
+
+    const grid =
+        document.getElementById(
+            "progress-tracker-grid"
+        );
+
+    grid.innerHTML = "";
+
+    const completedCount =
+        topicProgress.filter(Boolean).length;
+
+    document.getElementById(
+        "overall-progress-text"
+    ).innerText =
+        `${completedCount} / ${prepositionTopics.length} Completed`;
+
+
+    prepositionTopics.forEach((topic, idx) => {
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            `progress-item ${
+                topicProgress[idx]
+                    ? "completed"
+                    : ""
+            }`;
+
+        item.onclick =
+            () => loadTopic(idx);
+
+        item.innerHTML = `
+
+            <div class="check-icon">
+                ${
+                    topicProgress[idx]
+                        ? "✓"
+                        : idx + 1
+                }
+            </div>
+
+            <span>
+                ${topic.title}
+            </span>
+
+        `;
+
+        grid.appendChild(item);
+
+    });
+
+}
+
+
+/* =========================================================
+   PILLS
+========================================================= */
+
+function renderPills() {
+
+    const container =
+        document.getElementById(
+            "topic-pills"
+        );
+
+    container.innerHTML = "";
+
+    prepositionTopics.forEach(
+        (topic, idx) => {
+
+            const btn =
+                document.createElement(
+                    "button"
+                );
+
+            btn.className =
+                `pill-btn ${
+                    idx === currentTopicIndex
+                        ? "active"
+                        : ""
+                }`;
+
+            btn.innerText =
+                topic.title;
+
+            btn.onclick =
+                () => loadTopic(idx);
+
+            container.appendChild(btn);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   LOAD TOPIC
+========================================================= */
+
+function loadTopic(index) {
+
+    currentTopicIndex = index;
+
+    currentQuestionIndex = 0;
+
+    score = 0;
+
+    selectedOptionIndex = null;
+
+    renderPills();
+
+    renderTopicContent();
+
+    loadQuestion();
+
+    document.getElementById(
+        "question-runner"
+    ).style.display = "block";
+
+    document.getElementById(
+        "result-runner"
+    ).style.display = "none";
+
+}
+
+
+/* =========================================================
+   TOPIC CONTENT
+========================================================= */
+
+function renderTopicContent() {
+
+    const topic =
+        prepositionTopics[
+            currentTopicIndex
+        ];
+
+    const contentBox =
+        document.getElementById(
+            "topic-content"
+        );
+
+
+    let tableRows =
+        topic.tableData.map(row => `
+
+            <tr>
+
+                <td>
+                    <b>${row.l}</b>
+                </td>
+
+                <td>
+                    ${row.t}
+                </td>
+
+                <td>
+
+                    <i>${row.e}</i>
+
+                    <span class="sent-ta">
+                        ${row.te}
+                    </span>
+
+                </td>
+
+            </tr>
+
+        `).join("");
+
+
+    contentBox.innerHTML = `
+
+        <div class="topic-title">
+            ${topic.title}
+            – ${topic.tamilTitle}
+        </div>
+
+        <div class="display-chain">
+            ${topic.displayChain}
+        </div>
+
+        <div class="tamil-explain">
+            ${topic.explanation}
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Preposition
+                        </th>
+
+                        <th>
+                            தமிழ் பொருள்
+                        </th>
+
+                        <th>
+                            Example Sentence
+                            & Meaning
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    ${tableRows}
+                </tbody>
+
+            </table>
+
+        </div>
+
+    `;
+
+
+    document.getElementById(
+        "quiz-topic-badge"
+    ).innerText =
+        `${topic.title} Quiz`;
+
+}
+
+
+/* =========================================================
+   SHUFFLE
+========================================================= */
+
+function shuffleArray(array) {
+
+    let arr = [...array];
+
+    for (
+        let i = arr.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+        [arr[i], arr[j]] =
+            [arr[j], arr[i]];
+
+    }
+
+    return arr;
+
+}
+
+
+/* =========================================================
+   LOAD QUESTION
+========================================================= */
+
+function loadQuestion() {
+
+    const topic =
+        prepositionTopics[
+            currentTopicIndex
+        ];
+
+    const q =
+        topic.questions[
+            currentQuestionIndex
+        ];
+
+
+    document.getElementById(
+        "quiz-progress-text"
+    ).innerText =
+        `Question ${
+            currentQuestionIndex + 1
+        } / ${topic.questions.length}`;
+
+
+    document.getElementById(
+        "question-text"
+    ).innerText =
+        `${currentQuestionIndex + 1}. ${q.q}`;
+
+
+    document.getElementById(
+        "question-tamil-text"
+    ).innerText =
+        q.tq;
+
+
+    let optionObjects =
+        q.o.map(
+            (optText, idx) => ({
+
+                text: optText,
+
+                isCorrect:
+                    idx === q.a
+
+            })
+        );
+
+
+    currentShuffledOptions =
+        shuffleArray(optionObjects);
+
+
+    const optionsGrid =
+        document.getElementById(
+            "options-container"
+        );
+
+    optionsGrid.innerHTML = "";
+
+
+    currentShuffledOptions.forEach(
+        (optObj, idx) => {
+
+            const btn =
+                document.createElement(
+                    "button"
+                );
+
+            btn.className =
+                "option-btn";
+
+            btn.innerText =
+                optObj.text;
+
+            btn.onclick =
+                () => selectOption(idx);
+
+            optionsGrid.appendChild(btn);
+
+        }
+    );
+
+
+    const feedback =
+        document.getElementById(
+            "feedback-box"
+        );
+
+    feedback.style.display =
+        "none";
+
+    feedback.className =
+        "feedback-box";
+
+    feedback.innerHTML = "";
+
+
+    document.getElementById(
+        "next-btn"
+    ).disabled = true;
+
+
+    selectedOptionIndex = null;
+
+}
+
+
+/* =========================================================
+   SELECT OPTION
+========================================================= */
+
+function selectOption(index) {
+
+    if (
+        selectedOptionIndex !== null
+    ) {
+        return;
+    }
+
+    selectedOptionIndex = index;
+
+
+    const topic =
+        prepositionTopics[
+            currentTopicIndex
+        ];
+
+    const q =
+        topic.questions[
+            currentQuestionIndex
+        ];
+
+
+    const options =
+        document.getElementById(
+            "options-container"
+        ).children;
+
+
+    const feedback =
+        document.getElementById(
+            "feedback-box"
+        );
+
+
+    const isCorrectAnswer =
+        currentShuffledOptions[
+            index
+        ].isCorrect;
+
+
+    if (isCorrectAnswer) {
+
+        score++;
+
+        options[index]
+            .classList
+            .add("selected-correct");
+
+
+        feedback.className =
+            "feedback-box correct";
+
+
+        feedback.innerHTML =
+            `<b>✓ சரியான பதில்!</b>
+             ${q.e}`;
+
+    } else {
+
+        options[index]
+            .classList
+            .add("selected-wrong");
+
+
+        const correctIndex =
+            currentShuffledOptions
+                .findIndex(
+                    item =>
+                        item.isCorrect
+                );
+
+
+        options[correctIndex]
+            .classList
+            .add("selected-correct");
+
+
+        feedback.className =
+            "feedback-box wrong";
+
+
+        feedback.innerHTML =
+            `<b>✗ தவறான பதில்!</b>
+             ${q.e}`;
+
+    }
+
+
+    Array.from(options)
+        .forEach(opt => {
+
+            opt.disabled = true;
+
+        });
+
+
+    document.getElementById(
+        "next-btn"
+    ).disabled = false;
+
+}
+
+
+/* =========================================================
+   NEXT QUESTION
+========================================================= */
+
+function nextQuestion() {
+
+    const topic =
+        prepositionTopics[
+            currentTopicIndex
+        ];
+
+
+    if (
+        currentQuestionIndex <
+        topic.questions.length - 1
+    ) {
+
+        currentQuestionIndex++;
+
+        loadQuestion();
+
+    } else {
+
+        showResults();
+
+    }
+
+}
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+function showResults() {
+
+    const topic =
+        prepositionTopics[
+            currentTopicIndex
+        ];
+
+
+    document.getElementById(
+        "question-runner"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "result-runner"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "res-score"
+    ).innerText =
+        `${score} / ${
+            topic.questions.length
+        }`;
+
+
+    const percent =
+        (score /
+            topic.questions.length) *
+        100;
+
+
+    if (percent >= 70) {
+
+        topicProgress[
+            currentTopicIndex
+        ] = true;
+
+        renderProgressTracker();
+
+        document.getElementById(
+            "res-msg"
+        ).innerText =
+            "அற்புதமான முயற்சி! 🎉";
+
+    } else {
+
+        document.getElementById(
+            "res-msg"
+        ).innerText =
+            "மீண்டும் முயற்சி செய்து பார்க்கவும்! 👍";
+
+    }
+
+}
+
+
+/* =========================================================
+   RETRY
+========================================================= */
+
+function resetCurrentQuiz() {
+
+    loadTopic(
+        currentTopicIndex
+    );
+
+}
+
+</script>
+
+</body>
+</html>

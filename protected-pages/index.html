@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>TMS Academy - Learn English Through Tamil</title>
+    <meta name="description" content="Learn English through Tamil with friendly grammar lessons, vocabulary, tenses, sentence practice, conversation and speaking activities at TMS Academy.">
+    <link rel="canonical" href="https://tamilmediumstudentsacademy.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TMS Academy - Learn English Through Tamil">
+    <meta property="og:description" content="Grammar, vocabulary, sentence practice, conversation and speaking practice — all in one place.">
+    <meta property="og:url" content="https://tamilmediumstudentsacademy.com/">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"EducationalOrganization","name":"TMS Academy","url":"https://tamilmediumstudentsacademy.com/","description":"Learn English through Tamil with grammar, vocabulary, conversation and practice lessons."}
+    </script>
+    <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+            {"@type":"Question","name":"What is TMS Academy?","acceptedAnswer":{"@type":"Answer","text":"TMS Academy offers English grammar, vocabulary, sentence and conversation learning activities with Tamil support."}},
+            {"@type":"Question","name":"Is TMS Academy suitable for beginners?","acceptedAnswer":{"@type":"Answer","text":"Yes. The foundation learning path is a good place to start if you are learning English step by step."}},
+            {"@type":"Question","name":"How much does premium access cost?","acceptedAnswer":{"@type":"Answer","text":"Premium access costs ₹49 for one month. Sign in to see your membership status and subscribe or renew securely."}}
+        ]}
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Poppins', 'Noto Sans Tamil', 'sans-serif'] } } } }
+    </script>
+
+    <style>
+        * { box-sizing: border-box; }
+        body { min-height: 100vh; min-height: 100dvh; }
+
+        /* ---------- Header ---------- */
+        .logo-box {
+            width: 44px; height: 44px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(145deg, #1d4ed8, #3b82f6);
+            box-shadow: 0 6px 14px rgba(37, 99, 235, .28), inset 0 1px 0 rgba(255,255,255,.35);
+            color: #fff;
+        }
+        .logo-box svg { width: 24px; height: 24px; }
+
+        /* ---------- Learning cards (fit one screen) ---------- */
+        .path-list { display: flex; flex-direction: column; gap: clamp(6px, 1.2dvh, 12px); }
+
+        .learning-card {
+            display: flex; align-items: center; gap: 12px;
+            min-height: clamp(56px, 9.6dvh, 80px);
+            padding: 8px 14px 8px 10px;
+            background: #fff;
+            border: 1px solid #dbeafe;
+            border-radius: 16px;
+            box-shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 4px 12px rgba(59, 130, 246, .07);
+            transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+        }
+        .learning-card:hover {
+            border-color: #93c5fd;
+            box-shadow: 0 8px 22px rgba(37, 99, 235, .15);
+            transform: translateY(-1px);
+        }
+        .learning-card:active { transform: scale(.985); }
+        .learning-card:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }
+
+        .icon-box {
+            width: 44px; height: 44px; flex-shrink: 0;
+            border-radius: 13px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(15, 23, 42, .16), inset 0 1px 0 rgba(255,255,255,.3);
+        }
+        .icon-box svg { width: 22px; height: 22px; }
+        .c1 { background: linear-gradient(145deg, #059669, #34d399); }
+        .c2 { background: linear-gradient(145deg, #2563eb, #60a5fa); }
+        .c3 { background: linear-gradient(145deg, #7c3aed, #a78bfa); }
+        .c4 { background: linear-gradient(145deg, #0891b2, #22d3ee); }
+        .c5 { background: linear-gradient(145deg, #4f46e5, #818cf8); }
+        .c6 { background: linear-gradient(145deg, #e11d48, #fb7185); }
+
+        .number-badge {
+            background: #eff6ff; color: #1d4ed8;
+            font-size: 10px; font-weight: 700;
+            min-width: 24px; text-align: center;
+            padding: 2px 7px; border-radius: 999px;
+        }
+        .chev { width: 18px; height: 18px; color: #93c5fd; flex-shrink: 0; transition: transform .2s ease, color .2s ease; }
+        .learning-card:hover .chev { color: #2563eb; transform: translateX(3px); }
+
+        /* ---------- Account menu ---------- */
+        .circle-account-wrap { position: relative; }
+        .circle-account-btn {
+            width: 42px; height: 42px; border-radius: 50%;
+            border: 2px solid #dbeafe;
+            background: linear-gradient(145deg, #1d4ed8, #60a5fa);
+            color: #fff; display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 14px rgba(37, 99, 235, .22);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .circle-account-btn svg { width: 20px; height: 20px; }
+        .circle-account-btn:hover { transform: scale(1.06); box-shadow: 0 7px 18px rgba(37, 99, 235, .3); }
+        .circle-account-menu {
+            position: absolute; right: 0; top: 52px; width: 250px;
+            background: #fff; border: 1px solid #dbeafe; border-radius: 16px;
+            padding: 10px; box-shadow: 0 16px 35px rgba(15, 23, 42, .15); z-index: 100;
+        }
+        .circle-account-menu.hidden { display: none; }
+        .circle-account-user { background: #eff6ff; border-radius: 12px; padding: 10px; margin-bottom: 8px; }
+        .circle-account-validity { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px; margin-bottom: 8px; }
+        .circle-account-logout {
+            width: 100%; border: none; border-radius: 11px; padding: 10px;
+            background: #fee2e2; color: #dc2626; font-weight: 700; cursor: pointer;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .circle-account-logout svg { width: 16px; height: 16px; }
+        .circle-account-logout:hover { background: #fecaca; }
+
+        @media (max-width: 640px) {
+            .circle-account-btn { width: 38px; height: 38px; }
+            .logo-box { width: 40px; height: 40px; border-radius: 12px; }
+            .icon-box { width: 40px; height: 40px; border-radius: 12px; }
+            .icon-box svg { width: 20px; height: 20px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .learning-card, .chev, .circle-account-btn { transition: none; }
+        }
+    </style>
+
+    <link rel="stylesheet" href="tms-theme.css">
+</head>
+
+<body class="bg-gradient-to-br from-sky-50 via-white to-blue-50 text-gray-800 font-sans">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-blue-100 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-2.5">
+            <div class="flex items-center justify-between">
+
+                <a href="index.html" class="flex items-center gap-3" aria-label="TMS Academy home">
+                    <div class="logo-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/><path d="M22 10v6"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-lg sm:text-xl font-extrabold leading-tight text-blue-700">TMS Academy</h1>
+                        <p class="text-[10px] sm:text-[11px] text-blue-400 font-medium">Learn English Through Tamil</p>
+                    </div>
+                </a>
+
+                <div class="circle-account-wrap">
+                    <button id="circleAccountButton" type="button" class="circle-account-btn" aria-label="Account" aria-expanded="false">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </button>
+
+                    <div id="circleAccountMenu" class="circle-account-menu hidden">
+                        <div class="circle-account-user">
+                            <div id="circleAccountName" class="text-sm font-bold text-blue-800">My Account</div>
+                            <div id="circleAccountEmail" class="text-[11px] text-gray-500 break-all">Loading...</div>
+                        </div>
+                        <div class="circle-account-validity">
+                            <div class="text-[10px] text-gray-500">Premium Validity</div>
+                            <div id="circleValidity" class="text-sm font-bold text-blue-600">Checking...</div>
+                        </div>
+                        <button id="circleLogoutButton" type="button" class="circle-account-logout">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/>
+                            </svg>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="max-w-2xl mx-auto px-4 pt-4 pb-6 sm:pt-7">
+
+        <section class="text-center mb-3 sm:mb-5">
+            <h2 class="text-xl sm:text-3xl font-extrabold text-blue-700 leading-tight">Learn English Step by Step</h2>
+            <p class="text-xs sm:text-sm text-gray-500 mt-1 leading-6">
+                தமிழில் புரிந்து கொண்டு <span class="font-semibold text-blue-500">English</span>-ஐ எளிதாக கற்றுக்கொள்ளுங்கள்.
+            </p>
+        </section>
+
+        <nav class="path-list" aria-label="Learning path">
+
+            <a href="foundation.html" class="learning-card group">
+                <div class="icon-box c1">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2">
+                        <span class="number-badge">01</span>
+                        <h3 class="text-sm sm:text-base font-bold text-blue-900">Basic English Foundation</h3>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">English basics from zero</p>
+                </div>
+                <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+
+            <a href="grammar.html" class="learning-card group">
+                <div class="icon-box c2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2">
+                        <span class="number-badge">02</span>
+                        <h3 class="text-sm sm:text-base font-bold text-blue-900">Grammar</h3>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Learn grammar through Tamil</p>
+                </div>
+                <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+
+            <a href="vocabulary.html" class="learning-card group">
+                <div class="icon-box c3">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2">
+                        <span class="number-badge">03</span>
+                        <h3 class="text-sm sm:text-base font-bold text-blue-900">Vocabulary + Sentence Making</h3>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Learn words and make sentences</p>
+                </div>
+                <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+
+            <a href="daily-sentences.html" class="learning-card group">
+                <div class="icon-box c4">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2">
+                        <span class="number-badge">04</span>
+                        <h3 class="text-sm sm:text-base font-bold text-blue-900">1000+ Daily-use Sentences</h3>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Everyday English practice</p>
+                </div>
+                <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+
+            <a href="conversation.html" class="learning-card group">
+                <div class="icon-box c5">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2">
+                        <span class="number-badge">05</span>
+                        <h3 class="text-sm sm:text-base font-bold text-blue-900">English Conversation</h3>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Practice real conversations</p>
+                </div>
+                <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+
+            <a href="speaking.html" class="learning-card group">
+                <div class="icon-box c6">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2">
+                        <span class="number-badge">06</span>
+                        <h3 class="text-sm sm:text-base font-bold text-blue-900">Speaking Practice</h3>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Improve speaking confidence</p>
+                </div>
+                <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+
+        </nav>
+
+        <div class="mt-4 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-blue-100 rounded-full shadow-sm">
+                <p class="text-xs text-gray-500">
+                    Learn <span class="text-blue-500 font-semibold">→</span>
+                    Practice <span class="text-blue-500 font-semibold">→</span>
+                    Speak
+                </p>
+            </div>
+        </div>
+
+        
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-blue-100 bg-white/80">
+        <div class="text-center py-5 px-4">
+            <p class="text-[10px] sm:text-xs text-gray-400">
+                © 2026 <span class="font-bold text-blue-500">TMS Academy</span> • Learn English Through Tamil
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const circleAccountButton = document.getElementById('circleAccountButton');
+        const circleAccountMenu = document.getElementById('circleAccountMenu');
+        const circleAccountName = document.getElementById('circleAccountName');
+        const circleAccountEmail = document.getElementById('circleAccountEmail');
+        const circleValidity = document.getElementById('circleValidity');
+        const circleLogoutButton = document.getElementById('circleLogoutButton');
+
+        function formatPremiumValidity(value) {
+            if (!value) return 'Not active';
+            const date = new Date(value);
+            if (Number.isNaN(date.getTime())) return value;
+            if (date <= new Date()) return 'Expired';
+            return date.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+        }
+
+        async function loadCircleAccount() {
+            try {
+                const response = await fetch('/api/me', { credentials: 'include', headers: { 'Accept': 'application/json' } });
+                if (!response.ok) throw new Error('Not logged in');
+                const data = await response.json();
+                const user = data.user || data;
+                circleAccountName.textContent = user.name || user.fullName || 'My Account';
+                circleAccountEmail.textContent = user.email || 'Logged in';
+                circleValidity.textContent = formatPremiumValidity(
+                    user.premiumValidUntil || user.subscriptionExpiry || user.validUntil ||
+                    user.subscriptionValidUntil || user.membershipValidUntil
+                );
+            } catch (error) {
+                circleAccountName.textContent = 'Guest';
+                circleAccountEmail.textContent = 'Please sign in';
+                circleValidity.textContent = 'Not active';
+            }
+        }
+
+        circleAccountButton.addEventListener('click', function (event) {
+            event.stopPropagation();
+            const opening = circleAccountMenu.classList.contains('hidden');
+            circleAccountMenu.classList.toggle('hidden');
+            circleAccountButton.setAttribute('aria-expanded', String(opening));
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!circleAccountMenu.contains(event.target) && !circleAccountButton.contains(event.target)) {
+                circleAccountMenu.classList.add('hidden');
+                circleAccountButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        circleLogoutButton.addEventListener('click', async function () {
+            circleLogoutButton.disabled = true;
+            circleLogoutButton.querySelector('span').textContent = 'Logging out...';
+            try {
+                await fetch('/api/logout', { method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' } });
+            } finally {
+                window.location.href = '/login.html';
+            }
+        });
+
+        loadCircleAccount();
+    </script>
+</body>
+</html>

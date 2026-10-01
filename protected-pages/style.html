@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil Medium Student - Gamified Learning</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 650px;
+        }
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        
+        /* Vocab Match Styles */
+        .game-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .btn-card {
+            padding: 14px 16px;
+            font-size: 15px;
+            font-weight: 600;
+            border: 2px solid #e0e0e0;
+            background-color: #ffffff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            color: #333;
+        }
+        .btn-card:hover:not(:disabled) {
+            border-color: #3498db;
+            background-color: #ecf0f1;
+        }
+        .btn-card.selected {
+            border-color: #3498db;
+            background-color: #ebf5fb;
+            color: #2980b9;
+        }
+        .btn-card.correct {
+            border-color: #2ecc71;
+            background-color: #e8f8f5;
+            color: #27ae60;
+            pointer-events: none;
+        }
+        .btn-card.wrong {
+            border-color: #e74c3c;
+            background-color: #fdedec;
+            color: #c0392b;
+        }
+
+        /* Sentence Builder Styles */
+        .tamil-prompt {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 20px;
+        }
+        .answer-dropzone {
+            min-height: 60px;
+            border: 2px dashed #bdc3c7;
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+            align-items: center;
+            margin-bottom: 20px;
+            background: #fafafa;
+        }
+        .word-pool {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .word-chip {
+            padding: 10px 16px;
+            background: #ffffff;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+        .word-chip:hover {
+            border-color: #2980b9;
+            background: #ebf5fb;
+        }
+
+        .action-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .action-btn:hover {
+            background-color: #27ae60;
+        }
+        .feedback-msg {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- STAGE 1: VOCABULARY MATCHING -->
+    <div id="stage-vocab" class="section active">
+        <h2>Stage 1: Match the Words</h2>
+        <div class="subtitle">Left side English words-oda right side Tamil meanings-a match pannunga!</div>
+
+        <div class="game-grid">
+            <div class="column" id="english-column"></div>
+            <div class="column" id="tamil-column"></div>
+        </div>
+
+        <div class="feedback-msg" id="vocab-score">Matched: 0 / 4</div>
+        <button class="action-btn" onclick="startSentenceStage()" style="display:none;" id="next-stage-btn">Next: Sentence Practice 🚀</button>
+    </div>
+
+    <!-- STAGE 2: SENTENCE FORMATION (DUOLINGO STYLE) -->
+    <div id="stage-sentence" class="section">
+        <h2>Stage 2: Sentence Builder</h2>
+        <div class="subtitle">Kuduthirukura Tamil vaarthaiku sariyaana English sentence-a construct pannunga!</div>
+
+        <div class="tamil-prompt" id="tamil-sentence-prompt">Tamil: Naan English grammar kathukuren.</div>
+        
+        <div class="answer-dropzone" id="answer-dropzone">
+            <span style="color: #95a5a6; font-size: 14px;" id="placeholder-text">Click words below to build sentence...</span>
+        </div>
+
+        <div class="word-pool" id="word-pool"></div>
+
+        <div class="feedback-msg" id="sentence-feedback"></div>
+        <button class="action-btn" onclick="checkSentence()" id="check-sentence-btn">Check Answer</button>
+    </div>
+</div>
+
+<script>
+    // --- STAGE 1 DATA ---
+    const vocabData = [
+        { id: 1, en: "Improve", ta: "மேம்படுத்து" },
+        { id: 2, en: "Confidence", ta: "தன்னம்பிக்கை" },
+        { id: 3, en: "Decision", ta: "முடிவு" },
+        { id: 4, en: "Practice", ta: "பயிற்சி" }
+    ];
+
+    let selectedEnglish = null;
+    let selectedTamil = null;
+    let matchedCount = 0;
+
+    function shuffle(array) {
+        return array.sort(() => Math.random() - 0.5);
+    }
+
+    function initVocabGame() {
+        matchedCount = 0;
+        selectedEnglish = null;
+        selectedTamil = null;
+        document.getElementById('vocab-score').innerText = `Matched: 0 / ${vocabData.length}`;
+        document.getElementById('next-stage-btn').style.display = 'none';
+
+        const enColumn = document.getElementById('english-column');
+        const taColumn = document.getElementById('tamil-column');
+        
+        enColumn.innerHTML = '';
+        taColumn.innerHTML = '';
+
+        let shuffledEnglish = shuffle([...vocabData]);
+        let shuffledTamil = shuffle([...vocabData]);
+
+        shuffledEnglish.forEach(item => {
+            const btn = document.createElement('button');
+            btn.className = 'btn-card';
+            btn.innerText = item.en;
+            btn.onclick = () => selectEnglish(btn, item.id);
+            enColumn.appendChild(btn);
+        });
+
+        shuffledTamil.forEach(item => {
+            const btn = document.createElement('button');
+            btn.className = 'btn-card';
+            btn.innerText = item.ta;
+            btn.onclick = () => selectTamil(btn, item.id);
+            taColumn.appendChild(btn);
+        });
+    }
+
+    function selectEnglish(btn, id) {
+        if (btn.classList.contains('correct')) return;
+        document.querySelectorAll('#english-column .btn-card').forEach(b => {
+            if(!b.classList.contains('correct')) b.classList.remove('selected');
+        });
+        btn.classList.add('selected');
+        selectedEnglish = { btn, id };
+        checkMatch();
+    }
+
+    function selectTamil(btn, id) {
+        if (btn.classList.contains('correct')) return;
+        document.querySelectorAll('#tamil-column .btn-card').forEach(b => {
+            if(!b.classList.contains('correct')) b.classList.remove('selected');
+        });
+        btn.classList.add('selected');
+        selectedTamil = { btn, id };
+        checkMatch();
+    }
+
+    function checkMatch() {
+        if (selectedEnglish && selectedTamil) {
+            if (selectedEnglish.id === selectedTamil.id) {
+                selectedEnglish.btn.classList.remove('selected');
+                selectedTamil.btn.classList.remove('selected');
+                selectedEnglish.btn.classList.add('correct');
+                selectedTamil.btn.classList.add('correct');
+                
+                matchedCount++;
+                document.getElementById('vocab-score').innerText = `Matched: ${matchedCount} / ${vocabData.length}`;
+
+                if (matchedCount === vocabData.length) {
+                    document.getElementById('vocab-score').innerText = "🎉 Stage 1 Complete!";
+                    document.getElementById('next-stage-btn').style.display = 'block';
+                }
+            } else {
+                selectedEnglish.btn.classList.add('wrong');
+                selectedTamil.btn.classList.add('wrong');
+                setTimeout(() => {
+                    selectedEnglish.btn.classList.remove('selected', 'wrong');
+                    selectedTamil.btn.classList.remove('selected', 'wrong');
+                    selectedEnglish = null;
+                    selectedTamil = null;
+                }, 600);
+                return;
+            }
+            selectedEnglish = null;
+            selectedTamil = null;
+        }
+    }
+
+    // --- STAGE 2 DATA & LOGIC ---
+    const sentenceData = {
+        tamil: "Naan English grammar kathukuren.",
+        correctWords: ["I", "am", "learning", "English", "grammar"]
+    };
+
+    let userSelectedWords = [];
+
+    function startSentenceStage() {
+        document.getElementById('stage-vocab').classList.remove('active');
+        document.getElementById('stage-sentence').classList.add('active');
+        
+        document.getElementById('tamil-sentence-prompt').innerText = `Tamil: "${sentenceData.tamil}"`;
+        
+        renderWordPool();
+    }
+
+    function renderWordPool() {
+        const pool = document.getElementById('word-pool');
+        pool.innerHTML = '';
+        
+        // Shuffle words for selection
+        let randomizedWords = shuffle([...sentenceData.correctWords]);
+
+        randomizedWords.forEach((word, index) => {
+            const chip = document.createElement('div');
+            chip.className = 'word-chip';
+            chip.innerText = word;
+            chip.onclick = () => moveToDropzone(word, chip);
+            pool.appendChild(chip);
+        });
+    }
+
+    function moveToDropzone(word, chipElement) {
+        chipElement.remove();
+        userSelectedWords.push(word);
+        
+        const dropzone = document.getElementById('answer-dropzone');
+        document.getElementById('placeholder-text').style.display = 'none';
+
+        const chip = document.createElement('div');
+        chip.className = 'word-chip';
+        chip.style.background = '#ebf5fb';
+        chip.style.borderColor = '#3498db';
+        chip.innerText = word;
+        chip.onclick = () => returnToPool(word, chip);
+        dropzone.appendChild(chip);
+    }
+
+    function returnToPool(word, chipElement) {
+        chipElement.remove();
+        // Remove one instance from userSelectedWords
+        const idx = userSelectedWords.indexOf(word);
+        if (idx > -1) userSelectedWords.splice(idx, 1);
+
+        if (userSelectedWords.length === 0) {
+            document.getElementById('placeholder-text').style.display = 'block';
+        }
+
+        const pool = document.getElementById('word-pool');
+        const chip = document.createElement('div');
+        chip.className = 'word-chip';
+        chip.innerText = word;
+        chip.onclick = () => moveToDropzone(word, chip);
+        pool.appendChild(chip);
+    }
+
+    function checkSentence() {
+        const feedback = document.getElementById('sentence-feedback');
+        
+        if (userSelectedWords.length === 0) {
+            feedback.style.color = '#e74c3c';
+            feedback.innerText = "Please select words to build a sentence!";
+            return;
+        }
+
+        const isCorrect = userSelectedWords.every((val, index) => val === sentenceData.correctWords[index]) && 
+                          userSelectedWords.length === sentenceData.correctWords.length;
+
+        if (isCorrect) {
+            feedback.style.color = '#27ae60';
+            feedback.innerText = "✨ Correct! Fantastic job!";
+            document.getElementById('check-sentence-btn').innerText = "Play Again 🔄";
+            document.getElementById('check-sentence-btn').onclick = () => location.reload();
+        } else {
+            feedback.style.color = '#e74c3c';
+            feedback.innerText = "❌ Incorrect order. Try again!";
+        }
+    }
+
+    // Initialize Game on load
+    initVocabGame();
+</script>
+
+</body>
+</html>

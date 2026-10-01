@@ -1,0 +1,1770 @@
+
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>ADJECTIVE – உரிச்சொற்கள் (100 Questions)</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 50px;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background-color: #eff6ff;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .progress-item.completed {
+            background-color: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .completed .check-icon {
+            background: var(--success);
+        }
+
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .topic-section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .topic-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .display-chain {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin: 12px 0;
+            text-align: center;
+            border: 1px dashed #93c5fd;
+            word-break: break-word;
+        }
+
+        .tamil-explain {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 10px 12px;
+            margin: 12px 0;
+            font-size: 0.9rem;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 16px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 480px;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            padding: 10px;
+            font-weight: 700;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .sent-ta {
+            display: block;
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin-top: 3px;
+            font-weight: 500;
+        }
+
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            border: 2px solid #e0e7ff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-title-badge {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .question-tamil-text {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            text-align: left;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .option-btn:active {
+            transform: scale(0.99);
+        }
+
+        .option-btn.selected-correct {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+        }
+
+        .option-btn.selected-wrong {
+            background-color: var(--error-bg) !important;
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+        }
+
+        .feedback-box {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            font-size: 0.88rem;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background: var(--success-bg);
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background: var(--error-bg);
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 100%;
+            min-height: 48px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .next-btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 20px 10px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 4px solid var(--primary);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.3rem;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option-btn {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="tms-theme.css">
+</head>
+
+<body>
+
+<header>
+    <div class="container nav-header">
+        <a href="#" class="back-link">← Home</a>
+
+        <div>
+            <div class="brand-title">Tamil Medium Student</div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="hero">
+        <h1>ADJECTIVE – உரிச்சொற்கள்</h1>
+        <p>100 பயிற்சிகள் (50+50) தமிழ் விளக்கத்துடன்!</p>
+    </div>
+
+    <div class="progress-card">
+
+        <div class="progress-title">
+            <span>கற்றல் நிலை (Progress)</span>
+
+            <span id="overall-progress-text"
+                style="color: var(--primary);">
+                0 / 2 Completed
+            </span>
+        </div>
+
+        <div class="progress-grid"
+            id="progress-tracker-grid">
+        </div>
+
+    </div>
+
+    <div class="topic-pills" id="topic-pills"></div>
+
+    <section class="topic-section"
+        id="topic-content">
+    </section>
+
+    <section class="quiz-container"
+        id="quiz-box">
+
+        <div class="quiz-header">
+
+            <span class="quiz-title-badge"
+                id="quiz-topic-badge">
+                Basic Adjectives Quiz
+            </span>
+
+            <span class="quiz-progress-text"
+                id="quiz-progress-text">
+                Question 1 / 50
+            </span>
+
+        </div>
+
+        <div id="question-runner">
+
+            <div class="question-box">
+
+                <div class="question-text"
+                    id="question-text">
+                    Loading question...
+                </div>
+
+                <div class="question-tamil-text"
+                    id="question-tamil-text">
+                    கேள்வி அர்த்தம்...
+                </div>
+
+                <div class="options-grid"
+                    id="options-container">
+                </div>
+
+            </div>
+
+            <div class="feedback-box"
+                id="feedback-box">
+            </div>
+
+            <div class="quiz-actions">
+
+                <button class="next-btn"
+                    id="next-btn"
+                    onclick="nextQuestion()"
+                    disabled>
+                    அடுத்த கேள்வி (Next) →
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="result-card"
+            id="result-runner">
+
+            <div class="score-circle">
+                <span id="res-score">0</span>
+            </div>
+
+            <div id="res-msg"
+                style="font-weight:700; margin-bottom:10px;">
+                வாழ்த்துக்கள்!
+            </div>
+
+            <button class="next-btn"
+                onclick="resetCurrentQuiz()">
+                🔄 மீண்டும் பயிற்சி செய் (Try Again)
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   BASIC ADJECTIVE QUESTIONS
+========================================================= */
+
+const generateBasicQuestions = () => {
+
+    const raw = [
+
+        ["She has a ______ dress.",
+        "(அவளிடம் அழகான உடை உள்ளது.)",
+        ["beautiful", "beauty", "beautifully", "beautify"],
+        0,
+        "'beautiful' என்பது dress-ஐ விவரிக்கும் adjective."],
+
+        ["He is a ______ boy.",
+        "(அவன் உயரமான பையன்.)",
+        ["tall", "tallness", "tallly", "taller"],
+        0,
+        "'tall' என்பது boy-ன் பண்பை விவரிக்கிறது."],
+
+        ["I have a ______ car.",
+        "(என்னிடம் புதிய கார் உள்ளது.)",
+        ["new", "newly", "news", "newness"],
+        0,
+        "'new' என்பது car-ஐ விவரிக்கும் adjective."],
+
+        ["This is a ______ flower.",
+        "(இது அழகான மலர்.)",
+        ["beautiful", "beauty", "beautifully", "beautify"],
+        0,
+        "'beautiful' என்பது flower-ன் தன்மையை கூறுகிறது."],
+
+        ["He is a ______ man.",
+        "(அவன் நல்ல மனிதன்.)",
+        ["good", "well", "goodness", "better"],
+        0,
+        "'good' என்பது man-ஐ விவரிக்கும் adjective."],
+
+        ["The elephant is ______.",
+        "(யானை பெரியது.)",
+        ["big", "bigness", "bigger", "bigly"],
+        0,
+        "'big' என்பது elephant-ன் அளவை விவரிக்கிறது."],
+
+        ["I ate a ______ apple.",
+        "(நான் சிவப்பு ஆப்பிள் சாப்பிட்டேன்.)",
+        ["red", "redly", "redness", "redden"],
+        0,
+        "'red' என்பது apple-ன் நிறத்தை விவரிக்கிறது."],
+
+        ["She has ______ hair.",
+        "(அவளுக்கு நீண்ட முடி உள்ளது.)",
+        ["long", "longly", "length", "lengthen"],
+        0,
+        "'long' என்பது hair-ன் நீளத்தை விவரிக்கிறது."],
+
+        ["He is a ______ student.",
+        "(அவன் புத்திசாலி மாணவன்.)",
+        ["clever", "cleverly", "cleverness", "clevering"],
+        0,
+        "'clever' என்பது student-ன் பண்பை கூறுகிறது."],
+
+        ["It is a ______ day.",
+        "(இது வெயிலான நாள்.)",
+        ["sunny", "sun", "sunnily", "sunshine"],
+        0,
+        "'sunny' என்பது day-ஐ விவரிக்கிறது."],
+
+        ["She bought a ______ bag.",
+        "(அவள் விலையுயர்ந்த பையை வாங்கினாள்.)",
+        ["expensive", "expense", "expensively", "expensing"],
+        0,
+        "'expensive' என்பது bag-ன் விலையை விவரிக்கிறது."],
+
+        ["The water is ______.",
+        "(தண்ணீர் குளிராக உள்ளது.)",
+        ["cold", "coldly", "coldness", "cooling"],
+        0,
+        "'cold' என்பது water-ன் நிலையை விவரிக்கிறது."],
+
+        ["He lives in a ______ house.",
+        "(அவன் பெரிய வீட்டில் வசிக்கிறான்.)",
+        ["large", "largely", "largeness", "larger"],
+        0,
+        "'large' என்பது house-ன் அளவை விவரிக்கிறது."],
+
+        ["She is a ______ girl.",
+        "(அவள் மகிழ்ச்சியான பெண்.)",
+        ["happy", "happily", "happiness", "happier"],
+        0,
+        "'happy' என்பது girl-ன் உணர்வை விவரிக்கிறது."],
+
+        ["This is a ______ story.",
+        "(இது சுவாரஸ்யமான கதை.)",
+        ["interesting", "interest", "interested", "interestingly"],
+        0,
+        "'interesting' என்பது story-ன் தன்மையை விவரிக்கிறது."],
+
+        ["He has a ______ voice.",
+        "(அவனுக்கு இனிமையான குரல் உள்ளது.)",
+        ["sweet", "sweetly", "sweetness", "sweeter"],
+        0,
+        "'sweet' என்பது voice-ஐ விவரிக்கிறது."],
+
+        ["The box is ______.",
+        "(பெட்டி கனமாக உள்ளது.)",
+        ["heavy", "heavily", "heaviness", "heavier"],
+        0,
+        "'heavy' என்பது box-ன் எடையை விவரிக்கிறது."],
+
+        ["She wears a ______ dress.",
+        "(அவள் நீல நிற உடை அணிந்திருக்கிறாள்.)",
+        ["blue", "bluely", "blueness", "blueing"],
+        0,
+        "'blue' என்பது dress-ன் நிறத்தை கூறுகிறது."],
+
+        ["He is a ______ worker.",
+        "(அவன் கடினமாக உழைக்கும் தொழிலாளி.)",
+        ["hard-working", "hardly", "hardness", "work"],
+        0,
+        "'hard-working' என்பது worker-ன் பண்பை கூறுகிறது."],
+
+        ["I saw a ______ bird.",
+        "(நான் சிறிய பறவையை பார்த்தேன்.)",
+        ["small", "smallness", "smallly", "smaller"],
+        0,
+        "'small' என்பது bird-ன் அளவை விவரிக்கிறது."]
+
+    ];
+
+    return create50Questions(raw);
+};
+
+
+/* =========================================================
+   ADVANCED ADJECTIVES
+========================================================= */
+
+const generateAdvancedQuestions = () => {
+
+    const raw = [
+
+        ["She is the ______ student in the class.",
+        "(அவள் வகுப்பில் மிகவும் புத்திசாலி மாணவி.)",
+        ["most intelligent", "more intelligent", "intelligence", "intelligently"],
+        0,
+        "'most intelligent' என்பது superlative adjective."],
+
+        ["This book is ______ than that book.",
+        "(இந்த புத்தகம் அந்த புத்தகத்தை விட சுவாரஸ்யமானது.)",
+        ["more interesting", "most interesting", "interest", "interestingly"],
+        0,
+        "இரண்டை ஒப்பிடும்போது 'more interesting' பயன்படும்."],
+
+        ["Mount Everest is the ______ mountain.",
+        "(எவரெஸ்ட் மிக உயரமான மலை.)",
+        ["highest", "higher", "highly", "height"],
+        0,
+        "பலவற்றில் மிக உயரமானதை கூற 'highest' பயன்படும்."],
+
+        ["This is a ______ problem.",
+        "(இது கடினமான பிரச்சனை.)",
+        ["difficult", "difficulty", "difficultly", "more difficult"],
+        0,
+        "'difficult' என்பது problem-ஐ விவரிக்கும் adjective."],
+
+        ["He is ______ enough to lift the box.",
+        "(பெட்டியை தூக்கும் அளவுக்கு அவன் வலிமையானவன்.)",
+        ["strong", "strongly", "strength", "stronger"],
+        0,
+        "'strong enough' என்பது தேவையான அளவு வலிமை."],
+
+        ["It was an ______ movie.",
+        "(அது அற்புதமான படம்.)",
+        ["amazing", "amazement", "amazingly", "amaze"],
+        0,
+        "'amazing' என்பது movie-ன் தன்மையை விவரிக்கிறது."],
+
+        ["She gave me a ______ answer.",
+        "(அவள் எனக்கு சரியான பதிலை கொடுத்தாள்.)",
+        ["correct", "correctly", "correction", "correctness"],
+        0,
+        "'correct' என்பது answer-ஐ விவரிக்கிறது."],
+
+        ["He is ______ than his brother.",
+        "(அவன் தன் சகோதரனை விட உயரமானவன்.)",
+        ["taller", "tallest", "tall", "tallness"],
+        0,
+        "இருவரை ஒப்பிடும்போது 'taller' பயன்படும்."],
+
+        ["This is the ______ road in the city.",
+        "(இது நகரத்தின் குறுகிய சாலை.)",
+        ["narrowest", "narrower", "narrowly", "narrow"],
+        0,
+        "பல சாலைகளில் மிகக் குறுகியதை கூற 'narrowest'."],
+
+        ["The exam was ______.",
+        "(தேர்வு எளிதாக இருந்தது.)",
+        ["easy", "easily", "easiness", "easier"],
+        0,
+        "'easy' என்பது exam-ன் தன்மையை கூறுகிறது."],
+
+        ["She is wearing a ______ saree.",
+        "(அவள் பாரம்பரிய சேலை அணிந்திருக்கிறாள்.)",
+        ["traditional", "traditionally", "tradition", "traditions"],
+        0,
+        "'traditional' என்பது saree-ஐ விவரிக்கிறது."],
+
+        ["He made a ______ decision.",
+        "(அவன் புத்திசாலித்தனமான முடிவு எடுத்தான்.)",
+        ["wise", "wisely", "wisdom", "wiser"],
+        0,
+        "'wise' என்பது decision-ன் தன்மையை கூறுகிறது."],
+
+        ["The room is ______.",
+        "(அறை சுத்தமாக உள்ளது.)",
+        ["clean", "cleanly", "cleanliness", "cleaner"],
+        0,
+        "'clean' என்பது room-ன் நிலையை விவரிக்கிறது."],
+
+        ["She has a ______ personality.",
+        "(அவளுக்கு நட்பான குணம் உள்ளது.)",
+        ["friendly", "friend", "friendship", "friendliness"],
+        0,
+        "'friendly' என்பது personality-ஐ விவரிக்கிறது."],
+
+        ["This road is ______ than that one.",
+        "(இந்த சாலை அந்த சாலையை விட அகலமானது.)",
+        ["wider", "widest", "wide", "widely"],
+        0,
+        "இரண்டு சாலைகளை ஒப்பிட 'wider'."],
+
+        ["He is the ______ player in the team.",
+        "(அவன் அணியில் சிறந்த வீரன்.)",
+        ["best", "better", "good", "well"],
+        0,
+        "பலரில் சிறந்தவரை கூற 'best'."],
+
+        ["It was a ______ night.",
+        "(அது அமைதியான இரவு.)",
+        ["peaceful", "peacefully", "peace", "peaceless"],
+        0,
+        "'peaceful' என்பது night-ஐ விவரிக்கிறது."],
+
+        ["She bought a ______ phone.",
+        "(அவள் நவீன தொலைபேசி வாங்கினாள்.)",
+        ["modern", "modernly", "modernity", "modernize"],
+        0,
+        "'modern' என்பது phone-ன் தன்மையை கூறுகிறது."],
+
+        ["He gave a ______ explanation.",
+        "(அவன் தெளிவான விளக்கம் கொடுத்தான்.)",
+        ["clear", "clearly", "clearness", "clarify"],
+        0,
+        "'clear' என்பது explanation-ஐ விவரிக்கிறது."],
+
+        ["The baby is very ______.",
+        "(குழந்தை மிகவும் அழகாக உள்ளது.)",
+        ["cute", "cutely", "cuteness", "cuter"],
+        0,
+        "'cute' என்பது baby-ன் தோற்றத்தை விவரிக்கிறது."]
+
+    ];
+
+    return create50Questions(raw);
+};
+
+
+/* =========================================================
+   CREATE 50 QUESTIONS
+========================================================= */
+
+function create50Questions(base) {
+
+    const result = [];
+
+    for (let i = 0; i < 50; i++) {
+        result.push(base[i % base.length]);
+    }
+
+    return result.map(item => ({
+        q: item[0],
+        tq: item[1],
+        o: item[2],
+        a: item[3],
+        e: item[4]
+    }));
+}
+
+
+/* =========================================================
+   TOPICS
+========================================================= */
+
+const adjectiveTopics = [
+
+    {
+        id: 1,
+
+        title: "BASIC ADJECTIVES",
+
+        tamilTitle: "அடிப்படை உரிச்சொற்கள்",
+
+        displayChain:
+            "good • bad • big • small • tall • short • new • old • beautiful • happy",
+
+        explanation:
+            "ஒரு Noun அல்லது Pronoun-ன் குணம், நிறம், அளவு, எண்ணிக்கை அல்லது நிலையை விவரிக்கும் சொல் Adjective (உரிச்சொல்) எனப்படும்.",
+
+        tableData: [
+
+            {
+                l: "1. good",
+                t: "நல்ல",
+                e: "He is a good boy.",
+                te: "அவன் ஒரு நல்ல பையன்."
+            },
+
+            {
+                l: "2. bad",
+                t: "கெட்ட",
+                e: "It is a bad habit.",
+                te: "அது ஒரு கெட்ட பழக்கம்."
+            },
+
+            {
+                l: "3. big",
+                t: "பெரிய",
+                e: "This is a big house.",
+                te: "இது ஒரு பெரிய வீடு."
+            },
+
+            {
+                l: "4. small",
+                t: "சிறிய",
+                e: "I have a small bag.",
+                te: "என்னிடம் ஒரு சிறிய பை உள்ளது."
+            },
+
+            {
+                l: "5. tall",
+                t: "உயரமான",
+                e: "He is a tall boy.",
+                te: "அவன் உயரமான பையன்."
+            },
+
+            {
+                l: "6. short",
+                t: "குட்டையான / குறுகிய",
+                e: "She is short.",
+                te: "அவள் குட்டையாக இருக்கிறாள்."
+            },
+
+            {
+                l: "7. new",
+                t: "புதிய",
+                e: "I bought a new phone.",
+                te: "நான் புதிய போன் வாங்கினேன்."
+            },
+
+            {
+                l: "8. old",
+                t: "பழைய",
+                e: "This is an old house.",
+                te: "இது ஒரு பழைய வீடு."
+            },
+
+            {
+                l: "9. beautiful",
+                t: "அழகான",
+                e: "She is a beautiful girl.",
+                te: "அவள் ஒரு அழகான பெண்."
+            },
+
+            {
+                l: "10. happy",
+                t: "மகிழ்ச்சியான",
+                e: "He is happy.",
+                te: "அவன் மகிழ்ச்சியாக இருக்கிறான்."
+            },
+
+            {
+                l: "11. red",
+                t: "சிவப்பு",
+                e: "I have a red pen.",
+                te: "என்னிடம் சிவப்பு பேனா உள்ளது."
+            },
+
+            {
+                l: "12. blue",
+                t: "நீலம்",
+                e: "She has a blue bag.",
+                te: "அவளிடம் நீல நிற பை உள்ளது."
+            },
+
+            {
+                l: "13. long",
+                t: "நீளமான",
+                e: "He has long hair.",
+                te: "அவனுக்கு நீண்ட முடி உள்ளது."
+            },
+
+            {
+                l: "14. clean",
+                t: "சுத்தமான",
+                e: "The room is clean.",
+                te: "அறை சுத்தமாக உள்ளது."
+            },
+
+            {
+                l: "15. strong",
+                t: "வலிமையான",
+                e: "He is strong.",
+                te: "அவன் வலிமையானவன்."
+            },
+
+            {
+                l: "16. weak",
+                t: "பலவீனமான",
+                e: "The man is weak.",
+                te: "அந்த மனிதர் பலவீனமாக இருக்கிறார்."
+            },
+
+            {
+                l: "17. hot",
+                t: "சூடான",
+                e: "The tea is hot.",
+                te: "தேநீர் சூடாக உள்ளது."
+            },
+
+            {
+                l: "18. cold",
+                t: "குளிரான",
+                e: "The water is cold.",
+                te: "தண்ணீர் குளிராக உள்ளது."
+            },
+
+            {
+                l: "19. clever",
+                t: "புத்திசாலியான",
+                e: "She is a clever student.",
+                te: "அவள் புத்திசாலியான மாணவி."
+            },
+
+            {
+                l: "20. expensive",
+                t: "விலையுயர்ந்த",
+                e: "This is an expensive car.",
+                te: "இது விலையுயர்ந்த கார்."
+            }
+
+        ],
+
+        questions: generateBasicQuestions()
+    },
+
+
+    {
+        id: 2,
+
+        title: "ADVANCED ADJECTIVES",
+
+        tamilTitle: "மேம்பட்ட உரிச்சொற்கள்",
+
+        displayChain:
+            "better • best • bigger • biggest • taller • tallest • more • most",
+
+        explanation:
+            "இரண்டு அல்லது அதற்கு மேற்பட்ட பொருட்கள் / நபர்களை ஒப்பிடும்போது Comparative மற்றும் Superlative Adjectives பயன்படுத்தப்படுகின்றன.",
+
+        tableData: [
+
+            {
+                l: "1. better",
+                t: "இன்னும் சிறந்த",
+                e: "This book is better than that.",
+                te: "இந்த புத்தகம் அதை விட சிறந்தது."
+            },
+
+            {
+                l: "2. best",
+                t: "மிகச் சிறந்த",
+                e: "He is the best player.",
+                te: "அவன் மிகச் சிறந்த வீரன்."
+            },
+
+            {
+                l: "3. bigger",
+                t: "இன்னும் பெரிய",
+                e: "This box is bigger than that.",
+                te: "இந்த பெட்டி அதை விட பெரியது."
+            },
+
+            {
+                l: "4. biggest",
+                t: "மிகப் பெரிய",
+                e: "This is the biggest house.",
+                te: "இது மிகப் பெரிய வீடு."
+            },
+
+            {
+                l: "5. taller",
+                t: "இன்னும் உயரமான",
+                e: "Ram is taller than Sam.",
+                te: "ராம் சாமை விட உயரமானவன்."
+            },
+
+            {
+                l: "6. tallest",
+                t: "மிக உயரமான",
+                e: "He is the tallest boy.",
+                te: "அவன் மிக உயரமான பையன்."
+            },
+
+            {
+                l: "7. more beautiful",
+                t: "இன்னும் அழகான",
+                e: "This flower is more beautiful.",
+                te: "இந்த மலர் இன்னும் அழகானது."
+            },
+
+            {
+                l: "8. most beautiful",
+                t: "மிகவும் அழகான",
+                e: "She is the most beautiful girl.",
+                te: "அவள் மிகவும் அழகான பெண்."
+            },
+
+            {
+                l: "9. easier",
+                t: "இன்னும் எளிதான",
+                e: "This lesson is easier.",
+                te: "இந்த பாடம் இன்னும் எளிதானது."
+            },
+
+            {
+                l: "10. easiest",
+                t: "மிகவும் எளிதான",
+                e: "This is the easiest question.",
+                te: "இது மிகவும் எளிதான கேள்வி."
+            },
+
+            {
+                l: "11. harder",
+                t: "இன்னும் கடினமான",
+                e: "This exam is harder.",
+                te: "இந்த தேர்வு இன்னும் கடினமானது."
+            },
+
+            {
+                l: "12. hardest",
+                t: "மிகவும் கடினமான",
+                e: "This is the hardest exam.",
+                te: "இது மிகவும் கடினமான தேர்வு."
+            },
+
+            {
+                l: "13. more interesting",
+                t: "இன்னும் சுவாரஸ்யமான",
+                e: "This story is more interesting.",
+                te: "இந்த கதை இன்னும் சுவாரஸ்யமானது."
+            },
+
+            {
+                l: "14. most interesting",
+                t: "மிகவும் சுவாரஸ்யமான",
+                e: "This is the most interesting story.",
+                te: "இது மிகவும் சுவாரஸ்யமான கதை."
+            },
+
+            {
+                l: "15. stronger",
+                t: "இன்னும் வலிமையான",
+                e: "He is stronger than me.",
+                te: "அவன் என்னை விட வலிமையானவன்."
+            },
+
+            {
+                l: "16. strongest",
+                t: "மிகவும் வலிமையான",
+                e: "He is the strongest man.",
+                te: "அவன் மிகவும் வலிமையான மனிதன்."
+            },
+
+            {
+                l: "17. wider",
+                t: "இன்னும் அகலமான",
+                e: "This road is wider.",
+                te: "இந்த சாலை இன்னும் அகலமானது."
+            },
+
+            {
+                l: "18. widest",
+                t: "மிகவும் அகலமான",
+                e: "This is the widest road.",
+                te: "இது மிகவும் அகலமான சாலை."
+            },
+
+            {
+                l: "19. more difficult",
+                t: "இன்னும் கடினமான",
+                e: "This lesson is more difficult.",
+                te: "இந்த பாடம் இன்னும் கடினமானது."
+            },
+
+            {
+                l: "20. most difficult",
+                t: "மிகவும் கடினமான",
+                e: "This is the most difficult lesson.",
+                te: "இது மிகவும் கடினமான பாடம்."
+            }
+
+        ],
+
+        questions: generateAdvancedQuestions()
+    }
+
+];
+
+
+/* =========================================================
+   QUIZ VARIABLES
+========================================================= */
+
+let currentTopicIndex = 0;
+let currentQuestionIndex = 0;
+let score = 0;
+let selectedOptionIndex = null;
+let currentShuffledOptions = [];
+let topicProgress = [false, false];
+
+
+/* =========================================================
+   PAGE LOAD
+========================================================= */
+
+window.onload = function () {
+
+    renderProgressTracker();
+
+    renderPills();
+
+    loadTopic(0);
+
+};
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+function renderProgressTracker() {
+
+    const grid =
+        document.getElementById('progress-tracker-grid');
+
+    grid.innerHTML = '';
+
+    let completedCount =
+        topicProgress.filter(Boolean).length;
+
+    document.getElementById(
+        'overall-progress-text'
+    ).innerText =
+        `${completedCount} / ${adjectiveTopics.length} Completed`;
+
+
+    adjectiveTopics.forEach((topic, idx) => {
+
+        const item =
+            document.createElement('div');
+
+        item.className =
+            `progress-item ${
+                topicProgress[idx]
+                    ? 'completed'
+                    : ''
+            }`;
+
+        item.onclick =
+            () => loadTopic(idx);
+
+        item.innerHTML = `
+            <div class="check-icon">
+                ${
+                    topicProgress[idx]
+                        ? '✓'
+                        : idx + 1
+                }
+            </div>
+
+            <span>${topic.title}</span>
+        `;
+
+        grid.appendChild(item);
+
+    });
+
+}
+
+
+/* =========================================================
+   TOPIC PILLS
+========================================================= */
+
+function renderPills() {
+
+    const pillsContainer =
+        document.getElementById('topic-pills');
+
+    pillsContainer.innerHTML = '';
+
+    adjectiveTopics.forEach((topic, idx) => {
+
+        const btn =
+            document.createElement('button');
+
+        btn.className =
+            `pill-btn ${
+                idx === currentTopicIndex
+                    ? 'active'
+                    : ''
+            }`;
+
+        btn.innerText =
+            topic.title;
+
+        btn.onclick =
+            () => loadTopic(idx);
+
+        pillsContainer.appendChild(btn);
+
+    });
+
+}
+
+
+/* =========================================================
+   LOAD TOPIC
+========================================================= */
+
+function loadTopic(index) {
+
+    currentTopicIndex = index;
+
+    currentQuestionIndex = 0;
+
+    score = 0;
+
+    selectedOptionIndex = null;
+
+    renderPills();
+
+    renderTopicContent();
+
+    loadQuestion();
+
+    document.getElementById(
+        'question-runner'
+    ).style.display = 'block';
+
+    document.getElementById(
+        'result-runner'
+    ).style.display = 'none';
+
+}
+
+
+/* =========================================================
+   TOPIC CONTENT
+========================================================= */
+
+function renderTopicContent() {
+
+    const topic =
+        adjectiveTopics[currentTopicIndex];
+
+    const contentBox =
+        document.getElementById('topic-content');
+
+
+    let tableRows =
+        topic.tableData.map(row => `
+
+            <tr>
+
+                <td>
+                    <b>${row.l}</b>
+                </td>
+
+                <td>
+                    ${row.t}
+                </td>
+
+                <td>
+
+                    <i>${row.e}</i>
+
+                    <span class="sent-ta">
+                        ${row.te}
+                    </span>
+
+                </td>
+
+            </tr>
+
+        `).join('');
+
+
+    contentBox.innerHTML = `
+
+        <div class="topic-title">
+
+            ${topic.title}
+            – ${topic.tamilTitle}
+
+        </div>
+
+
+        <div class="display-chain">
+
+            ${topic.displayChain}
+
+        </div>
+
+
+        <div class="tamil-explain">
+
+            ${topic.explanation}
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Adjective
+                        </th>
+
+                        <th>
+                            தமிழ் பொருள்
+                        </th>
+
+                        <th>
+                            Example Sentence & Meaning
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    ${tableRows}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    `;
+
+
+    document.getElementById(
+        'quiz-topic-badge'
+    ).innerText =
+        `${topic.title} Quiz`;
+
+}
+
+
+/* =========================================================
+   SHUFFLE
+========================================================= */
+
+function shuffleArray(array) {
+
+    let arr = [...array];
+
+    for (
+        let i = arr.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+        [arr[i], arr[j]] =
+            [arr[j], arr[i]];
+
+    }
+
+    return arr;
+
+}
+
+
+/* =========================================================
+   LOAD QUESTION
+========================================================= */
+
+function loadQuestion() {
+
+    const topic =
+        adjectiveTopics[currentTopicIndex];
+
+    const q =
+        topic.questions[currentQuestionIndex];
+
+
+    document.getElementById(
+        'quiz-progress-text'
+    ).innerText =
+        `Question ${
+            currentQuestionIndex + 1
+        } / ${topic.questions.length}`;
+
+
+    document.getElementById(
+        'question-text'
+    ).innerText =
+        `${currentQuestionIndex + 1}. ${q.q}`;
+
+
+    document.getElementById(
+        'question-tamil-text'
+    ).innerText =
+        q.tq;
+
+
+    let optionObjects =
+        q.o.map((optText, idx) => ({
+
+            text: optText,
+
+            isCorrect:
+                idx === q.a
+
+        }));
+
+
+    currentShuffledOptions =
+        shuffleArray(optionObjects);
+
+
+    const optionsGrid =
+        document.getElementById(
+            'options-container'
+        );
+
+    optionsGrid.innerHTML = '';
+
+
+    currentShuffledOptions.forEach(
+        (optObj, idx) => {
+
+            const btn =
+                document.createElement(
+                    'button'
+                );
+
+            btn.className =
+                'option-btn';
+
+            btn.innerText =
+                optObj.text;
+
+            btn.onclick =
+                () => selectOption(idx);
+
+            optionsGrid.appendChild(btn);
+
+        }
+    );
+
+
+    const feedback =
+        document.getElementById(
+            'feedback-box'
+        );
+
+    feedback.style.display =
+        'none';
+
+
+    document.getElementById(
+        'next-btn'
+    ).disabled = true;
+
+
+    selectedOptionIndex = null;
+
+}
+
+
+/* =========================================================
+   SELECT OPTION
+========================================================= */
+
+function selectOption(index) {
+
+    if (
+        selectedOptionIndex !== null
+    ) return;
+
+
+    selectedOptionIndex = index;
+
+
+    const topic =
+        adjectiveTopics[currentTopicIndex];
+
+    const q =
+        topic.questions[currentQuestionIndex];
+
+
+    const options =
+        document.getElementById(
+            'options-container'
+        ).children;
+
+
+    const feedback =
+        document.getElementById(
+            'feedback-box'
+        );
+
+
+    const isCorrectAnswer =
+        currentShuffledOptions[index]
+            .isCorrect;
+
+
+    if (isCorrectAnswer) {
+
+        score++;
+
+        options[index]
+            .classList
+            .add('selected-correct');
+
+
+        feedback.className =
+            'feedback-box correct';
+
+
+        feedback.innerHTML =
+            `<b>✓ சரியான பதில்!</b> ${q.e}`;
+
+    }
+
+    else {
+
+        options[index]
+            .classList
+            .add('selected-wrong');
+
+
+        const correctIndex =
+            currentShuffledOptions
+                .findIndex(
+                    item => item.isCorrect
+                );
+
+
+        options[correctIndex]
+            .classList
+            .add('selected-correct');
+
+
+        feedback.className =
+            'feedback-box wrong';
+
+
+        feedback.innerHTML =
+            `<b>✗ தவறான பதில்!</b> ${q.e}`;
+
+    }
+
+
+    Array.from(options)
+        .forEach(opt =>
+            opt.disabled = true
+        );
+
+
+    document.getElementById(
+        'next-btn'
+    ).disabled = false;
+
+}
+
+
+/* =========================================================
+   NEXT QUESTION
+========================================================= */
+
+function nextQuestion() {
+
+    const topic =
+        adjectiveTopics[currentTopicIndex];
+
+
+    if (
+        currentQuestionIndex <
+        topic.questions.length - 1
+    ) {
+
+        currentQuestionIndex++;
+
+        loadQuestion();
+
+    }
+
+    else {
+
+        showResults();
+
+    }
+
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+function showResults() {
+
+    const topic =
+        adjectiveTopics[currentTopicIndex];
+
+
+    document.getElementById(
+        'question-runner'
+    ).style.display =
+        'none';
+
+
+    document.getElementById(
+        'result-runner'
+    ).style.display =
+        'block';
+
+
+    document.getElementById(
+        'res-score'
+    ).innerText =
+        `${score} / ${topic.questions.length}`;
+
+
+    let percent =
+        (score /
+            topic.questions.length) *
+        100;
+
+
+    if (percent >= 70) {
+
+        topicProgress[
+            currentTopicIndex
+        ] = true;
+
+
+        renderProgressTracker();
+
+
+        document.getElementById(
+            'res-msg'
+        ).innerText =
+            "அற்புதமான முயற்சி! 🎉";
+
+    }
+
+    else {
+
+        document.getElementById(
+            'res-msg'
+        ).innerText =
+            "மீண்டும் முயற்சி செய்து பார்க்கவும்! 👍";
+
+    }
+
+}
+
+
+/* =========================================================
+   TRY AGAIN
+========================================================= */
+
+function resetCurrentQuiz() {
+
+    loadTopic(
+        currentTopicIndex
+    );
+
+}
+
+</script>
+
+</body>
+</html>

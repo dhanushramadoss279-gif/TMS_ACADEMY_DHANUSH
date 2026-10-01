@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>English Learning - Intermediate</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Noto+Sans+Tamil:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#58cc02;--gd:#58a700;--b:#1cb0f6;--bd:#1899d6;--r:#ff4b4b;--rd:#ea2b2b;--y:#ffc800;--o:#ff9600;--ink:#3c3c3c;--mute:#777;--line:#e5e5e5;--bg:#fff;--soft:#f7f7f7;--gbg:#d7ffb8;--rbg:#ffdfe0;--bbg:#ddf4ff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#f1f7fb;--mute:#8aa0ad;--line:#37464f;--bg:#131f24;--soft:#1f2c33;--gbg:#1e3a14;--rbg:#4a1f22;--bbg:#12384a}}
+:root[data-theme="dark"]{--ink:#f1f7fb;--mute:#8aa0ad;--line:#37464f;--bg:#131f24;--soft:#1f2c33;--gbg:#1e3a14;--rbg:#4a1f22;--bbg:#12384a}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:"Nunito","Noto Sans Tamil",sans-serif;background:var(--bg);color:var(--ink);font-weight:700}
+.app{max-width:640px;margin:auto;height:100%;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;gap:14px;padding:16px 16px 8px;min-height:56px}
+.top.home{justify-content:space-between}
+.bar{flex:1;height:16px;background:var(--line);border-radius:10px;overflow:hidden}
+.fill{height:100%;background:var(--g);border-radius:10px;transition:width .4s;position:relative}
+.fill::after{content:"";position:absolute;left:8px;right:8px;top:4px;height:4px;background:rgba(255,255,255,.35);border-radius:4px}
+.x{font:inherit;font-size:22px;color:var(--mute);background:none;border:none;cursor:pointer}
+.st{font-weight:900;font-size:18px}.st.f{color:var(--o)}.st.y{color:var(--y)}.st.r{color:var(--r)}
+.main{flex:1;overflow-y:auto;padding:14px 18px 20px}
+h1{font-size:25px;font-weight:900;margin-bottom:4px}
+.sub{color:var(--mute);margin-bottom:18px}
+.ta{font-family:"Noto Sans Tamil","Nunito",sans-serif}
+.goal{border:2px solid var(--line);border-radius:16px;padding:14px;margin-bottom:22px}
+.goal .bar{height:14px;margin-top:8px}.goal .fill{background:var(--y)}
+.path{display:flex;flex-direction:column;align-items:center;gap:22px;padding:10px 0 30px}
+.unit{background:var(--g);color:#fff;border-bottom:4px solid var(--gd);border-radius:14px;padding:10px 16px;width:100%;text-align:center;font-weight:900}
+.unit small{display:block;font-weight:700;opacity:.9}
+.node{width:78px;height:72px;border-radius:50%;border:none;border-bottom:7px solid var(--gd);background:var(--g);color:#fff;font:inherit;font-size:30px;font-weight:900;cursor:pointer}
+.node:active{transform:translateY(5px);border-bottom-width:2px}
+.node.lock{background:var(--line);border-color:#c4c4c4;color:#afafaf;cursor:default}
+.node.done{background:var(--y);border-color:#d6a600}
+.lab{font-size:13px;color:var(--mute);text-align:center;margin-top:4px}
+.start{background:var(--bbg);border:2px solid var(--b);color:var(--b);border-radius:12px;padding:6px 14px;font-weight:900;margin-bottom:8px}
+.q{font-size:24px;font-weight:900;margin-bottom:18px}
+.tip{border:2px solid var(--b);background:var(--bbg);border-radius:16px;padding:16px}
+.tip h2{font-size:21px;margin-bottom:8px;color:var(--b)}
+.tip p{margin-bottom:10px;font-size:17px}
+.ex{background:var(--bg);border-radius:12px;padding:12px;font-size:18px;display:flex;align-items:center;gap:12px}
+.word{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.spk{width:56px;height:56px;border-radius:16px;border:2px solid var(--b);border-bottom-width:5px;background:var(--bbg);font-size:26px;cursor:pointer;flex:none}
+.spk:active{transform:translateY(3px);border-bottom-width:2px}
+.big{font-size:34px;font-weight:900}
+.opt{display:block;width:100%;font:inherit;font-family:"Noto Sans Tamil","Nunito",sans-serif;font-size:19px;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-bottom-width:4px;border-radius:14px;padding:14px;margin-bottom:12px;cursor:pointer;text-align:left}
+.opt:active{transform:translateY(2px);border-bottom-width:2px}
+.opt.sel{border-color:var(--b);background:var(--bbg);color:var(--b)}
+.opt.ok{border-color:var(--g);background:var(--gbg);color:var(--gd)}
+.opt.no{border-color:var(--r);background:var(--rbg);color:var(--r);animation:sh .3s}
+.opt:disabled{cursor:default}
+@keyframes sh{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.mm{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mm .opt{margin:0;text-align:center;padding:16px 8px}
+.tam{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.mascot{font-size:54px;line-height:1}
+.bub{border:2px solid var(--line);border-radius:14px;padding:12px 16px;font-size:19px;flex:1}
+.slot{min-height:76px;border-top:2px solid var(--line);border-bottom:2px solid var(--line);padding:10px 0;display:flex;flex-wrap:wrap;gap:8px;align-content:center;margin-bottom:26px}
+.bank{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.chip{font:inherit;font-size:18px;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-bottom-width:4px;border-radius:14px;padding:10px 18px;cursor:pointer}
+.chip:active{transform:translateY(2px);border-bottom-width:2px}
+.chip.ghost{background:var(--soft);border-color:var(--soft);color:transparent;pointer-events:none}
+.foot{padding:14px 18px 18px;transition:background .2s}
+.foot.good{background:var(--gbg)}.foot.bad{background:var(--rbg)}
+.msg{font-size:22px;font-weight:900;margin-bottom:12px}
+.foot.good .msg{color:var(--gd)}.foot.bad .msg{color:var(--r)}
+.msg small{display:block;font-size:15px;font-weight:700}
+.btn{width:100%;font:inherit;font-size:17px;font-weight:900;letter-spacing:.5px;color:#fff;background:var(--g);border:none;border-bottom:4px solid var(--gd);border-radius:16px;padding:15px;cursor:pointer;text-transform:uppercase}
+.btn:active{transform:translateY(3px);border-bottom-width:1px}
+.btn:disabled{background:var(--line);color:var(--mute);border-color:transparent;cursor:default}
+.foot.bad .btn{background:var(--r);border-color:var(--rd)}
+.mic{width:92px;height:92px;border-radius:50%;border:none;border-bottom:6px solid var(--bd);background:var(--b);font-size:38px;cursor:pointer}.mic.on{background:var(--r);border-color:var(--rd);animation:pul 1s infinite}@keyframes pul{50%{transform:scale(1.08)}}.mic:disabled{background:var(--line);border-color:#c4c4c4}
+.skip{margin-top:18px;background:none;border:none;color:var(--mute);font:inherit;font-weight:800;cursor:pointer;text-transform:uppercase}
+.hide{display:none!important}
+.center{text-align:center;padding-top:6vh}
+.trophy{font-size:90px}
+.stats{display:flex;gap:10px;justify-content:center;margin:20px 0}
+.sc{border:2px solid var(--y);border-radius:14px;min-width:92px;overflow:hidden}
+.sc b{display:block;background:var(--y);color:#fff;font-size:12px;padding:4px}
+.sc span{display:block;padding:12px 6px;font-size:20px;font-weight:900;color:var(--y)}
+.sc.a{border-color:var(--g)}.sc.a b{background:var(--g)}.sc.a span{color:var(--g)}
+.sc.s{border-color:var(--o)}.sc.s b{background:var(--o)}.sc.s span{color:var(--o)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top" id="top"></div>
+  <div class="main" id="main"></div>
+  <div class="foot" id="foot"><div class="msg" id="msg"></div><button class="btn" id="btn"></button></div>
+</div>
+<script>
+/* ===== GRAMMAR ENGINE: 10 units x 10 levels = 100 levels ===== */
+const cap=s=>s[0].toUpperCase()+s.slice(1);
+const qf=s=>s.replace(/்$/,"ா"); /* statement ending -> question ending */
+/* pronoun: [English, Tamil, "can" form, be-verb] */
+const P=[["I","நான்","என்னால்","am"],["You","நீ","உன்னால்","are"],["He","அவன்","அவனால்","is"],["She","அவள்","அவளால்","is"],["We","நாங்கள்","எங்களால்","are"],["They","அவர்கள்","அவர்களால்","are"]];
+const PS=["கிறேன்","கிறாய்","கிறான்","கிறாள்","கிறோம்","கிறார்கள்"];   /* present endings */
+const XS=["ேன்","ாய்","ான்","ாள்","ோம்","ார்கள்"];                       /* past/future endings */
+/* verb: [base, 3sg, past, -ing, Tamil label, present stem, past stem, future stem, infinitive, objects] */
+const V=[
+["eat","eats","ate","eating","சாப்பிடு","சாப்பிடு","சாப்பிட்ட","சாப்பிடுவ","சாப்பிட",[["rice","சாதம்"],["bread","ரொட்டி"],["mangoes","மாம்பழங்கள்"],["food","உணவு"]]],
+["drink","drinks","drank","drinking","குடி","குடிக்","குடித்த","குடிப்ப","குடிக்க",[["water","தண்ணீர்"],["tea","தேநீர்"],["milk","பால்"],["juice","சாறு"]]],
+["read","reads","read","reading","படி","படிக்","படித்த","படிப்ப","படிக்க",[["books","புத்தகங்கள்"],["stories","கதைகள்"],["the news","செய்தி"]]],
+["write","writes","wrote","writing","எழுது","எழுது","எழுதின","எழுதுவ","எழுத",[["letters","கடிதங்கள்"],["stories","கதைகள்"],["notes","குறிப்புகள்"]]],
+["play","plays","played","playing","விளையாடு","விளையாடு","விளையாடின","விளையாடுவ","விளையாட",[["cricket","கிரிக்கெட்"],["football","கால்பந்து"],["chess","சதுரங்கம்"]]],
+["watch","watches","watched","watching","பார்","பார்க்","பார்த்த","பார்ப்ப","பார்க்க",[["movies","திரைப்படங்கள்"],["TV","தொலைக்காட்சி"],["birds","பறவைகள்"]]],
+["go","goes","went","going","போ","போ","போன","போவ","போக",[["to school","பள்ளிக்கு"],["to the market","சந்தைக்கு"],["to the temple","கோயிலுக்கு"],["home","வீட்டுக்கு"]]],
+["come","comes","came","coming","வா","வரு","வந்த","வருவ","வர",[["here","இங்கே"],["home","வீட்டுக்கு"],["to school","பள்ளிக்கு"]]],
+["sleep","sleeps","slept","sleeping","தூங்கு","தூங்கு","தூங்கின","தூங்குவ","தூங்க",[["early","சீக்கிரம்"],["late","தாமதமாக"],["well","நன்றாக"]]],
+["work","works","worked","working","வேலை செய்","வேலை செய்","வேலை செய்த","வேலை செய்வ","வேலை செய்ய",[["hard","கடினமாக"],["here","இங்கே"],["at home","வீட்டில்"]]],
+["cook","cooks","cooked","cooking","சமை","சமைக்","சமைத்த","சமைப்ப","சமைக்க",[["rice","சாதம்"],["food","உணவு"],["dinner","இரவு உணவு"]]],
+["buy","buys","bought","buying","வாங்கு","வாங்கு","வாங்கின","வாங்குவ","வாங்க",[["books","புத்தகங்கள்"],["milk","பால்"],["bread","ரொட்டி"],["mangoes","மாம்பழங்கள்"]]]
+];
+const ADJ=[["hungry","பசியாக"],["tired","சோர்வாக"],["happy","மகிழ்ச்சியாக"],["busy","பிஸியாக"],["ready","தயாராக"],["at home","வீட்டில்"],["at school","பள்ளியில்"],["here","இங்கே"]];
+const T=[
+["Present perfect: have / has + V3","Use have / has + past participle for something you have already done. eat → eaten, go → gone, write → written.","ஏற்கனவே முடிந்த செயலுக்கு have / has + V3 பயன்படுத்துங்கள்.","I have already eaten rice.","நான் ஏற்கனவே சாதம் சாப்பிட்டுவிட்டேன்."],
+["have not · Have you…? (yet)","Use have not … yet for things not done. Ask with Have / Has + subject + V3.","இன்னும் செய்யாததற்கு have not … yet. கேள்விக்கு Have / Has + subject + V3.","I have not eaten rice yet.","நான் இன்னும் சாதம் சாப்பிடவில்லை."],
+["Past continuous: was / were + -ing","Use was / were + verb-ing for an action in progress in the past. I / he / she was; you / we / they were.","கடந்த காலத்தில் நடந்துகொண்டிருந்த செயலுக்கு was / were + verb-ing.","I was eating rice yesterday.","நான் நேற்று சாதம் சாப்பிட்டுக்கொண்டிருந்தேன்."],
+["should · should not","should + base verb gives advice. There is no -s after should.","அறிவுரைக்கு should + base verb. should-க்குப் பிறகு -s வராது.","You should eat rice.","நீ சாதம் சாப்பிட வேண்டும்."],
+["must · must not · have to","must / have to = necessary. must not = forbidden. He / she has to.","கட்டாயத்திற்கு must / have to. தடைக்கு must not.","I have to eat rice.","நான் சாதம் சாப்பிட வேண்டும்."],
+["First conditional: If + present, will","If + present simple, will + base verb. It talks about a real possibility.","நடக்கக்கூடிய நிபந்தனைக்கு If + present, will + base verb.","If I have time, I will eat rice.","எனக்கு நேரம் இருந்தால் நான் சாதம் சாப்பிடுவேன்."],
+["be going to (plans)","am / is / are + going to + base verb for plans and intentions.","திட்டத்திற்கு am / is / are + going to + base verb.","I am going to eat rice tomorrow.","நான் நாளை சாதம் சாப்பிடப்போகிறேன்."],
+["like + verb-ing","After like, love and enjoy, use verb-ing. He likes eating.","like / love / enjoy-க்குப் பிறகு verb-ing.","I like eating rice.","நான் சாதம் சாப்பிடுவதை விரும்புகிறேன்."],
+["used to (past habits)","used to + base verb for things you did often in the past. Questions: Did you use to…?","முன்பு வழக்கமாகச் செய்ததற்கு used to + base verb.","I used to eat rice before.","நான் முன்பெல்லாம் சாதம் சாப்பிடுவேன்."],
+["Review: perfect · continuous · going to · modals","A mix of the whole course: have + V3, was + -ing, going to, should and conditionals.","இந்தப் பாடத்தின் அனைத்து வடிவங்களும் கலந்த பயிற்சி.","She has already eaten rice.","அவள் ஏற்கனவே சாதம் சாப்பிட்டுவிட்டாள்."]
+];
+const PPE=["eaten","drunk","read","written","played","watched","gone","come","slept","worked","cooked","bought"];
+const PTA=["சாப்பிட்டு","குடித்து","படித்து","எழுதி","விளையாடி","பார்த்து","போய்","வந்து","தூங்கி","வேலை செய்து","சமைத்து","வாங்கி"];
+const DT=["எனக்கு","உனக்கு","அவனுக்கு","அவளுக்கு","எங்களுக்கு","அவர்களுக்கு"];
+const pc=x=>x+(x.endsWith("வந்து")?"":"க்")+"கொண்டிரு";
+const dd=(a,...c)=>[...new Set(c)].filter(x=>x&&x!==a);
+const IW=[["Arrive","வந்தடை"],["Borrow","கடன் வாங்கு"],["Choose","தேர்ந்தெடு"],["Collect","சேகரி"],["Decide","முடிவு செய்"],["Deliver","ஒப்படை"],["Discover","கண்டுபிடி"],["Explain","விளக்கு"],["Forget","மற"],["Gather","ஒன்று சேர்"],["Improve","மேம்படுத்து"],["Invite","அழை"],["Join","இணை"],["Learn","கற்றுக்கொள்"],["Measure","அளவிடு"],["Notice","கவனி"],["Offer","முன்வை"],["Prepare","தயார் செய்"],["Promise","வாக்குறுதி கொடு"],["Remember","நினைவில் வை"],["Repair","பழுது பார்"],["Return","திரும்பு"],["Share","பகிர்"],["Suggest","பரிந்துரை"],["Travel","பயணம் செய்"],["Wait","காத்திரு"],["Careful","கவனமான"],["Dangerous","ஆபத்தான"],["Difficult","கடினமான"],["Expensive","விலை உயர்ந்த"],["Famous","பிரபலமான"],["Healthy","ஆரோக்கியமான"],["Honest","நேர்மையான"],["Important","முக்கியமான"],["Lazy","சோம்பேறியான"],["Polite","மரியாதையான"],["Quiet","அமைதியான"],["Strong","வலிமையான"],["Useful","பயனுள்ள"],["Crowded","நெரிசலான"],["Weather","வானிலை"],["Journey","பயணம்"],["Neighbour","அண்டை வீட்டார்"],["Holiday","விடுமுறை"],["Salary","சம்பளம்"],["Habit","பழக்கம்"],["Meeting","கூட்டம்"],["Guest","விருந்தினர்"],["Library","நூலகம்"],["Hospital","மருத்துவமனை"],["Village","கிராமம்"],["Festival","திருவிழா"],["Language","மொழி"],["Message","தகவல்"],["Exam","தேர்வு"],["Price","விலை"],["Dream","கனவு"],["Secret","ரகசியம்"],["Advice","அறிவுரை"],["Mistake","தவறு"],["Ticket","பயணச்சீட்டு"]];
+/* returns [englishTokens, tamil, indexOfGrammarToken, distractors, []] */
+function gen(L,j){
+  const u=L/10|0,n=L*3+j,pi=(L+j*2+(L>>1))%6,p=P[pi],third=pi==2||pi==3,S=p[0],sl=pi?S.toLowerCase():S;
+  const vi=(L*3+j*5+u)%12,v=V[vi],ob=v[9][(L+n)%v[9].length],oe=ob[0].split(" "),ot=ob[1];
+  const base=v[0],be=p[3],ps=PS[pi],xs=XS[pi],m=(L+j)%3,pp=PPE[vi],pt=PTA[vi];
+  const hv=third?"has":"have",hvb=third?"have":"has",wb=[0,2,3].includes(pi)?"was":"were",wbb=wb=="was"?"were":"was";
+  const pb=v[2]==pp?v[1]:v[2],bb=["am","is","are"].filter(x=>x!=be).map(cap),bl=bb.map(x=>x.toLowerCase());
+  const vd=dd(base,v[1],v[3]),uu=u==9?[0,2,6,3,5][(L+j*2)%5]:u;
+  let e,t,g,d,q=a=>{a[a.length-1]+="?";return a};
+  switch(uu){
+    case 0:e=[S,hv,"already",pp,...oe];t=`${p[1]} ஏற்கனவே ${ot} ${pt}விட்ட${xs}`;if(m==0){g=1;d=dd(hv,hvb,"had")}else{g=3;d=dd(pp,pb,base)}break;
+    case 1:if(m==1){e=q([cap(hv),sl,pp,...oe]);t=`${p[1]} ${ot} ${pt}விட்ட${qf(xs)}`;g=0;d=dd(cap(hv),cap(hvb),"Did")}
+      else{e=[S,hv,"not",pp,...oe,"yet"];t=`${p[1]} இன்னும் ${ot} ${v[8]}வில்லை`;if(m==0){g=1;d=dd(hv,hvb,"had")}else{g=3;d=dd(pp,pb,base)}}break;
+    case 2:e=[S,wb,v[3],...oe,"yesterday"];t=`${p[1]} நேற்று ${ot} ${pc(pt)}ந்த${xs}`;if(m==0){g=1;d=dd(wb,wbb,"are")}else{g=2;d=dd(v[3],base,v[2])}break;
+    case 3:if(m==0){e=[S,"should",base,...oe];t=`${p[1]} ${ot} ${v[8]} வேண்டும்`;g=1;d=["can","will"]}
+      else if(m==1){e=[S,"should","not",base,...oe];t=`${p[1]} ${ot} ${v[8]}க்கூடாது`;g=3;d=vd}
+      else{e=q(["Should",sl,base,...oe]);t=`${p[1]} ${ot} ${v[8]} வேண்டுமா`;g=2;d=vd}break;
+    case 4:if(m==0){e=[S,hv,"to",base,...oe];t=`${p[1]} ${ot} ${v[8]} வேண்டும்`;g=1;d=dd(hv,hvb,"had")}
+      else if(m==1){e=[S,"must","not",base,...oe];t=`${p[1]} ${ot} ${v[8]}க்கூடாது`;g=3;d=vd}
+      else{e=[S,"must",base,...oe];t=`${p[1]} ${ot} ${v[8]} வேண்டும்`;g=2;d=vd}break;
+    case 5:e=["If",sl,hv,"time,",sl,"will",base,...oe];t=`${DT[pi]} நேரம் இருந்தால் ${p[1]} ${ot} ${v[7]}${xs}`;
+      if(m==0){g=5;d=["would","did"]}else if(m==1){g=6;d=vd}else{g=2;d=dd(hv,hvb,"had")}break;
+    case 6:if(m==2){e=q([cap(be),sl,"going","to",base,...oe,"tomorrow"]);t=`${p[1]} நாளை ${ot} ${v[8]}ப்போ${qf(ps)}`;g=0;d=bb}
+      else{e=[S,be,"going","to",base,...oe,"tomorrow"];t=`${p[1]} நாளை ${ot} ${v[8]}ப்போ${ps}`;if(m==0){g=1;d=bl}else{g=4;d=vd}}break;
+    case 7:{const lk=third?"likes":"like";
+      if(m==2){e=q([third?"Does":"Do",sl,"like",v[3],...oe]);t=`${p[1]} ${ot} ${v[7]}தை விரும்பு${qf(ps)}`;g=3;d=dd(v[3],base,v[1])}
+      else{e=[S,lk,v[3],...oe];t=`${p[1]} ${ot} ${v[7]}தை விரும்பு${ps}`;if(m==0){g=1;d=dd(lk,"like","likes","liked")}else{g=2;d=dd(v[3],base,v[1])}}break}
+    default:
+      if(m==2){e=q(["Did",sl,"use","to",base,...oe,"before"]);t=`${p[1]} முன்பு ${ot} ${v[7]}${qf(xs)}`;g=2;d=["used","uses"]}
+      else{e=[S,"used","to",base,...oe,"before"];t=`${p[1]} முன்பு ${ot} ${v[7]}${xs}`;if(m==0){g=1;d=["use","uses"]}else{g=3;d=vd}}
+  }
+  return [e,t,g,d,[]];
+}
+const ALL=IW;
+function mk(i){
+  const ss=[0,1,2].map(j=>gen(i,j)),ws=[0,1,2,3,4].map(k=>IW[(i*5+k+(i/12|0))%IW.length]);
+  return {words:ws,sents:ss,u:i/10|0};
+}
+const TOTAL_LEVELS=100;
+
+/* ===== STATE ===== */
+const $=id=>document.getElementById(id);
+const sh=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+const day=(o=0)=>{const d=new Date();d.setDate(d.getDate()+o);return d.toDateString()};
+let S={xp:0,streak:0,last:"",unlocked:0,doneLv:[],dayKey:day(),dayXp:0};
+try{const r=localStorage.getItem("engI1");if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
+if(S.dayKey!==day()){S.dayKey=day();S.dayXp=0}
+if(S.last&&S.last!==day()&&S.last!==day(-1))S.streak=0;
+const save=()=>{try{localStorage.setItem("engI1",JSON.stringify(S))}catch(e){}};
+
+/* ===== SOUND & VOICE ===== */
+function beep(ok){try{const c=new(window.AudioContext||window.webkitAudioContext)();(ok?[660,880]:[300,220]).forEach((f,i)=>{const o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=f;const t=c.currentTime+i*.1;g.gain.setValueAtTime(.12,t);g.gain.exponentialRampToValueAtTime(.001,t+.18);o.start(t);o.stop(t+.18)})}catch(e){}}
+function speak(txt,lang){try{if(!window.speechSynthesis)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang=lang||"en-US";u.rate=.9;
+ const v=speechSynthesis.getVoices().find(v=>v.lang.replace("_","-").startsWith((lang||"en-US").slice(0,2)));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
+
+/* ===== HOME ===== */
+function home(){
+  $("top").className="top home";
+  $("top").innerHTML=`<span class="st f">🔥 ${S.streak}</span><span class="st y">⚡ ${S.xp}</span>`;
+  $("foot").className="foot hide";
+  const goal=Math.min(100,S.dayXp/50*100);
+  let nodes="";
+  for(let i=0;i<TOTAL_LEVELS;i++){
+    const open=i<=S.unlocked,done=S.doneLv.includes(i);
+    const off=Math.round(Math.sin(i*1.1)*50);
+    if(i%10==0)nodes+=`<div class="unit">Unit ${i/10+1}<small>${T[i/10][0]}</small></div>`;
+    nodes+=`<div style="transform:translateX(${off}px);text-align:center">${open&&!done?'<div class="start">START</div>':''}
+    <button class="node ${done?"done":open?"":"lock"}" ${open?`onclick="start(${i})"`:""} aria-label="Level ${i+1}">${done?"★":open?"▶":"🔒"}</button>
+    <div class="lab">Level ${i+1}</div></div>`;
+  }
+  $("main").innerHTML=`<h1>English for Tamil speakers · Intermediate</h1><div class="sub">${TOTAL_LEVELS} levels · 10 intermediate grammar units</div>
+  <div class="goal"><b>Daily goal</b> <span style="float:right;color:var(--mute)">${S.dayXp} / 50 XP</span><div class="bar"><div class="fill" style="width:${goal}%"></div></div></div>
+  <div class="path">${nodes}</div>`;
+  const st=document.querySelector(".start");if(st)st.scrollIntoView({block:"center"});
+}
+
+/* ===== LESSON ===== */
+let Q,cur,done,total,orig,wrongs,xpL,checked,sel,bank,picked,L,tries,retrying;
+function start(i){
+  L=mk(i);L.i=i;const W=L.words,ss=L.sents;
+  Q=[{t:"tip"}];
+  W.forEach(w=>Q.push({t:"choose",w}));
+  Q.push({t:"match",ws:W},{t:"fill",s:ss[0]},{t:"fill",s:ss[1]},{t:"build",s:ss[1]},{t:"build",s:ss[2]},{t:"speak",s:ss[2]});
+  total=orig=Q.length-1;done=0;wrongs=0;xpL=0;
+  $("foot").className="foot";$("top").className="top";next();
+}
+function topbar(){$("top").innerHTML=`<button class="x" onclick="home()" aria-label="Quit">✕</button><div class="bar"><div class="fill" style="width:${done/total*100}%"></div></div><span class="st y">⚡ ${xpL}</span>`}
+function foot(cls,msg,btn,dis){$("foot").className="foot "+cls;$("msg").innerHTML=msg;$("btn").textContent=btn;$("btn").disabled=!!dis}
+function next(){
+  if(!Q.length)return finish();
+  cur=Q[0];checked=false;sel=[];picked=null;tries=0;retrying=false;topbar();foot("","","Check",1);
+  const m=$("main");
+  if(cur.t==="tip"){
+    const t=T[L.u];checked=true;foot("","","Let's go",0);
+    m.innerHTML=`<div class="q">Grammar tip 💡</div><div class="tip"><h2>${t[0]}</h2><p>${t[1]}</p><p class="ta">${t[2]}</p><div class="ex"><button class="spk" onclick="speak('${t[3]}')" aria-label="Play">🔊</button><div><b>${t[3]}</b><br><span class="ta">${t[4]}</span></div></div></div>`;
+  }else if(cur.t==="choose"){
+    const w=cur.w,o=sh([w[1],...sh(ALL.filter(x=>x[1]!==w[1])).slice(0,2).map(x=>x[1])]);
+    m.innerHTML=`<div class="q">What does this mean?</div><div class="word"><button class="spk" onclick="speak('${w[0]}')" aria-label="Play">🔊</button><div class="big">${w[0]}</div></div>`+o.map(x=>`<button class="opt" data-v="${x}">${x}</button>`).join("");
+    pickable(x=>x===w[1]);setTimeout(()=>speak(w[0]),300);
+  }else if(cur.t==="fill"){
+    const [e,ta,g,d]=cur.s,ans=e[g],o=sh([ans,...d.slice(0,2)]);
+    m.innerHTML=`<div class="q">Choose the correct word</div><div class="tam"><div class="mascot">🦉</div><div class="bub ta">${ta}</div></div><div class="big" style="font-size:26px;margin-bottom:22px">${e.map((x,k)=>k==g?"_____":x).join(" ")}</div>`+o.map(x=>`<button class="opt" data-v="${x}">${x}</button>`).join("");
+    pickable(x=>x===ans);
+  }else if(cur.t==="match")matchUI();
+  else if(cur.t==="speak")speakUI();
+  else buildUI();
+}
+function pickable(isOk){
+  document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+    if(checked)return;document.querySelectorAll(".opt").forEach(x=>x.classList.remove("sel"));
+    b.classList.add("sel");picked=b.dataset.v;$("btn").disabled=false;if(cur.t!=="choose")speak(picked);cur.ok=()=>isOk(picked);
+  });
+}
+function matchUI(){
+  const ws=cur.ws;let L1=null,left=ws.length;
+  $("main").innerHTML=`<div class="q">Tap the matching pairs</div><div class="mm" id="mm"></div>`;
+  const en=sh(ws.map(w=>({k:w[0],t:w[0],s:"e"}))),ta=sh(ws.map(w=>({k:w[0],t:w[1],s:"t"})));
+  const g=$("mm");
+  for(let i=0;i<ws.length;i++)[en[i],ta[i]].forEach(c=>{
+    const b=document.createElement("button");b.className="opt"+(c.s==="t"?" ta":"");b.textContent=c.t;g.appendChild(b);
+    b.onclick=()=>{
+      if(b.classList.contains("ok"))return;
+      if(c.s==="e")speak(c.t);
+      if(!L1){L1={c,b};b.classList.add("sel");return}
+      if(L1.b===b){b.classList.remove("sel");L1=null;return}
+      if(L1.c.s===c.s){L1.b.classList.remove("sel");L1={c,b};b.classList.add("sel");return}
+      if(L1.c.k===c.k){[L1.b,b].forEach(x=>{x.classList.remove("sel");x.classList.add("ok");x.disabled=true});beep(1);L1=null;
+        if(--left===0){checked=true;done++;xpL+=10;topbar();foot("good","Perfect! +10 XP","Continue");}}
+      else{const a=L1.b;[a,b].forEach(x=>{x.classList.remove("sel");x.classList.add("no")});setTimeout(()=>[a,b].forEach(x=>x.classList.remove("no")),400);L1=null;beep(0);wrongs++}
+    };
+  });
+}
+function buildUI(){
+  const [ans,ta,,d]=cur.s;
+  let extra=(d&&d[0])||"the";if(ans.some(a=>a.toLowerCase()===extra.toLowerCase()))extra="very";
+  bank=sh([...ans,extra]).map((t,i)=>({t,id:i,used:false}));
+  $("main").innerHTML=`<div class="q">Translate this sentence</div><div class="tam"><div class="mascot">🦉</div><div class="bub ta">${ta}</div><button class="spk" onclick="speak('${ta}','ta-IN')" aria-label="Play">🔊</button></div><div class="slot" id="slot"></div><div class="bank" id="bank"></div>`;
+  cur.ok=()=>sel.length===ans.length&&sel.every((id,i)=>bank[id].t===ans[i]);
+  renderBuild();
+}
+function renderBuild(){
+  const s=$("slot"),b=$("bank");s.innerHTML="";b.innerHTML="";
+  sel.forEach(id=>{const w=bank[id],e=document.createElement("button");e.className="chip";e.textContent=w.t;e.onclick=()=>{if(checked)return;sel=sel.filter(x=>x!==id);w.used=false;renderBuild()};s.appendChild(e)});
+  bank.forEach(w=>{const e=document.createElement("button");e.className="chip"+(w.used?" ghost":"");e.textContent=w.t;e.onclick=()=>{if(checked)return;w.used=true;sel.push(w.id);speak(w.t);renderBuild()};b.appendChild(e)});
+  if(!checked)$("btn").disabled=!sel.length;
+}
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+const HOM={i:["eye","ay","hi"],you:["u","yo"],go:["goal","going"],read:["red","reed"],sit:["set","seat"],come:["calm","some"],eat:["eight","it"],write:["right","rite"],drink:["drank"],stand:["stan"]};
+function speakUI(){
+  const t=cur.s[0].join(" ");cur.target=t;
+  $("main").innerHTML=`<div class="q">Say this sentence</div><div class="word"><button class="spk" onclick="speak('${t}')" aria-label="Play">🔊</button><div class="big" style="font-size:28px">${t}</div></div><div class="sub ta">${cur.s[1]}</div>
+  <div style="text-align:center;margin-top:20px"><button class="mic" id="mic" aria-label="Speak">🎤</button><div class="sub" id="said" style="margin-top:12px">Tap the mic and say it</div><button class="skip" id="skip">Can't speak right now</button></div>`;
+  $("skip").onclick=()=>{done++;Q.shift();next()};
+  if(!SR){$("said").textContent="Speaking works in Chrome or Edge. You can skip this one.";$("mic").disabled=true;return}
+  $("mic").onclick=()=>{
+    if(checked||retrying)return;
+    const r=new SR();r.lang="en-US";r.maxAlternatives=5;r.interimResults=false;
+    $("mic").classList.add("on");$("said").textContent="Listening…";
+    r.onresult=e=>{
+      const alts=[...e.results[0]].map(a=>a.transcript.toLowerCase().replace(/[^a-z ]/g,"").trim());
+      $("said").textContent="You said: "+alts[0];
+      const tw=t.toLowerCase().replace(/[^a-z ]/g,"").split(" ");
+      judge(alts.some(a=>{const w=a.split(" ");return tw.every(x=>w.includes(x)||(HOM[x]||[]).some(h=>w.includes(h)))}));
+    };
+    r.onerror=e=>{$("mic").classList.remove("on");$("said").textContent=e.error==="not-allowed"?"Allow microphone access, then try again.":"Didn't catch that. Tap the mic again."};
+    r.onend=()=>$("mic").classList.remove("on");
+    try{r.start()}catch(x){}
+  };
+}
+const PRAISE=["Amazing!","Great job!","Excellent!","Correct!","Well done!","Super!"];
+function answerText(){return cur.t==="build"?cur.s[0].join(" "):cur.t==="choose"?cur.w[1]:cur.t==="fill"?cur.s[0][cur.s[2]]:cur.target}
+function judge(ok){
+  const s1=document.querySelector(".opt.sel");
+  if(ok){checked=true;beep(1);done++;xpL+=10;topbar();
+    if(s1){s1.classList.remove("sel");s1.classList.add("ok")}
+    document.querySelectorAll(".opt").forEach(b=>b.disabled=true);
+    foot("good",PRAISE[Math.floor(Math.random()*PRAISE.length)]+" +10 XP","Continue");return}
+  tries++;wrongs++;beep(0);
+  if(s1){s1.classList.remove("sel");s1.classList.add("no");s1.disabled=true}
+  if(tries<3){retrying=true;const l=3-tries;
+    foot("bad","Not quite. Try again 💪<small>"+l+" chance"+(l>1?"s":"")+" left</small>","Try again");return}
+  checked=true;const right=answerText();
+  document.querySelectorAll(".opt").forEach(b=>{b.disabled=true;if(b.dataset.v===right)b.classList.add("ok")});
+  foot("bad","Correct answer:<small class='ta'>"+right+"</small>","Continue");
+}
+function retry(){
+  foot("","","Check",1);
+  if(cur.t==="build"){sel=[];bank.forEach(w=>w.used=false);renderBuild()}
+  else if(cur.t==="speak"){$("said").textContent="Tap the mic and try again"}
+  else document.querySelectorAll(".opt").forEach(b=>{if(!b.classList.contains("no")){b.disabled=false;b.classList.remove("sel")}});
+}
+$("btn").onclick=()=>{
+  if(!L)return;
+  if(checked){Q.shift();next();return}
+  if(retrying){retrying=false;retry();return}
+  judge(cur.ok());
+};
+function finish(){    
+  topbar();
+  if(S.last!==day()){S.streak=(S.last===day(-1)?S.streak:0)+1;S.last=day()}
+  S.xp+=xpL;S.dayXp+=xpL;
+  if(!S.doneLv.includes(L.i))S.doneLv.push(L.i);
+  if(L.i+1<TOTAL_LEVELS&&S.unlocked<L.i+1)S.unlocked=L.i+1;
+  save();
+  const acc=Math.round(100*orig/(orig+wrongs));
+  $("top").innerHTML="";
+  $("main").innerHTML=`<div class="center"><div class="trophy">🏆</div><h1>Level ${L.i+1} complete!</h1><div class="sub">5 new intermediate words + grammar practice: ${T[L.u][0]}</div>
+  <div class="stats"><div class="sc"><b>TOTAL XP</b><span>⚡ ${xpL}</span></div><div class="sc a"><b>ACCURACY</b><span>${acc}%</span></div><div class="sc s"><b>STREAK</b><span>🔥 ${S.streak}</span></div></div></div>`;
+  foot("good","Lesson complete! 🎉","Continue");
+  $("btn").onclick=()=>{L=null;$("btn").onclick=null;location.reload()};
+}
+if(window.speechSynthesis)speechSynthesis.getVoices();
+home();
+</script>
+</body>
+</html>

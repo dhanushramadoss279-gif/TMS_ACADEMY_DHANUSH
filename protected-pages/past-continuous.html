@@ -1,0 +1,2388 @@
+
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>PAST CONTINUOUS TENSE – கடந்த தொடர் நிகழ்காலம் (100 Questions)</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 50px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 7px 12px;
+            border-radius: 8px;
+            background-color: #eff6ff;
+            white-space: nowrap;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            line-height: 1.35;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            opacity: 0.92;
+        }
+
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            min-width: 0;
+        }
+
+        .progress-item span:last-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .progress-item.completed {
+            background-color: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .completed .check-icon {
+            background: var(--success);
+        }
+
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 2px 2px 10px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+            min-height: 42px;
+            touch-action: manipulation;
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .topic-section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .topic-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .display-chain {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin: 12px 0;
+            text-align: center;
+            border: 1px dashed #93c5fd;
+            word-break: break-word;
+            line-height: 1.7;
+        }
+
+        .tamil-explain {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 10px 12px;
+            margin: 12px 0;
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        .formula-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 12px 0;
+        }
+
+        .formula-box strong {
+            color: #166534;
+        }
+
+        .formula-line {
+            margin-top: 5px;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 16px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 560px;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            padding: 10px;
+            font-weight: 700;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.5;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .sent-ta {
+            display: block;
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            border: 2px solid #e0e7ff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-title-badge {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            white-space: nowrap;
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .question-tamil-text {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+            line-height: 1.55;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 50px;
+            padding: 12px 14px;
+            text-align: left;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+            line-height: 1.4;
+            transition: 0.15s ease;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: #93c5fd;
+            background: #eff6ff;
+        }
+
+        .option-btn:active {
+            transform: scale(0.99);
+        }
+
+        .option-btn.selected-correct {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+        }
+
+        .option-btn.selected-wrong {
+            background-color: var(--error-bg) !important;
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+        }
+
+        .feedback-box {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background: var(--success-bg);
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background: var(--error-bg);
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 100%;
+            min-height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            touch-action: manipulation;
+            padding: 12px;
+        }
+
+        .next-btn:hover:not(:disabled) {
+            background-color: var(--primary-dark);
+        }
+
+        .next-btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 20px 10px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 4px solid var(--primary);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        .performance-msg {
+            line-height: 1.5;
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                font-size: 14px;
+            }
+
+            .container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            header {
+                padding: 9px 0;
+            }
+
+            .brand-title {
+                font-size: 0.82rem;
+            }
+
+            .back-link {
+                font-size: 0.78rem;
+                padding: 6px 9px;
+            }
+
+            .hero {
+                padding: 20px 12px;
+                margin: 12px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.18rem;
+            }
+
+            .hero p {
+                font-size: 0.82rem;
+            }
+
+            .progress-card,
+            .topic-section,
+            .quiz-container {
+                padding: 13px;
+            }
+
+            .progress-title {
+                font-size: 0.85rem;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-item {
+                min-height: 42px;
+            }
+
+            .topic-title {
+                font-size: 1.05rem;
+            }
+
+            .display-chain {
+                font-size: 0.8rem;
+                padding: 9px;
+            }
+
+            .tamil-explain {
+                font-size: 0.84rem;
+            }
+
+            .formula-box {
+                font-size: 0.84rem;
+            }
+
+            .quiz-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 7px;
+            }
+
+            .quiz-progress-text {
+                font-size: 0.76rem;
+            }
+
+            .question-text {
+                font-size: 0.94rem;
+            }
+
+            .question-tamil-text {
+                font-size: 0.82rem;
+            }
+
+            .option-btn {
+                min-height: 48px;
+                font-size: 0.88rem;
+                padding: 11px 12px;
+            }
+
+            .feedback-box {
+                font-size: 0.82rem;
+            }
+
+            .next-btn {
+                min-height: 48px;
+                font-size: 0.88rem;
+            }
+
+            table {
+                min-width: 540px;
+            }
+        }
+
+        @media (max-width: 360px) {
+
+            .hero h1 {
+                font-size: 1.05rem;
+            }
+
+            .brand-title {
+                font-size: 0.75rem;
+            }
+
+            .back-link {
+                font-size: 0.72rem;
+            }
+
+            .topic-title {
+                font-size: 0.98rem;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="tms-theme.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="container nav-header">
+
+        <a href="#" class="back-link">
+            ← Home
+        </a>
+
+        <div class="brand-title">
+            Tamil Medium Student
+        </div>
+
+    </div>
+
+</header>
+
+<main class="container">
+
+    <div class="hero">
+
+        <h1>
+            PAST CONTINUOUS TENSE – கடந்த தொடர் காலம்
+        </h1>
+
+        <p>
+            100 பயிற்சிகள் (50 + 50) தமிழ் விளக்கத்துடன்!
+        </p>
+
+    </div>
+
+    <div class="progress-card">
+
+        <div class="progress-title">
+
+            <span>
+                கற்றல் நிலை (Progress)
+            </span>
+
+            <span
+                id="overall-progress-text"
+                style="color: var(--primary);">
+                0 / 2 Completed
+            </span>
+
+        </div>
+
+        <div
+            class="progress-grid"
+            id="progress-tracker-grid">
+        </div>
+
+    </div>
+
+    <div
+        class="topic-pills"
+        id="topic-pills">
+    </div>
+
+    <section
+        class="topic-section"
+        id="topic-content">
+    </section>
+
+    <section
+        class="quiz-container"
+        id="quiz-box">
+
+        <div class="quiz-header">
+
+            <span
+                class="quiz-title-badge"
+                id="quiz-topic-badge">
+                Basic Past Continuous Quiz
+            </span>
+
+            <span
+                class="quiz-progress-text"
+                id="quiz-progress-text">
+                Question 1 / 50
+            </span>
+
+        </div>
+
+        <div id="question-runner">
+
+            <div class="question-box">
+
+                <div
+                    class="question-text"
+                    id="question-text">
+                    Loading question...
+                </div>
+
+                <div
+                    class="question-tamil-text"
+                    id="question-tamil-text">
+                    கேள்வி அர்த்தம்...
+                </div>
+
+                <div
+                    class="options-grid"
+                    id="options-container">
+                </div>
+
+            </div>
+
+            <div
+                class="feedback-box"
+                id="feedback-box">
+            </div>
+
+            <div class="quiz-actions">
+
+                <button
+                    class="next-btn"
+                    id="next-btn"
+                    onclick="nextQuestion()"
+                    disabled>
+                    அடுத்த கேள்வி (Next) →
+                </button>
+
+            </div>
+
+        </div>
+
+        <div
+            class="result-card"
+            id="result-runner">
+
+            <div class="score-circle">
+
+                <span id="res-score">
+                    0
+                </span>
+
+            </div>
+
+            <div
+                class="performance-msg"
+                id="res-msg"
+                style="font-weight:700; margin-bottom:10px;">
+                வாழ்த்துக்கள்!
+            </div>
+
+            <button
+                class="next-btn"
+                onclick="resetCurrentQuiz()">
+                🔄 மீண்டும் பயிற்சி செய் (Try Again)
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script>
+
+/* =========================================================
+   BASIC PAST CONTINUOUS QUESTIONS – 50
+========================================================= */
+
+const generateBasicQuestions = () => {
+
+    const raw = [
+
+        [
+            "I ______ studying English at 7 p.m.",
+            "(நான் மாலை 7 மணிக்கு ஆங்கிலம் படித்துக் கொண்டிருந்தேன்.)",
+            ["was", "were", "am", "is"],
+            0,
+            "I உடன் Past Continuous-ல் was பயன்படுத்த வேண்டும்."
+        ],
+
+        [
+            "She ______ cooking dinner.",
+            "(அவள் இரவு உணவு சமைத்துக் கொண்டிருந்தாள்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "She உடன் was பயன்படுத்த வேண்டும்."
+        ],
+
+        [
+            "They ______ playing cricket.",
+            "(அவர்கள் கிரிக்கெட் விளையாடிக் கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "They plural என்பதால் were."
+        ],
+
+        [
+            "He ______ watching TV.",
+            "(அவன் TV பார்த்துக் கொண்டிருந்தான்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "He உடன் was."
+        ],
+
+        [
+            "We ______ studying for the exam.",
+            "(நாங்கள் தேர்வுக்காக படித்துக் கொண்டிருந்தோம்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "We உடன் were."
+        ],
+
+        [
+            "You ______ working yesterday.",
+            "(நீ நேற்று வேலை செய்து கொண்டிருந்தாய்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "You உடன் were."
+        ],
+
+        [
+            "The baby ______ sleeping.",
+            "(குழந்தை தூங்கிக் கொண்டிருந்தது.)",
+            ["was", "were", "is", "are"],
+            0,
+            "The baby = It. அதனால் was."
+        ],
+
+        [
+            "My father ______ reading the newspaper.",
+            "(என் தந்தை செய்தித்தாளை படித்துக் கொண்டிருந்தார்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "My father = He → was."
+        ],
+
+        [
+            "The students ______ writing the test.",
+            "(மாணவர்கள் தேர்வு எழுதிக் கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "Students plural → were."
+        ],
+
+        [
+            "I ______ walking to college.",
+            "(நான் கல்லூரிக்கு நடந்து சென்று கொண்டிருந்தேன்.)",
+            ["was", "were", "am", "are"],
+            0,
+            "I → was."
+        ],
+
+        [
+            "She ______ talking to her friend.",
+            "(அவள் தனது நண்பரிடம் பேசிக் கொண்டிருந்தாள்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "She → was."
+        ],
+
+        [
+            "They ______ waiting for the bus.",
+            "(அவர்கள் பேருந்துக்காக காத்துக் கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "They → were."
+        ],
+
+        [
+            "We ______ watching a movie.",
+            "(நாங்கள் ஒரு திரைப்படம் பார்த்துக் கொண்டிருந்தோம்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "We → were."
+        ],
+
+        [
+            "He ______ playing football.",
+            "(அவன் கால்பந்து விளையாடிக் கொண்டிருந்தான்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "He → was."
+        ],
+
+        [
+            "The dog ______ barking loudly.",
+            "(நாய் சத்தமாக குரைத்துக் கொண்டிருந்தது.)",
+            ["was", "were", "is", "are"],
+            0,
+            "The dog = It → was."
+        ],
+
+        [
+            "I ______ doing my homework.",
+            "(நான் என் வீட்டுப்பாடத்தை செய்து கொண்டிருந்தேன்.)",
+            ["was", "were", "am", "are"],
+            0,
+            "I உடன் was doing."
+        ],
+
+        [
+            "She ______ reading a book.",
+            "(அவள் ஒரு புத்தகம் படித்துக் கொண்டிருந்தாள்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "She → was."
+        ],
+
+        [
+            "They ______ travelling to Chennai.",
+            "(அவர்கள் சென்னைக்கு பயணம் செய்து கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "They → were."
+        ],
+
+        [
+            "He ______ driving a car.",
+            "(அவன் கார் ஓட்டிக் கொண்டிருந்தான்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "He → was."
+        ],
+
+        [
+            "We ______ having dinner.",
+            "(நாங்கள் இரவு உணவு சாப்பிட்டுக் கொண்டிருந்தோம்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "We → were."
+        ],
+
+        [
+            "My mother ______ washing the dishes.",
+            "(என் அம்மா பாத்திரங்களை கழுவிக் கொண்டிருந்தார்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "My mother = She → was."
+        ],
+
+        [
+            "The children ______ playing outside.",
+            "(குழந்தைகள் வெளியே விளையாடிக் கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "Children plural → were."
+        ],
+
+        [
+            "I ______ listening to music.",
+            "(நான் இசை கேட்டுக் கொண்டிருந்தேன்.)",
+            ["was", "were", "am", "are"],
+            0,
+            "I → was."
+        ],
+
+        [
+            "She ______ writing a letter.",
+            "(அவள் ஒரு கடிதம் எழுதிக் கொண்டிருந்தாள்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "She → was."
+        ],
+
+        [
+            "They ______ singing a song.",
+            "(அவர்கள் ஒரு பாடல் பாடிக் கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "They → were."
+        ],
+
+        [
+            "He ______ sleeping at 10 p.m.",
+            "(அவன் இரவு 10 மணிக்கு தூங்கிக் கொண்டிருந்தான்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "He → was."
+        ],
+
+        [
+            "We ______ talking in the classroom.",
+            "(நாங்கள் வகுப்பறையில் பேசிக் கொண்டிருந்தோம்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "We → were."
+        ],
+
+        [
+            "You ______ watching TV.",
+            "(நீ TV பார்த்துக் கொண்டிருந்தாய்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "You → were."
+        ],
+
+        [
+            "The teacher ______ explaining the lesson.",
+            "(ஆசிரியர் பாடத்தை விளக்கிக் கொண்டிருந்தார்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "The teacher = He/She → was."
+        ],
+
+        [
+            "I ______ waiting for you.",
+            "(நான் உனக்காக காத்துக் கொண்டிருந்தேன்.)",
+            ["was", "were", "am", "are"],
+            0,
+            "I → was."
+        ],
+
+        [
+            "She ______ cleaning her room.",
+            "(அவள் தனது அறையை சுத்தம் செய்து கொண்டிருந்தாள்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "She → was."
+        ],
+
+        [
+            "They ______ running in the park.",
+            "(அவர்கள் பூங்காவில் ஓடிக் கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "They → were."
+        ],
+
+        [
+            "He ______ speaking English.",
+            "(அவன் ஆங்கிலம் பேசிக் கொண்டிருந்தான்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "He → was."
+        ],
+
+        [
+            "We ______ learning grammar.",
+            "(நாங்கள் grammar கற்றுக் கொண்டிருந்தோம்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "We → were."
+        ],
+
+        [
+            "My brother ______ riding a bike.",
+            "(என் சகோதரன் bike ஓட்டிக் கொண்டிருந்தான்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "My brother = He → was."
+        ],
+
+        [
+            "The birds ______ flying in the sky.",
+            "(பறவைகள் வானத்தில் பறந்து கொண்டிருந்தன.)",
+            ["was", "were", "are", "is"],
+            1,
+            "Birds plural → were."
+        ],
+
+        [
+            "I ______ drinking coffee.",
+            "(நான் coffee குடித்துக் கொண்டிருந்தேன்.)",
+            ["was", "were", "am", "are"],
+            0,
+            "I → was."
+        ],
+
+        [
+            "She ______ waiting outside.",
+            "(அவள் வெளியே காத்துக் கொண்டிருந்தாள்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "She → was."
+        ],
+
+        [
+            "They ______ working together.",
+            "(அவர்கள் ஒன்றாக வேலை செய்து கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "They → were."
+        ],
+
+        [
+            "He ______ taking a shower.",
+            "(அவன் குளித்துக் கொண்டிருந்தான்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "He → was."
+        ],
+
+        [
+            "We ______ preparing for the exam.",
+            "(நாங்கள் தேர்வுக்கு தயாராகிக் கொண்டிருந்தோம்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "We → were."
+        ],
+
+        [
+            "The girl ______ dancing.",
+            "(அந்த பெண் நடனமாடிக் கொண்டிருந்தாள்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "The girl = She → was."
+        ],
+
+        [
+            "The boys ______ playing cricket.",
+            "(சிறுவர்கள் cricket விளையாடிக் கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "Boys plural → were."
+        ],
+
+        [
+            "I ______ speaking on the phone.",
+            "(நான் phone-ல் பேசிக் கொண்டிருந்தேன்.)",
+            ["was", "were", "am", "are"],
+            0,
+            "I → was."
+        ],
+
+        [
+            "She ______ studying at night.",
+            "(அவள் இரவில் படித்துக் கொண்டிருந்தாள்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "She → was."
+        ],
+
+        [
+            "They ______ eating lunch.",
+            "(அவர்கள் மதிய உணவு சாப்பிட்டுக் கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "They → were."
+        ],
+
+        [
+            "He ______ writing an email.",
+            "(அவன் ஒரு email எழுதிக் கொண்டிருந்தான்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "He → was."
+        ],
+
+        [
+            "We ______ travelling by train.",
+            "(நாங்கள் ரயிலில் பயணம் செய்து கொண்டிருந்தோம்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "We → were."
+        ],
+
+        [
+            "My sister ______ singing.",
+            "(என் சகோதரி பாடிக் கொண்டிருந்தாள்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "My sister = She → was."
+        ],
+
+        [
+            "The students ______ listening to the teacher.",
+            "(மாணவர்கள் ஆசிரியரைக் கேட்டுக் கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "Students plural → were."
+        ]
+
+    ];
+
+    return raw.map(item => ({
+        q: item[0],
+        tq: item[1],
+        o: item[2],
+        a: item[3],
+        e: item[4]
+    }));
+
+};
+
+
+/* =========================================================
+   ADVANCED PAST CONTINUOUS QUESTIONS – 50
+========================================================= */
+
+const generateAdvancedQuestions = () => {
+
+    const raw = [
+
+        [
+            "I ______ not sleeping.",
+            "(நான் தூங்கிக் கொண்டிருக்கவில்லை.)",
+            ["was", "were", "am", "is"],
+            0,
+            "I negative → was not."
+        ],
+
+        [
+            "She ______ not studying.",
+            "(அவள் படித்துக் கொண்டிருக்கவில்லை.)",
+            ["was", "were", "is", "are"],
+            0,
+            "She → was not."
+        ],
+
+        [
+            "They ______ not playing cricket.",
+            "(அவர்கள் cricket விளையாடிக் கொண்டிருக்கவில்லை.)",
+            ["was", "were", "are", "is"],
+            1,
+            "They → were not."
+        ],
+
+        [
+            "We ______ not watching TV.",
+            "(நாங்கள் TV பார்த்துக் கொண்டிருக்கவில்லை.)",
+            ["was", "were", "are", "is"],
+            1,
+            "We → were not."
+        ],
+
+        [
+            "He ______ not working yesterday.",
+            "(அவன் நேற்று வேலை செய்து கொண்டிருக்கவில்லை.)",
+            ["was", "were", "is", "are"],
+            0,
+            "He → was not."
+        ],
+
+        [
+            "______ you studying at 8 p.m.?",
+            "(நீ இரவு 8 மணிக்கு படித்துக் கொண்டிருந்தாயா?)",
+            ["Was", "Were", "Are", "Is"],
+            1,
+            "You உடன் question-ல் Were."
+        ],
+
+        [
+            "______ she cooking dinner?",
+            "(அவள் இரவு உணவு சமைத்துக் கொண்டிருந்தாளா?)",
+            ["Was", "Were", "Is", "Are"],
+            0,
+            "She உடன் Was."
+        ],
+
+        [
+            "______ they playing football?",
+            "(அவர்கள் football விளையாடிக் கொண்டிருந்தார்களா?)",
+            ["Was", "Were", "Is", "Are"],
+            1,
+            "They உடன் Were."
+        ],
+
+        [
+            "______ he sleeping?",
+            "(அவன் தூங்கிக் கொண்டிருந்தானா?)",
+            ["Was", "Were", "Is", "Are"],
+            0,
+            "He உடன் Was."
+        ],
+
+        [
+            "______ we talking too loudly?",
+            "(நாங்கள் மிகவும் சத்தமாக பேசிக் கொண்டிருந்தோமா?)",
+            ["Was", "Were", "Are", "Is"],
+            1,
+            "We உடன் Were."
+        ],
+
+        [
+            "What were you ______?",
+            "(நீ என்ன செய்து கொண்டிருந்தாய்?)",
+            ["do", "doing", "did", "does"],
+            1,
+            "Were + verb-ing → doing."
+        ],
+
+        [
+            "What was she ______?",
+            "(அவள் என்ன செய்து கொண்டிருந்தாள்?)",
+            ["do", "doing", "did", "does"],
+            1,
+            "Was + verb-ing."
+        ],
+
+        [
+            "Where were they ______?",
+            "(அவர்கள் எங்கே சென்று கொண்டிருந்தார்கள்?)",
+            ["go", "going", "went", "goes"],
+            1,
+            "Were + going."
+        ],
+
+        [
+            "Why was he ______?",
+            "(அவன் ஏன் அழுது கொண்டிருந்தான்?)",
+            ["cry", "crying", "cried", "cries"],
+            1,
+            "Was + crying."
+        ],
+
+        [
+            "What were they ______?",
+            "(அவர்கள் என்ன சாப்பிட்டுக் கொண்டிருந்தார்கள்?)",
+            ["eat", "eating", "ate", "eats"],
+            1,
+            "Were + eating."
+        ],
+
+        [
+            "I ______ studying when my friend called.",
+            "(என் நண்பன் அழைத்தபோது நான் படித்துக் கொண்டிருந்தேன்.)",
+            ["was", "were", "am", "is"],
+            0,
+            "I → was studying."
+        ],
+
+        [
+            "She ______ cooking when I arrived.",
+            "(நான் வந்தபோது அவள் சமைத்துக் கொண்டிருந்தாள்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "She → was cooking."
+        ],
+
+        [
+            "They ______ playing when it started raining.",
+            "(மழை பெய்யத் தொடங்கியபோது அவர்கள் விளையாடிக் கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "They → were playing."
+        ],
+
+        [
+            "We ______ walking when we saw him.",
+            "(நாங்கள் அவரைப் பார்த்தபோது நடந்து கொண்டிருந்தோம்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "We → were walking."
+        ],
+
+        [
+            "He ______ sleeping when the phone rang.",
+            "(phone அடித்தபோது அவன் தூங்கிக் கொண்டிருந்தான்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "He → was sleeping."
+        ],
+
+        [
+            "While I ______ studying, my brother was playing.",
+            "(நான் படித்துக் கொண்டிருந்தபோது என் சகோதரன் விளையாடிக் கொண்டிருந்தான்.)",
+            ["was", "were", "am", "is"],
+            0,
+            "I உடன் was studying."
+        ],
+
+        [
+            "While they ______ travelling, it started raining.",
+            "(அவர்கள் பயணம் செய்து கொண்டிருந்தபோது மழை பெய்யத் தொடங்கியது.)",
+            ["was", "were", "are", "is"],
+            1,
+            "They உடன் were travelling."
+        ],
+
+        [
+            "At 7 p.m., I ______ eating dinner.",
+            "(மாலை 7 மணிக்கு நான் இரவு உணவு சாப்பிட்டுக் கொண்டிருந்தேன்.)",
+            ["was", "were", "am", "are"],
+            0,
+            "I → was eating."
+        ],
+
+        [
+            "At 10 p.m., she ______ sleeping.",
+            "(இரவு 10 மணிக்கு அவள் தூங்கிக் கொண்டிருந்தாள்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "She → was sleeping."
+        ],
+
+        [
+            "At that time, they ______ working.",
+            "(அந்த நேரத்தில் அவர்கள் வேலை செய்து கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "They → were working."
+        ],
+
+        [
+            "Yesterday morning, we ______ walking in the park.",
+            "(நேற்று காலை நாங்கள் பூங்காவில் நடந்து கொண்டிருந்தோம்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "We → were walking."
+        ],
+
+        [
+            "He ______ driving when the accident happened.",
+            "(விபத்து நடந்தபோது அவன் கார் ஓட்டிக் கொண்டிருந்தான்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "He → was driving."
+        ],
+
+        [
+            "She ______ talking when the teacher entered.",
+            "(ஆசிரியர் வந்தபோது அவள் பேசிக் கொண்டிருந்தாள்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "She → was talking."
+        ],
+
+        [
+            "The children ______ playing when their mother called them.",
+            "(அவர்களின் அம்மா அழைத்தபோது குழந்தைகள் விளையாடிக் கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "Children plural → were."
+        ],
+
+        [
+            "My father ______ reading when I entered the room.",
+            "(நான் அறைக்குள் வந்தபோது என் தந்தை படித்துக் கொண்டிருந்தார்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "My father = He → was."
+        ],
+
+        [
+            "The dog ______ barking when I came home.",
+            "(நான் வீட்டிற்கு வந்தபோது நாய் குரைத்துக் கொண்டிருந்தது.)",
+            ["was", "were", "is", "are"],
+            0,
+            "The dog = It → was."
+        ],
+
+        [
+            "You ______ not listening to me.",
+            "(நீ என்னைக் கேட்டுக் கொண்டிருக்கவில்லை.)",
+            ["was", "were", "are", "is"],
+            1,
+            "You → were not."
+        ],
+
+        [
+            "They ______ not waiting for us.",
+            "(அவர்கள் எங்களுக்காக காத்துக் கொண்டிருக்கவில்லை.)",
+            ["was", "were", "are", "is"],
+            1,
+            "They → were not."
+        ],
+
+        [
+            "He ______ not paying attention.",
+            "(அவன் கவனம் செலுத்திக் கொண்டிருக்கவில்லை.)",
+            ["was", "were", "is", "are"],
+            0,
+            "He → was not."
+        ],
+
+        [
+            "We ______ not talking about you.",
+            "(நாங்கள் உன்னைப் பற்றி பேசிக் கொண்டிருக்கவில்லை.)",
+            ["was", "were", "are", "is"],
+            1,
+            "We → were not."
+        ],
+
+        [
+            "Was she ______ a book?",
+            "(அவள் ஒரு புத்தகம் படித்துக் கொண்டிருந்தாளா?)",
+            ["read", "reading", "reads", "readed"],
+            1,
+            "Was + reading."
+        ],
+
+        [
+            "Were they ______ cricket?",
+            "(அவர்கள் cricket விளையாடிக் கொண்டிருந்தார்களா?)",
+            ["play", "playing", "played", "plays"],
+            1,
+            "Were + playing."
+        ],
+
+        [
+            "Was he ______ to music?",
+            "(அவன் இசை கேட்டுக் கொண்டிருந்தானா?)",
+            ["listen", "listening", "listened", "listens"],
+            1,
+            "Was + listening."
+        ],
+
+        [
+            "Were you ______ for me?",
+            "(நீ எனக்காக காத்துக் கொண்டிருந்தாயா?)",
+            ["wait", "waiting", "waited", "waits"],
+            1,
+            "Were + waiting."
+        ],
+
+        [
+            "Was the baby ______?",
+            "(குழந்தை அழுது கொண்டிருந்ததா?)",
+            ["cry", "crying", "cried", "cries"],
+            1,
+            "Was + crying."
+        ],
+
+        [
+            "What was he ______ at that time?",
+            "(அந்த நேரத்தில் அவன் என்ன செய்து கொண்டிருந்தான்?)",
+            ["do", "doing", "did", "does"],
+            1,
+            "Was + doing."
+        ],
+
+        [
+            "Where was she ______?",
+            "(அவள் எங்கே சென்று கொண்டிருந்தாள்?)",
+            ["go", "going", "went", "goes"],
+            1,
+            "Was + going."
+        ],
+
+        [
+            "Why were they ______?",
+            "(அவர்கள் ஏன் சிரித்துக் கொண்டிருந்தார்கள்?)",
+            ["laugh", "laughing", "laughed", "laughs"],
+            1,
+            "Were + laughing."
+        ],
+
+        [
+            "Who was ______ the door?",
+            "(கதவை யார் திறந்து கொண்டிருந்தார்?)",
+            ["open", "opening", "opened", "opens"],
+            1,
+            "Was + opening."
+        ],
+
+        [
+            "Who were ______ in the room?",
+            "(அறையில் யார் பேசிக் கொண்டிருந்தார்கள்?)",
+            ["talk", "talking", "talked", "talks"],
+            1,
+            "Were + talking."
+        ],
+
+        [
+            "It ______ raining yesterday evening.",
+            "(நேற்று மாலை மழை பெய்துக் கொண்டிருந்தது.)",
+            ["was", "were", "is", "are"],
+            0,
+            "It → was."
+        ],
+
+        [
+            "The students ______ preparing for the exam.",
+            "(மாணவர்கள் தேர்வுக்கு தயாராகிக் கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "Students plural → were."
+        ],
+
+        [
+            "My mother ______ making tea.",
+            "(என் அம்மா தேநீர் தயாரித்துக் கொண்டிருந்தார்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "My mother = She → was."
+        ],
+
+        [
+            "The boys ______ running in the playground.",
+            "(சிறுவர்கள் விளையாட்டு மைதானத்தில் ஓடிக் கொண்டிருந்தார்கள்.)",
+            ["was", "were", "are", "is"],
+            1,
+            "Boys plural → were."
+        ],
+
+        [
+            "I ______ writing notes during the class.",
+            "(வகுப்பின்போது நான் குறிப்புகள் எழுதிக் கொண்டிருந்தேன்.)",
+            ["was", "were", "am", "are"],
+            0,
+            "I → was writing."
+        ],
+
+        [
+            "She ______ learning English at that time.",
+            "(அந்த நேரத்தில் அவள் ஆங்கிலம் கற்றுக் கொண்டிருந்தாள்.)",
+            ["was", "were", "is", "are"],
+            0,
+            "She → was learning."
+        ]
+
+    ];
+
+    return raw.map(item => ({
+        q: item[0],
+        tq: item[1],
+        o: item[2],
+        a: item[3],
+        e: item[4]
+    }));
+
+};
+
+
+/* =========================================================
+   TOPICS
+========================================================= */
+
+const pastContinuousTopics = [
+
+    {
+        id: 1,
+
+        title: "BASIC PAST CONTINUOUS",
+
+        tamilTitle: "அடிப்படை கடந்த தொடர் காலம்",
+
+        displayChain:
+            "I was studying • She was cooking • He was working • They were playing • We were reading",
+
+        explanation:
+            "Past Continuous Tense என்பது கடந்த காலத்தில் ஒரு குறிப்பிட்ட நேரத்தில் ஒரு செயல் தொடர்ந்து நடந்து கொண்டிருந்ததைச் சொல்லப் பயன்படும் காலம். I, He, She, It உடன் was + verb-ing பயன்படுத்த வேண்டும். You, We, They உடன் were + verb-ing பயன்படுத்த வேண்டும்.",
+
+        formula:
+            "Positive: Subject + was/were + V-ing | Negative: Subject + was/were not + V-ing | Question: Was/Were + Subject + V-ing?",
+
+        tableData: [
+
+            {
+                l: "I was studying",
+                t: "நான் படித்துக் கொண்டிருந்தேன்",
+                e: "I was studying English.",
+                te: "நான் ஆங்கிலம் படித்துக் கொண்டிருந்தேன்."
+            },
+
+            {
+                l: "You were working",
+                t: "நீ வேலை செய்து கொண்டிருந்தாய்",
+                e: "You were working yesterday.",
+                te: "நீ நேற்று வேலை செய்து கொண்டிருந்தாய்."
+            },
+
+            {
+                l: "We were playing",
+                t: "நாங்கள் விளையாடிக் கொண்டிருந்தோம்",
+                e: "We were playing cricket.",
+                te: "நாங்கள் cricket விளையாடிக் கொண்டிருந்தோம்."
+            },
+
+            {
+                l: "They were studying",
+                t: "அவர்கள் படித்துக் கொண்டிருந்தார்கள்",
+                e: "They were studying English.",
+                te: "அவர்கள் ஆங்கிலம் படித்துக் கொண்டிருந்தார்கள்."
+            },
+
+            {
+                l: "He was working",
+                t: "அவன் வேலை செய்து கொண்டிருந்தான்",
+                e: "He was working in Chennai.",
+                te: "அவன் சென்னையில் வேலை செய்து கொண்டிருந்தான்."
+            },
+
+            {
+                l: "She was reading",
+                t: "அவள் படித்துக் கொண்டிருந்தாள்",
+                e: "She was reading a book.",
+                te: "அவள் ஒரு புத்தகம் படித்துக் கொண்டிருந்தாள்."
+            },
+
+            {
+                l: "It was raining",
+                t: "மழை பெய்துக் கொண்டிருந்தது",
+                e: "It was raining yesterday.",
+                te: "நேற்று மழை பெய்துக் கொண்டிருந்தது."
+            },
+
+            {
+                l: "I was not",
+                t: "நான் செய்து கொண்டிருக்கவில்லை",
+                e: "I was not sleeping.",
+                te: "நான் தூங்கிக் கொண்டிருக்கவில்லை."
+            },
+
+            {
+                l: "She was not",
+                t: "அவள் செய்து கொண்டிருக்கவில்லை",
+                e: "She was not working.",
+                te: "அவள் வேலை செய்து கொண்டிருக்கவில்லை."
+            },
+
+            {
+                l: "Were you?",
+                t: "நீ செய்து கொண்டிருந்தாயா?",
+                e: "Were you studying?",
+                te: "நீ படித்துக் கொண்டிருந்தாயா?"
+            },
+
+            {
+                l: "Was he?",
+                t: "அவன் செய்து கொண்டிருந்தானா?",
+                e: "Was he working?",
+                te: "அவன் வேலை செய்து கொண்டிருந்தானா?"
+            },
+
+            {
+                l: "Were they?",
+                t: "அவர்கள் செய்து கொண்டிருந்தார்களா?",
+                e: "Were they playing?",
+                te: "அவர்கள் விளையாடிக் கொண்டிருந்தார்களா?"
+            }
+
+        ],
+
+        questions: generateBasicQuestions()
+    },
+
+    {
+        id: 2,
+
+        title: "ADVANCED PAST CONTINUOUS",
+
+        tamilTitle: "மேம்பட்ட கடந்த தொடர் காலம்",
+
+        displayChain:
+            "Was • Were • was not • were not • When • While • What • Where • Why",
+
+        explanation:
+            "Past Continuous-ன் advanced பயன்பாட்டில் was/were மூலம் negative மற்றும் question sentences அமைக்கிறோம். கடந்த காலத்தில் ஒரு செயல் நடந்து கொண்டிருந்தபோது மற்றொரு செயல் நடந்ததைச் சொல்ல when/while பயன்படுத்தலாம். குறிப்பிட்ட கடந்த நேரத்தில் நடந்துகொண்டிருந்த செயல்களையும் Past Continuous மூலம் கூறலாம்.",
+
+        formula:
+            "Negative: I/He/She/It + was not + V-ing | You/We/They + were not + V-ing | Question: Was/Were + Subject + V-ing?",
+
+        tableData: [
+
+            {
+                l: "Was + V-ing",
+                t: "கேள்வி",
+                e: "Was she studying?",
+                te: "அவள் படித்துக் கொண்டிருந்தாளா?"
+            },
+
+            {
+                l: "Were + V-ing",
+                t: "கேள்வி",
+                e: "Were they playing?",
+                te: "அவர்கள் விளையாடிக் கொண்டிருந்தார்களா?"
+            },
+
+            {
+                l: "was not + V-ing",
+                t: "Negative",
+                e: "He was not sleeping.",
+                te: "அவன் தூங்கிக் கொண்டிருக்கவில்லை."
+            },
+
+            {
+                l: "were not + V-ing",
+                t: "Negative",
+                e: "They were not working.",
+                te: "அவர்கள் வேலை செய்து கொண்டிருக்கவில்லை."
+            },
+
+            {
+                l: "When",
+                t: "எப்போது / போது",
+                e: "I was studying when he called.",
+                te: "அவன் அழைத்தபோது நான் படித்துக் கொண்டிருந்தேன்."
+            },
+
+            {
+                l: "While",
+                t: "அப்போது / போது",
+                e: "While I was studying, he was playing.",
+                te: "நான் படித்துக் கொண்டிருந்தபோது அவன் விளையாடிக் கொண்டிருந்தான்."
+            },
+
+            {
+                l: "What",
+                t: "என்ன",
+                e: "What were you doing?",
+                te: "நீ என்ன செய்து கொண்டிருந்தாய்?"
+            },
+
+            {
+                l: "Where",
+                t: "எங்கே",
+                e: "Where were they going?",
+                te: "அவர்கள் எங்கே சென்று கொண்டிருந்தார்கள்?"
+            },
+
+            {
+                l: "Why",
+                t: "ஏன்",
+                e: "Why was he crying?",
+                te: "அவன் ஏன் அழுது கொண்டிருந்தான்?"
+            },
+
+            {
+                l: "At 7 p.m.",
+                t: "மாலை 7 மணிக்கு",
+                e: "I was eating at 7 p.m.",
+                te: "மாலை 7 மணிக்கு நான் சாப்பிட்டுக் கொண்டிருந்தேன்."
+            },
+
+            {
+                l: "Yesterday",
+                t: "நேற்று",
+                e: "They were working yesterday.",
+                te: "அவர்கள் நேற்று வேலை செய்து கொண்டிருந்தார்கள்."
+            },
+
+            {
+                l: "While + was/were",
+                t: "ஒரே நேரத்தில் நடந்த செயல்",
+                e: "While she was cooking, I was reading.",
+                te: "அவள் சமைத்துக் கொண்டிருந்தபோது நான் படித்துக் கொண்டிருந்தேன்."
+            }
+
+        ],
+
+        questions: generateAdvancedQuestions()
+    }
+
+];
+
+
+/* =========================================================
+   QUIZ VARIABLES
+========================================================= */
+
+let currentTopicIndex = 0;
+let currentQuestionIndex = 0;
+let score = 0;
+let selectedOptionIndex = null;
+let currentShuffledOptions = [];
+let topicProgress = [false, false];
+
+
+/* =========================================================
+   PAGE LOAD
+========================================================= */
+
+window.onload = function () {
+
+    renderProgressTracker();
+
+    renderPills();
+
+    loadTopic(0);
+
+};
+
+
+/* =========================================================
+   PROGRESS TRACKER
+========================================================= */
+
+function renderProgressTracker() {
+
+    const grid =
+        document.getElementById("progress-tracker-grid");
+
+    grid.innerHTML = "";
+
+    const completedCount =
+        topicProgress.filter(Boolean).length;
+
+    document.getElementById(
+        "overall-progress-text"
+    ).innerText =
+        `${completedCount} / ${pastContinuousTopics.length} Completed`;
+
+    pastContinuousTopics.forEach((topic, idx) => {
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            `progress-item ${topicProgress[idx] ? "completed" : ""}`;
+
+        item.onclick =
+            () => loadTopic(idx);
+
+        item.innerHTML = `
+
+            <div class="check-icon">
+                ${topicProgress[idx] ? "✓" : idx + 1}
+            </div>
+
+            <span>
+                ${topic.title}
+            </span>
+
+        `;
+
+        grid.appendChild(item);
+
+    });
+
+}
+
+
+/* =========================================================
+   TOPIC PILLS
+========================================================= */
+
+function renderPills() {
+
+    const pillsContainer =
+        document.getElementById("topic-pills");
+
+    pillsContainer.innerHTML = "";
+
+    pastContinuousTopics.forEach((topic, idx) => {
+
+        const btn =
+            document.createElement("button");
+
+        btn.className =
+            `pill-btn ${idx === currentTopicIndex ? "active" : ""}`;
+
+        btn.innerText =
+            topic.title;
+
+        btn.onclick =
+            () => loadTopic(idx);
+
+        pillsContainer.appendChild(btn);
+
+    });
+
+}
+
+
+/* =========================================================
+   LOAD TOPIC
+========================================================= */
+
+function loadTopic(index) {
+
+    currentTopicIndex = index;
+
+    currentQuestionIndex = 0;
+
+    score = 0;
+
+    selectedOptionIndex = null;
+
+    renderPills();
+
+    renderTopicContent();
+
+    loadQuestion();
+
+    document.getElementById(
+        "question-runner"
+    ).style.display = "block";
+
+    document.getElementById(
+        "result-runner"
+    ).style.display = "none";
+
+}
+
+
+/* =========================================================
+   TOPIC CONTENT
+========================================================= */
+
+function renderTopicContent() {
+
+    const topic =
+        pastContinuousTopics[currentTopicIndex];
+
+    const contentBox =
+        document.getElementById("topic-content");
+
+    let tableRows =
+        topic.tableData.map(row => `
+
+            <tr>
+
+                <td>
+                    <b>${row.l}</b>
+                </td>
+
+                <td>
+                    ${row.t}
+                </td>
+
+                <td>
+
+                    <i>${row.e}</i>
+
+                    <span class="sent-ta">
+                        ${row.te}
+                    </span>
+
+                </td>
+
+            </tr>
+
+        `).join("");
+
+    contentBox.innerHTML = `
+
+        <div class="topic-title">
+            ${topic.title} – ${topic.tamilTitle}
+        </div>
+
+        <div class="display-chain">
+            ${topic.displayChain}
+        </div>
+
+        <div class="tamil-explain">
+            ${topic.explanation}
+        </div>
+
+        <div class="formula-box">
+
+            <strong>
+                Past Continuous Formula:
+            </strong>
+
+            <div class="formula-line">
+                ${topic.formula}
+            </div>
+
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Structure / Example
+                        </th>
+
+                        <th>
+                            தமிழ் பொருள்
+                        </th>
+
+                        <th>
+                            Example Sentence & Meaning
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    ${tableRows}
+                </tbody>
+
+            </table>
+
+        </div>
+    `;
+
+    document.getElementById(
+        "quiz-topic-badge"
+    ).innerText =
+        `${topic.title} Quiz`;
+
+}
+
+
+/* =========================================================
+   SHUFFLE
+========================================================= */
+
+function shuffleArray(array) {
+
+    let arr = [...array];
+
+    for (
+        let i = arr.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(Math.random() * (i + 1));
+
+        [arr[i], arr[j]] =
+            [arr[j], arr[i]];
+
+    }
+
+    return arr;
+}
+
+
+/* =========================================================
+   LOAD QUESTION
+========================================================= */
+
+function loadQuestion() {
+
+    const topic =
+        pastContinuousTopics[currentTopicIndex];
+
+    const question =
+        topic.questions[currentQuestionIndex];
+
+    selectedOptionIndex = null;
+
+    currentShuffledOptions =
+        shuffleArray(
+            question.o.map((text, index) => ({
+                text,
+                originalIndex: index
+            }))
+        );
+
+    document.getElementById(
+        "question-text"
+    ).innerText =
+        question.q;
+
+    document.getElementById(
+        "question-tamil-text"
+    ).innerText =
+        question.tq;
+
+    document.getElementById(
+        "quiz-progress-text"
+    ).innerText =
+        `Question ${currentQuestionIndex + 1} / ${topic.questions.length}`;
+
+    const optionsContainer =
+        document.getElementById("options-container");
+
+    optionsContainer.innerHTML = "";
+
+    currentShuffledOptions.forEach((option, index) => {
+
+        const btn =
+            document.createElement("button");
+
+        btn.className =
+            "option-btn";
+
+        btn.innerText =
+            option.text;
+
+        btn.onclick =
+            () => selectOption(index);
+
+        optionsContainer.appendChild(btn);
+
+    });
+
+    const feedback =
+        document.getElementById("feedback-box");
+
+    feedback.className =
+        "feedback-box";
+
+    feedback.innerText = "";
+
+    document.getElementById(
+        "next-btn"
+    ).disabled = true;
+
+}
+
+
+/* =========================================================
+   SELECT OPTION
+========================================================= */
+
+function selectOption(index) {
+
+    if (selectedOptionIndex !== null) {
+        return;
+    }
+
+    selectedOptionIndex = index;
+
+    const topic =
+        pastContinuousTopics[currentTopicIndex];
+
+    const question =
+        topic.questions[currentQuestionIndex];
+
+    const selectedOriginalIndex =
+        currentShuffledOptions[index].originalIndex;
+
+    const buttons =
+        document.querySelectorAll(".option-btn");
+
+    buttons.forEach(btn => {
+        btn.disabled = true;
+    });
+
+    const feedback =
+        document.getElementById("feedback-box");
+
+    if (
+        selectedOriginalIndex === question.a
+    ) {
+
+        buttons[index].classList.add(
+            "selected-correct"
+        );
+
+        score++;
+
+        feedback.className =
+            "feedback-box correct";
+
+        feedback.innerHTML =
+            `✓ சரியான பதில்!<br>${question.e}`;
+
+    } else {
+
+        buttons[index].classList.add(
+            "selected-wrong"
+        );
+
+        buttons.forEach((btn, i) => {
+
+            if (
+                currentShuffledOptions[i].originalIndex
+                === question.a
+            ) {
+                btn.classList.add(
+                    "selected-correct"
+                );
+            }
+
+        });
+
+        feedback.className =
+            "feedback-box wrong";
+
+        feedback.innerHTML =
+            `✗ தவறான பதில்.<br>
+             சரியான பதில்: <b>${question.o[question.a]}</b><br>
+             ${question.e}`;
+
+    }
+
+    document.getElementById(
+        "next-btn"
+    ).disabled = false;
+
+}
+
+
+/* =========================================================
+   NEXT QUESTION
+========================================================= */
+
+function nextQuestion() {
+
+    const topic =
+        pastContinuousTopics[currentTopicIndex];
+
+    if (
+        currentQuestionIndex <
+        topic.questions.length - 1
+    ) {
+
+        currentQuestionIndex++;
+
+        loadQuestion();
+
+    } else {
+
+        showResult();
+
+    }
+
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+function showResult() {
+
+    document.getElementById(
+        "question-runner"
+    ).style.display = "none";
+
+    document.getElementById(
+        "result-runner"
+    ).style.display = "block";
+
+    const total =
+        pastContinuousTopics[currentTopicIndex]
+            .questions.length;
+
+    document.getElementById(
+        "res-score"
+    ).innerText =
+        `${score}/${total}`;
+
+    let message = "";
+
+    const percentage =
+        (score / total) * 100;
+
+    if (percentage >= 90) {
+
+        message =
+            "🎉 Excellent! Past Continuous உங்களுக்கு நன்றாக புரிந்துள்ளது!";
+
+    } else if (percentage >= 70) {
+
+        message =
+            "👏 Very Good! இன்னும் கொஞ்சம் practice செய்தால் சிறப்பாக இருக்கும்.";
+
+    } else if (percentage >= 50) {
+
+        message =
+            "👍 Good! மேலும் practice செய்யுங்கள்.";
+
+    } else {
+
+        message =
+            "📚 இன்னும் கொஞ்சம் படித்து மீண்டும் முயற்சி செய்யுங்கள்.";
+
+    }
+
+    document.getElementById(
+        "res-msg"
+    ).innerText =
+        message;
+
+    topicProgress[currentTopicIndex] = true;
+
+    renderProgressTracker();
+
+}
+
+
+/* =========================================================
+   RESET QUIZ
+========================================================= */
+
+function resetCurrentQuiz() {
+
+    loadTopic(currentTopicIndex);
+
+}
+
+</script>
+
+</body>
+</html>
