@@ -21,12 +21,24 @@ const app = express();
 ========================================================= */
 
 const PORT = process.env.PORT || 3000;
-const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+
+const IS_PRODUCTION =
+    process.env.NODE_ENV === 'production';
 
 app.set('trust proxy', 1);
 
-app.use(express.json({ limit: '100kb' }));
-app.use(express.urlencoded({ extended: true }));
+app.use(
+    express.json({
+        limit: '100kb'
+    })
+);
+
+app.use(
+    express.urlencoded({
+        extended: true
+    })
+);
+
 app.use(cookieParser());
 
 
@@ -42,7 +54,7 @@ app.use(
 
 
 /* =========================================================
-   ENVIRONMENT VARIABLE CHECK
+   ENVIRONMENT VARIABLES
 ========================================================= */
 
 const requiredEnv = [
@@ -53,9 +65,10 @@ const requiredEnv = [
     'GOOGLE_CLIENT_ID'
 ];
 
-const missingEnv = requiredEnv.filter(
-    key => !process.env[key]
-);
+const missingEnv =
+    requiredEnv.filter(
+        key => !process.env[key]
+    );
 
 if (missingEnv.length > 0) {
 
@@ -69,11 +82,11 @@ if (missingEnv.length > 0) {
 
 
 /* =========================================================
-   MONGODB CONNECTION
+   MONGODB
 ========================================================= */
 
-mongoose.connect(process.env.MONGO_URI)
-
+mongoose
+    .connect(process.env.MONGO_URI)
     .then(() => {
 
         console.log(
@@ -81,7 +94,6 @@ mongoose.connect(process.env.MONGO_URI)
         );
 
     })
-
     .catch((err) => {
 
         console.error(
@@ -97,14 +109,16 @@ mongoose.connect(process.env.MONGO_URI)
    RAZORPAY
 ========================================================= */
 
-const razorpay = new Razorpay({
+const razorpay =
+    new Razorpay({
 
-    key_id:
-        process.env.RAZORPAY_KEY_ID,
+        key_id:
+            process.env.RAZORPAY_KEY_ID,
 
-    key_secret:
-        process.env.RAZORPAY_KEY_SECRET
-});
+        key_secret:
+            process.env.RAZORPAY_KEY_SECRET
+
+    });
 
 
 /* =========================================================
@@ -133,11 +147,12 @@ const cookieOptions = {
         7 * 24 * 60 * 60 * 1000,
 
     path: '/'
+
 };
 
 
 /* =========================================================
-   HELPER: CREATE JWT
+   CREATE JWT
 ========================================================= */
 
 function createToken(userId) {
@@ -154,12 +169,14 @@ function createToken(userId) {
         {
             expiresIn: '7d'
         }
+
     );
+
 }
 
 
 /* =========================================================
-   HELPER: SET LOGIN COOKIE
+   SET LOGIN COOKIE
 ========================================================= */
 
 function setLoginCookie(
@@ -172,35 +189,63 @@ function setLoginCookie(
         token,
         cookieOptions
     );
+
 }
 
 
 /* =========================================================
-   HELPER: GET AUTHENTICATED USER
+   CLEAR LOGIN COOKIE
+========================================================= */
+
+function clearLoginCookie(res) {
+
+    res.clearCookie(
+        'token',
+        {
+            httpOnly: true,
+            secure: IS_PRODUCTION,
+            sameSite: 'lax',
+            path: '/'
+        }
+    );
+
+}
+
+
+/* =========================================================
+   GET AUTHENTICATED USER ID
 ========================================================= */
 
 function getAuthenticatedUserId(req) {
 
-    const token =
-        req.cookies.token;
+    try {
 
-    if (!token) {
+        const token =
+            req.cookies.token;
+
+        if (!token) {
+            return null;
+        }
+
+        const decoded =
+            jwt.verify(
+                token,
+                process.env.JWT_SECRET
+            );
+
+        return decoded.id;
+
+    } catch (err) {
 
         return null;
+
     }
 
-    const decoded =
-        jwt.verify(
-            token,
-            process.env.JWT_SECRET
-        );
-
-    return decoded.id;
 }
 
 
 /* =========================================================
-   HELPER: VERIFY RAZORPAY SIGNATURE
+   VERIFY RAZORPAY SIGNATURE
 ========================================================= */
 
 function verifyRazorpaySignature(
@@ -241,18 +286,40 @@ function verifyRazorpaySignature(
     ) {
 
         return false;
+
     }
 
     return crypto.timingSafeEqual(
         expectedBuffer,
         receivedBuffer
     );
+
 }
 
 
 /* =========================================================
-   MIDDLEWARE
-   CHECK LOGIN + ACTIVE SUBSCRIPTION
+   CHECK ACTIVE SUBSCRIPTION
+========================================================= */
+
+function isSubscriptionActive(user) {
+
+    return (
+
+        user &&
+        user.isSubscribed === true &&
+        user.subscriptionExpiry &&
+        new Date() <=
+        new Date(
+            user.subscriptionExpiry
+        )
+
+    );
+
+}
+
+
+/* =========================================================
+   VERIFY SUBSCRIPTION MIDDLEWARE
 ========================================================= */
 
 const verifySubscription =
@@ -263,6 +330,10 @@ const verifySubscription =
             const token =
                 req.cookies.token;
 
+            /* -----------------------------------------
+               NO LOGIN
+            ----------------------------------------- */
+
             if (!token) {
 
                 console.log(
@@ -272,7 +343,13 @@ const verifySubscription =
                 return res.redirect(
                     '/login.html'
                 );
+
             }
+
+
+            /* -----------------------------------------
+               VERIFY TOKEN
+            ----------------------------------------- */
 
             const decoded =
                 jwt.verify(
@@ -280,10 +357,16 @@ const verifySubscription =
                     process.env.JWT_SECRET
                 );
 
+
+            /* -----------------------------------------
+               FIND USER
+            ----------------------------------------- */
+
             const user =
                 await User.findById(
                     decoded.id
                 );
+
 
             if (!user) {
 
@@ -291,42 +374,44 @@ const verifySubscription =
                     'Middleware: User not found'
                 );
 
-                res.clearCookie(
-                    'token',
-                    {
-                        httpOnly: true,
-                        secure: IS_PRODUCTION,
-                        sameSite: 'lax',
-                        path: '/'
-                    }
-                );
+                clearLoginCookie(res);
 
                 return res.redirect(
                     '/login.html'
                 );
+
             }
 
-            const isActive =
 
-                user.isSubscribed === true &&
+            /* -----------------------------------------
+               CHECK SUBSCRIPTION
+            ----------------------------------------- */
 
-                user.subscriptionExpiry &&
+            const active =
+                isSubscriptionActive(user);
 
-                new Date() <=
-                new Date(
-                    user.subscriptionExpiry
-                );
 
             console.log(
-                `Subscription Check | ${user.email} | Active: ${isActive} | Expiry: ${user.subscriptionExpiry}`
+                `Subscription Check | ${user.email} | Active: ${active} | Expiry: ${user.subscriptionExpiry}`
             );
 
-            if (!isActive) {
+
+            /* -----------------------------------------
+               NOT ACTIVE
+            ----------------------------------------- */
+
+            if (!active) {
 
                 return res.redirect(
                     '/pay.html'
                 );
+
             }
+
+
+            /* -----------------------------------------
+               USER AVAILABLE
+            ----------------------------------------- */
 
             req.user = user;
 
@@ -339,20 +424,14 @@ const verifySubscription =
                 err.message
             );
 
-            res.clearCookie(
-                'token',
-                {
-                    httpOnly: true,
-                    secure: IS_PRODUCTION,
-                    sameSite: 'lax',
-                    path: '/'
-                }
-            );
+            clearLoginCookie(res);
 
             return res.redirect(
                 '/login.html'
             );
+
         }
+
     };
 
 
@@ -369,12 +448,23 @@ app.get(
             const token =
                 req.cookies.token;
 
+
+            /* -----------------------------------------
+               NOT LOGGED IN
+            ----------------------------------------- */
+
             if (!token) {
 
                 return res.redirect(
                     '/login.html'
                 );
+
             }
+
+
+            /* -----------------------------------------
+               VERIFY TOKEN
+            ----------------------------------------- */
 
             const decoded =
                 jwt.verify(
@@ -382,28 +472,35 @@ app.get(
                     process.env.JWT_SECRET
                 );
 
+
+            /* -----------------------------------------
+               FIND USER
+            ----------------------------------------- */
+
             const user =
                 await User.findById(
                     decoded.id
                 );
 
+
             if (!user) {
+
+                clearLoginCookie(res);
 
                 return res.redirect(
                     '/login.html'
                 );
+
             }
 
+
+            /* -----------------------------------------
+               CHECK SUBSCRIPTION
+            ----------------------------------------- */
+
             const active =
+                isSubscriptionActive(user);
 
-                user.isSubscribed === true &&
-
-                user.subscriptionExpiry &&
-
-                new Date() <=
-                new Date(
-                    user.subscriptionExpiry
-                );
 
             if (active) {
 
@@ -411,19 +508,32 @@ app.get(
                     '/pages/index.html'
                 );
 
-            } else {
-
-                return res.redirect(
-                    '/pay.html'
-                );
             }
 
+
+            /* -----------------------------------------
+               LOGIN OK BUT PAYMENT REQUIRED
+            ----------------------------------------- */
+
+            return res.redirect(
+                '/pay.html'
+            );
+
         } catch (err) {
+
+            console.error(
+                'Root Route Error:',
+                err.message
+            );
+
+            clearLoginCookie(res);
 
             return res.redirect(
                 '/login.html'
             );
+
         }
+
     }
 );
 
@@ -443,6 +553,7 @@ app.post(
                 password
             } = req.body;
 
+
             email =
                 String(email || '')
                     .trim()
@@ -450,6 +561,7 @@ app.post(
 
             password =
                 String(password || '');
+
 
             if (!email || !password) {
 
@@ -459,8 +571,11 @@ app.post(
 
                     message:
                         'Email and password are required'
+
                 });
+
             }
+
 
             if (password.length < 6) {
 
@@ -470,13 +585,17 @@ app.post(
 
                     message:
                         'Password must contain at least 6 characters'
+
                 });
+
             }
+
 
             const existingUser =
                 await User.findOne({
                     email
                 });
+
 
             if (existingUser) {
 
@@ -486,14 +605,18 @@ app.post(
 
                     message:
                         'Email already registered'
+
                 });
+
             }
+
 
             const hashedPassword =
                 await bcrypt.hash(
                     password,
                     12
                 );
+
 
             const newUser =
                 new User({
@@ -508,9 +631,12 @@ app.post(
 
                     subscriptionExpiry:
                         null
+
                 });
 
+
             await newUser.save();
+
 
             return res.json({
 
@@ -518,6 +644,7 @@ app.post(
 
                 message:
                     'Account created successfully!'
+
             });
 
         } catch (err) {
@@ -533,8 +660,11 @@ app.post(
 
                 message:
                     'Unable to create account'
+
             });
+
         }
+
     }
 );
 
@@ -554,6 +684,7 @@ app.post(
                 password
             } = req.body;
 
+
             email =
                 String(email || '')
                     .trim()
@@ -561,6 +692,7 @@ app.post(
 
             password =
                 String(password || '');
+
 
             if (!email || !password) {
 
@@ -570,13 +702,17 @@ app.post(
 
                     message:
                         'Email and password are required'
+
                 });
+
             }
+
 
             const user =
                 await User.findOne({
                     email
                 });
+
 
             if (!user) {
 
@@ -586,14 +722,18 @@ app.post(
 
                     message:
                         'Invalid email or password'
+
                 });
+
             }
+
 
             const passwordMatch =
                 await bcrypt.compare(
                     password,
                     user.password
                 );
+
 
             if (!passwordMatch) {
 
@@ -603,18 +743,36 @@ app.post(
 
                     message:
                         'Invalid email or password'
+
                 });
+
             }
+
+
+            /* -----------------------------------------
+               CREATE LOGIN TOKEN
+            ----------------------------------------- */
 
             const token =
                 createToken(
                     user._id
                 );
 
+
+            /* -----------------------------------------
+               SAVE COOKIE
+            ----------------------------------------- */
+
             setLoginCookie(
                 res,
                 token
             );
+
+
+            /* -----------------------------------------
+               IMPORTANT:
+               FRONTEND ALWAYS GOES TO /
+            ----------------------------------------- */
 
             return res.json({
 
@@ -622,6 +780,7 @@ app.post(
 
                 message:
                     'Logged in successfully!'
+
             });
 
         } catch (err) {
@@ -637,8 +796,11 @@ app.post(
 
                 message:
                     'Server error'
+
             });
+
         }
+
     }
 );
 
@@ -657,6 +819,7 @@ app.post(
                 token
             } = req.body;
 
+
             if (!token) {
 
                 return res.status(400).json({
@@ -665,8 +828,11 @@ app.post(
 
                     message:
                         'Google token missing'
+
                 });
+
             }
+
 
             const ticket =
                 await googleClient.verifyIdToken({
@@ -676,10 +842,13 @@ app.post(
 
                     audience:
                         process.env.GOOGLE_CLIENT_ID
+
                 });
+
 
             const payload =
                 ticket.getPayload();
+
 
             if (!payload) {
 
@@ -689,8 +858,11 @@ app.post(
 
                     message:
                         'Invalid Google account'
+
                 });
+
             }
+
 
             if (
                 payload.email_verified !== true
@@ -702,31 +874,38 @@ app.post(
 
                     message:
                         'Google email is not verified'
+
                 });
+
             }
+
 
             const email =
                 String(payload.email)
                     .trim()
                     .toLowerCase();
 
+
             let user =
                 await User.findOne({
                     email
                 });
 
+
             if (!user) {
 
                 const randomPassword =
-                    crypto.randomBytes(
-                        32
-                    ).toString('hex');
+                    crypto
+                        .randomBytes(32)
+                        .toString('hex');
+
 
                 const hashedPassword =
                     await bcrypt.hash(
                         randomPassword,
                         12
                     );
+
 
                 user =
                     new User({
@@ -741,20 +920,26 @@ app.post(
 
                         subscriptionExpiry:
                             null
+
                     });
 
+
                 await user.save();
+
             }
+
 
             const jwtToken =
                 createToken(
                     user._id
                 );
 
+
             setLoginCookie(
                 res,
                 jwtToken
             );
+
 
             return res.json({
 
@@ -762,6 +947,7 @@ app.post(
 
                 message:
                     'Google Login Successful!'
+
             });
 
         } catch (err) {
@@ -777,8 +963,11 @@ app.post(
 
                 message:
                     'Google Login Failed!'
+
             });
+
         }
+
     }
 );
 
@@ -794,12 +983,9 @@ app.post(
 
         try {
 
-            /* -----------------------------------------
-               CHECK LOGIN
-            ----------------------------------------- */
-
             const userId =
                 getAuthenticatedUserId(req);
+
 
             if (!userId) {
 
@@ -809,18 +995,17 @@ app.post(
 
                     message:
                         'Please login first'
+
                 });
+
             }
 
-
-            /* -----------------------------------------
-               FIND USER
-            ----------------------------------------- */
 
             const user =
                 await User.findById(
                     userId
                 );
+
 
             if (!user) {
 
@@ -830,21 +1015,15 @@ app.post(
 
                     message:
                         'User not found'
+
                 });
+
             }
 
-
-            /* -----------------------------------------
-               ₹49 = 4900 PAISE
-            ----------------------------------------- */
 
             const amount =
                 49 * 100;
 
-
-            /* -----------------------------------------
-               UNIQUE RECEIPT
-            ----------------------------------------- */
 
             const receipt =
                 `TMS_${Date.now()}_${crypto
@@ -852,23 +1031,14 @@ app.post(
                     .toString('hex')}`;
 
 
-            /* -----------------------------------------
-               RAZORPAY ORDER OPTIONS
-            ----------------------------------------- */
-
             const options = {
 
-                amount:
-
-                    amount,
+                amount,
 
                 currency:
-
                     'INR',
 
-                receipt:
-
-                    receipt,
+                receipt,
 
                 notes: {
 
@@ -880,13 +1050,11 @@ app.post(
 
                     plan:
                         '30_DAYS'
+
                 }
+
             };
 
-
-            /* -----------------------------------------
-               CREATE RAZORPAY ORDER
-            ----------------------------------------- */
 
             const order =
                 await razorpay.orders.create(
@@ -894,19 +1062,10 @@ app.post(
                 );
 
 
-            /* -----------------------------------------
-               LOG ORDER
-            ----------------------------------------- */
-
             console.log(
                 `Razorpay Order Created | ${order.id} | ${user.email}`
             );
 
-
-            /* -----------------------------------------
-               IMPORTANT:
-               FRONTEND EXPECTS "id"
-            ----------------------------------------- */
 
             return res.status(200).json({
 
@@ -923,21 +1082,16 @@ app.post(
 
                 key:
                     process.env.RAZORPAY_KEY_ID
+
             });
 
         } catch (err) {
-
-            /* -----------------------------------------
-               DETAILED ERROR LOG
-            ----------------------------------------- */
 
             console.error(
                 '========== RAZORPAY ORDER ERROR =========='
             );
 
-            console.error(
-                err
-            );
+            console.error(err);
 
             console.error(
                 '==========================================='
@@ -956,8 +1110,11 @@ app.post(
                     err?.description ||
                     err?.message ||
                     'Unknown Razorpay error'
+
             });
+
         }
+
     }
 );
 
@@ -972,12 +1129,9 @@ app.post(
 
         try {
 
-            /* -----------------------------------------
-               CHECK LOGIN
-            ----------------------------------------- */
-
             const userId =
                 getAuthenticatedUserId(req);
+
 
             if (!userId) {
 
@@ -987,13 +1141,11 @@ app.post(
 
                     message:
                         'Please login first'
+
                 });
+
             }
 
-
-            /* -----------------------------------------
-               PAYMENT DATA
-            ----------------------------------------- */
 
             const {
 
@@ -1005,10 +1157,6 @@ app.post(
 
             } = req.body;
 
-
-            /* -----------------------------------------
-               CHECK REQUIRED DATA
-            ----------------------------------------- */
 
             if (
                 !razorpay_order_id ||
@@ -1022,13 +1170,11 @@ app.post(
 
                     message:
                         'Payment verification data missing'
+
                 });
+
             }
 
-
-            /* -----------------------------------------
-               VERIFY SIGNATURE
-            ----------------------------------------- */
 
             const signatureValid =
                 verifyRazorpaySignature(
@@ -1038,13 +1184,11 @@ app.post(
                     razorpay_payment_id,
 
                     razorpay_signature
+
                 );
+
 
             if (!signatureValid) {
-
-                console.log(
-                    'Payment Signature Invalid'
-                );
 
                 return res.status(400).json({
 
@@ -1052,18 +1196,17 @@ app.post(
 
                     message:
                         'Invalid payment signature'
+
                 });
+
             }
 
-
-            /* -----------------------------------------
-               FETCH ORDER
-            ----------------------------------------- */
 
             const order =
                 await razorpay.orders.fetch(
                     razorpay_order_id
                 );
+
 
             if (!order) {
 
@@ -1073,25 +1216,20 @@ app.post(
 
                     message:
                         'Razorpay order not found'
+
                 });
+
             }
 
 
-            /* -----------------------------------------
-               VERIFY ORDER AMOUNT
-            ----------------------------------------- */
-
             const expectedAmount =
                 49 * 100;
+
 
             if (
                 Number(order.amount) !==
                 expectedAmount
             ) {
-
-                console.log(
-                    'Payment amount mismatch'
-                );
 
                 return res.status(400).json({
 
@@ -1099,13 +1237,11 @@ app.post(
 
                     message:
                         'Invalid payment amount'
+
                 });
+
             }
 
-
-            /* -----------------------------------------
-               VERIFY CURRENCY
-            ----------------------------------------- */
 
             if (
                 order.currency !== 'INR'
@@ -1117,13 +1253,11 @@ app.post(
 
                     message:
                         'Invalid payment currency'
+
                 });
+
             }
 
-
-            /* -----------------------------------------
-               VERIFY USER ↔ ORDER
-            ----------------------------------------- */
 
             if (
                 !order.notes ||
@@ -1131,33 +1265,23 @@ app.post(
                 userId.toString()
             ) {
 
-                console.log(
-                    'Payment user mismatch'
-                );
-
                 return res.status(403).json({
 
                     success: false,
 
                     message:
                         'Payment does not belong to this user'
+
                 });
+
             }
 
-
-            /* -----------------------------------------
-               FETCH PAYMENT
-            ----------------------------------------- */
 
             const payment =
                 await razorpay.payments.fetch(
                     razorpay_payment_id
                 );
 
-
-            /* -----------------------------------------
-               VERIFY PAYMENT ↔ ORDER
-            ----------------------------------------- */
 
             if (
                 payment.order_id !==
@@ -1170,13 +1294,11 @@ app.post(
 
                     message:
                         'Payment order mismatch'
+
                 });
+
             }
 
-
-            /* -----------------------------------------
-               VERIFY PAYMENT AMOUNT
-            ----------------------------------------- */
 
             if (
                 Number(payment.amount) !==
@@ -1189,13 +1311,11 @@ app.post(
 
                     message:
                         'Payment amount mismatch'
+
                 });
+
             }
 
-
-            /* -----------------------------------------
-               PAYMENT MUST BE CAPTURED
-            ----------------------------------------- */
 
             if (
                 payment.status !== 'captured'
@@ -1207,18 +1327,17 @@ app.post(
 
                     message:
                         'Payment has not been captured'
+
                 });
+
             }
 
-
-            /* -----------------------------------------
-               FIND USER
-            ----------------------------------------- */
 
             const user =
                 await User.findById(
                     userId
                 );
+
 
             if (!user) {
 
@@ -1228,13 +1347,11 @@ app.post(
 
                     message:
                         'User not found'
+
                 });
+
             }
 
-
-            /* -----------------------------------------
-               SUBSCRIPTION EXPIRY
-            ----------------------------------------- */
 
             const now =
                 new Date();
@@ -1267,12 +1384,9 @@ app.post(
                 expiryDate.setDate(
                     expiryDate.getDate() + 30
                 );
+
             }
 
-
-            /* -----------------------------------------
-               ACTIVATE SUBSCRIPTION
-            ----------------------------------------- */
 
             user.isSubscribed =
                 true;
@@ -1280,12 +1394,9 @@ app.post(
             user.subscriptionExpiry =
                 expiryDate;
 
+
             await user.save();
 
-
-            /* -----------------------------------------
-               SUCCESS
-            ----------------------------------------- */
 
             console.log(
                 `SUCCESS: Subscription activated | User: ${user.email} | Payment: ${razorpay_payment_id} | Expiry: ${expiryDate}`
@@ -1301,6 +1412,7 @@ app.post(
 
                 expiry:
                     expiryDate
+
             });
 
         } catch (err) {
@@ -1316,14 +1428,17 @@ app.post(
 
                 message:
                     'Payment verification failed'
+
             });
+
         }
+
     }
 );
 
 
 /* =========================================================
-   6. CURRENT USER INFO
+   6. CURRENT USER
 ========================================================= */
 
 app.get(
@@ -1335,6 +1450,7 @@ app.get(
             const token =
                 req.cookies.token;
 
+
             if (!token) {
 
                 return res.status(401).json({
@@ -1343,14 +1459,18 @@ app.get(
 
                     message:
                         'Not logged in'
+
                 });
+
             }
+
 
             const decoded =
                 jwt.verify(
                     token,
                     process.env.JWT_SECRET
                 );
+
 
             const user =
                 await User.findById(
@@ -1360,6 +1480,7 @@ app.get(
                     'email isSubscribed subscriptionExpiry'
                 );
 
+
             if (!user) {
 
                 return res.status(401).json({
@@ -1368,19 +1489,15 @@ app.get(
 
                     message:
                         'User not found'
+
                 });
+
             }
 
+
             const active =
+                isSubscriptionActive(user);
 
-                user.isSubscribed === true &&
-
-                user.subscriptionExpiry &&
-
-                new Date() <=
-                new Date(
-                    user.subscriptionExpiry
-                );
 
             return res.json({
 
@@ -1400,7 +1517,9 @@ app.get(
                     premiumValidUntil:
                         user.subscriptionExpiry ||
                         null
+
                 }
+
             });
 
         } catch (err) {
@@ -1411,8 +1530,11 @@ app.get(
 
                 message:
                     'Invalid or expired session'
+
             });
+
         }
+
     }
 );
 
@@ -1425,15 +1547,8 @@ app.post(
     '/api/logout',
     (req, res) => {
 
-        res.clearCookie(
-            'token',
-            {
-                httpOnly: true,
-                secure: IS_PRODUCTION,
-                sameSite: 'lax',
-                path: '/'
-            }
-        );
+        clearLoginCookie(res);
+
 
         return res.json({
 
@@ -1441,13 +1556,15 @@ app.post(
 
             message:
                 'Logged out successfully!'
+
         });
+
     }
 );
 
 
 /* =========================================================
-   8. PROTECT PREMIUM HTML FILES
+   8. PREMIUM PAGE
 ========================================================= */
 
 app.get(
@@ -1456,12 +1573,15 @@ app.get(
     (req, res) => {
 
         res.sendFile(
+
             path.join(
                 __dirname,
                 'protected-pages',
                 'index.html'
             )
+
         );
+
     }
 );
 
@@ -1479,7 +1599,7 @@ app.use(
 
 
 /* =========================================================
-   9. 404 API HANDLER
+   9. API 404
 ========================================================= */
 
 app.use(
@@ -1492,7 +1612,9 @@ app.use(
 
             message:
                 'API endpoint not found'
+
         });
+
     }
 );
 
@@ -1509,10 +1631,13 @@ app.use(
             err
         );
 
+
         if (res.headersSent) {
 
             return next(err);
+
         }
+
 
         return res.status(500).json({
 
@@ -1520,7 +1645,9 @@ app.use(
 
             message:
                 'Internal server error'
+
         });
+
     }
 );
 
@@ -1544,5 +1671,7 @@ app.listen(
                     : 'DEVELOPMENT'
             }`
         );
+
     }
 );
+

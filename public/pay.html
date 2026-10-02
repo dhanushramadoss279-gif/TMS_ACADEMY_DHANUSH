@@ -8,86 +8,1332 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     >
 
-    <title>Pay ₹49 Subscription</title>
+    <title>TMS Academy - Premium Access</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Razorpay -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            -webkit-tap-highlight-color: transparent;
+
+            background:
+                radial-gradient(
+                    circle at 90% 5%,
+                    rgba(99, 102, 241, 0.16),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 5% 95%,
+                    rgba(37, 99, 235, 0.13),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #f8fafc 0%,
+                    #eef2ff 50%,
+                    #eff6ff 100%
+                );
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page-wrapper {
+
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100dvh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px 16px;
+        }
+
+
+        /* =========================================
+           CARD
+        ========================================= */
+
+        .payment-card {
+
+            width: 100%;
+            max-width: 430px;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            border: 1px solid rgba(255, 255, 255, 0.8);
+
+            border-radius: 28px;
+
+            padding: 30px 28px;
+
+            box-shadow:
+                0 25px 70px
+                rgba(15, 23, 42, 0.13);
+
+            animation:
+                cardEnter
+                0.45s
+                ease-out;
+        }
+
+
+        @keyframes cardEnter {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .logo-box {
+
+            width: 66px;
+            height: 66px;
+
+            border-radius: 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb 0%,
+                    #4f46e5 52%,
+                    #7c3aed 100%
+                );
+
+            box-shadow:
+                0 12px 28px
+                rgba(79, 70, 229, 0.23);
+        }
+
+
+        /* =========================================
+           BRAND
+        ========================================= */
+
+        .brand-title {
+
+            font-size: 29px;
+            line-height: 1.1;
+
+            font-weight: 800;
+
+            letter-spacing: -0.5px;
+
+            text-align: center;
+        }
+
+
+        .brand-subtitle {
+
+            margin-top: 4px;
+
+            font-size: 13px;
+
+            color: #64748b;
+
+            font-weight: 500;
+
+            text-align: center;
+        }
+
+
+        /* =========================================
+           PREMIUM HEADER
+        ========================================= */
+
+        .premium-header {
+
+            text-align: center;
+
+            margin-top: 22px;
+            margin-bottom: 18px;
+        }
+
+
+        .premium-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 7px;
+
+            padding: 5px 11px;
+
+            border-radius: 999px;
+
+            background: #eef2ff;
+
+            border: 1px solid #e0e7ff;
+
+            color: #4f46e5;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.3px;
+
+            margin-bottom: 9px;
+        }
+
+
+        .premium-title {
+
+            font-size: 23px;
+
+            line-height: 1.2;
+
+            font-weight: 700;
+
+            color: #0f172a;
+
+            margin: 0;
+        }
+
+
+        /* =========================================
+           PRICE
+        ========================================= */
+
+        .price-box {
+
+            width: 100%;
+
+            padding: 15px;
+
+            margin-bottom: 17px;
+
+            border-radius: 18px;
+
+            text-align: center;
+
+            border: 1px solid #e0e7ff;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef2ff,
+                    #eff6ff
+                );
+        }
+
+
+        .price-label {
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            font-weight: 700;
+
+            color: #6366f1;
+        }
+
+
+        .price-row {
+
+            display: flex;
+
+            align-items: baseline;
+
+            justify-content: center;
+
+            gap: 4px;
+
+            margin-top: 3px;
+        }
+
+
+        .price {
+
+            font-size: 48px;
+
+            line-height: 1;
+
+            font-weight: 800;
+
+            letter-spacing: -1.5px;
+
+            color: #0f172a;
+        }
+
+
+        .price-month {
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            color: #64748b;
+        }
+
+
+        /* =========================================
+           FEATURES
+        ========================================= */
+
+        .feature-list {
+
+            width: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 7px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .feature-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            width: 100%;
+
+            padding: 7px 4px;
+
+            border-radius: 12px;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        .feature-item:hover {
+
+            background: #f8fafc;
+
+            transform: translateX(2px);
+        }
+
+
+        .feature-icon {
+
+            width: 31px;
+            height: 31px;
+
+            min-width: 31px;
+
+            border-radius: 9px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .feature-text {
+
+            font-size: 13px;
+
+            line-height: 1.25;
+
+            font-weight: 600;
+
+            color: #334155;
+        }
+
+
+        /* =========================================
+           PAYMENT BUTTON
+        ========================================= */
+
+        .pay-btn {
+
+            width: 100%;
+
+            height: 52px;
+
+            border: none;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #4f46e5
+                );
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 22px
+                rgba(79, 70, 229, 0.20);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+
+        .pay-btn:hover:not(:disabled) {
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 14px 28px
+                rgba(79, 70, 229, 0.28);
+        }
+
+
+        .pay-btn:active:not(:disabled) {
+
+            transform: translateY(0);
+        }
+
+
+        .pay-btn:disabled {
+
+            opacity: 0.65;
+
+            cursor: not-allowed;
+        }
+
+
+        /* =========================================
+           SECURE NOTE
+        ========================================= */
+
+        .secure-note {
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 7px;
+
+            margin-top: 10px;
+        }
+
+
+        .secure-note span {
+
+            font-size: 11px;
+
+            color: #94a3b8;
+
+            text-align: center;
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (min-width: 481px) {
+
+            .page-wrapper {
+
+                padding: 30px 20px;
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 480px) {
+
+            .page-wrapper {
+
+                min-height: 100dvh;
+
+                padding:
+                    max(12px, env(safe-area-inset-top))
+                    12px
+                    max(12px, env(safe-area-inset-bottom))
+                    12px;
+            }
+
+
+            .payment-card {
+
+                width: 100%;
+
+                max-width: 100%;
+
+                padding: 21px 17px;
+
+                border-radius: 23px;
+
+                box-shadow:
+                    0 18px 45px
+                    rgba(15, 23, 42, 0.11);
+            }
+
+
+            .logo-box {
+
+                width: 53px;
+                height: 53px;
+
+                border-radius: 15px;
+
+                margin-bottom: 7px;
+            }
+
+
+            .logo-box svg {
+
+                width: 30px;
+                height: 30px;
+            }
+
+
+            .brand-title {
+
+                font-size: 22px;
+            }
+
+
+            .brand-subtitle {
+
+                font-size: 10px;
+
+                margin-top: 3px;
+            }
+
+
+            .premium-header {
+
+                margin-top: 17px;
+
+                margin-bottom: 13px;
+            }
+
+
+            .premium-badge {
+
+                font-size: 9px;
+
+                padding: 4px 9px;
+
+                margin-bottom: 7px;
+            }
+
+
+            .premium-title {
+
+                font-size: 19px;
+            }
+
+
+            .price-box {
+
+                padding: 11px;
+
+                margin-bottom: 12px;
+
+                border-radius: 16px;
+            }
+
+
+            .price-label {
+
+                font-size: 9px;
+            }
+
+
+            .price {
+
+                font-size: 37px;
+            }
+
+
+            .price-month {
+
+                font-size: 10px;
+            }
+
+
+            .feature-list {
+
+                gap: 4px;
+
+                margin-bottom: 13px;
+            }
+
+
+            .feature-item {
+
+                gap: 8px;
+
+                padding: 5px 2px;
+            }
+
+
+            .feature-icon {
+
+                width: 28px;
+                height: 28px;
+
+                min-width: 28px;
+
+                border-radius: 8px;
+            }
+
+
+            .feature-icon svg {
+
+                width: 14px;
+                height: 14px;
+            }
+
+
+            .feature-text {
+
+                font-size: 11px;
+
+                line-height: 1.2;
+            }
+
+
+            .pay-btn {
+
+                height: 47px;
+
+                border-radius: 12px;
+
+                font-size: 13px;
+            }
+
+
+            .secure-note {
+
+                margin-top: 8px;
+            }
+
+
+            .secure-note span {
+
+                font-size: 9px;
+            }
+
+        }
+
+
+        /* =========================================
+           VERY SMALL MOBILE
+        ========================================= */
+
+        @media (max-width: 360px) {
+
+            .page-wrapper {
+
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+
+            .payment-card {
+
+                padding:
+                    16px
+                    12px;
+
+                border-radius: 20px;
+            }
+
+
+            .logo-box {
+
+                width: 47px;
+                height: 47px;
+            }
+
+
+            .logo-box svg {
+
+                width: 27px;
+                height: 27px;
+            }
+
+
+            .brand-title {
+
+                font-size: 20px;
+            }
+
+
+            .premium-title {
+
+                font-size: 17px;
+            }
+
+
+            .price {
+
+                font-size: 33px;
+            }
+
+
+            .feature-text {
+
+                font-size: 10.5px;
+            }
+
+
+            .pay-btn {
+
+                height: 44px;
+
+                font-size: 12px;
+            }
+
+        }
+
+
+        /* =========================================
+           SHORT MOBILE SCREEN
+        ========================================= */
+
+        @media (max-width: 480px)
+        and (max-height: 700px) {
+
+            .page-wrapper {
+
+                align-items: flex-start;
+
+                padding-top: 10px;
+
+                padding-bottom: 10px;
+            }
+
+
+            .payment-card {
+
+                padding-top: 13px;
+
+                padding-bottom: 13px;
+            }
+
+
+            .premium-header {
+
+                margin-top: 12px;
+
+                margin-bottom: 9px;
+            }
+
+
+            .price-box {
+
+                padding: 8px;
+
+                margin-bottom: 8px;
+            }
+
+
+            .feature-list {
+
+                margin-bottom: 8px;
+            }
+
+
+            .feature-item {
+
+                padding-top: 3px;
+
+                padding-bottom: 3px;
+            }
+
+
+            .secure-note {
+
+                margin-top: 5px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+<body>
 
 
-    <!-- PAYMENT CARD -->
+    <!-- =========================================
+         BACKGROUND DECORATION
+    ========================================== -->
 
     <div
-        class="bg-white p-8 rounded-lg shadow-md w-full max-w-md text-center"
-    >
+        class="fixed
+               -top-28
+               -right-28
+               w-64
+               h-64
+               bg-indigo-300/20
+               rounded-full
+               blur-3xl
+               pointer-events-none">
+    </div>
 
-        <h2 class="text-2xl font-bold mb-4 text-gray-800">
-            Unlock Premium Content
-        </h2>
+
+    <div
+        class="fixed
+               -bottom-28
+               -left-28
+               w-64
+               h-64
+               bg-blue-300/20
+               rounded-full
+               blur-3xl
+               pointer-events-none">
+    </div>
 
 
-        <p class="text-gray-600 mb-6">
-            Pay ₹49 to get 1 Month full access to all 108 pages.
-        </p>
+
+    <!-- =========================================
+         PAGE WRAPPER
+    ========================================== -->
+
+    <div class="page-wrapper">
 
 
-        <button
-            id="pay-btn"
-            type="button"
-            class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-            Pay ₹49 Now
-        </button>
+        <!-- =====================================
+             PAYMENT CARD
+        ====================================== -->
 
+        <main class="payment-card">
+
+
+            <!-- =====================================
+                 LOGO + BRAND
+            ====================================== -->
+
+            <div
+                class="brand-section
+                       flex
+                       flex-col
+                       items-center
+                       text-center"
+            >
+
+                <!-- LOGO -->
+
+                <div class="logo-box">
+
+                    <svg
+                        width="38"
+                        height="38"
+                        viewBox="0 0 48 48"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+
+                        <path
+                            d="M4 18L24 8L44 18L24 28L4 18Z"
+                            fill="white"
+                        />
+
+                        <path
+                            d="M12 23V31C12 35.5 17.4 39 24 39C30.6 39 36 35.5 36 31V23L24 29L12 23Z"
+                            fill="white"
+                            opacity=".88"
+                        />
+
+                        <path
+                            d="M44 18V30"
+                            stroke="white"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                        />
+
+                        <circle
+                            cx="44"
+                            cy="32.5"
+                            r="2"
+                            fill="white"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <!-- BRAND -->
+
+                <h1 class="brand-title text-slate-900">
+
+                    TMS
+                    <span class="text-indigo-600">
+                        Academy
+                    </span>
+
+                </h1>
+
+
+                <p class="brand-subtitle">
+
+                    Learn • Practice • Grow
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 PREMIUM HEADER
+            ====================================== -->
+
+            <div class="premium-header">
+
+
+                <div class="premium-badge">
+
+                    <span
+                        class="w-1.5
+                               h-1.5
+                               rounded-full
+                               bg-indigo-500">
+                    </span>
+
+                    PREMIUM ACCESS
+
+                </div>
+
+
+                <h2 class="premium-title">
+
+                    Unlock Premium Content
+
+                </h2>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 PRICE
+            ====================================== -->
+
+            <div class="price-box">
+
+
+                <p class="price-label">
+
+                    1 Month Subscription
+
+                </p>
+
+
+                <div class="price-row">
+
+                    <span class="price">
+
+                        ₹49
+
+                    </span>
+
+
+                    <span class="price-month">
+
+                        / month
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 FEATURES
+            ====================================== -->
+
+            <div class="feature-list">
+
+
+                <!-- FEATURE 1 -->
+
+                <div class="feature-item">
+
+
+                    <div
+                        class="feature-icon
+                               bg-blue-50
+                               text-blue-600"
+                    >
+
+                        <svg
+                            width="17"
+                            height="17"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+
+                            <rect
+                                x="3"
+                                y="4"
+                                width="18"
+                                height="18"
+                                rx="2"
+                            />
+
+                            <path d="M16 2v4"/>
+                            <path d="M8 2v4"/>
+                            <path d="M3 10h18"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <span class="feature-text">
+
+                        Valid for 30 days
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- FEATURE 2 -->
+
+                <div class="feature-item">
+
+
+                    <div
+                        class="feature-icon
+                               bg-violet-50
+                               text-violet-600"
+                    >
+
+                        <svg
+                            width="17"
+                            height="17"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+
+                            <rect
+                                x="3"
+                                y="11"
+                                width="18"
+                                height="10"
+                                rx="2"
+                            />
+
+                            <path
+                                d="M7 11V7a5 5 0 0 1 10 0v4"
+                            />
+
+                        </svg>
+
+                    </div>
+
+
+                    <span class="feature-text">
+
+                        Secure Razorpay payment
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 PAYMENT BUTTON
+            ====================================== -->
+
+            <button
+                id="pay-btn"
+                type="button"
+                class="pay-btn"
+            >
+
+                <span
+                    id="pay-btn-text"
+                    class="flex
+                           items-center
+                           justify-center
+                           gap-2"
+                >
+
+                    <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+
+                        <rect
+                            x="3"
+                            y="11"
+                            width="18"
+                            height="10"
+                            rx="2"
+                        />
+
+                        <path
+                            d="M7 11V7a5 5 0 0 1 10 0v4"
+                        />
+
+                    </svg>
+
+                    Pay ₹49 Now
+
+                </span>
+
+            </button>
+
+
+
+            <!-- =====================================
+                 SECURE PAYMENT
+            ====================================== -->
+
+            <div class="secure-note">
+
+
+                <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    class="text-emerald-500"
+                >
+
+                    <path
+                        d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"
+                    />
+
+                    <path
+                        d="M9 12l2 2 4-4"
+                    />
+
+                </svg>
+
+
+                <span>
+
+                    Secure payment powered by Razorpay
+
+                </span>
+
+            </div>
+
+
+        </main>
 
     </div>
 
 
 
-    <!-- ==========================================
-         RAZORPAY CHECKOUT
-    =========================================== -->
-
-    <script
-        src="https://checkout.razorpay.com/v1/checkout.js"
-    ></script>
-
-
+    <!-- =========================================
+         RAZORPAY PAYMENT SCRIPT
+    ========================================== -->
 
     <script>
 
-        document
-            .getElementById("pay-btn")
-            .addEventListener("click", async function () {
+        const payButton =
+            document.getElementById("pay-btn");
 
 
-                const button = this;
+        const payButtonText =
+            document.getElementById("pay-btn-text");
 
+
+
+        /* =========================================
+           RESET BUTTON
+        ========================================== */
+
+        function resetPayButton() {
+
+            payButton.disabled = false;
+
+            payButtonText.innerHTML = `
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+
+                    <rect
+                        x="3"
+                        y="11"
+                        width="18"
+                        height="10"
+                        rx="2"
+                    />
+
+                    <path
+                        d="M7 11V7a5 5 0 0 1 10 0v4"
+                    />
+
+                </svg>
+
+                Pay ₹49 Now
+
+            `;
+        }
+
+
+
+        /* =========================================
+           LOADING BUTTON
+        ========================================== */
+
+        function setLoadingButton(text) {
+
+            payButton.disabled = true;
+
+            payButtonText.innerHTML = `
+
+                <svg
+                    class="animate-spin"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="9"
+                        stroke-opacity="0.25"
+                    >
+                    </circle>
+
+                    <path
+                        d="M21 12a9 9 0 0 0-9-9"
+                    >
+                    </path>
+
+                </svg>
+
+                ${text}
+
+            `;
+        }
+
+
+
+        /* =========================================
+           PAYMENT BUTTON
+        ========================================== */
+
+        payButton.addEventListener(
+            "click",
+            async function () {
 
                 try {
 
 
-                    /* ==========================================
-                       DISABLE BUTTON
-                    =========================================== */
-
-                    button.disabled = true;
-
-                    button.innerText =
-                        "Creating Order...";
+                    setLoadingButton(
+                        "Creating Order..."
+                    );
 
 
 
-                    /* ==========================================
-                       1. CREATE RAZORPAY ORDER
-                    =========================================== */
+                    /* =====================================
+                       CREATE ORDER
+                    ===================================== */
 
                     const response =
                         await fetch(
@@ -105,11 +1351,6 @@
                         );
 
 
-
-                    /* ==========================================
-                       READ SERVER RESPONSE
-                    =========================================== */
-
                     const order =
                         await response.json();
 
@@ -120,147 +1361,103 @@
                     );
 
 
-
-                    /* ==========================================
-                       SERVER ERROR
-                    =========================================== */
-
                     if (!response.ok) {
 
-                        console.error(
-                            "Razorpay Order Error:",
-                            order
-                        );
-
-
                         throw new Error(
-
                             order.error ||
-
                             order.message ||
-
                             "Unable to create payment order"
                         );
+
                     }
 
 
 
-                    /* ==========================================
+                    /* =====================================
                        CHECK ORDER ID
-                    =========================================== */
+                    ===================================== */
 
                     if (!order.id) {
-
-                        console.error(
-                            "Razorpay Order ID Missing:",
-                            order
-                        );
-
 
                         throw new Error(
                             "Razorpay Order ID missing"
                         );
+
                     }
 
 
 
-                    console.log(
-                        "Razorpay Order ID:",
-                        order.id
-                    );
-
-
-
-                    /* ==========================================
+                    /* =====================================
                        CHECK AMOUNT
-                    ========================================== */
+                    ===================================== */
 
                     if (
                         !order.amount ||
                         Number(order.amount) !== 4900
                     ) {
 
-                        console.error(
-                            "Invalid payment amount:",
-                            order.amount
-                        );
-
-
                         throw new Error(
                             "Invalid payment amount"
                         );
+
                     }
 
 
 
-                    /* ==========================================
-                       2. RAZORPAY CHECKOUT OPTIONS
-                    ========================================== */
+                    /* =====================================
+                       RAZORPAY OPTIONS
+                    ===================================== */
 
                     const options = {
-
-
-                        /*
-                           IMPORTANT:
-
-                           Backend-la irundhu key varum.
-
-                           Hardcoded live key use panna vendam.
-                        */
 
                         key:
                             order.key,
 
-
                         amount:
                             order.amount,
-
 
                         currency:
                             order.currency || "INR",
 
-
                         name:
                             "Tamil Medium Students Academy",
 
-
                         description:
                             "1 Month Premium Subscription",
-
 
                         order_id:
                             order.id,
 
 
 
-                        /* ======================================
+                        /* =================================
                            PAYMENT SUCCESS
-                        ====================================== */
+                        ================================= */
 
                         handler:
                             async function (
                                 paymentResponse
                             ) {
 
-
-                                console.log(
-                                    "Payment Response:",
-                                    paymentResponse
-                                );
-
-
                                 try {
 
 
-                                    /* ==================================
-                                       3. VERIFY PAYMENT
-                                    ================================== */
+                                    setLoadingButton(
+                                        "Verifying Payment..."
+                                    );
+
+
+
+                                    /* =============================
+                                       VERIFY PAYMENT
+                                    ============================== */
 
                                     const verifyRes =
                                         await fetch(
                                             "/api/verify-payment",
                                             {
-                                                method: "POST",
+                                                method:
+                                                    "POST",
 
                                                 headers: {
                                                     "Content-Type":
@@ -284,15 +1481,11 @@
                                                         razorpay_signature:
                                                             paymentResponse
                                                                 .razorpay_signature
+
                                                     })
                                             }
                                         );
 
-
-
-                                    /* ==================================
-                                       READ VERIFICATION RESPONSE
-                                    ================================== */
 
                                     const result =
                                         await verifyRes.json();
@@ -304,66 +1497,42 @@
                                     );
 
 
-
-                                    /* ==================================
-                                       VERIFICATION FAILED
-                                    ================================== */
-
                                     if (!verifyRes.ok) {
 
                                         throw new Error(
-
                                             result.message ||
-
                                             "Payment verification failed"
                                         );
+
                                     }
 
-
-
-                                    /* ==================================
-                                       PAYMENT SUCCESS
-                                    ================================== */
 
                                     if (
                                         result.success === true
                                     ) {
-
 
                                         alert(
                                             "Payment Successful! 1 Month Access Activated."
                                         );
 
 
-                                        /*
-                                           Small delay so database
-                                           update completes properly.
-                                        */
-
-                                        setTimeout(
-                                            function () {
-
-                                                window.location.href =
-                                                    "/pages/index.html";
-
-                                            },
-                                            500
+                                        window.location.replace(
+                                            "/pages/index.html"
                                         );
 
 
-                                    } else {
+                                        return;
 
-                                        throw new Error(
-
-                                            result.message ||
-
-                                            "Payment verification failed"
-                                        );
                                     }
 
 
-                                } catch (error) {
+                                    throw new Error(
+                                        result.message ||
+                                        "Payment verification failed"
+                                    );
 
+
+                                } catch (error) {
 
                                     console.error(
                                         "Payment Verification Error:",
@@ -376,15 +1545,18 @@
                                         "Payment verification failed!"
                                     );
 
+
+                                    resetPayButton();
+
                                 }
 
                             },
 
 
 
-                        /* ==========================================
-                           PAYMENT FAILED
-                        ========================================== */
+                        /* =================================
+                           MODAL CLOSE
+                        ================================= */
 
                         modal: {
 
@@ -395,14 +1567,23 @@
                                         "Razorpay Checkout Closed"
                                     );
 
+
+                                    resetPayButton();
+
                                 }
+
                         },
 
+
+
+                        /* =================================
+                           THEME
+                        ================================= */
 
                         theme: {
 
                             color:
-                                "#2563EB"
+                                "#4F46E5"
 
                         }
 
@@ -410,9 +1591,9 @@
 
 
 
-                    /* ==========================================
-                       4. CREATE RAZORPAY INSTANCE
-                    ========================================== */
+                    /* =====================================
+                       RAZORPAY INSTANCE
+                    ===================================== */
 
                     const rzp =
                         new Razorpay(
@@ -421,14 +1602,13 @@
 
 
 
-                    /* ==========================================
-                       RAZORPAY PAYMENT FAILED EVENT
-                    ========================================== */
+                    /* =====================================
+                       PAYMENT FAILED
+                    ===================================== */
 
                     rzp.on(
                         "payment.failed",
                         function (response) {
-
 
                             console.error(
                                 "Payment Failed:",
@@ -437,21 +1617,21 @@
 
 
                             alert(
-
                                 response.error?.description ||
-
                                 "Payment failed. Please try again."
-
                             );
+
+
+                            resetPayButton();
 
                         }
                     );
 
 
 
-                    /* ==========================================
-                       5. OPEN RAZORPAY
-                    ========================================== */
+                    /* =====================================
+                       OPEN RAZORPAY
+                    ===================================== */
 
                     rzp.open();
 
@@ -471,24 +1651,14 @@
                     );
 
 
-                } finally {
-
-
-                    /* ==========================================
-                       ENABLE BUTTON
-                    ========================================== */
-
-                    button.disabled = false;
-
-                    button.innerText =
-                        "Pay ₹49 Now";
+                    resetPayButton();
 
                 }
 
-            });
+            }
+        );
 
     </script>
-
 
 </body>
 

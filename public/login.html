@@ -1,116 +1,1063 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Website</title>
-    <!-- Tailwind CSS CDN for Modern Styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Sign-In script -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<title>Login - TMS Academy</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Google Identity Services -->
+<script
+    src="https://accounts.google.com/gsi/client"
+    async
+    defer>
+</script>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    body {
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+    }
+
+    /* ==============================
+       BACKGROUND
+    ============================== */
+
+    .page-bg {
+        min-height: 100vh;
+        min-height: 100dvh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+
+        background:
+            radial-gradient(
+                circle at 15% 20%,
+                rgba(99, 102, 241, 0.13),
+                transparent 30%
+            ),
+            radial-gradient(
+                circle at 85% 80%,
+                rgba(37, 99, 235, 0.12),
+                transparent 32%
+            ),
+            linear-gradient(
+                135deg,
+                #f8fafc 0%,
+                #eef2ff 50%,
+                #eff6ff 100%
+            );
+    }
+
+    /* Decorative circles */
+
+    .bg-circle {
+        position: absolute;
+        border-radius: 999px;
+        pointer-events: none;
+        filter: blur(55px);
+    }
+
+    .circle-one {
+        width: 220px;
+        height: 220px;
+        top: -100px;
+        right: -70px;
+        background: rgba(99, 102, 241, 0.16);
+    }
+
+    .circle-two {
+        width: 240px;
+        height: 240px;
+        bottom: -120px;
+        left: -90px;
+        background: rgba(59, 130, 246, 0.13);
+    }
+
+    /* ==============================
+       LOGIN CARD
+    ============================== */
+
+    .login-card {
+        width: min(100% - 32px, 430px);
+        max-height: calc(100dvh - 24px);
+        overflow: hidden;
+
+        background: rgba(255, 255, 255, 0.96);
+
+        border: 1px solid rgba(255, 255, 255, 0.9);
+
+        border-radius: 28px;
+
+        box-shadow:
+            0 25px 70px rgba(15, 23, 42, 0.13),
+            0 8px 25px rgba(15, 23, 42, 0.05);
+
+        padding: 28px;
+
+        animation: cardEnter 0.45s ease-out;
+    }
+
+    @keyframes cardEnter {
+        from {
+            opacity: 0;
+            transform: translateY(14px) scale(0.98);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    /* ==============================
+       LOGO
+    ============================== */
+
+    .logo-box {
+        width: 64px;
+        height: 64px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 19px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #2563eb 0%,
+                #4f46e5 55%,
+                #7c3aed 100%
+            );
+
+        box-shadow:
+            0 14px 30px rgba(79, 70, 229, 0.24);
+
+        position: relative;
+    }
+
+    .logo-box::after {
+        content: "";
+        position: absolute;
+        inset: 1px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        pointer-events: none;
+    }
+
+    /* ==============================
+       INPUT
+    ============================== */
+
+    .input-field {
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    .input-field:focus {
+        background: #ffffff;
+        transform: translateY(-1px);
+    }
+
+    /* ==============================
+       LOGIN BUTTON
+    ============================== */
+
+    .login-btn {
+        background:
+            linear-gradient(
+                135deg,
+                #2563eb 0%,
+                #4f46e5 100%
+            );
+
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease,
+            opacity 0.2s ease;
+    }
+
+    .login-btn:hover:not(:disabled) {
+        transform: translateY(-1px);
+
+        box-shadow:
+            0 12px 28px rgba(79, 70, 229, 0.25);
+    }
+
+    .login-btn:active:not(:disabled) {
+        transform: translateY(0);
+    }
+
+    .login-btn:disabled {
+        opacity: 0.65;
+        cursor: not-allowed;
+    }
+
+    /* ==============================
+       GOOGLE LOGIN
+    ============================== */
+
+    .google-wrapper {
+        min-height: 40px;
+    }
+
+    .google-wrapper iframe {
+        max-width: 100% !important;
+    }
+
+    /* ==============================
+       MOBILE
+    ============================== */
+
+    @media (max-width: 480px) {
+
+        .login-card {
+            width: calc(100% - 24px);
+            max-height: calc(100dvh - 16px);
+            padding: 22px 18px;
+            border-radius: 24px;
+        }
+
+        .logo-box {
+            width: 56px;
+            height: 56px;
+            border-radius: 17px;
+        }
+
+        .logo-box::after {
+            border-radius: 16px;
+        }
+
+        .brand-title {
+            font-size: 23px;
+        }
+
+        .welcome-title {
+            font-size: 20px;
+        }
+
+        .form-area {
+            gap: 12px;
+        }
+
+        .input-field {
+            height: 46px !important;
+        }
+
+        .login-btn {
+            height: 46px !important;
+        }
+
+        .divider {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .signup-area {
+            margin-top: 15px;
+        }
+
+        .security-note {
+            margin-top: 12px;
+        }
+    }
+
+    @media (max-height: 700px) {
+
+        .login-card {
+            padding-top: 18px;
+            padding-bottom: 18px;
+        }
+
+        .brand-area {
+            margin-bottom: 14px !important;
+        }
+
+        .welcome-area {
+            margin-bottom: 14px !important;
+        }
+
+        .divider {
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+
+        .signup-area {
+            margin-top: 12px;
+        }
+
+        .security-note {
+            margin-top: 8px;
+        }
+    }
+</style>
+
 </head>
 
-<body class="bg-gradient-to-br from-slate-50 via-indigo-50/30 to-blue-50 min-h-screen flex items-center justify-center p-4">
+<body>
 
-    <div class="bg-white w-full max-w-md rounded-2xl shadow-xl border border-slate-100 p-8 space-y-6">
+<!-- BACKGROUND -->
 
-        <!-- Header -->
-        <div class="text-center space-y-2">
-            <h2 class="text-3xl font-bold tracking-tight text-slate-900">Welcome Back</h2>
-            <p class="text-sm text-slate-500">Please enter your details to sign in</p>
+<div class="page-bg">
+
+    <div class="bg-circle circle-one"></div>
+    <div class="bg-circle circle-two"></div>
+
+
+    <!-- LOGIN CARD -->
+
+    <main class="login-card">
+
+        <!-- ==============================
+             BRAND
+        =============================== -->
+
+        <div class="brand-area flex flex-col items-center text-center mb-5">
+
+            <!-- TMS PROFESSIONAL LOGO -->
+
+            <div class="logo-box mb-3">
+
+                <svg
+                    width="36"
+                    height="36"
+                    viewBox="0 0 48 48"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+
+                    <!-- Graduation Cap -->
+
+                    <path
+                        d="M4 18L24 7L44 18L24 29L4 18Z"
+                        fill="white" />
+
+                    <path
+                        d="M12 23V31C12 35.5 17.4 39 24 39C30.6 39 36 35.5 36 31V23L24 29L12 23Z"
+                        fill="white"
+                        opacity="0.88" />
+
+                    <!-- Tassel -->
+
+                    <path
+                        d="M44 18V29"
+                        stroke="white"
+                        stroke-width="2.5"
+                        stroke-linecap="round" />
+
+                    <circle
+                        cx="44"
+                        cy="32"
+                        r="2"
+                        fill="white" />
+
+                </svg>
+
+            </div>
+
+
+            <!-- BRAND NAME -->
+
+            <h1
+                class="brand-title text-2xl font-extrabold tracking-tight text-slate-900">
+
+                TMS
+                <span class="text-indigo-600">
+                    Academy
+                </span>
+
+            </h1>
+
+            <p class="mt-0.5 text-xs text-slate-500 font-medium">
+                Learn • Practice • Grow
+            </p>
+
         </div>
 
-        <!-- Normal Login Form -->
-        <form id="login-form" class="space-y-4">
-            <div>
-                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Email Address</label>
-                <input type="email" id="email" placeholder="name@example.com" required
-                    class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent text-sm transition-all bg-slate-50/50">
-            </div>
+
+        <!-- ==============================
+             WELCOME
+        =============================== -->
+
+        <div class="welcome-area mb-5">
+
+            <h2
+                class="welcome-title text-xl font-bold text-slate-900">
+
+                Welcome back 👋
+
+            </h2>
+
+            <p class="mt-1 text-xs sm:text-sm text-slate-500">
+
+                Sign in to continue learning with TMS Academy.
+
+            </p>
+
+        </div>
+
+
+        <!-- ==============================
+             EMAIL LOGIN
+        =============================== -->
+
+        <form
+            id="login-form"
+            class="form-area space-y-3">
+
+
+            <!-- EMAIL -->
 
             <div>
-                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Password</label>
-                <input type="password" id="password" placeholder="••••••••" required
-                    class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent text-sm transition-all bg-slate-50/50">
+
+                <label
+                    for="email"
+                    class="block text-xs font-semibold text-slate-700 mb-1.5">
+
+                    Email address
+
+                </label>
+
+
+                <div class="relative">
+
+                    <!-- Email Icon -->
+
+                    <div
+                        class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400">
+
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2">
+
+                            <rect
+                                x="3"
+                                y="5"
+                                width="18"
+                                height="14"
+                                rx="2" />
+
+                            <path
+                                d="M3 7L12 13L21 7" />
+
+                        </svg>
+
+                    </div>
+
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="name@example.com"
+                        autocomplete="email"
+                        required
+
+                        class="input-field w-full h-11 sm:h-12
+                               pl-11 pr-4
+                               rounded-xl
+                               border border-slate-200
+                               bg-slate-50
+                               text-sm text-slate-900
+                               placeholder:text-slate-400
+                               outline-none
+                               focus:border-indigo-500
+                               focus:ring-4
+                               focus:ring-indigo-500/10">
+
+                </div>
+
             </div>
 
-            <button type="submit"
-                class="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl shadow-lg shadow-indigo-600/20 transition-all duration-200 text-sm">
-                Sign In
+
+            <!-- PASSWORD -->
+
+            <div>
+
+                <label
+                    for="password"
+                    class="block text-xs font-semibold text-slate-700 mb-1.5">
+
+                    Password
+
+                </label>
+
+
+                <div class="relative">
+
+                    <!-- Lock Icon -->
+
+                    <div
+                        class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400">
+
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2">
+
+                            <rect
+                                x="4"
+                                y="10"
+                                width="16"
+                                height="11"
+                                rx="2" />
+
+                            <path
+                                d="M8 10V7C8 4.8 9.8 3 12 3C14.2 3 16 4.8 16 7V10" />
+
+                        </svg>
+
+                    </div>
+
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+
+                        class="input-field w-full h-11 sm:h-12
+                               pl-11 pr-12
+                               rounded-xl
+                               border border-slate-200
+                               bg-slate-50
+                               text-sm text-slate-900
+                               placeholder:text-slate-400
+                               outline-none
+                               focus:border-indigo-500
+                               focus:ring-4
+                               focus:ring-indigo-500/10">
+
+
+                    <!-- SHOW PASSWORD -->
+
+                    <button
+                        type="button"
+                        id="toggle-password"
+                        aria-label="Show password"
+
+                        class="absolute right-2 top-1/2
+                               -translate-y-1/2
+                               w-8 h-8
+                               flex items-center justify-center
+                               rounded-lg
+                               text-slate-400
+                               hover:text-indigo-600
+                               hover:bg-indigo-50
+                               transition">
+
+                        <svg
+                            id="eye-icon"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2">
+
+                            <path
+                                d="M2 12s3.5-7 10-7
+                                   10 7 10 7-3.5 7-10 7
+                                   -10-7-10-7Z" />
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="3" />
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button
+                id="login-btn"
+                type="submit"
+
+                class="login-btn w-full
+                       h-11 sm:h-12
+                       mt-1
+                       rounded-xl
+                       text-white
+                       font-semibold
+                       text-sm
+                       shadow-lg
+                       shadow-indigo-500/20">
+
+                <span id="login-btn-text">
+                    Sign In
+                </span>
+
             </button>
+
         </form>
 
-        <!-- Divider -->
-        <div class="relative flex py-2 items-center">
-            <div class="flex-grow border-t border-slate-200"></div>
-            <span class="flex-shrink mx-4 text-slate-400 text-xs uppercase tracking-wider font-medium">Or continue with</span>
-            <div class="flex-grow border-t border-slate-200"></div>
+
+        <!-- ==============================
+             DIVIDER
+        =============================== -->
+
+        <div class="divider flex items-center gap-3 my-4">
+
+            <div class="flex-1 h-px bg-slate-200"></div>
+
+            <span
+                class="text-[10px] sm:text-xs
+                       font-semibold
+                       uppercase
+                       tracking-wider
+                       text-slate-400
+                       whitespace-nowrap">
+
+                Or continue with
+
+            </span>
+
+            <div class="flex-1 h-px bg-slate-200"></div>
+
         </div>
 
-        <!-- Google Login Button Container (Single Clean Config) -->
-        <div class="flex justify-center w-full">
-            <div id="g_id_onload" data-client_id="339453629917-p612mtgmhtdal56751jf125koidm1obp.apps.googleusercontent.com"
-                data-callback="handleCredentialResponse" data-auto_prompt="false">
+
+        <!-- ==============================
+             GOOGLE LOGIN
+        =============================== -->
+
+        <div
+            class="google-wrapper w-full
+                   flex justify-center
+                   overflow-hidden">
+
+            <div
+                id="g_id_onload"
+                data-client_id="339453629917-p612mtgmhtdal56751jf125koidm1obp.apps.googleusercontent.com"
+                data-callback="handleCredentialResponse"
+                data-auto_prompt="false">
+
             </div>
-            <div class="g_id_signin w-full flex justify-center" data-type="standard" data-shape="rectangular"
-                data-theme="outline" data-text="sign_in_with" data-size="large" data-logo_alignment="left">
+
+
+            <div
+                class="g_id_signin"
+                data-type="standard"
+                data-shape="rectangular"
+                data-theme="outline"
+                data-text="sign_in_with"
+                data-size="large"
+                data-logo_alignment="left">
+
             </div>
+
         </div>
 
-        <!-- Footer Link -->
-        <p class="text-center text-sm text-slate-500">
-            Don't have an account?
-            <a href="/signup.html" class="font-medium text-indigo-600 hover:text-indigo-500 transition-colors">Sign up</a>
-        </p>
 
-    </div>
+        <!-- ==============================
+             SIGN UP
+        =============================== -->
 
-    <script>
-        // Normal Login Script - Now redirects to '/' so server checks subscription smartly!
-        document.getElementById('login-form').onsubmit = async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+        <div class="signup-area text-center mt-4">
 
-            try {
-                const res = await fetch('/api/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password })
-                });
-                const data = await res.json();
+            <p class="text-xs sm:text-sm text-slate-500">
 
-                if (data.success) {
-                    window.location.href = '/'; // 👈 Server-ku anupprom, athu active-ah iruntha index.html-kum, illena pay.html-kum anuppum!
-                } else {
-                    alert(data.message || "Login failed");
-                }
-            } catch (err) {
-                alert("Something went wrong!");
-            }
-        };
+                Don't have an account?
 
-        // Google Login Response Handler - Now redirects to '/' as well
-        async function handleCredentialResponse(response) {
-            try {
-                const res = await fetch('/api/google-login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ token: response.credential })
-                });
-                const data = await res.json();
+                <a
+                    href="/signup.html"
+                    class="font-semibold
+                           text-indigo-600
+                           hover:text-indigo-700
+                           transition">
 
-                if (data.success) {
-                    window.location.href = '/'; // 👈 Server smart check-ku anupprom
-                } else {
-                    alert(data.message || "Google Login Failed");
-                }
-            } catch (err) {
-                alert("Google authentication error!");
-            }
+                    Create account
+
+                </a>
+
+            </p>
+
+        </div>
+
+
+        <!-- ==============================
+             SECURITY
+        =============================== -->
+
+        <div
+            class="security-note flex items-center
+                   justify-center gap-1.5 mt-3">
+
+            <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="text-emerald-500">
+
+                <path
+                    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+
+                <path
+                    d="M9 12l2 2 4-4" />
+
+            </svg>
+
+            <span
+                class="text-[10px] sm:text-xs text-slate-400">
+
+                Secure login protected by encryption
+
+            </span>
+
+        </div>
+
+    </main>
+
+</div>
+```
+
+<script>
+
+/* =========================================================
+   PASSWORD SHOW / HIDE
+========================================================= */
+
+const passwordInput =
+    document.getElementById("password");
+
+const togglePassword =
+    document.getElementById("toggle-password");
+
+const eyeIcon =
+    document.getElementById("eye-icon");
+
+
+togglePassword.addEventListener(
+    "click",
+    function () {
+
+        const isPassword =
+            passwordInput.type === "password";
+
+        passwordInput.type =
+            isPassword
+                ? "text"
+                : "password";
+
+
+        togglePassword.setAttribute(
+            "aria-label",
+            isPassword
+                ? "Hide password"
+                : "Show password"
+        );
+
+
+        if (isPassword) {
+
+            eyeIcon.innerHTML = `
+                <path d="M3 3L21 21"></path>
+                <path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"></path>
+                <path d="M9.9 4.2A10.6 10.6 0 0 1 12 4
+                         c6.5 0 10 7 10 7
+                         a18.3 18.3 0 0 1-3.1 4.3"></path>
+                <path d="M6.2 6.2C3.5 8.1 2 11 2 11
+                         s3.5 7 10 7
+                         a10.7 10.7 0 0 0 4.1-.8"></path>
+            `;
+
+        } else {
+
+            eyeIcon.innerHTML = `
+                <path d="M2 12s3.5-7 10-7
+                         10 7 10 7-3.5 7-10 7
+                         -10-7-10-7Z"></path>
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="3">
+                </circle>
+            `;
+
         }
-    </script>
-</body>
 
+    }
+);
+
+
+/* =========================================================
+   EMAIL LOGIN
+========================================================= */
+
+document
+    .getElementById("login-form")
+    .addEventListener(
+        "submit",
+        async function (e) {
+
+            e.preventDefault();
+
+
+            const button =
+                document.getElementById("login-btn");
+
+            const buttonText =
+                document.getElementById("login-btn-text");
+
+
+            const email =
+                document
+                    .getElementById("email")
+                    .value
+                    .trim()
+                    .toLowerCase();
+
+
+            const password =
+                document
+                    .getElementById("password")
+                    .value;
+
+
+            if (!email || !password) {
+
+                alert(
+                    "Please enter email and password."
+                );
+
+                return;
+            }
+
+
+            try {
+
+                button.disabled = true;
+
+                buttonText.innerText =
+                    "Signing in...";
+
+
+                const response =
+                    await fetch(
+                        "/api/login",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            credentials: "include",
+
+                            body:
+                                JSON.stringify({
+                                    email: email,
+                                    password: password
+                                })
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                console.log(
+                    "Login Response:",
+                    data
+                );
+
+
+                if (!response.ok) {
+
+                    alert(
+                        data.message ||
+                        "Login failed."
+                    );
+
+                    return;
+                }
+
+
+                if (data.success === true) {
+
+                    window.location.replace("/");
+
+                    return;
+                }
+
+
+                alert(
+                    data.message ||
+                    "Invalid email or password."
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Login Error:",
+                    error
+                );
+
+
+                alert(
+                    "Unable to connect to server. Please try again."
+                );
+
+
+            } finally {
+
+                button.disabled = false;
+
+                buttonText.innerText =
+                    "Sign In";
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   GOOGLE LOGIN
+========================================================= */
+
+async function handleCredentialResponse(
+    response
+) {
+
+    try {
+
+        console.log(
+            "Google credential received."
+        );
+
+
+        if (
+            !response ||
+            !response.credential
+        ) {
+
+            alert(
+                "Google authentication token missing."
+            );
+
+            return;
+        }
+
+
+        const res =
+            await fetch(
+                "/api/google-login",
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    credentials: "include",
+
+                    body:
+                        JSON.stringify({
+                            token:
+                                response.credential
+                        })
+
+                }
+            );
+
+
+        const data =
+            await res.json();
+
+
+        console.log(
+            "Google Login Response:",
+            data
+        );
+
+
+        if (
+            res.ok &&
+            data.success === true
+        ) {
+
+            window.location.replace("/");
+
+            return;
+        }
+
+
+        alert(
+            data.message ||
+            "Google Login Failed."
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Google Login Error:",
+            error
+        );
+
+
+        alert(
+            "Google authentication error!"
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
 </html>
