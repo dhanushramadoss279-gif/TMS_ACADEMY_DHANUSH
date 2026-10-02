@@ -1,71 +1,495 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Pay ₹49 Subscription</title>
-    <!-- Tailwind CSS (Optional, style-ku) -->
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-    <div class="bg-white p-8 rounded-lg shadow-md w-96 text-center">
-        <h2 class="text-2xl font-bold mb-4 text-gray-800">Unlock Premium Content</h2>
-        <p class="text-gray-600 mb-6">Pay ₹49 to get 1 Month full access to all 108 pages.</p>
-        <button id="pay-btn" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+
+    <!-- PAYMENT CARD -->
+
+    <div
+        class="bg-white p-8 rounded-lg shadow-md w-full max-w-md text-center"
+    >
+
+        <h2 class="text-2xl font-bold mb-4 text-gray-800">
+            Unlock Premium Content
+        </h2>
+
+
+        <p class="text-gray-600 mb-6">
+            Pay ₹49 to get 1 Month full access to all 108 pages.
+        </p>
+
+
+        <button
+            id="pay-btn"
+            type="button"
+            class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+        >
             Pay ₹49 Now
         </button>
+
+
     </div>
 
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script>
-        document.getElementById('pay-btn').onclick = async function (e) {
-            try {
-                // 1. Backend-la order create panrathu
-                const response = await fetch('/api/create-order', { method: 'POST' });
-                const order = await response.json();
 
-                if (!order.id) {
-                    alert("Order creation failed!");
-                    return;
+
+    <!-- ==========================================
+         RAZORPAY CHECKOUT
+    =========================================== -->
+
+    <script
+        src="https://checkout.razorpay.com/v1/checkout.js"
+    ></script>
+
+
+
+    <script>
+
+        document
+            .getElementById("pay-btn")
+            .addEventListener("click", async function () {
+
+
+                const button = this;
+
+
+                try {
+
+
+                    /* ==========================================
+                       DISABLE BUTTON
+                    =========================================== */
+
+                    button.disabled = true;
+
+                    button.innerText =
+                        "Creating Order...";
+
+
+
+                    /* ==========================================
+                       1. CREATE RAZORPAY ORDER
+                    =========================================== */
+
+                    const response =
+                        await fetch(
+                            "/api/create-order",
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                credentials: "include"
+                            }
+                        );
+
+
+
+                    /* ==========================================
+                       READ SERVER RESPONSE
+                    =========================================== */
+
+                    const order =
+                        await response.json();
+
+
+                    console.log(
+                        "Create Order Response:",
+                        order
+                    );
+
+
+
+                    /* ==========================================
+                       SERVER ERROR
+                    =========================================== */
+
+                    if (!response.ok) {
+
+                        console.error(
+                            "Razorpay Order Error:",
+                            order
+                        );
+
+
+                        throw new Error(
+
+                            order.error ||
+
+                            order.message ||
+
+                            "Unable to create payment order"
+                        );
+                    }
+
+
+
+                    /* ==========================================
+                       CHECK ORDER ID
+                    =========================================== */
+
+                    if (!order.id) {
+
+                        console.error(
+                            "Razorpay Order ID Missing:",
+                            order
+                        );
+
+
+                        throw new Error(
+                            "Razorpay Order ID missing"
+                        );
+                    }
+
+
+
+                    console.log(
+                        "Razorpay Order ID:",
+                        order.id
+                    );
+
+
+
+                    /* ==========================================
+                       CHECK AMOUNT
+                    ========================================== */
+
+                    if (
+                        !order.amount ||
+                        Number(order.amount) !== 4900
+                    ) {
+
+                        console.error(
+                            "Invalid payment amount:",
+                            order.amount
+                        );
+
+
+                        throw new Error(
+                            "Invalid payment amount"
+                        );
+                    }
+
+
+
+                    /* ==========================================
+                       2. RAZORPAY CHECKOUT OPTIONS
+                    ========================================== */
+
+                    const options = {
+
+
+                        /*
+                           IMPORTANT:
+
+                           Backend-la irundhu key varum.
+
+                           Hardcoded live key use panna vendam.
+                        */
+
+                        key:
+                            order.key,
+
+
+                        amount:
+                            order.amount,
+
+
+                        currency:
+                            order.currency || "INR",
+
+
+                        name:
+                            "Tamil Medium Students Academy",
+
+
+                        description:
+                            "1 Month Premium Subscription",
+
+
+                        order_id:
+                            order.id,
+
+
+
+                        /* ======================================
+                           PAYMENT SUCCESS
+                        ====================================== */
+
+                        handler:
+                            async function (
+                                paymentResponse
+                            ) {
+
+
+                                console.log(
+                                    "Payment Response:",
+                                    paymentResponse
+                                );
+
+
+                                try {
+
+
+                                    /* ==================================
+                                       3. VERIFY PAYMENT
+                                    ================================== */
+
+                                    const verifyRes =
+                                        await fetch(
+                                            "/api/verify-payment",
+                                            {
+                                                method: "POST",
+
+                                                headers: {
+                                                    "Content-Type":
+                                                        "application/json"
+                                                },
+
+                                                credentials:
+                                                    "include",
+
+                                                body:
+                                                    JSON.stringify({
+
+                                                        razorpay_payment_id:
+                                                            paymentResponse
+                                                                .razorpay_payment_id,
+
+                                                        razorpay_order_id:
+                                                            paymentResponse
+                                                                .razorpay_order_id,
+
+                                                        razorpay_signature:
+                                                            paymentResponse
+                                                                .razorpay_signature
+                                                    })
+                                            }
+                                        );
+
+
+
+                                    /* ==================================
+                                       READ VERIFICATION RESPONSE
+                                    ================================== */
+
+                                    const result =
+                                        await verifyRes.json();
+
+
+                                    console.log(
+                                        "Verification Result:",
+                                        result
+                                    );
+
+
+
+                                    /* ==================================
+                                       VERIFICATION FAILED
+                                    ================================== */
+
+                                    if (!verifyRes.ok) {
+
+                                        throw new Error(
+
+                                            result.message ||
+
+                                            "Payment verification failed"
+                                        );
+                                    }
+
+
+
+                                    /* ==================================
+                                       PAYMENT SUCCESS
+                                    ================================== */
+
+                                    if (
+                                        result.success === true
+                                    ) {
+
+
+                                        alert(
+                                            "Payment Successful! 1 Month Access Activated."
+                                        );
+
+
+                                        /*
+                                           Small delay so database
+                                           update completes properly.
+                                        */
+
+                                        setTimeout(
+                                            function () {
+
+                                                window.location.href =
+                                                    "/pages/index.html";
+
+                                            },
+                                            500
+                                        );
+
+
+                                    } else {
+
+                                        throw new Error(
+
+                                            result.message ||
+
+                                            "Payment verification failed"
+                                        );
+                                    }
+
+
+                                } catch (error) {
+
+
+                                    console.error(
+                                        "Payment Verification Error:",
+                                        error
+                                    );
+
+
+                                    alert(
+                                        error.message ||
+                                        "Payment verification failed!"
+                                    );
+
+                                }
+
+                            },
+
+
+
+                        /* ==========================================
+                           PAYMENT FAILED
+                        ========================================== */
+
+                        modal: {
+
+                            ondismiss:
+                                function () {
+
+                                    console.log(
+                                        "Razorpay Checkout Closed"
+                                    );
+
+                                }
+                        },
+
+
+                        theme: {
+
+                            color:
+                                "#2563EB"
+
+                        }
+
+                    };
+
+
+
+                    /* ==========================================
+                       4. CREATE RAZORPAY INSTANCE
+                    ========================================== */
+
+                    const rzp =
+                        new Razorpay(
+                            options
+                        );
+
+
+
+                    /* ==========================================
+                       RAZORPAY PAYMENT FAILED EVENT
+                    ========================================== */
+
+                    rzp.on(
+                        "payment.failed",
+                        function (response) {
+
+
+                            console.error(
+                                "Payment Failed:",
+                                response.error
+                            );
+
+
+                            alert(
+
+                                response.error?.description ||
+
+                                "Payment failed. Please try again."
+
+                            );
+
+                        }
+                    );
+
+
+
+                    /* ==========================================
+                       5. OPEN RAZORPAY
+                    ========================================== */
+
+                    rzp.open();
+
+
+                } catch (error) {
+
+
+                    console.error(
+                        "Order Creation Error:",
+                        error
+                    );
+
+
+                    alert(
+                        error.message ||
+                        "Something went wrong!"
+                    );
+
+
+                } finally {
+
+
+                    /* ==========================================
+                       ENABLE BUTTON
+                    ========================================== */
+
+                    button.disabled = false;
+
+                    button.innerText =
+                        "Pay ₹49 Now";
+
                 }
 
-                // 2. Razorpay popup open panrathu
-                const options = {
-                    "key": "rzp_live_Thtmj5Jg8ttHTE", // <-- Inga ungaloda Razorpay Test Key ID-ah podunga (e.g., rzp_test_xxxxx)
-                    "amount": order.amount,
-                    "currency": "INR",
-                    "name": "Unga Website",
-                    "description": "1 Month Subscription",
-                    "order_id": order.id,
-                    "handler": async function (response) {
-                        // 3. Payment success aanathum verify panrathu
-                        const verifyRes = await fetch('/api/verify-payment', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(response)
-                        });
-                        const result = await verifyRes.json();
-                        
-                        if(result.success) {
-                            alert("Payment Successful! 1 Month Access Activated.");
-                            
-                            // 1 Second delay to ensure DB sync & direct redirect to protected-pages/index.html
-                            setTimeout(() => {
-                                window.location.href = "/pages/index.html";
-                            }, 1000); 
-                        } else {
-                            alert("Payment verification failed!");
-                        }
-                    },
-                    "theme": { "color": "#3399cc" }
-                };
-                
-                const rzp = new Razorpay(options);
-                rzp.open();
-            } catch (err) {
-                console.error(err);
-                alert("Something went wrong!");
-            }
-        }
+            });
+
     </script>
+
+
 </body>
+
 </html>
