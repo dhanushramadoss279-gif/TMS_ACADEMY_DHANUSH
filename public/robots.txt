@@ -1,0 +1,8 @@
+# TMS Academy - robots.txt
+# Do NOT disallow /pages/ or the course pages here: Google must be able to
+# fetch them to see the noindex instruction (meta tag + X-Robots-Tag header).
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://tamilmediumstudentsacademy.com/sitemap.xml

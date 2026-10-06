@@ -472,6 +472,45 @@ const verifySubscription =
 
 
 /* =========================================================
+   SEO: KEEP NON-LOGIN PAGES OUT OF GOOGLE
+   (indexing control only - NOT a security measure;
+   access control is still done by verifySubscription)
+   - Sent on every response, including redirects, for:
+     /pages/*, /pay.html, /signup.html
+   - /login.html and / stay indexable (no header added)
+   - robots.txt must NOT block these paths, so crawlers
+     can read the noindex instruction
+========================================================= */
+
+const NOINDEX_PATHS = [
+    '/pay.html',
+    '/signup.html'
+];
+
+app.use((req, res, next) => {
+
+    const isProtectedArea =
+        req.path === '/pages' ||
+        req.path.startsWith('/pages/');
+
+    if (
+        isProtectedArea ||
+        NOINDEX_PATHS.includes(req.path)
+    ) {
+
+        res.setHeader(
+            'X-Robots-Tag',
+            'noindex, nofollow'
+        );
+
+    }
+
+    next();
+
+});
+
+
+/* =========================================================
    PUBLIC FILES
 ========================================================= */
 
