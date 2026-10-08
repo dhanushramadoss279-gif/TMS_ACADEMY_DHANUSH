@@ -1,4 +1,3 @@
-
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
@@ -144,6 +143,7 @@ mongoose
 
 /* =========================================================
    RAZORPAY
+   KEPT FOR FUTURE PAYMENT IMPLEMENTATION
 ========================================================= */
 
 const razorpay =
@@ -283,6 +283,7 @@ function getAuthenticatedUserId(req) {
 
 /* =========================================================
    CHECK ACTIVE SUBSCRIPTION
+   KEPT FOR FUTURE PAYMENT SYSTEM
 ========================================================= */
 
 function isSubscriptionActive(user) {
@@ -311,6 +312,7 @@ function isSubscriptionActive(user) {
 
 /* =========================================================
    VERIFY RAZORPAY SIGNATURE
+   KEPT FOR FUTURE PAYMENT SYSTEM
 ========================================================= */
 
 function verifyRazorpaySignature(
@@ -324,7 +326,9 @@ function verifyRazorpaySignature(
         !paymentId ||
         !signature
     ) {
+
         return false;
+
     }
 
     const body =
@@ -355,7 +359,9 @@ function verifyRazorpaySignature(
         expectedBuffer.length !==
         receivedBuffer.length
     ) {
+
         return false;
+
     }
 
     return crypto.timingSafeEqual(
@@ -367,16 +373,26 @@ function verifyRazorpaySignature(
 
 
 /* =========================================================
-   VERIFY SUBSCRIPTION MIDDLEWARE
+   VERIFY LOGIN MIDDLEWARE
+   ---------------------------------------------------------
+   IMPORTANT:
+   PAYMENT/SUBSCRIPTION CHECK IS TEMPORARILY DISABLED.
+
+   CURRENT FLOW:
+   LOGIN → WEBSITE
+
+   Future:
+   LOGIN → PAYMENT → WEBSITE
 ========================================================= */
 
-const verifySubscription =
+const verifyLogin =
     async (req, res, next) => {
 
         try {
 
             const token =
                 req.cookies.token;
+
 
             /* -----------------------------------------
                NO LOGIN
@@ -412,6 +428,10 @@ const verifySubscription =
                 );
 
 
+            /* -----------------------------------------
+               USER NOT FOUND
+            ----------------------------------------- */
+
             if (!user) {
 
                 clearLoginCookie(res);
@@ -424,30 +444,9 @@ const verifySubscription =
 
 
             /* -----------------------------------------
-               CHECK SUBSCRIPTION
+               LOGIN VALID
+               PAYMENT CHECK DISABLED
             ----------------------------------------- */
-
-            const active =
-                isSubscriptionActive(user);
-
-
-            console.log(
-                `Subscription Check | ${user.email} | Active: ${active} | Expiry: ${user.subscriptionExpiry}`
-            );
-
-
-            /* -----------------------------------------
-               PAYMENT REQUIRED
-            ----------------------------------------- */
-
-            if (!active) {
-
-                return res.redirect(
-                    '/pay.html'
-                );
-
-            }
-
 
             req.user = user;
 
@@ -456,7 +455,7 @@ const verifySubscription =
         } catch (err) {
 
             console.error(
-                'Subscription Middleware Error:',
+                'Login Middleware Error:',
                 err.message
             );
 
@@ -472,14 +471,12 @@ const verifySubscription =
 
 
 /* =========================================================
-   SEO: KEEP NON-LOGIN PAGES OUT OF GOOGLE
-   (indexing control only - NOT a security measure;
-   access control is still done by verifySubscription)
-   - Sent on every response, including redirects, for:
-     /pages/*, /pay.html, /signup.html
-   - /login.html and / stay indexable (no header added)
-   - robots.txt must NOT block these paths, so crawlers
-     can read the noindex instruction
+   SEO
+   ---------------------------------------------------------
+   /pages/* remains noindex because it is authenticated
+   content.
+
+   /pay.html and /signup.html remain noindex.
 ========================================================= */
 
 const NOINDEX_PATHS = [
@@ -562,6 +559,12 @@ app.get(
 
 /* =========================================================
    ROOT ROUTE
+   ---------------------------------------------------------
+   CURRENT:
+   Logged out → Login
+   Logged in  → Website
+
+   NO SUBSCRIPTION CHECK
 ========================================================= */
 
 app.get(
@@ -608,6 +611,10 @@ app.get(
                 );
 
 
+            /* -----------------------------------------
+               USER NOT FOUND
+            ----------------------------------------- */
+
             if (!user) {
 
                 clearLoginCookie(res);
@@ -620,24 +627,12 @@ app.get(
 
 
             /* -----------------------------------------
-               CHECK SUBSCRIPTION
+               LOGIN VALID
+               DIRECT WEBSITE ACCESS
             ----------------------------------------- */
 
-            const active =
-                isSubscriptionActive(user);
-
-
-            if (active) {
-
-                return res.redirect(
-                    '/pages/index.html'
-                );
-
-            }
-
-
             return res.redirect(
-                '/pay.html'
+                '/pages/index.html'
             );
 
         } catch (err) {
@@ -1107,6 +1102,8 @@ app.post(
 /* =========================================================
    4. CREATE RAZORPAY ORDER
    ₹49 / 30 DAYS
+
+   KEPT FOR FUTURE USE
 ========================================================= */
 
 app.post(
@@ -1247,6 +1244,7 @@ app.post(
 
 /* =========================================================
    5. VERIFY RAZORPAY PAYMENT
+   KEPT FOR FUTURE USE
 ========================================================= */
 
 app.post(
@@ -1749,12 +1747,15 @@ app.post(
 
 
 /* =========================================================
-   8. PREMIUM PAGE
+   8. PROTECTED WEBSITE INDEX
+   ---------------------------------------------------------
+   LOGIN REQUIRED
+   PAYMENT NOT REQUIRED
 ========================================================= */
 
 app.get(
     '/pages/index.html',
-    verifySubscription,
+    verifyLogin,
     (req, res) => {
 
         res.sendFile(
@@ -1773,11 +1774,14 @@ app.get(
 
 /* =========================================================
    9. PROTECTED STATIC FILES
+   ---------------------------------------------------------
+   LOGIN REQUIRED
+   PAYMENT NOT REQUIRED
 ========================================================= */
 
 app.use(
     '/pages',
-    verifySubscription,
+    verifyLogin,
     express.static(
         path.join(
             __dirname,
@@ -1870,6 +1874,14 @@ app.listen(
                     ? 'CONNECTED'
                     : 'CONNECTING'
             }`
+        );
+
+        console.log(
+            'Subscription Gate: DISABLED (Temporary)'
+        );
+
+        console.log(
+            'Current Access: LOGIN → WEBSITE'
         );
 
     }
