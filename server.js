@@ -143,7 +143,7 @@ mongoose
 
 /* =========================================================
    RAZORPAY
-   KEPT FOR FUTURE PAYMENT IMPLEMENTATION
+   PAYMENT GATEWAY
 ========================================================= */
 
 const razorpay =
@@ -283,7 +283,7 @@ function getAuthenticatedUserId(req) {
 
 /* =========================================================
    CHECK ACTIVE SUBSCRIPTION
-   KEPT FOR FUTURE PAYMENT SYSTEM
+
 ========================================================= */
 
 function isSubscriptionActive(user) {
@@ -312,7 +312,7 @@ function isSubscriptionActive(user) {
 
 /* =========================================================
    VERIFY RAZORPAY SIGNATURE
-   KEPT FOR FUTURE PAYMENT SYSTEM
+
 ========================================================= */
 
 function verifyRazorpaySignature(
@@ -375,14 +375,10 @@ function verifyRazorpaySignature(
 /* =========================================================
    VERIFY LOGIN MIDDLEWARE
    ---------------------------------------------------------
-   IMPORTANT:
-   PAYMENT/SUBSCRIPTION CHECK IS TEMPORARILY DISABLED.
+   PAYMENT/SUBSCRIPTION CHECK IS ENABLED.
 
-   CURRENT FLOW:
-   LOGIN → WEBSITE
-
-   Future:
-   LOGIN → PAYMENT → WEBSITE
+   FLOW:
+   LOGIN → PAYMENT (₹49 / 30 days) → WEBSITE
 ========================================================= */
 
 const verifyLogin =
@@ -444,9 +440,18 @@ const verifyLogin =
 
 
             /* -----------------------------------------
-               LOGIN VALID
-               PAYMENT CHECK DISABLED
+               PAYMENT CHECK (ENABLED)
+               Not subscribed / expired -> pay page
             ----------------------------------------- */
+
+            if (!isSubscriptionActive(user)) {
+
+                return res.redirect(
+                    '/pay.html'
+                );
+
+            }
+
 
             req.user = user;
 
@@ -560,11 +565,9 @@ app.get(
 /* =========================================================
    ROOT ROUTE
    ---------------------------------------------------------
-   CURRENT:
    Logged out → Login
-   Logged in  → Website
-
-   NO SUBSCRIPTION CHECK
+   Logged in, not paid → Payment
+   Logged in, paid → Website
 ========================================================= */
 
 app.get(
@@ -628,8 +631,16 @@ app.get(
 
             /* -----------------------------------------
                LOGIN VALID
-               DIRECT WEBSITE ACCESS
+               Paid -> Website, otherwise -> Payment
             ----------------------------------------- */
+
+            if (!isSubscriptionActive(user)) {
+
+                return res.redirect(
+                    '/pay.html'
+                );
+
+            }
 
             return res.redirect(
                 '/pages/index.html'
@@ -1103,7 +1114,6 @@ app.post(
    4. CREATE RAZORPAY ORDER
    ₹49 / 30 DAYS
 
-   KEPT FOR FUTURE USE
 ========================================================= */
 
 app.post(
@@ -1244,7 +1254,6 @@ app.post(
 
 /* =========================================================
    5. VERIFY RAZORPAY PAYMENT
-   KEPT FOR FUTURE USE
 ========================================================= */
 
 app.post(
@@ -1749,8 +1758,7 @@ app.post(
 /* =========================================================
    8. PROTECTED WEBSITE INDEX
    ---------------------------------------------------------
-   LOGIN REQUIRED
-   PAYMENT NOT REQUIRED
+   LOGIN + ACTIVE SUBSCRIPTION REQUIRED
 ========================================================= */
 
 app.get(
@@ -1775,8 +1783,7 @@ app.get(
 /* =========================================================
    9. PROTECTED STATIC FILES
    ---------------------------------------------------------
-   LOGIN REQUIRED
-   PAYMENT NOT REQUIRED
+   LOGIN + ACTIVE SUBSCRIPTION REQUIRED
 ========================================================= */
 
 app.use(
@@ -1877,11 +1884,11 @@ app.listen(
         );
 
         console.log(
-            'Subscription Gate: DISABLED (Temporary)'
+            'Subscription Gate: ENABLED'
         );
 
         console.log(
-            'Current Access: LOGIN → WEBSITE'
+            'Current Access: LOGIN → PAYMENT → WEBSITE'
         );
 
     }
